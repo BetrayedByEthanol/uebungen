@@ -1,4 +1,4 @@
-# Übungen FIAN Ausbildungen
+# Übungen FIAN Ausbildung
 
 ## Intitiale Aufgabe
 
@@ -6,7 +6,7 @@
 2. Erzeuge ein Unterverzeichnis mit 19nachname.
 
 
-## 1. Übung C Grunglagen Hello World. #CGrundlagen001
+## 1. Übung C Grundlagen Hello World. #CGrundlagen001
 
 1. Erzeuge ein Projektordner unterhalb 19nachname mit dem Namen `CGrundlagen001`
 1. Erzeuge eine `helloWorld.c` Datei.
