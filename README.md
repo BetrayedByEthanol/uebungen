@@ -15,3 +15,17 @@
 
 und..
 > ![](assets/fire.png)
+
+## Zusatzaufgaben:
+
+ >**Mach dich Schlau:** 
+ Recherchiere und erkunde, beschreibe die Funktionalität.
+
+- Was ist ein Compiler?
+- Was kann **gcc**?
+- Was für Alternativen gibt es zu **gcc** ?
+
+>**Mach macht eigentlich...:** 
+
+- der kann ich mit dem Befehl `printf()` alles anfangen?
+- Welche Datentypen gibt es in `c`
