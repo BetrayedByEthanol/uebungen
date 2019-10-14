@@ -27,7 +27,7 @@ und..
 - Was kann **gcc**?
 - Was für Alternativen gibt es zu **gcc** ?
 
->**Mach macht eigentlich ..:** 
+>**Was macht eigentlich ..:** 
 
 - Was kann ich mit dem Befehl `printf()` alles anfangen?
 - Welche Datentypen gibt es in `c`
