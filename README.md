@@ -13,4 +13,5 @@
 2. Schreibe eine "Hello World" Anwendung.
 4. Compiliere die Anwendung.
 
- ![](assets/fire.png)
+und..
+> ![](assets/fire.png)
