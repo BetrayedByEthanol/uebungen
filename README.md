@@ -1,4 +1,4 @@
-# Übungen FIAN Ausbildungen
+# Übungen FIAN Ausbildung
 
 ## Intitiale Aufgabe
 
