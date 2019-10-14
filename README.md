@@ -29,5 +29,5 @@ und..
 
 >**Mach macht eigentlich ..:** 
 
-- der kann ich mit dem Befehl `printf()` alles anfangen?
+- Was kann ich mit dem Befehl `printf()` alles anfangen?
 - Welche Datentypen gibt es in `c`
