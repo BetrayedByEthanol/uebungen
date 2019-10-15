@@ -12,11 +12,7 @@ int calcAngle(double h, double m)
    
     int hour_angle = 0.5 * (h*60 + m); 
     int minute_angle = 6*m; 
-  
-    // Find the difference between two angles 
     int angle = abs(hour_angle - minute_angle); 
-  
-    // Return the smaller angle of two possible angles 
     angle = min(360-angle, angle); 
     if(angle<=0)
         angle*=(-1);
