@@ -19,6 +19,5 @@ int main()
         if(string[0]=='S' && string[1]=='o' && string[2]=='n'&& string[3]=='n'&& string[4]=='t'&& string[5]=='a' && string[6]=='g' && string[7]=='\0') puts("1");
         gets(string);
     }
-    gets(string);
     return 0;
 }

@@ -32,12 +32,12 @@ int main()
                 
                 // Wenn der Stundenzeiger 12 Uhr Mittags ueberschreitet zeihe 720 ab, da eine volle Rotation der Uhr statt gefunden hat
                 if(zeit>=720) zeit = zeit - 720;
-
+                
                 //Errechne die Winkel der Zeiger zur Relation vom 12 Uhr Punkt
                 stundenwinkel = zeit/2;
                 minutenwinkel = minuten*6;
 
-                //Errechne den Spitzenwinkel und gebe ihn aus
+                //Errechne den Winken zwischen den Zeigern und gebe ihn aus
                 if(stundenwinkel==minutenwinkel)puts("0");
                 else
                 {
