@@ -38,17 +38,19 @@ int main()
                 minutenwinkel = minuten*6;
 
                 //Errechne den Winken zwischen den Zeigern und gebe ihn aus
-                if(stundenwinkel==minutenwinkel)puts("0");
+                if(stundenwinkel==minutenwinkel)puts("0 Grad");
                 else
                 {
                     if(stundenwinkel>minutenwinkel)
                     {
                         stundenwinkel = stundenwinkel - minutenwinkel;
+                        // if(stundenwinkel>180) stundenwinkel = 360 - stundenwinkel; //Fuer den Spitzenwinkel
                         printf("%d Grad \n", stundenwinkel);
                     }
                     else
                     {
                         minutenwinkel = minutenwinkel - stundenwinkel;
+                        //if(minutenwinkel>180) minutenwinkel = 360 - minutenwinkel; //Fuer den Spitzenwinkel
                         printf("%d Grad \n", minutenwinkel);
                     }
                 }
