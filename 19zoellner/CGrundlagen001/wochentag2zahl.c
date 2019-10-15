@@ -31,7 +31,7 @@ int main()
         }
         if (resultindex < 0)
         {
-            printf("invalid input, please try again!\n");
+            printf("Invalid input, please try again!\n");
         }
     } while (resultindex < 0);
     printf("Thanks, good bye!\n");
