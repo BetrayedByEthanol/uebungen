@@ -31,6 +31,7 @@ und..
 
 - Was kann ich mit dem Befehl `printf()` alles anfangen?
 - Welche Datentypen gibt es in `c`
+- Wie sind Strings in C definiert?
 
 
 ## Zusatzaufgaben Advanced.
