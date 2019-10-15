@@ -4,12 +4,11 @@
 int main()
 {
 
-   
      char week[4];
 
         printf("Enter Day of the Week (Mon-Sun): ");
         scanf("%3s", week);
-        
+
     if (strcmp(week, "Sun") ==0) {
             printf("1");
         } else if(strcmp(week, "Mon") ==0) {
