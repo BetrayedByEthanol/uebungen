@@ -18,7 +18,7 @@ int main()
     {
             // Check if die Eingabe korrekt ist
             if( parse(string[0])<2 && parse(string[1])<10 && string[2] == ':' && parse(string[3])<6 && parse(string[4])<10 && string[5] == '\0' &&string[2] == ':' ||
-                parse(string[0])== '2' && parse(string[1])<5  && string[2] == ':'  && parse(string[3])<6 && parse(string[4])<10 && string[5] == '\0' )
+                string[0]== '2' && parse(string[1])<5  && string[2] == ':'  && parse(string[3])<6 && parse(string[4])<10 && string[5] == '\0' )
             {
                 //Wandle die Zeichen von der Eingaben, die die Minuten darstellen in einen Integer um
                 minuten = (10* parse(string[3]));
