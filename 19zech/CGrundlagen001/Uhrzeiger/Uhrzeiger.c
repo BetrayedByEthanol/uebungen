@@ -1,50 +1,50 @@
 #include <stdio.h>
 
 /*The variables are defined here*/
-int gradzwischen;
-int stunde;
+int betweenangle;
+int hour;
 int minute;
-int gradminute;
-int gradstunde;
+int minuteangle;
+int hourangle;
 
 /*This is where the input field is coded*/
 int main(){
 puts("Enter Time: ");
-scanf("%2d:%2d", &stunde, &minute);
+scanf("%2d:%2d", &hour, &minute);
 
 /*The angle is calculated here*/
-gradminute= minute*6;
-gradstunde= stunde*60+minute;
+minuteangle= minute*6;
+hourangle= hour*60+minute;
 
 /*This is the first loop of the program, it requires an input time where the hours are less than 24, and minutes are also less than 60*/
-if(stunde < 24 && minute < 60)
+if(hour < 24 && minute < 60)
 
 {
-	if(gradstunde > 720) gradstunde= gradstunde-720;
-	gradstunde=gradstunde/2;
+	if(hourangle > 720) hourangle= hourangle-720;
+	hourangle=hourangle/2;
 /*If the Hour angle is greater than 720, for example someone using the Military Clock (24 hours), it takes away 720 from the angle*/
-	if(gradminute > gradstunde) 
+	if(minuteangle > hourangle) 
     {
-	gradzwischen= gradminute-gradstunde;
+	betweenangle= minuteangle-hourangle;
 	}else
     {
-	gradzwischen= gradstunde - gradminute;
+	betweenangle= hourangle - minuteangle;
 	}
     
-	if(gradzwischen > 180)
+	if(betweenangle > 180)
     {
-	    printf("%d = Aussen Winkel \n", gradzwischen);
-	    gradzwischen= 360-gradzwischen;
-	    printf("%d Innen Winkel", gradzwischen);
+	    printf("%d = Aussen Winkel \n", betweenangle);
+	    betweenangle= 360-betweenangle;
+	    printf("%d Innen Winkel", betweenangle);
 	} 
     else 
     {
-        if(gradzwischen==0) printf("Angle = 0");
+        if(betweenangle==0) printf("Angle = 0");
         else
         {
-	    printf("%d = Innen Winkel\n", gradzwischen);
-	    gradzwischen= 360-gradzwischen;
-	    printf("%d = Aussen Winkel", gradzwischen);
+	    printf("%d = Innen Winkel\n", betweenangle);
+	    betweenangle= 360-betweenangle;
+	    printf("%d = Aussen Winkel", betweenangle);
         }
     }      
 
