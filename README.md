@@ -31,3 +31,21 @@ und..
 
 - Was kann ich mit dem Befehl `printf()` alles anfangen?
 - Welche Datentypen gibt es in `c`
+- Wie sind Strings in C definiert?
+
+
+## Zusatzaufgaben Advanced.
+
+Erstellen Sie innerhalb 
+
+### CGrundlagenA001
+ >Erstelle eine Konsolenanwendung mit folgender Userstory:
+
+- Ich möchte den ganzahligen Wert eines Wochentages ermitteln für Sontag ist gleich 1, ...
+- Das Program soll Wochentag2Zahl.exe heißen.
+- Beim Start des Programms soll eine Beschreibung ausgegeben werden.
+- Das Program erwartet den Wochentag als Text und Ausgabe als Zahl.
+
+### CGrundlagenA002
+>Erstelle eine Konsolenanwendung die mit den Winkel zwischen dem großen und kleinen Zeiger für eine beliebige Uhrzeit ausgibt. 
+
