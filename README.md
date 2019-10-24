@@ -6,6 +6,8 @@
 2. Erzeuge ein Unterverzeichnis mit 19nachname.
 
 
+- [24.10.2019 Zusatzaufgaben für Freitag](#zusatzaufgaben-berufschule-für-freitag)
+
 ## 1. Übung C Grundlagen Hello World. #CGrundlagen001
 
 1. Erzeuge ein Projektordner unterhalb 19nachname mit dem Namen `CGrundlagen001`
@@ -48,4 +50,21 @@ Erstellen Sie innerhalb
 
 ### CGrundlagenA002
 >Erstelle eine Konsolenanwendung die mit den Winkel zwischen dem großen und kleinen Zeiger für eine beliebige Uhrzeit ausgibt. 
+
+
+## Zusatzaufgaben Berufschule für Freitag
+
+### C Grundlagen #CGrundlagenB001 
+
+> Erstelle eine Konsolenanwendung mit folgender Userstory:
+
+- Ich möchte die Summe von 3 Zahlen ermitteln.
+- Die drei Zahlen sollen ein einer Zeile durch Komma getrennt eingegeben werden.
+
+**Beispiel:**
+```
+Eingabe: 5,10,15
+Berechnung: 5+10+15 = 30
+Ausgabe: Die Summe der Zahlen 5, 10, 15 beträgt: 30
+``` 
 
