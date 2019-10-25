@@ -1,12 +1,14 @@
 # Übungen FIAN Ausbildung
 
+#### - [24.10.2019 Zusatzaufgaben für Freitag](#zusatzaufgaben-berufschule-für-freitag)
+
 ## Intitiale Aufgabe
 
 1. Clone dieses Repository
 2. Erzeuge ein Unterverzeichnis mit 19nachname.
 
 
-- [24.10.2019 Zusatzaufgaben für Freitag](#zusatzaufgaben-berufschule-für-freitag)
+
 
 ## 1. Übung C Grundlagen Hello World. #CGrundlagen001
 
@@ -14,6 +16,17 @@
 1. Erzeuge eine `helloWorld.c` Datei.
 2. Schreibe eine "Hello World" Anwendung.
 4. Compiliere die Anwendung.
+
+**Beispiel:**
+```c
+//Hello World
+#include <stdio.h>
+
+int main() {
+  printf("Hallo, Welt!");
+  return 0;
+}
+```
 
 und..
 > ![](assets/fire.png)
