@@ -97,9 +97,9 @@ Erwartete Ausgabe:
 - Ich möchte wissen. wieviel Fahreinheit eine Teperatur in °C ist. 
 
 **Beispiel:**
-``
+```
 Test Data: 100
 Eingabe Temperatur in Celsius = 100
 Erwartete Ausgabe:
-Temperatur in Fahrenheit = 212 F`
-``
+Temperatur in Fahrenheit = 212 F
+```
