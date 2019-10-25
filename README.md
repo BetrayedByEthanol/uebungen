@@ -61,7 +61,7 @@ Erstellen Sie innerhalb
 >  Erstelle eine Konsolenanwendung mit folgender Userstory:
 
 - Ich möchte die Summe von 3 Zahlen ermitteln.
-- Die drei Zahlen sollen in einer Zeile durch Komma getrennt eingegeben werden.
+- Die drei Zahlen sollen ein einer Zeile durch Komma getrennt eingegeben werden.
 
 **Beispiel:**
 ```
