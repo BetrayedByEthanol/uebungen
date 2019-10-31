@@ -1,12 +1,14 @@
 # Übungen FIAN Ausbildung
 
+#### - [24.10.2019 Zusatzaufgaben für Freitag](#zusatzaufgaben-berufschule-für-freitag)
+
 ## Intitiale Aufgabe
 
 1. Clone dieses Repository
 2. Erzeuge ein Unterverzeichnis mit 19nachname.
 
 
-- [24.10.2019 Zusatzaufgaben für Freitag](#zusatzaufgaben-berufschule-für-freitag)
+
 
 ## 1. Übung C Grundlagen Hello World. #CGrundlagen001
 
@@ -14,6 +16,17 @@
 1. Erzeuge eine `helloWorld.c` Datei.
 2. Schreibe eine "Hello World" Anwendung.
 4. Compiliere die Anwendung.
+
+**Beispiel:**
+```c
+//Hello World
+#include <stdio.h>
+
+int main() {
+  printf("Hallo, Welt!");
+  return 0;
+}
+```
 
 und..
 > ![](assets/fire.png)
@@ -56,10 +69,12 @@ Erstellen Sie innerhalb
 
 ### C Grundlagen #CGrundlagenB001 
 
-> Erstelle eine Konsolenanwendung mit folgender Userstory:
+#### #CGrundlagenB001-1:
+
+>  Erstelle eine Konsolenanwendung mit folgender Userstory:
 
 - Ich möchte die Summe von 3 Zahlen ermitteln.
-- Die drei Zahlen sollen in einer Zeile durch Komma getrennt eingegeben werden.
+- Die drei Zahlen sollen ein einer Zeile durch Komma getrennt eingegeben werden.
 
 **Beispiel:**
 ```
@@ -67,4 +82,37 @@ Eingabe: 5,10,15
 Berechnung: 5+10+15 = 30
 Ausgabe: Die Summe der Zahlen 5, 10, 15 beträgt: 30
 ``` 
+#### #CGrundlagenB001-2:
+>  Erstelle eine Konsolenanwendung zum Ermitteln ob eine Zahl gerade oder ungerade ist, mit folgender Userstory;
 
+- Ich möchte von einer beliebigen ganzen Zahl wissen, ob sie gerade oder ungerade ist:
+
+**Beispiel:**
+```
+Test Data: 15
+Erwartete Ausgabe:
+15 ist eine ungerade Zahl
+```
+#### #CGrundlagenB001-3:
+> Erstelle eine Konsolenanwendung zum Ermitteln eines Schaltjahres
+
+- Ich möchte von einem beliebigen Jahr wissen, ob es ein Schaltjahr ist oder nicht.
+
+**Beispiel:**
+```
+Test Data : 2016 
+Erwartete Ausgabe:
+2016 ist ein Schaltjahr.
+```
+#### #CGrundlagenB001-4:
+> Erstelle eine Konsolenanwendung zur Temperaturumrechnen von °C in F.
+
+- Ich möchte wissen. wieviel Fahreinheit eine Teperatur in °C ist. 
+
+**Beispiel:**
+```
+Test Data: 100
+Eingabe Temperatur in Celsius = 100
+Erwartete Ausgabe:
+Temperatur in Fahrenheit = 212 F
+```
