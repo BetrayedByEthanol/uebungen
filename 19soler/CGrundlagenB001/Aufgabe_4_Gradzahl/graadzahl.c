@@ -1,35 +1,34 @@
 #include <stdio.h>
-
-int option = 0;
-float celsius = 0;
-float fahrenheit = 0;
-float celend = 0;
-float fahrend = 0;
+//deklarieren der benötigten Variablen
+int option;
+float celsius;
+float fahrenheit;
+float celend;
+float fahrend;
 
 int main()
 {
-
+    //abfrage an den User welchen einheit er berechnen will
     printf("waehlen sie bitte eine option: celsius in fahrenheit [1] oder fahrenheit in celsius [2]\n");
     scanf("%d", &option);
-    fflush(stdin);
+    //falls option 1 gewählt wurde rechne celsius in fahrenheit
     if (option == 1)
     {
         printf("Wie viel grad celsius?\n");
-        fflush(stdin);
         scanf("%f", &celsius);
-
+        //rechnung: celsius in fahrenheit
         fahrend = (celsius * 9 / 5) + 32;
         printf("%.2f grad celsius sind %.2f grad fahrenheit", celsius, fahrend);
     }
+    //falls option 2 gewählt wurde rechne fahrenheit in celsius
     if (option == 2)
     {
         printf("Wie viel grad fahrenheit?\n");
-        fflush(stdin);
         scanf("%f", &fahrenheit);
-
-        celend = (fahrenheit - 32) * (5 / 9);
-        printf("%.2f grad fahrenheit sind %.2f grad celcius\n", fahrenheit, celend);
+        //rechnung fahrenheit  in celsius
+        celend = (fahrenheit - 32) * 0.555556;
+        printf("%.2f grad Fahrenheit sind %.2f grad Celcius", fahrenheit, celend);
     }
-
     return 0;
+
 }
