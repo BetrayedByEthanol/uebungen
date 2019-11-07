@@ -17,7 +17,7 @@ int main()
     //Here we print the user's input just for reference
     printf("Input: %d,%d,%d", var1, var2, var3);
     //This is the addition of the variables to get the sum
-    sum= var1+var2+var3;
+    sum = var1 + var2 + var3;
     //Here we print the equation using the variables and print the sum
     printf("\nEquation: %d+%d+%d=%d", var1, var2, var3, sum);
     //Here we print the result of the equation using words
