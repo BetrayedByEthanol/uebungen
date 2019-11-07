@@ -7,6 +7,8 @@ float fahrenheit;
 int option;
 float ctof;
 float ftoc;
+float fahrenheiteq;
+float fivenine;
 
 //This is where we start the program
 int main()
@@ -37,7 +39,11 @@ int main()
             scanf("%f", &fahrenheit);
             //Then we perform an operation to convert fahrenheit temperatures to celsius temperatures and set it as the ftoc variable
             //Due to this being a decimal number, we need to use a float variable type
-            ftoc = (fahrenheit - 32) * (5 / 9);
+            ftoc = (fahrenheit - 32) * 0.555556;
+            /*fahrenheiteq = (fahrenheit - 32);
+            fivenine = 5/9;
+            ftoc = fahrenheiteq * fivenine;*/
+
             //Then we print the fahrenheit temperature from the user input, and the celsius temperature we calculated using the operation above
             printf("The temperature in Fahrenheit (%.2f°F) in Celsius is: %.2f°C\n", fahrenheit, ftoc);
         }
