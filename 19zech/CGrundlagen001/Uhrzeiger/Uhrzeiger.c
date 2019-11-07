@@ -10,6 +10,7 @@ int hourangle;
 //This is where the input field is coded
 int main()
 {
+	//Here we ask the user to input a time, in the format HH:MM, and set those inputs as the variables "hour" and "minute"
 	puts("Enter Time: ");
 	scanf("%2d:%2d", &hour, &minute);
 
