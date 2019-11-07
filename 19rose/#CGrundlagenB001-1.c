@@ -1,43 +1,48 @@
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
-#include <math.h>
+
+int charToInt (char d);
 
 int main () {
-    
-    int zahl1 = 0;
-    int zahl2 = 0;
-    int zahl3 = 0;
+    int zahl = 0;
     int summe = 0;
-    int i = 0, i2 = 0, i3 = 0;
-    int t = 0;
+    int i = 0;
     int check = 0;
-    char eingabe[55] = "" ;
-
-    printf("Geben Sie Ihre 3 Zahlen(mit Komma getrennt) an:\n");
+    char eingabe[2000] = "", ausgabe[2000] = "";
+    printf("Geben Sie Ihre  Zahlen(mit Komma getrennt) an:\n");
     scanf("%s", &eingabe);
-    for(i = t; check < 1; i++) {
-        zahl1 = zahl1 + (((int)eingabe[i] - 48) * pow(10,i));
-        if (eingabe[i + 1] == 44) {
-            check = 1;
-            t = i + 2;
-        }    
+    for(i = 0; eingabe[i] != 0; i++) {
+        if((eingabe[i] != 0) && (eingabe[i] != 44)) {
+            zahl = zahl * 10 + charToInt(eingabe[i]);
+        } else {
+            summe += zahl;
+            if (summe == zahl) {
+                sprintf(ausgabe, "%d", zahl);
+            } else {
+                sprintf(ausgabe, "%s%d", ausgabe, zahl);
+            }
+            zahl = 0;
+            sprintf(ausgabe, "%s + ", ausgabe);
+        }
     }
-    check = 0;
-    for(i2 = t; check < 1; i2++) {
-        zahl2 = zahl2 + (((int)eingabe[i2] - 48) * pow(10,i2 - 1 -i));
-        if (eingabe[i2 + 1] == 44) {
-            check = 1;
-            t = i2 + 2;
-        }    
-    }
-    check = 0;
-    for(i3 = t; check < 1; i3++) {
-        zahl3 = zahl3 + (((int)eingabe[i3] - 48) * pow(10,i3 - 1 - i2));
-        if (eingabe[i3 + 1] == 0) {
-            check = 1;
-        }    
-    }
-    summe = zahl1 + zahl2 + zahl3;
-    printf("%d + %d + %d = %d", zahl1, zahl2, zahl3, summe);
+    summe += zahl;
+    sprintf(ausgabe, "%s%d", ausgabe, zahl);
+    sprintf(ausgabe, "%s = %d", ausgabe, summe);
+    printf("%s", ausgabe);   
     return 0;
+}
+
+charToInt(char d) {
+    if (d == 48) return 0;
+    if (d == 49) return 1;
+    if (d == 50) return 2;
+    if (d == 51) return 3;
+    if (d == 52) return 4;
+    if (d == 53) return 5;
+    if (d == 54) return 6;
+    if (d == 55) return 7;
+    if (d == 56) return 8;
+    if (d == 57) return 9;
+    else return 10;
 }
