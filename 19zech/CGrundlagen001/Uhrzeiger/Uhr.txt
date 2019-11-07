@@ -1,0 +1,44 @@
+GradMinute = 360/60= 6 grad pro minute 
+GradStunde = GradStunde * 60 + GradMinuten = Ergebnis/2
+
+#include <stdio.h>
+
+int GradZwischen;
+int Stunde;
+int Minute;
+int GradMinute
+int GradStunde
+
+
+int main(){
+puts("Enter Time: ");
+scanf("%2d:%2d", &Stunde, &Minute);
+
+GradMinute= Minute*6
+GradStunde= Stunde*60+Minute
+
+if(stunde < 24 && minuten < 60){
+	if(GradStunde > 720)
+	GradStunde= GradStunde-720;
+	GradStunde=GradStunde/2
+
+	if(GradMinuten => GradStunde) {
+	GradZwischen= GradMinuten-GradStunde
+	}
+
+	if(GradStunde => GradMinute){
+	GradZwischen= GradStunde - GradMinuten
+	}
+
+	if(Gradzwischen > 180){
+	printf(blah)
+	GradZwischen= 180-GradZwischen
+	printf(blah)
+	} else {
+	printf(blah)
+	GradZwischen= GradZwischen+180
+	printf(blah)
+} else {
+	printf("Falsche Eingabe");
+	}
+}

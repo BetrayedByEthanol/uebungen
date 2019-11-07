@@ -56,7 +56,7 @@ Erstellen Sie innerhalb
 ### CGrundlagenA001
  >Erstelle eine Konsolenanwendung mit folgender Userstory:
 
-- Ich möchte den ganzahligen Wert eines Wochentages ermitteln für Sontag ist gleich 1, ...
+- Ich möchte den ganzahligen Wert eines Wochentages ermitteln für Sonntag ist gleich 1, ...
 - Das Program soll Wochentag2Zahl.exe heißen.
 - Beim Start des Programms soll eine Beschreibung ausgegeben werden.
 - Das Program erwartet den Wochentag als Text und Ausgabe als Zahl.
