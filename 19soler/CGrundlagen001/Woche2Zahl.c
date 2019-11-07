@@ -1,11 +1,11 @@
-/*simple c programm to print numbers for every week day*/
+//simple c programm to print numbers for every week day
 #include <stdio.h>
 #include <string.h>
 
 int main()
 {
 
-    /*define the constan*/
+    //define the constan
     const char WEEKDAYS[][16] = {"Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"};
 
     char input[10];
@@ -13,7 +13,7 @@ int main()
 
     do
     {
-        /* input the of weekdays from users */
+        // input the of weekdays from user 
         printf("Please enter a day from the week:\n");
         scanf("%9s", &input);
 
