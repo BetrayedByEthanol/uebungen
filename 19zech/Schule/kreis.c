@@ -1,28 +1,20 @@
-//Here we add the code library for the standard input output commands.
 #include <stdio.h>
 
-//Here we define the variables needed for the equations as float values so we can work with decimals
-float circlearea;
-//Assigning the radius as a float value allows the user to use decimal numbers for the radius
-float radius;
-//Pi is a constant so we assign it a value, but because it is a decimal number, we assign it as a float value
-float pi = 3.14159265359;
-//Should the user input a radius using a decimal number, Radius² will end up with decimal places, so we assign it as a float value
-float radiusSquared;
-
-//Here is the start of the program
-int main()
+int main(void)
 {
-    //First we print an input field for the user to input a radius size.
-    printf("Input radius: \n");
-    //Then we scan the input and assign it to the radius variable
-    scanf("%f", &radius);
-    //Here we do the maths of the program, first multiplying the radius by itself to get the square
-    radiusSquared = radius * radius;
-    //Then we multiply Radius² by Pi to find the area
-    circlearea = radiusSquared * pi;
-    //Then we print a message with the area rounded to two decimal places
-    printf("The area of the circle is %.2lf", circlearea);
-    //Here we return a value of 0
+    float pi = 3.14; //Pi is a constant value needed for the equation, it is also a decimal number
+    int radius;
+    int radiussquared;
+    float area;
+
+    printf("Please input the radius of the circle: \n"); //This is an input field where the user can define the radius of the circle
+    scanf("%d", &radius); //This function reads the input from the user and sets it as the Radius
+
+
+    radiussquared= radius * radius; //The radius is squared here for the equation and set as a new variable
+    area = pi * radiussquared; //This is the basic equation for the area of a circle, Pi times the Radius²
+
+    printf("%f", area); //The answer is printed here, using %f for a float value
+
     return 0;
 }
