@@ -7,8 +7,6 @@ float fahrenheit;
 int option;
 float ctof;
 float ftoc;
-float fahrenheiteq;
-float fivenine;
 
 //This is where we start the program
 int main()
