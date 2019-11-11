@@ -33,10 +33,9 @@ int main()
         printf("%s\n", line12);
         printf("%s\n", line22);
         printf("%s\n", line32);
-        printf("%s\n", line33);
-        printf("%s\n", line43);
-        printf("%s\n", line53);
-        printf("%s\n", line63);
+        printf("%s\n", line42);
+        printf("%s\n", line52);
+        printf("%s\n", line62);
         printf("%s\n", line71);
     }
     else if (input == 2)
