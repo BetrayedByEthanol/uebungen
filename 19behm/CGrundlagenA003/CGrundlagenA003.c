@@ -4,6 +4,8 @@
 #include <string.h>
 #include <ctype.h>
 
+char first[10][10], second[10][10], third[10][10];
+
 
 char definition(char xp, char yp[][10])
 {
@@ -43,7 +45,7 @@ char nine[10][10] = {{" ### "},{ "#   #"},{ "#   #"},{ " ####"},{ "    #"},{ "# 
 int main()
 {
     char input[10];
-    char first[10][10], second[10][10], third[10][10];
+    
 
     printf("Bitte geben Sie die zu zeichnende Zahl ein.\n");
     scanf("%s", &input);
@@ -55,11 +57,11 @@ int main()
     definition(inp2, second);
     definition(inp3, third);
 
-    for(int i = 0; i < 10; i++)
+    for(int i = 0; i < 8; i++)
     {
-        //printf("%s\t%s\t%s\n", first[i], second[i], third[i]);
-        printf("%s\n", first[i]);
-        //puts("Test");
+        printf("%s\t%s\t%s\n", first[i], second[i], third[i]);
+        /*printf("%s\n", first[i]);
+        puts("Test");*/
     }
 
     return 0;
