@@ -108,7 +108,7 @@ und..
 
 **Die Ausgabe sollte etwa so aussehen:**
    
-    > Geben Sie eine dreistellige Zahl zwischen 0-9 ein: 302
+    > Geben Sie eine dreistellige Zahl zwischen 0-9 ein: 303
      ###    ###    ###
     #   #  #   #  #   #
         #  #   #      #
