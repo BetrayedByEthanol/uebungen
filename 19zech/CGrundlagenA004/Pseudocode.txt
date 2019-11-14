@@ -1,0 +1,85 @@
+Set height X
+go to default height X when Sun upHigh
+If Time = Y_Uhr
+Dann Set height 0
+if Time = Z_Uhr
+Dann Set height max
+
+int time
+int/float/double height
+int morning
+int night
+int sun
+int stunde
+
+function menu
+	switch menuValue
+	case 1: defaultHeight
+	case 2: setHeight
+	case 3: dayNight
+	case 4: printf(Reset to Automatic");
+		sun = 0
+
+function defaultHeight
+	input defaultHeightValue
+	if (sun = 1)
+	move to defaultHeightValue
+	else
+	dayNight()
+	
+function setHeight
+	input heightValue
+	move to heightValue
+	sun = 2;
+	menu()
+
+
+
+function set day/night time
+	input day hour
+	set dayHour
+	input night hour
+	set nightHour
+	if (stunde >=dayHour && <nightHour)
+	day = sun = 1
+	else if (stunde >=nightHour && <dayHour)
+	night = sun = 0
+	
+function timeCheck
+	sleep (60)
+	stunde++
+	if (stunde == 24)
+	stunde = 0
+
+
+
+Jalousie position Ja:   ############################ = Grafik
+Jalousie position Nein: 0000000000000000000000000000 = Nicht Grafik
+if height = 50 = grafik
+
+###################
+###################
+0000000000000000000
+0000000000000000000
+
+function setHeight
+ if U pressed = heightCurrent++; //Cool idea, but work on it later, for now just give a new value
+ if D pressed = heightCurrent--;
+ int sun++
+ printf("Reset sun? Y/N?")
+ if Y
+ int sun = 0
+ if N
+ int sun = sun
+
+function stop
+	if P gedrückt
+	stop jalousie
+
+function timeCheck
+	day = 8Uhr
+
+Current time = 19
+
+Start of Day = 4
+Start of Night = 18
