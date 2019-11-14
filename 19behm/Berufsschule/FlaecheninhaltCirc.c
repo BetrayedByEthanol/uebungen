@@ -6,18 +6,18 @@
 int main()
 {
     float area, radius;
-    printf("Um den Flächeninhalt eines Kreises zu berechnen benötige ich von Ihnen den Radius des Kreises.\n");
+    printf("Um den Flaecheninhalt eines Kreises zu berechnen benoetige ich von Ihnen den Radius des Kreises.\n");
     printf("Bitte geben Sie den Radius des Kreises in Zentimetern an.\n");
     scanf("%f", &radius);
     area = M_PI*radius*radius;
-    if(area>=1000)
+    if(area>=10000)
     {
-        area /= 1000;
-        printf("Der Flächeninhalt des Kreises beträgt %.2f m².", area);
+        area /= 10000;
+        printf("Der Flaecheninhalt des Kreises betraegt %.2f m^2.", area);
     }
     else
     {
-        printf("Der Flächeninhalt des Kreises beträgt %.2f cm²", area);
+        printf("Der Flaecheninhalt des Kreises betraegt %.2f cm^2", area);
     }
     return 0;    
 }
