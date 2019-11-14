@@ -108,7 +108,7 @@ und..
 
 **Die Ausgabe sollte etwa so aussehen:**
    
-    > Geben Sie eine dreistellige Zahl zwischen 0-9 ein: 302
+    > Geben Sie eine dreistellige Zahl zwischen 0-9 ein: 303
      ###    ###    ###
     #   #  #   #  #   #
         #  #   #      #
@@ -116,6 +116,15 @@ und..
         #  #   #      #
     #   #  #   #  #   #
      ###    ###    ###
+
+---
+
+#### CGrundlagenA004
+
+Der Entwicklungsleiter der Jalousie-City GmbH hat eine neue Steuerung für die vollautomatischen Sonnenschutzjalousien entworfen. Diese sollen eine automatisch einstellbare Höhe haben, die der Benutzer voreinstellen kann (Sonnenschutz). Registriert der Sonnensensor also eine hohe Sonneneinstrahlung fährt die Jalousie bis zu der voreingestellten Höhe herunter. Zusätzlich ist ein Tag – Nacht – Modus integriert, das die Jalousien bei einer voreingestellten Zeit vollends herunterfahren und wieder hochfahren, wenn die morgendlich voreingestellte Zeit erreicht wurde.
+
+1. Erstelle ein Struktogram
+2. Erstelle eine c Konsolenanwendung, welche die Steuerung simuliert.
 
 ---
 
