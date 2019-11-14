@@ -2,12 +2,15 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
 
-char first[10][10], second[10][10], third[10][10]; //GLobale Variablen für spätere Ausgabe
+
+char first[10][10], second[10][10], third[10][10];  //GLobale Variablen für spätere Ausgabe
+
 
 void definition(char xp, char yp[10][10]) //Funktion zum erstellen der Ausgabe
 {   //2D-Arrays welche die Zahlen in Zeichenfolge beinhalten
+    
+    
     char zero[10][10] = {{" ### "}, {"#   #"}, {"#   #"}, {"#   #"}, {"#   #"}, {"#   #"}, {" ### "}};
     char one[10][10] = {{"  #  "}, {" ##  "}, {"  #  "}, {"  #  "}, {"  #  "}, {"  #  "}, {" ### "}};
     char two[10][10] = {{" ### "}, {"#   #"}, {"#   #"}, {"   # "}, {"  #  "}, {" #   "}, {"#####"}};
@@ -18,7 +21,7 @@ void definition(char xp, char yp[10][10]) //Funktion zum erstellen der Ausgabe
     char seven[10][10] = {{"#####"}, {"    #"}, {"    #"}, {"   # "}, {"  #  "}, {" #   "}, {"#    "}};
     char eight[10][10] = {{" ### "}, {"#   #"}, {"#   #"}, {" ### "}, {"#   #"}, {"#   #"}, {" ### "}};
     char nine[10][10] = {{" ### "}, {"#   #"}, {"#   #"}, {" ####"}, {"    #"}, {"#   #"}, {" ### "}};
-    //Vergleich der Eingabe und Generierung der Ausgabe
+    //Vergleich der Eingabe und Generierung des Arrays zur Ausgabe
     if (xp == '0')
         yp = zero;
     else if (xp == '1')
