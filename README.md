@@ -1,6 +1,7 @@
 # Übungen FIAN Ausbildung
 
 #### - [KW 46: Aufgaben der Woche C Grundlagen A003](#cgrundlagena003)
+#### - [KW 46: Aufgaben der Woche C Grundlagen A004- IHK Typ](#cgrundlagena004)
 #### - [Zusatzaufgaben für Freitag Berufschule](#zusatzaufgaben-berufschule-für-freitag)
 
 ## Intitiale Aufgabe
