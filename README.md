@@ -1,13 +1,13 @@
 # Übungen FIAN Ausbildung
 
-#### - [24.10.2019 Zusatzaufgaben für Freitag](#zusatzaufgaben-berufschule-für-freitag)
+#### - [KW 46: Aufgaben der Woche C Grundlagen A003](#cgrundlagena003)
+#### - [KW 46: Aufgaben der Woche C Grundlagen A004- IHK Typ](#cgrundlagena004)
+#### - [Zusatzaufgaben für Freitag Berufschule](#zusatzaufgaben-berufschule-für-freitag)
 
 ## Intitiale Aufgabe
 
 1. Clone dieses Repository
 2. Erzeuge ein Unterverzeichnis mit 19nachname.
-
-
 
 
 ## 1. Übung C Grundlagen Hello World. #CGrundlagen001
@@ -51,8 +51,6 @@ und..
 
 ## Zusatzaufgaben Advanced.
 
-Erstellen Sie innerhalb 
-
 ### CGrundlagenA001
  >Erstelle eine Konsolenanwendung mit folgender Userstory:
 
@@ -60,10 +58,76 @@ Erstellen Sie innerhalb
 - Das Program soll Wochentag2Zahl.exe heißen.
 - Beim Start des Programms soll eine Beschreibung ausgegeben werden.
 - Das Program erwartet den Wochentag als Text und Ausgabe als Zahl.
-
+---
 ### CGrundlagenA002
 >Erstelle eine Konsolenanwendung die mit den Winkel zwischen dem großen und kleinen Zeiger für eine beliebige Uhrzeit ausgibt. 
 
+---
+### CGrundlagenA003
+
+> Erstelle eine Konsolenanwendung zum Ausgeben von Zahlen mit folgenden Userstories:
+>**Merke**
+> 1. Erzeuge ein Projektordner unterhalb 19nachname mit dem Namen **CGrundlagenA003**
+> 1. Erzeuge eine **README.md** Beschreibungen zum Program und zur Lösung.
+> 2.1 Nutze PAP, Struktugramme und Pseudocode zur Umsetzung und dokumentiere es in der **README.md**
+> 3. Kommentiere die Commits der Teillaufgaben zusätzlich mit dem Aufgabennamen z.B. **#CGrundlagenA003-A: Blabla...**
+> 4. Gebe dem Commit mit dem Ergebnis zur Teilaufgabe zusätzlich einen **Tag** mit dem Namen der Teilaufgabe z.B. **#CGrundlagenA003-A**
+
+#### CGrundlagenA003-A
+
+- Als Anwender möchte ich eine Zahl zwischen 0-9 eingeben können
+- Als Anwender möchte ich eine beliebige, einstellige Zahl in eine Textgrafik nach folgendem Schema umwandelt:  
+
+
+ ![](assets/0bis9.png)
+
+**Die Ausgabe sollte etwa so aussehen:**
+   
+    >Geben Sie eine Zahl zwischen 0-9 ein: 3
+     ### 
+    #   #
+        #
+     ###
+        #
+    #   #
+     ###
+
+#### CGrundlagenA003-B
+
+> Das Programm soll um folgene Userstories erweitert werden:
+
+- Als Anwender möchte ich eine beliebige Zahlenfolge eingeben können.
+- Die Ausgabe der Ziffern soll untereinander erfolgen.
+
+
+#### CGrundlagenA003-C
+
+> Das Programm soll um folgene Userstories erweitert werden:
+
+- Als Anweder möchte ich eine dreistellige Zahlenfolge eingeben können.
+- Die Ausgabe der Ziffern soll nebeneinander erfolgen.
+
+**Die Ausgabe sollte etwa so aussehen:**
+   
+    > Geben Sie eine dreistellige Zahl zwischen 0-9 ein: 303
+     ###    ###    ###
+    #   #  #   #  #   #
+        #  #   #      #
+     ###   #   #   ###
+        #  #   #      #
+    #   #  #   #  #   #
+     ###    ###    ###
+
+---
+
+#### CGrundlagenA004
+
+Der Entwicklungsleiter der Jalousie-City GmbH hat eine neue Steuerung für die vollautomatischen Sonnenschutzjalousien entworfen. Diese sollen eine automatisch einstellbare Höhe haben, die der Benutzer voreinstellen kann (Sonnenschutz). Registriert der Sonnensensor also eine hohe Sonneneinstrahlung fährt die Jalousie bis zu der voreingestellten Höhe herunter. Zusätzlich ist ein Tag – Nacht – Modus integriert, das die Jalousien bei einer voreingestellten Zeit vollends herunterfahren und wieder hochfahren, wenn die morgendlich voreingestellte Zeit erreicht wurde.
+
+1. Erstelle ein Struktogram
+2. Erstelle eine c Konsolenanwendung, welche die Steuerung simuliert.
+
+---
 
 ## Zusatzaufgaben Berufschule für Freitag
 
