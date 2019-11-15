@@ -35,7 +35,7 @@ int main() {
     }    
 }
 
- int charToInt(char cc) {
+int charToInt(char cc) {
     if(cc == 48) return 0;
     else if(cc == 49) return 1;
     else if(cc == 50) return 2;
@@ -49,7 +49,7 @@ int main() {
     
 }
 
- void druck(int zuhl, int zuhle) {
+void druck(int zuhl, int zuhle) {
     if(zuhle == 1) {
         if(zuhl == 0)
             printf(" ### ");
