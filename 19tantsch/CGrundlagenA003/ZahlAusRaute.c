@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-char ja[] = "#";
-char nein[] = "";
+//char ja[1] = "#";
+//char nein[1] = " ";
 char forderung[50]; // Es können maximal 50 Zahlen auf einmal eingeben und gespeichert werden.
 //int forderung2;
 //int ende;
@@ -91,129 +91,66 @@ int print(char a)
 int null()
 {
 
-    printf(" %s   %s   %s   %s   %s\n", nein, ja, ja, ja, nein);
-    printf("  %s   %s   %s   %s   %s\n", ja, nein, nein, nein, ja);
-    printf("  %s   %s   %s   %s   %s\n", ja, nein, nein, nein, ja);
-    printf("  %s   %s   %s   %s   %s\n", ja, nein, nein, nein, ja); //0 wird gedruckt.
-    printf("  %s   %s   %s   %s   %s\n", ja, nein, nein, nein, ja);
-    printf("  %s   %s   %s   %s   %s\n", ja, nein, nein, nein, ja);
-    printf(" %s   %s   %s   %s   %s\n\n", nein, ja, ja, ja, nein);
-
+   printf(" ### \n#   #\n#   #\n#   #\n#   #\n#   #\n ### \n");     //gibt 0 aus.
     return 0;
 }
 
 int eins()
 {
-    printf("  %s   %s   %s   %s   %s\n", nein, nein, ja, nein, nein);
-    printf(" %s   %s   %s   %s   %s\n", nein, ja, ja, nein, nein);
-    printf("  %s   %s   %s   %s   %s\n", nein, nein, ja, nein, nein);
-    printf("  %s   %s   %s   %s   %s\n", nein, nein, ja, nein, nein); //1 wird gedruckt.
-    printf("  %s   %s   %s   %s   %s\n", nein, nein, ja, nein, nein);
-    printf("  %s   %s   %s   %s   %s\n", nein, nein, ja, nein, nein);
-    printf(" %s   %s   %s   %s   %s\n\n", nein, ja, ja, ja, nein);
+   printf("  #  \n ##  \n  #  \n  #  \n  #  \n  #  \n ### \n");     //gibt 1 aus.
 
     return 0;
 }
 
 int zwei()
 {
-    printf(" %s   %s   %s   %s   %s\n", nein, ja, ja, ja, nein);
-    printf("  %s   %s   %s   %s  %s\n", ja, nein, nein, nein, ja);
-    printf("  %s   %s   %s   %s  %s\n", ja, nein, nein, nein, ja); //2 wird gedruckt.
-    printf("  %s   %s   %s   %s  %s\n", nein, nein, nein, ja, nein);
-    printf("  %s   %s   %s  %s   %s\n", nein, nein, ja, nein, nein);
-    printf("  %s   %s  %s   %s   %s\n", nein, ja, nein, nein, nein);
-    printf(" %s  %s  %s  %s  %s\n\n", ja, ja, ja, ja, ja);
-
+   printf(" ### \n#   #\n#   #\n   # \n  #  \n #   \n#####\n");     //gibt 2 aus.
     return 0;
 }
 
 int drei()
 {
-    printf(" %s   %s   %s   %s   %s\n", nein, ja, ja, ja, nein);
-    printf("  %s   %s   %s   %s  %s\n", ja, nein, nein, nein, ja);
-    printf("  %s   %s   %s   %s  %s\n", nein, nein, nein, nein, ja);
-    printf("  %s   %s   %s  %s %s\n", nein, ja, ja, ja, nein); //3 wird gedruckt.
-    printf("  %s   %s   %s   %s  %s\n", nein, nein, nein, nein, ja);
-    printf("  %s   %s   %s   %s  %s\n", ja, nein, nein, nein, ja);
-    printf("  %s   %s   %s   %s  %s\n\n", nein, ja, ja, ja, nein);
+    printf(" ### \n#   #\n    #\n ### \n    #\n#   #\n ### \n");    //gibt 3 aus.
 
     return 0;
 }
 
 int vier()
 {
-    printf("  %s   %s   %s   %s  %s\n", nein, nein, nein, ja, nein);
-    printf("  %s   %s   %s   %s  %s\n", nein, nein, ja, ja, nein);
-    printf("  %s   %s   %s   %s  %s\n", nein, ja, nein, ja, nein);
-    printf("  %s   %s   %s   %s  %s\n", ja, nein, nein, ja, nein); //4 wird gedruckt.
-    printf("  %s   %s   %s  %s %s\n", ja, ja, ja, ja, ja);
-    printf("  %s   %s   %s   %s  %s\n", nein, nein, nein, ja, nein);
-    printf("  %s   %s   %s   %s  %s\n\n", nein, nein, nein, ja, nein);
+    printf("   # \n  ## \n # # \n#  # \n#####\n   # \n   # \n");    //gibt 4 aus.
 
     return 0;
 }
 
 int fuenf()
 {
-    printf("  %s %s  %s  %s  %s\n", ja, ja, ja, ja, ja);
-    printf("  %s   %s   %s   %s  %s\n", ja, nein, nein, nein, nein);
-    printf("  %s   %s   %s   %s  %s\n", ja, nein, nein, nein, nein);
-    printf("  %s   %s  %s  %s  %s\n", ja, ja, ja, ja, nein); //5 wird gedruckt.
-    printf("  %s   %s   %s   %s  %s\n", nein, nein, nein, nein, ja);
-    printf("  %s   %s   %s   %s  %s\n", ja, nein, nein, nein, ja);
-    printf("  %s   %s   %s   %s  %s\n\n", nein, ja, ja, ja, nein);
+   printf("#####\n#    \n#    \n#### \n    #\n#   #\n ### \n");     //gibt 5 aus.
 
     return 0;
 }
 
 int sechs()
 {
-    printf(" %s   %s   %s   %s   %s\n", nein, ja, ja, ja, nein);
-    printf("  %s   %s   %s   %s   %s\n", ja, nein, nein, nein, ja);
-    printf("  %s   %s   %s   %s   %s\n", ja, nein, nein, nein, nein);
-    printf("  %s   %s   %s   %s   %s\n", ja, ja, ja, ja, nein); //6 wird gedruckt.
-    printf("  %s   %s   %s   %s   %s\n", ja, nein, nein, nein, ja);
-    printf("  %s   %s   %s   %s   %s\n", ja, nein, nein, nein, ja);
-    printf(" %s   %s   %s   %s   %s\n\n", nein, ja, ja, ja, nein);
+    printf(" ### \n#   #\n#    \n#### \n#   #\n#   #\n ### \n");    //gibt 6 aus.
 
     return 0;
 }
 
 int sieben()
 {
-    printf(" %s  %s  %s  %s  %s\n", ja, ja, ja, ja, ja);
-    printf("  %s   %s   %s   %s  %s\n", nein, nein, nein, nein, ja);
-    printf("  %s   %s   %s   %s  %s\n", nein, nein, nein, nein, ja);
-    printf("  %s   %s   %s   %s  %s\n", nein, nein, nein, ja, nein); //7 wird gedruckt.
-    printf("  %s   %s   %s  %s   %s\n", nein, nein, ja, nein, nein);
-    printf("  %s   %s  %s   %s   %s\n", nein, ja, nein, nein, nein);
-    printf(" %s  %s  %s  %s  %s\n\n", ja, nein, nein, nein, nein);
-
+    printf("#####\n    #\n    #\n   # \n  #  \n #   \n#    \n");    //gibt 7 aus.
     return 0;
 }
 
 int acht()
 {
-    printf(" %s   %s   %s   %s   %s\n", nein, ja, ja, ja, nein);
-    printf("  %s   %s   %s   %s   %s\n", ja, nein, nein, nein, ja);
-    printf("  %s   %s   %s   %s   %s\n", ja, nein, nein, nein, ja);
-    printf("  %s   %s   %s   %s   %s\n", nein, ja, ja, ja, nein); //8 wird gedruckt.
-    printf("  %s   %s   %s   %s   %s\n", ja, nein, nein, nein, ja);
-    printf("  %s   %s   %s   %s   %s\n", ja, nein, nein, nein, ja);
-    printf(" %s   %s   %s   %s   %s\n\n", nein, ja, ja, ja, nein);
+    printf(" ### \n#   #\n#   #\n ### \n#   #\n#   #\n ### \n");    //gibt 8 aus.
 
     return 0;
 }
 int neun()
 {
-    printf(" %s   %s   %s   %s   %s\n", nein, ja, ja, ja, nein);
-    printf("  %s   %s   %s   %s   %s\n", ja, nein, nein, nein, ja);
-    printf("  %s   %s   %s   %s   %s\n", ja, nein, nein, nein, ja);
-    printf("  %s   %s   %s   %s   %s\n", nein, ja, ja, ja, nein); //9 wird gedruckt.
-    printf("  %s   %s   %s   %s   %s\n", nein, nein, nein, nein, ja);
-    printf("  %s   %s   %s   %s   %s\n", ja, nein, nein, nein, ja);
-    printf(" %s   %s   %s   %s   %s\n\n", nein, ja, ja, ja, nein);
+    printf(" ### \n#   #\n#   #\n ### \n    #\n#   #\n ### \n");    //gibt 9 aus.
 
     return 0;
 }
