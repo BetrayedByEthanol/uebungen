@@ -45,7 +45,7 @@ int main() {
     }
 }
 
- int charToInt(char cc) {
+int charToInt(char cc) {
     if(cc == 48) return 0;
     else if(cc == 49) return 1;
     else if(cc == 50) return 2;
@@ -60,7 +60,7 @@ int main() {
     
 }
 
- void druck(int zuhl, int zuhle, int spuhlte, int zuffer) {
+void druck(int zuhl, int zuhle, int spuhlte, int zuffer) {
     if(speicher[zuhl][zuhle][spuhlte] == 1) {
         printf("%d", zuffer);
     }
