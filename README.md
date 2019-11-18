@@ -1,6 +1,7 @@
 # Übungen FIAN Ausbildung
 
 #### - [KW 46: Aufgaben der Woche C Grundlagen A003](#cgrundlagena003)
+#### - [KW 46: Aufgaben der Woche C Grundlagen A004- IHK Typ](#cgrundlagena004)
 #### - [Zusatzaufgaben für Freitag Berufschule](#zusatzaufgaben-berufschule-für-freitag)
 
 ## Intitiale Aufgabe
@@ -116,6 +117,15 @@ und..
         #  #   #      #
     #   #  #   #  #   #
      ###    ###    ###
+
+---
+
+#### CGrundlagenA004
+
+Der Entwicklungsleiter der Jalousie-City GmbH hat eine neue Steuerung für die vollautomatischen Sonnenschutzjalousien entworfen. Diese sollen eine automatisch einstellbare Höhe haben, die der Benutzer voreinstellen kann (Sonnenschutz). Registriert der Sonnensensor also eine hohe Sonneneinstrahlung fährt die Jalousie bis zu der voreingestellten Höhe herunter. Zusätzlich ist ein Tag – Nacht – Modus integriert, das die Jalousien bei einer voreingestellten Zeit vollends herunterfahren und wieder hochfahren, wenn die morgendlich voreingestellte Zeit erreicht wurde.
+
+1. Erstelle ein Struktogram
+2. Erstelle eine c Konsolenanwendung, welche die Steuerung simuliert.
 
 ---
 
