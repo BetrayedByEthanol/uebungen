@@ -8,6 +8,7 @@
 #include <unistd.h>
 #include <stdlib.h> 
 
+
 //converts time values
 int parseTime(int hours, int minutes)
 {
@@ -17,7 +18,7 @@ int parseTime(int hours, int minutes)
 // Returns 93 should get the Sensor Value
 int getSensorValue()
 {
-    srand(time(0));
+    
     int random = rand() %  (121) + 80;  
     return random;
 }
@@ -70,7 +71,9 @@ int main()
     int protectionBrightness = 0;
     //brightness
     int brightness = 0;
-
+    //generate Random Seed
+    srand(200);
+    
     //Perform Initial Setup
     setInitialState(&time, &protectionHeight, &nightTime, &dayTime, &protectionBrightness);
     
@@ -95,7 +98,7 @@ int main()
         {
             //Check the Sensor
             brightness = getSensorValue();
-            if(brightness == protectionBrightness && actualHeight != protectionHeight)
+            if(brightness >= protectionBrightness && actualHeight != protectionHeight)
             {
                 actualHeight = setjalousieHeight(protectionHeight);
             }
