@@ -26,7 +26,7 @@ int main()
         //Here is where we call the function we define later and tell the function to exchange its parameters with the "graphicNumber" variable
         graphicOutput(graphicNumber);
     }
-    //Here we return a value
+    //Here we return a value of 0
     return 0;
 }
 
