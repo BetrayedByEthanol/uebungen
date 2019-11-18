@@ -6,6 +6,8 @@
  */
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h> 
+
 
 //converts time values
 int parseTime(int hours, int minutes)
@@ -13,10 +15,12 @@ int parseTime(int hours, int minutes)
     return hours*60+minutes;
 }
 
-// Returns 93 should get the Sensor Valeu
+// Returns 93 should get the Sensor Value
 int getSensorValue()
 {
-    return 93;
+    
+    int random = rand() %  (121) + 80;  
+    return random;
 }
 
 //Initial System Setup
@@ -67,23 +71,34 @@ int main()
     int protectionBrightness = 0;
     //brightness
     int brightness = 0;
-
+    //generate Random Seed
+    srand(200);
+    
+    //Perform Initial Setup
     setInitialState(&time, &protectionHeight, &nightTime, &dayTime, &protectionBrightness);
-    puts("Die Jalosie ist oben");
-    //accelerated Simulation Timing 1 sec equals 1 min 
+    
+    //Initial Position for the Jalosie
+    if(time > nightTime || time < dayTime) puts("Die Jalosie ist unten");
+    else puts("Die Jalosie ist oben");
+
+    //accelerated Simulation Timing 0.5 sec equals 1 min 
     while (1)
     {    
+        //Turn on NightMode on or off
         if(time == nightTime) 
         {
+            //if nightMode gets turn on, set Jalosie to 0 height
             nightMode = 1;
-            actualHeight = setjalousieHeight(0);
+            if(actualHeight != 0) actualHeight = setjalousieHeight(0);
         }
         else if(time == dayTime) nightMode = 0;
 
+        //If nightMode is off
         if(nightMode == 0) 
         {
+            //Check the Sensor
             brightness = getSensorValue();
-            if(brightness == protectionBrightness && actualHeight != protectionHeight)
+            if(brightness >= protectionBrightness && actualHeight != protectionHeight)
             {
                 actualHeight = setjalousieHeight(protectionHeight);
             }
@@ -92,10 +107,17 @@ int main()
                 actualHeight = setjalousieHeight(100);
             }
         } 
-        Sleep(1000);
-        printf("%2d:%2d\n",time/60,time%60);
-        
+
+        //Simulated increased Speed of RealTime
+        Sleep(500);
+
+        //Displayed Message
+        if(nightMode == 0) printf("%2d:%2d Sonnenstaerke: %d\n",time/60,time%60,brightness);
+        else printf("%2d:%2d \n",time/60,time%60);
+        //Go to next min
         time++;
+
+        //Next Day
         if (time == 1440) time -= 1440;
         
     }

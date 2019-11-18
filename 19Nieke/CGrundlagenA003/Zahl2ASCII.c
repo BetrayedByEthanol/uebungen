@@ -3,7 +3,7 @@ Dennis Nieke
 11.11.2019
 CGrundlagenA003-C
 Programm zur Umwandlung von Ziffern zur ASCII Darstellung nebeneinander
-v3.1
+v3.2
 */
 #include <stdio.h>
 #include <string.h>
@@ -12,41 +12,41 @@ v3.1
 
 
 //Funktion, die das Ausgabe Array in eine ASCII Darstellung des Parameter umwandelt, bei Zahlen von 0-9
-char * toASCII(int a,char asciiZiffer[])
+char * toASCII(char c,char asciiZiffer[])
 {
     //Pointer, der auf das Ergebnis Zeigt  
     char * result;
 
-    switch (a)
+    switch (c)
     {
-    case 0:
+    case '0':
         strcpy(asciiZiffer," ### \n#   #\n#   #\n#   #\n#   #\n#   #\n ### \n");
         break;
-    case 1:
+    case '1':
         strcpy(asciiZiffer,"  #  \n ##  \n  #  \n  #  \n  #  \n  #  \n ### \n");
         break;
-    case 2: 
+    case '2': 
         strcpy(asciiZiffer," ### \n#   #\n#   #\n   # \n  #  \n #   \n#####\n");
         break;
-    case 3:
+    case '3':
         strcpy(asciiZiffer," ### \n#   #\n    #\n ### \n    #\n#   #\n ### \n");
         break;
-    case 4:
+    case '4':
         strcpy(asciiZiffer,"   # \n  ## \n # # \n#  # \n#####\n   # \n   # \n");
         break;
-    case 5:
+    case '5':
         strcpy(asciiZiffer, "#####\n#    \n#    \n#### \n    #\n#   #\n ### \n");
         break;
-    case 6:
+    case '6':
         strcpy(asciiZiffer," ### \n#   #\n#    \n#### \n#   #\n#   #\n ### \n");
         break;
-    case 7:
+    case '7':
         strcpy(asciiZiffer,"#####\n    #\n    #\n   # \n  #  \n #   \n#    \n");
         break;
-    case 8:
+    case '8':
         strcpy(asciiZiffer," ### \n#   #\n#   #\n ### \n#   #\n#   #\n ### \n");
         break;
-    case 9:
+    case '9':
         strcpy(asciiZiffer," ### \n#   #\n#   #\n ####\n    #\n#   #\n ### \n");
         break;
     default:
@@ -58,50 +58,6 @@ char * toASCII(int a,char asciiZiffer[])
     return result;
 }
 
-
-//Funktion zum Umwandeln von Zeichen zu Ziffern
-int convert(char c)
-{
-    int result;
-    switch(c)
-    {
-        case '0':
-            result = 0;
-            break;
-        case '1':
-            result = 1;
-            break;
-        case '2':
-            result = 2;
-            break;
-        case '3':
-            result = 3;
-            break;
-        case '4':
-            result = 4;
-            break;
-        case '5':
-            result = 5;
-            break;
-        case '6':
-            result = 6;
-            break;
-        case '7':
-            result = 7;
-            break;
-        case '8':
-            result = 8;
-            break;
-        case '9':
-            result = 9;
-            break;
-        default:
-            result =  -1;
-            break;
-    }
-
-    return result;
-}
 
 //Fuegt die aktuelle Ziffer dem Ausgabe Array hinzu
 char * joinDigits(char currentOutput[], char joiningElement[])
@@ -175,8 +131,7 @@ int main()
     char asciiZiffer[60];
     //Variable zum Speichern der Eingabe 
     char eingabe[50];
-    //Variable zum Speichern der aktuellen Ziffer
-    int ziffer;
+
     //Variable zum Durchlaufen des Arrays
     int count = 0;
 
@@ -193,12 +148,8 @@ int main()
     //While Schleife zum Durchlaufen der Eingabe
     while(eingabe[count] !=  '\0')
     {
-        //Wandelt Zeichen in Ziffern
-        ziffer = convert(eingabe[count]);
-
         //Ruft die Umwandlungsfunktion auf
-        readingPointer = toASCII(ziffer,readingPointer);
-        
+        readingPointer = toASCII(eingabe[count],readingPointer);
 
         //Fuegt die umgewandelte Zahl dem Ausgabe Array hinzu
         outputPointer = joinDigits(outputPointer,asciiZiffer);
