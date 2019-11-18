@@ -29,17 +29,17 @@ void setInitialState(int * time, int * protectionHeight, int * nightTime, int * 
     int hours;
     int minutes;
 
-    puts("Bitte aktuelle Uhrzeit eingeben:");
+    puts("Bitte aktuelle Uhrzeit eingeben: (hh:mm)");
     scanf("%2d:%2d", &hours, &minutes);
     *time = parseTime(hours, minutes);
     puts("Bitte Sonnensenor kalibrieren ( Simulation bitte Lichtstaerke Wert einben (vergleichs Wert normales Tageslicht 93)");
     scanf("%d",protectionValue);
-    puts("Bitte die Hoehe (0 herunter gefahren -100 oben ) bei Sonnenschutz einstellen:");
+    puts("Bitte die Hoehe (0 (herunter gefahren) - 100 (oben) ) bei Sonnenschutz einstellen:");
     scanf("%d", protectionHeight);
-    puts("Bitte Startzeit fuer Nachtmodus eingeben: ");
+    puts("Bitte Startzeit fuer Nachtmodus eingeben: (hh:mm)");
     scanf("%2d:%2d", &hours, &minutes);
     *nightTime = parseTime(hours,minutes);
-    puts("Bitte Endzeit fuer Nachtmodus eingeben: ");
+    puts("Bitte Endzeit fuer Nachtmodus eingeben: (hh:mm)");
     scanf("%2d:%2d", &hours, &minutes);
     *dayTime= parseTime(hours,minutes);
 }
