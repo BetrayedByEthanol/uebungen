@@ -10,10 +10,10 @@ int main () {
     int i = 0;
     int check = 0;
     char eingabe[2000] = "", ausgabe[2000] = "";
-    printf("Geben Sie Ihre  Zahlen(mit Komma getrennt) an:\n");
+    printf("Geben Sie Ihre  Zahlen mit Komma getrennt an:\n");
     scanf("%s", &eingabe);
-    for(i = 0; eingabe[i] != 0; i++) {
-        if((eingabe[i] != 0) && (eingabe[i] != 44)) {
+    for(i = 0; eingabe[i] != '\0'; i++) {
+        if((eingabe[i] != '\0') && (eingabe[i] != ',')) {
             zahl = zahl * 10 + charToInt(eingabe[i]);
         } else {
             summe += zahl;

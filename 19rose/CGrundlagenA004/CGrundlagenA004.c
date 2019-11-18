@@ -78,7 +78,7 @@ int main() {
             }
         }
         if(modi == 'u') {
-            printf("Start-Uhrzeit der Simulation:\n(%d:%d%d)\n\n", (((zeit / 60)) % 24), ((zeit / 10) % 6)), (zeit % 10);
+            printf("Start-Uhrzeit der Simulation:\n(%d:%d%d)\n\n", (((zeit / 60)) % 24), ((zeit / 10) % 6), (zeit % 10));
             printf("Neue Start-Uhrzeit eingeben!(hh:mm)\n");
             int zahl1, zahl2;
             scanf("%d:%d", &zahl1, &zahl2);
