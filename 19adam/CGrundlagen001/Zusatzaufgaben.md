@@ -7,10 +7,3 @@ Unter einem Compiler versteht man ein Programm, welches dazu dient, einen für e
 ## Funktionen/Datentypen
 ### Was kann ich mit dem Befehl printf() alles anfangen?
 ### Welche Datentypen gibt es in C?
-sonntag
-montag
-dienstag
-mittwoch
-donnerstag
-freitag
-samstag
