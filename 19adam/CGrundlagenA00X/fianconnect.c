@@ -98,7 +98,7 @@ double round(double zahl)
     return(rounded);
 }
 
-double sincos(double a)
+double sincosinus(double a)
 {
     double sincos;
     sincos = sin(a) + cos(a);
@@ -214,7 +214,7 @@ int calculate(int calc)
     {
         printf("Bitte geben Sie die Zahl, zu der Sie Sinus und Kosinus wuenschen, an.\n");
         scanf("%lf", &ad);
-        sico = sincos(ad);
+        sico = sincosinus(ad);
         sinus = sico - cos(ad);
         cosinus = sico - sin(ad);
         printf("sin(%lf): %lf\ncos(%lf): %lf\n", ad, sinus, ad, cosinus);
