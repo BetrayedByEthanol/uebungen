@@ -1,0 +1,1 @@
+Ein Jalousie Programm mit automatischer Hoeheneinstellung
