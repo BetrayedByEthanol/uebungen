@@ -3,7 +3,7 @@ Dennis Nieke
 11.11.2019
 CGrundlagenA003-C
 Programm zur Umwandlung von Ziffern zur ASCII Darstellung nebeneinander
-v3.1
+v3.2
 */
 #include <stdio.h>
 #include <string.h>
