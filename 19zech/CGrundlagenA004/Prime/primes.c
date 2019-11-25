@@ -1,42 +1,42 @@
 #include <stdio.h>
+int n = 0, i = 0;
+void calculate_Primes(int a, int b);
+
+
 
 int main()
 {
-    int upper_Limit, prime_Output;
-    printf("Input the amount of prime numbers you wish to list:");
-    scanf("%d", &upper_Limit);
-    calculate_Primes(upper_Limit);
-
+    int lowest_Value;
+    int highest_Value;
+    printf("Please input your starting value:");
+    scanf("%d", &lowest_Value);
+    printf("Please input your end value:");
+    scanf("%d", &highest_Value);
+    calculate_Primes(lowest_Value, highest_Value);
     return 0;
 }
 
-
-void prime_Numbers(int upper_Limit, int prime_Output)
+void calculate_Primes(int a, int b)
 {
-    while(prime_Output <= upper_Limit)
+    while (a < b)
     {
-        if(calculate_Primes()
+        n = 0;
+
+        for (i = 2; i <= a/2; ++i)
         {
-            printf("%d", prime_Output);
+            if (a % i == 0)
+            {
+                n = 1;
+                break;
+            }
         }
-        
-    }
-    prime_Output++;
-}
 
-
-int calculate_Primes(int num)
-{
-    int i;
-
-    for (i=2; i<=num/2; i++)
-    {
-        if(num % i == 0)
+        if (n == 0)
         {
-            return 0;
+            printf("%d ", a);
+            
         }
+        ++a;
     }
-    
-    return 1;
+    return 0;
 }
-
