@@ -1,6 +1,5 @@
 //including libaries
 #include<stdio.h>
-#include<unistd.h>
 
 //declare global variables
 int heightValue, defaultHeightValue, position;
@@ -77,7 +76,7 @@ void sunValue()
     {
         sun = 1;
     }
-    if (hour >= hourNight || hour <= hourDay)
+    if (hour >= hourNight)
     {
         sun = 0;
     }
@@ -140,7 +139,6 @@ void dayNight()
     scanf("%d", &hourDay);
     printf("Now please input your desired Night time:\n");
     scanf("%d", &hourNight);
-    position = 24;
     graphicRep = 0;
     menu();
 }
