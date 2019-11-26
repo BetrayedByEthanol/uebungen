@@ -11,7 +11,7 @@ void getPrimes(unsigned int number)
         {
             primes[i] = number;
             numberOfFoundPrimes++;
-            printf("%d: %d  ", i, number);
+            printf("%d:  %d  ", i, number);
             return;
         }
         if(number % primes[i] == 0 && primes[i] != 0)
