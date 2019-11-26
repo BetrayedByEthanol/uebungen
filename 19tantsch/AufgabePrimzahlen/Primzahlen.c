@@ -8,7 +8,6 @@ int variable;
 int check;
 
 int main(){
-    
     printf("Maximale Groesse der Primzahlen Eingeben: ");       //User wird auf Eingabe vorbereitet.  
     scanf("%d", &rahmen);       //User gibt an den Höchsten wert der Primzahl an.(Maximalwert)
 
