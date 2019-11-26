@@ -15,7 +15,9 @@
 - Als Anwender möchte ich eine beliebige, einstellige Zahl in eine Textgrafik nach folgendem Schema umwandelt:  
 
 
- ![](/assets/0bis9.png)
+ ![](assets/0bis9.png)
+
+ \newpage
 
 **Die Ausgabe sollte etwa so aussehen:**
    
