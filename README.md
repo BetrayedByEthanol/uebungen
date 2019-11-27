@@ -2,12 +2,14 @@
 
 #### - [KW 46: Aufgaben der Woche C Grundlagen A003](#cgrundlagena003)
 
-#### - [KW 46: Aufgaben der Woche C Grundlagen A004- IHK Typ](#cgrundlagena004)
+#### - [KW 47: Aufgaben der Woche C Grundlagen A004- IHK Typ](#cgrundlagena004)
 
-#### - [Zusatzaufgaben für Freitag Berufschule](#zusatzaufgaben-berufschule-für-freitag)
+#### - [KW 48: Aufgaben der Woche Web Grundlagen HTML B001 ](#webgrundlagenb001)
+
 
 ## Intitiale Aufgabe
-Eine Änderung
+
+https://edition.cnn.com/2013/01/17/business/us-outsource-job-china/index.html
 
 1. Clone dieses Repository
 2. Erzeuge ein Unterverzeichnis mit 19nachname.
@@ -87,7 +89,7 @@ Speichere die Dokumente unter 19nachname/CGrundlagen001/Aufgaben
 - Als Anwender möchte ich eine Zahl zwischen 0-9 eingeben können
 - Als Anwender möchte ich eine beliebige, einstellige Zahl in eine Textgrafik nach folgendem Schema umwandelt:
 
-![](/assets/0bis9.png)
+![](assets/0bis9.png)
 
 **Die Ausgabe sollte etwa so aussehen:**
 
@@ -197,3 +199,24 @@ Eingabe Temperatur in Celsius = 100
 Erwartete Ausgabe:
 Temperatur in Fahrenheit = 212 F
 ```
+
+#### #WebGrundlagenb001
+
+##### 1. Erstelle einen neuen Projektordner mit folgender Struktur:
+
+```
+19TN
+└─Web
+  └─HTML
+    └─WebGrundlagenb001
+      └─src
+       └─assets
+       │  README.md
+```
+
+##### 2. Erzeuge  innerhalb des `src` Verzeichnisses eine Datei nach `HTML5` mit dem Namen `cheatsheet.html` nach folgendem Muster.
+
+> **Merke!**
+Nutze kein `CSS`und achte auf die Struktur des Dokumentes 
+
+![Muster](assets/httpcheatsheet.png)
