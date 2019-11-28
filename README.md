@@ -217,7 +217,9 @@ Temperatur in Fahrenheit = 212 F
 ##### 2. Erzeuge innerhalb des `src` Verzeichnisses eine HTML Datei nach `HTML5` Standard, mit dem Dateinamen `cheatsheet.html`. Inhalt nach folgendem Muster
 
 > **Merke!**
-Nutze kein `CSS` und achte auf die Struktur des Dokumentes 
+Nutze kein `CSS` und achte auf die Struktur des Dokumentes
+>- Arbeite in `git` auf dem `develop` branch.
+>- Erzeuge für die Erabeitung deiner Lösung einen feature branch, mit dem Namen `WebGrundlagenA001`. Dieser Branch wird nicht **remote** gepushed sondern **lokal** auf `develop` gemerged und dann **remote** auf `develop` gepushed
 
 ![Muster](assets/httpcheatsheet.png)
 
