@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-unsigned int primes[1000000] = { 0 };
+unsigned int primes[2000000] = { 0 };
 int numberOfFoundPrimes = 1;
 
 void getPrimes(unsigned int number)
@@ -11,7 +11,7 @@ void getPrimes(unsigned int number)
         {
             primes[i] = number;
             numberOfFoundPrimes++;
-            printf("%d  ", number);
+            printf("%d:  %d  ", i, number);
             return;
         }
         if(number % primes[i] == 0 && primes[i] != 0)
