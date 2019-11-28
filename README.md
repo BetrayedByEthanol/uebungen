@@ -9,8 +9,6 @@
 
 ## Intitiale Aufgabe
 
-https://edition.cnn.com/2013/01/17/business/us-outsource-job-china/index.html
-
 1. Clone dieses Repository
 2. Erzeuge ein Unterverzeichnis mit 19nachname.
 
