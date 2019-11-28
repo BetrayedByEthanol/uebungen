@@ -9,8 +9,6 @@
 
 ## Intitiale Aufgabe
 
-https://edition.cnn.com/2013/01/17/business/us-outsource-job-china/index.html
-
 1. Clone dieses Repository
 2. Erzeuge ein Unterverzeichnis mit 19nachname.
 
@@ -205,7 +203,7 @@ Temperatur in Fahrenheit = 212 F
 ##### 1. Erstelle einen neuen Projektordner mit folgender Struktur:
 
 ```
-19TN
+19TN (TN = Teilnehmer Name)
 └─Web
   └─HTML
     └─WebGrundlagenb001
