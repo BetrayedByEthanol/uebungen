@@ -203,7 +203,7 @@ Temperatur in Fahrenheit = 212 F
 ##### 1. Erstelle einen neuen Projektordner mit folgender Struktur:
 
 ```
-19TN
+19TN (TN = Teilnehmer Name)
 └─Web
   └─HTML
     └─WebGrundlagenb001
