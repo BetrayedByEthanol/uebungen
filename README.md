@@ -5,11 +5,12 @@
 #### - [KW 47: Aufgaben der Woche C Grundlagen A004- IHK Typ](#cgrundlagena004)
 
 #### - [KW 48: Aufgaben der Woche Web Grundlagen HTML A001 ](#webgrundlagena001)
+#### - [KW 49: Aufgaben der Woche Web Grundlagen HTTP A002 ](#webgrundlagena002)
+
+
 
 
 ## Intitiale Aufgabe
-
-https://edition.cnn.com/2013/01/17/business/us-outsource-job-china/index.html
 
 1. Clone dieses Repository
 2. Erzeuge ein Unterverzeichnis mit 19nachname.
@@ -205,7 +206,7 @@ Temperatur in Fahrenheit = 212 F
 ##### 1. Erstelle einen neuen Projektordner mit folgender Struktur:
 
 ```
-19TN
+19TN (TN = Teilnehmer Name)
 └─Web
   └─HTML
     └─WebGrundlagenb001
@@ -228,3 +229,24 @@ Nutze kein `CSS` und achte auf die Struktur des Dokumentes
 > [HTML Crash Course For Absolute Beginners](https://www.youtube.com/watch?v=UB1O30fR-EE)
 
 ---
+
+#### #WebGrundlagenA002
+
+```
+19TN (TN = Teilnehmer Name)
+└─Web
+  └─Server
+    └─public
+```
+
+#### Erststelle mit Hilfe von nodejs und [Express](http://expressjs.com/de/) einen einfachen Webserver der deine Cheatsheet Seite im Verzeichnis `/Server/public` über den port:3000 zu Verfügung stellt.
+
+
+
+
+
+
+
+> **Interesannte Links**
+> [HTTP Crash Course](https://www.youtube.com/watch?v=iYM2zFP3Zn0)
+
