@@ -191,7 +191,8 @@ Erwartete Ausgabe:
 
 > Erstelle eine Konsolenanwendung zur Temperaturumrechnen von °C in F.
 
-- Ich möchte wissen. wieviel Fahreinheit eine Teperatur in °C ist.
+##### Userstories:
+- Ich möchte wissen. wieviel Fahreinheit eine Temperatur in °C ist.
 
 **Beispiel:**
 
