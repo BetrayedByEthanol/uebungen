@@ -6,6 +6,7 @@
 
 #### - [KW 48: Aufgaben der Woche Web Grundlagen HTML A001 ](#webgrundlagena001)
 #### - [KW 49: Aufgaben der Woche Web Grundlagen HTTP A002 ](#webgrundlagena002)
+#### - [KW 49: Aufgaben der Woche Web Grundlagen HTML A003 ](#webgrundlagena003)
 
 
 
@@ -203,7 +204,7 @@ Temperatur in Fahrenheit = 212 F
 ---
 #### #WebGrundlagenA001
 
-##### 1. Erstelle einen neuen Projektordner mit folgender Struktur:
+> 1. Erstelle einen neuen Projektordner mit folgender Struktur:
 
 ```
 19TN (TN = Teilnehmer Name)
@@ -215,7 +216,7 @@ Temperatur in Fahrenheit = 212 F
     │ README.md
 ```
 
-##### 2. Erzeuge innerhalb des `src` Verzeichnisses eine HTML Datei nach `HTML5` Standard, mit dem Dateinamen `cheatsheet.html`. Inhalt nach folgendem Muster
+> 2. Erzeuge innerhalb des `src` Verzeichnisses eine HTML Datei nach `HTML5` Standard, mit dem Dateinamen `cheatsheet.html`. Inhalt nach folgendem Muster
 
 > **Merke!**
 Nutze kein `CSS` und achte auf die Struktur des Dokumentes
@@ -232,6 +233,9 @@ Nutze kein `CSS` und achte auf die Struktur des Dokumentes
 
 #### #WebGrundlagenA002
 
+> Erststelle mit Hilfe von nodejs und [Express](http://expressjs.com/de/) einen einfachen Webserver der deine Cheatsheet Seite im Verzeichnis `/Server/public` über den port:3000 zu Verfügung stellt.
+
+
 ```
 19TN (TN = Teilnehmer Name)
 └─Web
@@ -239,14 +243,38 @@ Nutze kein `CSS` und achte auf die Struktur des Dokumentes
     └─public
 ```
 
-#### Erststelle mit Hilfe von nodejs und [Express](http://expressjs.com/de/) einen einfachen Webserver der deine Cheatsheet Seite im Verzeichnis `/Server/public` über den port:3000 zu Verfügung stellt.
 
 
-
-
-
-
-
+---
 > **Interesannte Links**
 > [HTTP Crash Course](https://www.youtube.com/watch?v=iYM2zFP3Zn0)
+
+
+#### #WebGrundlagenA003
+
+> Erstelle eine individuelle HTML Seite (Z.B. Profil, Info, Vorstellung, ..)) mit dem Dateinamen `19Nachname` in der vorgegebenen Verzeichnisstruktur. Nutze `ausbilder.html` als Vorlage.
+
+> **Merke!:**
+> Achte  auf die Struktur des Dokumentes und sei **kreativ!**
+> 
+
+
+##### Vorgegebene Verzeichnisstruktur-
+```
+web 
+└─htmlBasics
+  └─WebGrundlagenb001
+    └─src
+    │ └─assets
+    │- index.html
+    |- ausbilder.html
+    │- 19??.html
+        ...
+  
+```
+
+---
+
+
+
 

@@ -4,4 +4,7 @@
         "cmath": "c",
         "time.h": "c"
     }
+        "cmath": "c"
+    },
+    "git.ignoreLimitWarning": true
 }
