@@ -6,8 +6,8 @@
 
 #### - [KW 48: Aufgaben der Woche Web Grundlagen HTML A001 ](#webgrundlagena001)
 #### - [KW 49: Aufgaben der Woche Web Grundlagen HTTP A002 ](#webgrundlagena002)
-#### - [KW 49: Aufgaben der Woche Web Grundlagen HTML A003 ](#webgrundlagena003)
-
+#### - [KW 49: Aufgaben der Woche Web Grundlagen HTML B001 ](#webgrundlagenb001)
+#### - [KW 49: Aufgaben der Woche Web Grundlagen CSS B002 ](#webgrundlagenb002)
 
 
 
@@ -251,7 +251,7 @@ Nutze kein `CSS` und achte auf die Struktur des Dokumentes
 > [HTTP Crash Course](https://www.youtube.com/watch?v=iYM2zFP3Zn0)
 
 
-#### #WebGrundlagenA003
+#### #WebGrundlagenB001
 
 > Erstelle eine individuelle HTML Seite (Z.B. Profil, Info, Vorstellung, ..)) mit dem Dateinamen `19Nachname` in der vorgegebenen Verzeichnisstruktur. Nutze `ausbilder.html` als Vorlage.
 
@@ -275,7 +275,18 @@ web
 ```
 
 ---
+#### #WebGrundlagenB002
+
+> 1. Erstelle im Verzeichnis `web/htmlBasics/WebGrundlagen/src` eine Datei mit dem Namen `19??html5.html`, die in der Seite der vorherigen Aufgabe verlinkt ist.
 
 
+**Die Seite sollte wie folgt aussehen:**
+
+![html5 semantic](assets/html5semantic.png)
+
+>**Merke!**
+>- Nutze HTML und CSS
+>- Stelle die Navigation zwischen den Seiten sicher. 
 
 
+> 2. Lagere die Styling Informationen in eine exterene `css` Datei mit Namen `19??css.css`  aus.
