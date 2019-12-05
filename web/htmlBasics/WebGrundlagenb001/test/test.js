@@ -5,16 +5,26 @@ var expect = chai.expect;
 var tn = ["ausbilder", "19adam", "19behm", "19nieke", "19peters", "19rose", "19seifert", "19soler", "19tantsch", "19zech"];
 
 var path = "src/index.html";
-describe("Dateien sind vorhanden", function() {
-  describe("19TN ist vorhanden", function() {
+describe("Sind Dateien vorhanden", function() {
+  describe("19??.html ist vorhanden", function() {
     tn.forEach(element => {
-      it(`Datei ${element}.html ist vorhanden`, function() {
-        expect(`src/${element}.html`).to.be.a.file(element);
+      it(`${element}.html ist vorhanden`, function() {
+        expect(`src/${element}.html`).to.be.a.file("element");
       });
     });
-
-    /*     it('Datei index.html ist vorhanden', function() {
-      expect(path).to.be.a.file(path);
-    }); */
+  });
+  describe("19??Html5.html ist vorhanden", function() {
+    tn.forEach(element => {
+      it(`${element}Html5.html ist vorhanden`, function() {
+        expect(`src/${element}Html5.html`).to.be.a.file("element");
+      });
+    });
+  });
+  describe("19??css.css ist vorhanden", function() {
+    tn.forEach(element => {
+      it(`${element}css.css ist vorhanden`, function() {
+        expect(`src/${element}css.css`).to.be.a.file();
+      });
+    });
   });
 });
