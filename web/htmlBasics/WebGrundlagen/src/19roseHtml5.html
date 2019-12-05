@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Holz</title>
+        <style>
+            * {
+                box-sizing: margin-box;
+                border: 1px solid black;
+                margin: 3mm;
+                font-size: 1cm;
+                text-align: center;
+                position:static;
+                transition: color 2s, background-color 2s;
+                transition-timing-function: liniar;
+                
+            }
+            .red:hover {
+                color: white;
+                background-color: red;
+            }
+            .green:hover {
+                color: silver;
+                background-color: greenyellow;
+            }
+        </style>
+    </head>
+    <body>
+        <header onclick="this.innerHTML='huh?'" style="width: auto; height: 2cm;">&lt;header&gt;</header>
+        <nav class="red" style="width: auto; height: 3cm; margin-bottom: 0;">&lt;nav&gt;</nav>
+        <div style="border: 0; margin: 0; padding: 0; width: 50%; float: left;">
+            <section onclick="this.innerHTML='hallo'" class="red" style="height: 3cm;">&lt;section&gt;</section>
+            <article class="red" style="height: 3cm;">&lt;article&gt;</article>
+        </div>
+        <div style="border: 0; margin: 0; padding: 0; width: 50%; float: right;">
+            <aside onclick="this.innerHTML='nein'" class="green" style="height: 6.3cm; left: 50%;">&lt;aside&gt;</aside>
+        </div>
+        <footer onclick="this.innerHTML='was?'" class="red" style="margin-top: 7cm; width: auto; height: 2cm;">&lt;footer&gt;</footer>
+    </body>
+</html>
