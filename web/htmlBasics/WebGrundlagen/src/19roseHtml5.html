@@ -10,19 +10,30 @@
                 font-size: 1cm;
                 text-align: center;
                 position:static;
+                transition: color 2s, background-color 2s;
+                transition-timing-function: liniar;
+                
+            }
+            .red:hover {
+                color: white;
+                background-color: red;
+            }
+            .green:hover {
+                color: silver;
+                background-color: greenyellow;
             }
         </style>
     </head>
     <body>
-        <header style="width: auto; height: 2cm;">&lt;header&gt;</header>
-        <nav style="width: auto; height: 2cm; margin-bottom: 0;">&lt;nav&gt;</nav>
+        <header onclick="this.innerHTML='huh?'" style="width: auto; height: 2cm;">&lt;header&gt;</header>
+        <nav class="red" style="width: auto; height: 3cm; margin-bottom: 0;">&lt;nav&gt;</nav>
         <div style="border: 0; margin: 0; padding: 0; width: 50%; float: left;">
-            <section style="height: 2cm;">&lt;section&gt;</section>
-            <article style="height: 2cm;">&lt;article&gt;</article>
+            <section onclick="this.innerHTML='hallo'" class="red" style="height: 3cm;">&lt;section&gt;</section>
+            <article class="red" style="height: 3cm;">&lt;article&gt;</article>
         </div>
         <div style="border: 0; margin: 0; padding: 0; width: 50%; float: right;">
-            <aside style="height: 162px; left: 50%;">&lt;aside&gt;</aside>
+            <aside onclick="this.innerHTML='nein'" class="green" style="height: 6.3cm; left: 50%;">&lt;aside&gt;</aside>
         </div>
-        <footer style="margin-top: 5cm; width: auto; height: 2cm;">&lt;footer&gt;</footer>
+        <footer onclick="this.innerHTML='was?'" class="red" style="margin-top: 7cm; width: auto; height: 2cm;">&lt;footer&gt;</footer>
     </body>
 </html>
