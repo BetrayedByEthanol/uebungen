@@ -1,6 +1,9 @@
 {
     "files.associations": {
         "math.h": "c",
+        "cmath": "c",
+        "time.h": "c"
+    }
         "cmath": "c"
     },
     "git.ignoreLimitWarning": true
