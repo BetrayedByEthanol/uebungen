@@ -277,7 +277,9 @@ web
 ---
 #### #WebGrundlagenB002
 
-> 1. Erstelle im Verzeichnis `web/htmlBasics/WebGrundlagen/src` eine Datei mit dem Namen `19??html5.html`, die in der Seite der vorherigen Aufgabe verlinkt ist.
+#####1.
+
+>Erstelle im Verzeichnis `web/htmlBasics/WebGrundlagen/src` eine Datei mit dem Namen `19??html5.html`, die in der Seite der vorherigen Aufgabe verlinkt ist.
 
 
 **Die Seite sollte wie folgt aussehen:**
@@ -288,5 +290,7 @@ web
 >- Nutze HTML und CSS
 >- Stelle die Navigation zwischen den Seiten sicher. 
 
+#####2.
+>Lagere die Stylinginformationen in eine exterene `.css` Datei mit Namen `19??css.css`  aus.
 
-> 2. Lagere die Styling Informationen in eine exterene `css` Datei mit Namen `19??css.css`  aus.
+---
