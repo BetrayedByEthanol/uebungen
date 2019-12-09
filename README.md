@@ -8,6 +8,7 @@
 #### - [KW 49: Aufgaben der Woche Web Grundlagen HTTP A002 ](#webgrundlagena002)
 #### - [KW 49: Aufgaben der Woche Web Grundlagen HTML B001 ](#webgrundlagenb001)
 #### - [KW 49: Aufgaben der Woche Web Grundlagen CSS B002 ](#webgrundlagenb002)
+#### - [KW 50: Aufgaben der Woche Web Grundlagen Unsere Website B003 ](#webgrundlagenb003)
 
 
 
@@ -292,5 +293,38 @@ web
 
 #####2.
 >Lagere die Stylinginformationen in eine exterene `.css` Datei mit Namen `19??css.css`  aus.
+
+---
+#### #WebGrundlagenB003
+
+#### Wir bauen uns eine Profilseite  (Gemeinsschaftsprojekt)
+
+1. Einigt und erstellt eine Gliederung (Markdown) mit den Inhalten auf der Profilseite.
+
+###### Beispiele für mögliche Inhalte:
+- Persönliche Daten
+- Skills
+- Ideen
+- Projekte
+- Interessen
+- Weiterführende Links
+
+##### 2. Erstellt eine Layout (Skizze) wie die Struktur der Profilseite aussehen soll 
+
+##### 3. Erstellt ein HTML-Gerüst (HTML5) der Profilseite.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Profil</title>
+</head>
+<body>
+
+  ????
+  
+</body>
+</html>
+```
 
 ---
