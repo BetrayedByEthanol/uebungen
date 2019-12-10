@@ -6,7 +6,7 @@ body {
 }
 
 header {
-    margin-left: 160px;
+    margin-left: 200px;
     height: 18%;
     background-color: royalblue;
     box-sizing: border-box;
@@ -41,7 +41,7 @@ header {
 }
 
 .sidebar {
-    width: 160px;
+    width: 200px;
     height: 100%;
     position: fixed;
     z-index: 1;
@@ -81,7 +81,7 @@ header {
 .main {
     background-color: wheat;
     height: 100%;
-    margin-left: 160px;
+    margin-left: 200px;
     padding: 15px;
 }
 
@@ -93,7 +93,7 @@ header {
     background-color: black;
     color: blanchedalmond;
     bottom: 0;
-    padding-left: 175px;
+    padding-left: 215px;
 }
 
 .footer a {
