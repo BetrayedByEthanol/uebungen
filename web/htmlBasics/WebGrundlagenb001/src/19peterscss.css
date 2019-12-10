@@ -1,15 +1,3 @@
-.column {
-    float: left;
-    width: 50%;
-    height: 100%;
-}
-
-.row::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
 ul {
     list-style-type: none;
     margin: 0;
@@ -46,6 +34,28 @@ header {
     text-align: center;
 }
 
+section{
+    background-color: gold;
+    width: 50%;
+    height: 600px;
+    float: left;
+}
+
+img{
+    background-color: greenyellow;
+    padding: 5%;
+}
+
+aside{
+    background-color: hotpink;
+    width: 50%;
+    height: 600px;
+    float: right;
+    text-align: right;
+}
+
 footer {
+    background-color: firebrick;
     text-align: center;
+    width: 100%;
 }
