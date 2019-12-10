@@ -1,0 +1,110 @@
+body {
+    box-sizing: border-box;
+    border: none;
+    margin: 0px auto;
+    height: 100%
+}
+
+header {
+    margin-left: 200px;
+    height: 18%;
+    background-color: royalblue;
+    box-sizing: border-box;
+    padding-left: 15px;
+}
+
+.topnav {
+
+    background-color: rgba(36, 24, 141, 0.884);
+    color: white;
+    overflow: hidden;
+    text-align: center;
+}
+
+.topnav a {
+    float: left;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 14px 16px;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: darkgray;
+    color: white;
+}
+
+.sidebar {
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    background-color: rgb(116, 8, 8);
+    overflow-x: hidden;
+    padding-top: 20px;
+    color: white;
+}
+.sidebar a{
+    float: left;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 14px 16px;
+    font-size: 17px;
+}
+.sidebar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.sidebar img {
+    width: inherit;
+}
+
+.sidebar h5 {
+    font-size: 25px;
+}
+
+.sidebar li {
+    text-decoration: none;
+    font-size: 15px;
+    color: white;
+    display: block;
+}
+
+.main {
+    background-color: wheat;
+    height: 100%;
+    margin-left: 200px;
+    padding: 15px;
+}
+
+.footer {
+    z-index: 1;
+    position: relative;
+    padding: 20px;
+    height: 2%;
+    background-color: black;
+    color: blanchedalmond;
+    bottom: 0;
+    padding-left: 215px;
+}
+
+.footer a {
+    color: #f2f2f2;
+    text-align: center;
+    text-decoration: none;
+    padding: 14px 16px;
+    font-size: 17px;
+}
+
+.footer a:hover {
+    background-color: #ddd;
+    color: black;
+}
