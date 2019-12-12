@@ -9,6 +9,8 @@ header {
     z-index: 3;
     width: 100%;
     position: relative;
+    display: block;
+    clear: both;
 }
 
 nav {
@@ -71,7 +73,7 @@ footer {
     z-index: 1;
     width: 6%;
     margin-left:1140px;
-
+    display: inline-block;
     
     
 }
@@ -83,7 +85,8 @@ footer {
     height: 50px;
     z-index: 2;
     width: 4px;
-    margin-left:1140px;
+    margin-left:100px;
+    display: inline-block;
 
 
 
