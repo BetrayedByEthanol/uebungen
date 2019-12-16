@@ -33,6 +33,7 @@ article {
     width: 80%;
     height: 750px;
     margin-bottom: 0px;
+    float: left;
     overflow: auto;
 }
 
@@ -41,7 +42,7 @@ footer {
     background-color: rgb(253, 143, 0);
     color: white;
     text-align: right;
-    height: 50px;   /* 50px; */
+    height: 90px;   /* 50px; */
     margin-top: 0px;
     position: relative;
     float: right;
@@ -105,7 +106,7 @@ footer {
     z-index: 5;
     float: left;    
     display: inline-block;
-    margin-top: 40px;
+    margin-top: 70px;
     padding-top: 10px;
     width: 6%;
     
@@ -116,7 +117,7 @@ footer {
     z-index: 2;
     float: left;
     padding-right: 10px;
-    height: 50px;
+    height: 89%;
 
 }
 
@@ -124,15 +125,11 @@ footer {
     max-width: 100%;
 }
 
-#a1 {
+#a1,#a2,#a3,#a4,#a5,#a6,#a7 {
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#a2 {
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-}
 
 a:link {
     color: grey;
@@ -149,4 +146,8 @@ a:hover {
 
 a:active {
     color: red;
+}
+
+a {
+    
 }
