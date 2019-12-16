@@ -299,7 +299,7 @@ web
 
 #### Wir bauen uns eine Profilseite  (Gemeinsschaftsprojekt)
 
-1. Einigt und erstellt eine Gliederung (Markdown) mit den Inhalten auf der Profilseite.
+##### 1. Einigt und erstellt eine Gliederung (Markdown) mit den Inhalten auf der Profilseite.
 
 ###### Beispiele für mögliche Inhalte:
 - Persönliche Daten
