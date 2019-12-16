@@ -8,22 +8,22 @@ body {
 header {
     margin-left: 200px;
     height: 18%;
-    background-color: #5AC6C6;
+    background-color:z#ddd;
     box-sizing: border-box;
     padding-left: 15px;
 }
 
 .topnav {
 
-    background-color: #5AC6C6;
-    color: white;
+    background-color: #ddd;
+    color: black;
     overflow: hidden;
     text-align: center;
 }
 
 .topnav a {
     float: left;
-    color: white;
+    color: black;
     text-align: center;
     text-decoration: none;
     padding: 14px 16px;
@@ -37,7 +37,7 @@ header {
 
 .topnav a.active {
     background-color: darkgray;
-    color: white;
+    color: black;
 }
 
 .sidebar {
@@ -45,7 +45,7 @@ header {
     height: 100%;
     position: fixed;
     z-index: 1;
-    background-color: #42ABC5;
+    background-color: rgb(116, 8, 8);
     overflow-x: hidden;
     padding-top: 20px;
     color: white;
@@ -75,11 +75,11 @@ header {
     text-decoration: none;
     font-size: 15px;
     color: white;
-    display: block;
+    display: table-row;
 }
 
 .main {
-    background-color: #EAEBFF;
+    background-color: #eee;
     height: 100%;
     margin-left: 200px;
     padding: 15px;
@@ -90,7 +90,7 @@ header {
     position: relative;
     padding: 20px;
     height: 2%;
-    background-color: #42ABC5;
+    background-color: black;
     color: blanchedalmond;
     bottom: 0;
     padding-left: 215px;
@@ -107,18 +107,4 @@ header {
 .footer a:hover {
     background-color: #ddd;
     color: black;
-}
-
-.rustlogo {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    size: 2%;
-}
-
-.harmonylogo {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    size: 2%;
 }
