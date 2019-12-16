@@ -9,7 +9,6 @@
     <title>Profile - Cody Zech</title>
 
 </head>
-
 <body>
     <aside class="sidebar">
         <img src="img/FoxTransparent.png" alt="Fox">
@@ -30,7 +29,7 @@
             <li><a href="#Project2">Project 2</a></li>
         </ul>
     </aside>
-    <header class="topnav" id="top">
+    <header class="topnav" id="top" style="background-image: url(img/studioghibli.gif); background-size: cover;">
         <h1>Reconstructive surgery can't fix my anxiety.</h1>
         <br>
         <div style="font-size: 20px;"">Brute Force can sometimes kick down a locked door, but knowledge is a skeleton key.</div>
@@ -38,7 +37,7 @@
     <main class="main">
         <p id="Project1">
             <h2 style="text-align: center;">Rust</h2>
-            <img src="img/rust.png" alt="Rust logo" class="rustlogo">
+            <img src="img/rust.png" alt="Rust logo" class="zoomRust">
             The first project I decided to undertake was to learn how to program using the non-standard programming language 
             named Rust. Rust is a multi-paradigm system language focused on safety, especially safe concurrency.
             Rust is syntactically similar to C++, but is designed to provide better memory safety while maintaining
@@ -88,4 +87,13 @@
 
 </body>
 
+<script>
+function on() {
+    document.getElementById("overlay").style.display = "block";
+  }
+  
+  function off() {
+    document.getElementById("overlay").style.display = "none";
+  }
+  </script>
 </html>

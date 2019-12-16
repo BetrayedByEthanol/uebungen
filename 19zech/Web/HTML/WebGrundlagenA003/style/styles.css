@@ -16,7 +16,7 @@ header {
 .topnav {
 
     background-color: #5AC6C6;
-    color: white;
+    color: #A3E7D6;
     overflow: hidden;
     text-align: center;
 }
@@ -109,16 +109,23 @@ header {
     color: black;
 }
 
-.rustlogo {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    size: 2%;
-}
-
 .harmonylogo {
     display: block;
     margin-left: auto;
     margin-right: auto;
     size: 2%;
 }
+
+.zoomRust {
+    padding: 50px;
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    size: 2%;
+}
+  
+  .zoomRust:hover {
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
