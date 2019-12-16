@@ -90,7 +90,7 @@ header {
     position: relative;
     padding: 20px;
     height: 2%;
-    background-color: #40B5BC;
+    background-color: #42ABC5;
     color: blanchedalmond;
     bottom: 0;
     padding-left: 215px;
@@ -107,4 +107,18 @@ header {
 .footer a:hover {
     background-color: #ddd;
     color: black;
+}
+
+.rustlogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    size: 2%;
+}
+
+.harmonylogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    size: 2%;
 }
