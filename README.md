@@ -8,7 +8,7 @@
 #### - [KW 49: Aufgaben der Woche Web Grundlagen HTTP A002 ](#webgrundlagena002)
 #### - [KW 49: Aufgaben der Woche Web Grundlagen HTML B001 ](#webgrundlagenb001)
 #### - [KW 49: Aufgaben der Woche Web Grundlagen CSS B002 ](#webgrundlagenb002)
-#### - [KW 50: Aufgaben der Woche Web Grundlagen Unsere Website B003 ](#webgrundlagenb003)
+#### - [KW 50-51: Aufgaben der Woche Web Grundlagen Unsere Website B003 ](#webgrundlagenb003)
 
 
 
@@ -326,5 +326,11 @@ web
 </body>
 </html>
 ```
+##### 4. Erstelle und erweitere deine Profilseite.
 
+>**Nutze folgendes Schema für deine Profilseite**
+
+![Profil](assets/profile.png)
+
+##### 5. Erweitere deine Profilseite mit Content.
 ---
