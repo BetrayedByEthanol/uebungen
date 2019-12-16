@@ -3,12 +3,15 @@
 char article[5][25] = {"\nEraser\n", "Writing Pad\n", "Folder\n", "Mini Calculator\n", "Pencil\n"};
 int table[5] = {0};
 double kiosk[5][5] = {{1, 2, 3, 4, 5}, {0, 3, 0, 0, 0}, {1.23, 0.99, 1.99, 4.49, 0.30}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}};
-char table_header[5][11] = {"Article |", " Stock |", " Price |", " Sold |", " Profit \n"};
+char table_header[5][11] = {"Article |", " Stock |", " Price |", " Sold |", " Sales \n"};
 
 void show_table_header();
 void show_table();
 void show_article();
-void change_article1();
+void change_article();
+void article_info();
+void buy();
+void menu();
 
 int main()
 {
@@ -18,7 +21,8 @@ int main()
 void menu()
 {
     int menu_option;
-    printf("\nPlease choose an option:\nShow Items [1]\nShow Stock [2]\nShow Price [3]\nShow Amount Sold [4]\nShow Profits [5]\nChange Stock/Price [6]\n");
+    int item_ID;
+    printf("\nPlease choose an option:\nShow Items [1]\nShow Logs [2]\nChange Stock/Price [3]\nSell an Item [4]\n");
     scanf("%d", &menu_option);
     switch (menu_option)
     {
@@ -28,10 +32,15 @@ void menu()
     case 2:
         show_table_header();
         break;
-    case 6:
-        initialise_array();
+    case 3:
+        
+        printf("Which Article??\n");
+        scanf("%d", &item_ID);
+        change_article(item_ID);
         break;
-
+    case 4:
+        buy();
+        break;
     default:
         printf("Please input a valid option");
         break;
@@ -62,52 +71,24 @@ void show_article()
     menu();
 }
 
-void initialise_array()
-{
-    int item_ID;
-    printf("Please choose an Item you want to see, or update:");
-    scanf("%d", &item_ID);
-    switch (item_ID)
-    {
-    case 1:
-        change_article1();
-        break;
-    /*case 2:
-        change_article2();
-        break;
-    case 3:
-        change_article3();
-        break;
-    case 4:
-        change_article4();
-        break;
-    case 5:
-        change_article5();
-        break;*/
-    default:
-        break;
-    }
-}
-
-void change_article1()
-{
+void buy() {
     int option;
-    double stock_article1;
-    printf("Please choose whether you want to change the Stock [1] or the Price [2]");
+    double sold;
+    printf("Which item was sold?\n");
     scanf("%d", &option);
-    switch (option)
-    {
-    case 1:
-        printf("\nPlease input the new stock: ");
-        scanf("%lf", &stock_article1);
-        kiosk[1][0] = stock_article1;
-        break;
-
-    default:
-        printf("Please input a number you fool.");
-        break;
+    option--;
+    printf("Input the number of Items sold: ");
+    scanf("%lf", &sold);
+    if(option<=sizeof(kiosk)/sizeof(kiosk[0]) && kiosk[1][option]>=sold) {  
+        kiosk[3][option] += sold;
+        kiosk[1][option] = kiosk[1][option] - sold;
+        kiosk[4][option] = kiosk[4][option] + (sold * kiosk[2][option]);
+        menu();
     }
-    menu();
+    else {
+        printf("Please input a valid number, or sell less, you twat.\n");
+        buy();
+    }
 }
 
 void article_info() {
@@ -130,4 +111,31 @@ void article_info() {
     for(int i=0; i<5; i++){
         printf(" %.2lf\t", kiosk[i][4]);
     }
+}
+void change_article(int a) {
+    int item_ID;
+    double stock;
+    int column;
+    item_ID = a -1;
+    printf("Change Stock [1]\nChange Price [2]\n");
+    scanf("%d", &column);
+    switch (column)
+    {
+    case 1:
+        printf("Please input the new stock: ");
+        scanf("%lf", &stock);
+        kiosk[column][item_ID] = stock;
+        menu();
+        break;
+    case 2:
+        printf("Please input the new price: ");
+        scanf("%lf", &stock);
+        kiosk[column][item_ID] = stock;
+        menu();
+        break;
+    default: 
+        printf("Choose one or two you fool.");
+        menu();
+        break;
+    }    
 }
