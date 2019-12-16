@@ -338,7 +338,6 @@ web
      ...
   
 ```
-
 >**Nutze folgendes Schema für deine Profilseite**
 
 ![Profil](assets/profile.png)
