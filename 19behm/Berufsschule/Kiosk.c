@@ -9,61 +9,78 @@
 //sicherheitesabfrage nicht negativ...
 //tabellen: table_header, table,article
 
-char table_header[6][16] = {"Art-Nr.","Artikel", "Bestand", "Preis", "Verkauft", "Umsatz"};
-double table[6][5];
+char table_header[6][16] = {"Art-Nr.\0", "Artikel\0", "Bestand\0", "Preis    \0", "Verkauft\0", "Umsatz\0"};
+double table[6][5] = {{1,2,3,4,5},{0,0,0,0,0},{0,0,0,0,0},{1.23,0.99,1.99,4.49,0.49},{0,0,0,0,0},{0,0,0,0,0}};
 char article[6][16] = {"Radiergummi", "Schreibblock", "Aktenordner", "Taschenrechner", "Bleistift"};
 int input;
 
-void inittable()
+/*void inittable()
 {
-    
-    for (int i = 0; i < 5; i++){
-        for(int j =0;j<5;j++)
-            table[j][i] = 0;
+
+    for (int i = 0; i < 5; i++)
+    {
+        for (int j = 0; j < 5; j++)
+            table[i][j] = 0;
     }
-            
-    for(int i=0; i<5;i++)
+
+    for (int i = 1; i < 6; i++)
         table[0][i] = i;
-    
-}
+}*/
 
 void restock()
 {
     int artnr, stkzahl;
-    printf("Bitte Artikelnummer eingeben\n");
+    do{
+    printf("Bitte Artikelnummer eingeben. 0 zum abbrechen\n");
     scanf("%d", &artnr);
-    printf("Wie viele %s moechten Sie hinzufügen?\n",table[1][artnr]);
+    printf("Wie viele %s moechten Sie hinzufuegen?\n", article[artnr-1]);
     scanf(" %d", &stkzahl);
-    table[1][artnr] += stkzahl;
+    table[2][artnr-1] += stkzahl;
+    } while(artnr != 0);
 }
 
 void sell()
 {
+    
     int artnr, stkzahl;
     double preis;
-    printf("Bitte Artikelnummer eingeben\n");
-    scanf(" %d",&artnr);
-    printf("Wieviele sollen verkauft werden?\n");
-    scanf(" %d",&stkzahl);
-    preis = table[3][artnr] * stkzahl;
-    printf("Der Preis betraegt: %.2f", preis);
-    table[2][artnr] -= stkzahl;
-    table[4][artnr] += stkzahl;
-    table[5][artnr] = table[3][artnr] * stkzahl;
+    do{
+    printf("Bitte Artikelnummer eingeben. 0 zum Abbrechen\n");
+    scanf(" %d", &artnr);
+    printf("Wieviele %s sollen verkauft werden?\n", article[artnr-1]);
+    scanf(" %d", &stkzahl);
+    preis = table[3][artnr-1] * stkzahl;
+    printf("Der Preis betraegt: %.2f Euro.\n", preis);
+    table[2][artnr-1] = table[2][artnr-1] - stkzahl;
+    table[4][artnr-1] += stkzahl;
+    table[5][artnr-1] = table[3][artnr-1] * stkzahl;
+    } while(artnr != 0);
 }
 
-void output();
+void output()
+{
+    for (int i = 0; i < 6; i++)
+        printf("|%s\t\t", table_header[i]);
+    printf("\n");
+    for (int i = 0; i < 5; i++)
+        printf("|\t%.0f\t\t|\t%s\t|\t%.0f\t\t|\t%.2f\t\t|\t%.0f\t\t|\t%.2f\t\t\n", table[0][i], article[i], table[2][i], table[3][i], table[4][i], table[5][i]);
+}
 
-void outputall();
+void outputall()
+{
+    double gesamtumsatz = 0;
+    for (int i = 0; i < 6; i++)
+        gesamtumsatz = gesamtumsatz + table[5][i];
+    printf("Der Gesamtumsatz betraegt %.2f Euro.\n");
+}
 
 int main()
 {
-    inittable();
-    
+    //inittable();
 
     while (1)
     {
-        printf("Bitte Option waehlen. \n [1] Verkaufen \n [2] Bestand auffuellen \n [3] Tabelle ausgeben \n [4] Gesamtumsatz");
+        printf("Bitte Option waehlen. \n [1] Verkaufen \n [2] Bestand auffuellen \n [3] Tabelle ausgeben \n [4] Gesamtumsatz\n");
         scanf(" %d", &input);
 
         if (input == 1)

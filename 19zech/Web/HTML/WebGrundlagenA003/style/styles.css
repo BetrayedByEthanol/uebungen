@@ -8,14 +8,14 @@ body {
 header {
     margin-left: 200px;
     height: 18%;
-    background-color: royalblue;
+    background-color: #5AC6C6;
     box-sizing: border-box;
     padding-left: 15px;
 }
 
 .topnav {
 
-    background-color: rgba(36, 24, 141, 0.884);
+    background-color: #5AC6C6;
     color: white;
     overflow: hidden;
     text-align: center;
@@ -45,7 +45,7 @@ header {
     height: 100%;
     position: fixed;
     z-index: 1;
-    background-color: rgb(116, 8, 8);
+    background-color: #42ABC5;
     overflow-x: hidden;
     padding-top: 20px;
     color: white;
@@ -79,7 +79,7 @@ header {
 }
 
 .main {
-    background-color: wheat;
+    background-color: #EAEBFF;
     height: 100%;
     margin-left: 200px;
     padding: 15px;
@@ -90,7 +90,7 @@ header {
     position: relative;
     padding: 20px;
     height: 2%;
-    background-color: black;
+    background-color: #42ABC5;
     color: blanchedalmond;
     bottom: 0;
     padding-left: 215px;
@@ -107,4 +107,18 @@ header {
 .footer a:hover {
     background-color: #ddd;
     color: black;
+}
+
+.rustlogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    size: 2%;
+}
+
+.harmonylogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    size: 2%;
 }

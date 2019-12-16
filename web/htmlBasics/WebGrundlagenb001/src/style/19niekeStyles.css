@@ -8,22 +8,22 @@ body {
 header {
     margin-left: 200px;
     height: 18%;
-    background-color: royalblue;
+    background-color:z#ddd;
     box-sizing: border-box;
     padding-left: 15px;
 }
 
 .topnav {
 
-    background-color: rgba(36, 24, 141, 0.884);
-    color: white;
+    background-color: #ddd;
+    color: black;
     overflow: hidden;
     text-align: center;
 }
 
 .topnav a {
     float: left;
-    color: white;
+    color: black;
     text-align: center;
     text-decoration: none;
     padding: 14px 16px;
@@ -37,7 +37,7 @@ header {
 
 .topnav a.active {
     background-color: darkgray;
-    color: white;
+    color: black;
 }
 
 .sidebar {
@@ -75,11 +75,11 @@ header {
     text-decoration: none;
     font-size: 15px;
     color: white;
-    display: block;
+    display: table-row;
 }
 
 .main {
-    background-color: wheat;
+    background-color: #eee;
     height: 100%;
     margin-left: 200px;
     padding: 15px;
