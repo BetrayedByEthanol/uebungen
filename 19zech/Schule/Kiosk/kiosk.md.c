@@ -2,7 +2,7 @@
 
 char article[5][25] = {"\nEraser\n", "Writing Pad\n", "Folder\n", "Mini Calculator\n", "Pencil\n"};
 int table[5] = {0};
-double kiosk[5][5] = {{1, 2, 3, 4, 5}, {0, 3, 0, 0, 0}, {1.23, 0.99, 1.99, 4.49, 0.30}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}};
+double kiosk[5][5] = {{1, 2, 3, 4, 5}, {23, 1, 45, 1, 500}, {1.23, 0.99, 1.99, 4.49, 0.30}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}};
 char table_header[5][11] = {"Article |", " Stock |", " Price |", " Sold |", " Sales \n"};
 
 void show_table_header();

@@ -116,7 +116,7 @@ header {
     size: 2%;
 }
 
-.zoomRust {
+.zoomLogo {
     padding: 50px;
     transition: transform .2s; /* Animation */
     margin: 0 auto;
@@ -126,6 +126,6 @@ header {
     size: 2%;
 }
   
-  .zoomRust:hover {
+  .zoomLogo:hover {
     transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
   }
