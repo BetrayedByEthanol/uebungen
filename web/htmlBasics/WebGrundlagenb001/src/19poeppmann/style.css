@@ -1,0 +1,69 @@
+#main {
+	font-family: monospace, Arial;
+	color: white;
+	background-color: black;
+	background-image: url(hintergrund.png);
+	background-attachment: fixed;
+
+}
+
+#navigation {
+	text-align: center;
+	border: 3px groove lime;
+	border-radius: 7px;
+}
+
+#navigation ul {
+	list-style-type: none;
+}
+
+#navigation li{
+	display: inline;
+	margin: 40px;
+}
+
+#hello {
+	text-align: center;
+}
+
+#logo {
+	text-align: center;
+}
+
+#portfolioueberschrift {
+	font-size: 25px;
+}
+
+#portfolio {
+	text-align: left;
+}
+
+#kontaktueberschrift {
+	font-size: 35px;
+}
+
+#Formularueberschrift {
+	text-align: Center;
+	font-size: larger;
+	font-weight: bold;
+}
+
+#kontaktformular {
+	border-style: outset;
+}
+
+#formular {
+	text-align: left;
+	font: arial;
+}
+
+
+header {
+	width: auto;
+	height: auto;
+	text-align: center;
+	
+}
+
+		
+
