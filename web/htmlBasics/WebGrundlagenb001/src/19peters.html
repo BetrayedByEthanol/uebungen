@@ -3,13 +3,28 @@
     <head>
         <title>FIAN19_2</title>
         <style>
-            table, th, td {
-              border: 1px solid black;
-              border-collapse: collapse;
+            html {
+                height: 90%;
+            }
+            body {
+                height: 100%;
+                margin: 3%;
+                background-color: rgb(206, 198, 86);
+                box-shadow: 1px 20px 50px black;
+            }
+            table {
+                width: 70%;
+                padding: 2%;
+                float: right;
+                border: 1px solid white;
+                border-collapse: collapse;
             }
             th, td {
-              padding: 5px;
-              text-align: left;    
+                color: white;
+                border: 1px solid white;
+                border-collapse: collapse;
+                padding: 5px;
+                text-align: left;    
             }
             ul {
                 list-style-type: none;
@@ -31,6 +46,19 @@
             li a:hover {
                 background-color: yellow;
             }
+            section {
+                background-color: white;
+                padding: 2%;
+                float: left;
+                width: 20%;
+                height: 89%;
+                border: 2px solid darkred;
+            }
+            aside {
+                background-color: darkblue;
+                height: 89%;
+                padding: 2%;
+            }
         </style>
     </head>
     <body>
@@ -38,40 +66,47 @@
             <nav>
               <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="19peters.html">Hr.P.</a></li>
-                <li><a href="19petershtml5.html">html55555</a></li>
+                <li><div style="display: block; color: tomato; background-color: blue; text-align: center; padding: 14px 16px; text-decoration: none;">PROfile</div></li>
+                <li><a href="19petershtml5.html">TowrDefnce</a></li>
               </ul>
             </nav>
         </header>
-        <h1>Hr.P.</h1>
-        <table style="width: 50%;">
-            <tr>
-                <th>Firstname</th>
-                <td>B*******</td>
-            </tr>
-            <tr>
-                <th>Lastname</th>
-                <td>P*****</td>
-            </tr>
-            <tr>
-                <th>Age</th>
-                <td>2*</td>
-            </tr>
-            <tr>
-                <th>Likes</th>
-                <td>Path of Exile, LoL</td>
-            </tr>
-            <tr>
-                <th>Dislikes</th>
-                <td>lobbyism, racism, nazism, discrimination, cigarettes, alcohol, all the other drugs,<br>
-                    environmental pollution, children, people who act like children, old people,<br>
-                    silly people, television, <a href="19petershtml5.html">linktext</a>
-                </td>
-            </tr>
-        </table><br>
-        <h2>recent photo:</h2>
         <section>
-                <img src="img/bp_me.png" alt="me">
+            <h2>recent photo:</h2>
+            <img style="width: 100%;" src="img/bp_me.png" alt="me">
+            <h2>Over me<br>
+            Projects<br>
+            Interests <br>
+            Skills <br>
+            Others</h2>
         </section>
+        <aside>
+            <h1 style="text-align: center; color: white;">Over me</h1>
+            <table>
+                <tr>
+                    <th>Firstname</th>
+                    <td>B*******</td>
+                </tr>
+                <tr>
+                    <th>Lastname</th>
+                    <td>P*****</td>
+                </tr>
+                <tr>
+                    <th>Age</th>
+                    <td>2*</td>
+                </tr>
+                <tr>
+                    <th>Likes</th>
+                    <td>Path of Exile, LoL</td>
+                </tr>
+                <tr>
+                    <th>Dislikes</th>
+                    <td>lobbyism, racism, nazism, discrimination, cigarettes, alcohol, all the other drugs,<br>
+                        environmental pollution, children, people who act like children, old people,<br>
+                        silly people, television, <a href="19petershtml5.html">linktext</a>
+                    </td>
+                </tr>
+            </table>
+        </aside>
     </body>
 </html>
