@@ -328,9 +328,21 @@ web
 ```
 ##### 4. Erstelle und erweitere deine Profilseite.
 
+```
+web 
+└─htmlBasics
+  └─WebGrundlagenb001
+    └─src
+    │ └─assets
+    │- 19(nachname)profil.html
+     ...
+  
+```
 >**Nutze folgendes Schema für deine Profilseite**
 
 ![Profil](assets/profile.png)
+test
+
 
 ##### 5. Erweitere deine Profilseite mit Content.
 ---
