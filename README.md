@@ -334,7 +334,7 @@ web
   └─WebGrundlagenb001
     └─src
     │ └─assets
-    │- 19(nachname)profile.html
+    │- 19(nachname)profil.html
      ...
   
 ```
