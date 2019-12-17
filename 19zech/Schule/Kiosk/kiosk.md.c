@@ -33,7 +33,6 @@ void menu()
         show_table_header();
         break;
     case 3:
-        
         printf("Which Article??\n");
         scanf("%d", &item_ID);
         change_article(item_ID);
