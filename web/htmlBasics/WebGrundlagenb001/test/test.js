@@ -27,4 +27,11 @@ describe("Sind Dateien vorhanden", function() {
       });
     });
   });
+  describe("web/htmlBasic/WebGrundlagenb001/src/19??profil.html ist vorhanden", function() {
+    tn.forEach(teilnehmer => {
+      it(`${teilnehmer}profil.html`, function() {
+        expect(`src/${teilnehmer}profil.html`).to.be.a.file();
+      });
+    });
+  });
 });
