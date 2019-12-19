@@ -92,11 +92,12 @@ p {
 
 .footer {
     z-index: 0;
-    position: relative;
+    position: absolute;
     padding: 20px;
     height: 2%;
     background-color: black;
     color: blanchedalmond;
+    position: relative;
     bottom: 0;
     padding-left: 215px;
 }
