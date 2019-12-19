@@ -1,8 +1,8 @@
 html {
-    height: 100%;
+    height: 90%;
 }
 body {
-    height: 90%;
+    height: 100%;
     margin: 3%;
     background-color: rgb(192, 181, 29);
     box-shadow: 1px 20px 50px black;
@@ -10,6 +10,7 @@ body {
 
 ul {
     list-style-type: none;
+    height: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -33,7 +34,8 @@ li a:hover {
 }
 
 header {
-    border-bottom-width: 10px;
+    float: right;
+    width: 76%;
     font-style: italic;
     font-size: 20px;
     color: rgb(217, 255, 0);
@@ -42,8 +44,9 @@ header {
 
 section{
     background-color: gold;
-    width: 50%;
-    height: 600px;
+    width: 20%;
+    padding: 2%;
+    height: 89%;
     float: left;
 }
 
@@ -54,7 +57,7 @@ img{
 
 aside{
     background-color: hotpink;
-    width: 50%;
+    width: 76%;
     height: 600px;
     float: right;
     text-align: right;
