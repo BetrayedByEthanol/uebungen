@@ -7,7 +7,20 @@ body {
     background-color: rgb(192, 181, 29);
     box-shadow: 1px 20px 50px black;
 }
-
+table {
+    width: 70%;
+    padding: 2%;
+    float: right;
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+th, td {
+    color: white;
+    border: 1px solid white;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: left;    
+}
 ul {
     list-style-type: none;
     height: 100%;
@@ -16,11 +29,9 @@ ul {
     overflow: hidden;
     background-color: darkmagenta;
 }
-
 li {
     float: left;
 }
-
 li a {
     display: block;
     color: tomato;
@@ -28,11 +39,9 @@ li a {
     padding: 14px 16px;
     text-decoration: none;
 }
-
 li a:hover {
     background-color: yellow;
 }
-
 header {
     float: right;
     width: 76%;
@@ -41,7 +50,6 @@ header {
     color: rgb(217, 255, 0);
     text-align: center;
 }
-
 section{
     background-color: gold;
     width: 20%;
@@ -49,20 +57,17 @@ section{
     height: 89%;
     float: left;
 }
-
 img{
     background-color: greenyellow;
-    padding: 5%;
 }
-
 aside{
     background-color: hotpink;
-    width: 76%;
+    width: 72%;
     height: 600px;
+    padding: 2%;
     float: right;
     text-align: right;
 }
-
 footer {
     background-color: firebrick;
     text-align: center;
