@@ -2,7 +2,7 @@ var assert = require("assert");
 var chai = require("chai");
 chai.use(require("chai-fs"));
 var expect = chai.expect;
-var tn = ["ausbilder", "19adam", "19behm", "19nieke", "19peters", "19rose", "19seifert", "19soler", "19tantsch", "19zech"];
+var tn = ["ausbilder", "19adam", "19behm", "19nieke", "19peters", "19poeppmann", "19rose", "19seifert", "19soler", "19tantsch", "19zech"];
 
 var path = "src/index.html";
 describe("Sind Dateien vorhanden", function() {
