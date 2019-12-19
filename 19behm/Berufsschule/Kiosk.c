@@ -49,6 +49,8 @@ void sell()
     scanf(" %d", &artnr);
     printf("Wieviele %s sollen verkauft werden?\n", article[artnr-1]);
     scanf(" %d", &stkzahl);
+    if(stkzahl >= table[2][artnr-1])
+        printf("Nicht genug %s vorhanden.");
     preis = table[3][artnr-1] * stkzahl;
     printf("Der Preis betraegt: %.2f Euro.\n", preis);
     table[2][artnr-1] = table[2][artnr-1] - stkzahl;
