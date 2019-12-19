@@ -8,15 +8,20 @@ body {
 header {
     margin-left: 200px;
     height: 18%;
-    background-color: #5AC6C6;
+    background-color: royalblue;
     box-sizing: border-box;
     padding-left: 15px;
 }
 
+p {
+    margin: 5px;
+    padding: 5px;
+}
+
 .topnav {
 
-    background-color: #5AC6C6;
-    color: #A3E7D6;
+    background-color: rgba(36, 24, 141, 0.884);
+    color: white;
     overflow: hidden;
     text-align: center;
 }
@@ -45,7 +50,7 @@ header {
     height: 100%;
     position: fixed;
     z-index: 1;
-    background-color: #42ABC5;
+    background-color: rgb(116, 8, 8);
     overflow-x: hidden;
     padding-top: 20px;
     color: white;
@@ -79,7 +84,7 @@ header {
 }
 
 .main {
-    background-color: #EAEBFF;
+    background-color: wheat;
     height: 100%;
     margin-left: 200px;
     padding: 15px;
@@ -87,11 +92,12 @@ header {
 
 .footer {
     z-index: 0;
-    position: relative;
+    position: absolute;
     padding: 20px;
     height: 2%;
-    background-color: #42ABC5;
+    background-color: black;
     color: blanchedalmond;
+    position: relative;
     bottom: 0;
     padding-left: 215px;
 }
@@ -108,24 +114,3 @@ header {
     background-color: #ddd;
     color: black;
 }
-
-.harmonylogo {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    size: 2%;
-}
-
-.zoomLogo {
-    padding: 50px;
-    transition: transform .2s; /* Animation */
-    margin: 0 auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    size: 2%;
-}
-  
-  .zoomLogo:hover {
-    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-  }
