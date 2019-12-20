@@ -4,13 +4,13 @@ html {
 body {
     height: 100%;
     margin: 3%;
-    background-color: rgb(192, 181, 29);
+    background-color: rgb(216, 185, 236);
     box-shadow: 1px 20px 50px black;
 }
 table {
     width: 70%;
     padding: 2%;
-    float: right;
+    margin: auto;
     border: 1px solid white;
     border-collapse: collapse;
 }
