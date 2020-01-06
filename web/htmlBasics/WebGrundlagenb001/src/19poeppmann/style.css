@@ -22,8 +22,11 @@
 	color: white;
 }
 
-#navigation {
+#navigation {	
 	text-align: center;
+	display: table;
+	margin-left: auto;
+	margin-right: auto;	
 }
 
 #hello {
@@ -78,8 +81,8 @@ a {
 	color:#FFF;
   }
   .rainbow-button {
-	width:calc(18vw + 3px);
-	height:calc(4vw + 3px);
+	width:calc(20vw + 3px);
+	height:calc(5vw + 3px);
 	background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
 	border-radius:5px;
 	display:flex;
@@ -91,8 +94,8 @@ a {
   }
   .rainbow-button:after {
 	content:attr(alt);
-	width:18vw;
-	height:4vw;
+	width:20vw;
+	height:5vw;
 	background-color:#191919;
 	display:flex;
 	align-items:center;
