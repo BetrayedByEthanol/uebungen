@@ -261,7 +261,7 @@ Nutze kein `CSS` und achte auf die Struktur des Dokumentes
 > 
 
 
-##### Vorgegebene Verzeichnisstruktur-
+##### Vorgegebene Verzeichnisstruktur:
 ```
 web 
 └─htmlBasics
@@ -346,3 +346,22 @@ test
 
 ##### 5. Erweitere deine Profilseite mit Content.
 ---
+
+#### #WebGrundlagenB004
+Erstelle einen Taschenrechner, welcher die vier Grundrechenarten beherrscht. Nutze dazu HTML, CSS und JavaScript. 
+<br>
+Ein fertiger Taschenrechner, könnte wie folgt aussehen:
+<br> 
+<br>
+![Taschenrechner](assets/Taschenrechner.png)
+<br>
+Speichere diesen in folgende Ordnerstruktur:
+```
+web 
+└─htmlBasics
+  └─WebGrundlagenb001
+    └─src
+    │ └─assets
+    │- 19(nachname)taschenrechner.html
+     ...
+```
