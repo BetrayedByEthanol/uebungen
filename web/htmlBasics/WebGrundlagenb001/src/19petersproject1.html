@@ -2,54 +2,26 @@
 <html>
     <head>
         <title>2nd Game</title>
+        <link rel="stylesheet" type="text/css" href="style/19peterscss.css">
         <style>
-            html {
-                height: 90%;
-            }
             body {
-                height: 100%;
-                margin: 3%;
                 background-color: rgb(131, 131, 128);
-                box-shadow: 1px 20px 50px black;
             }
             ul {
-                list-style-type: none;
-                height: 100%;
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
                 background-color: rgb(58, 7, 58);
             }
-            li {
-                float: left;
-            }
             li a {
-                display: block;
                 color: rgb(241, 158, 144);
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
             }
             li a:hover {
                 background-color: yellow;
             }
             section {
                 background-color: rgb(235, 202, 202);
-                padding: 2%;
-                float: left;
-                width: 20%;
-                height: 89%;
-                border: 2px solid darkred;
             }
             aside {
                 background-color: rgb(231, 221, 202);
-                height: 89%;
-                padding: 2%;
                 text-align: center;
-            }
-            .scrollable {
-                height: 89%;
-                overflow-y: scroll;
             }
         </style>
     </head>
@@ -66,8 +38,21 @@
             <h1>Screenshots</h1>
         </section>
         <aside class="scrollable">
-            <img src="img/2nd_Game_screenshot_1.jpg" alt="2nd_Game_screenshot_1">
-            <img src="img/2nd_Game_screenshot_2.jpg" alt="2nd_Game_screenshot_2">
+            <div class="galery">
+            <img style="width: 20%;" src="img/2nd_Game_screenshot_1.jpg" alt="2nd_Game_screenshot_1" onclick="expand_Img(this);">
+            <img style="width: 20%;" src="img/2nd_Game_screenshot_2.jpg" alt="2nd_Game_screenshot_2" onclick="expand_Img(this);">
+            </div>
+            <div class="container">
+                <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+                <img id="expandedImg" style="width:100%">
+            </div>
+            <script>
+            function expand_Img(imgs) {
+                var expandImg = document.getElementById("expandedImg");
+                expandImg.src = imgs.src;
+                expandImg.parentElement.style.display = "block"
+            }
+            </script>
         </aside>
     </body>
 </html>
