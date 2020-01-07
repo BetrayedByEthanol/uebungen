@@ -3,6 +3,23 @@
     <head>
         <link rel="stylesheet" type="text/css" href="style/19peterscss.css">
         <title>ptrshtml5</title>
+        <style>
+            .inputfield{
+                width: 150px;
+                height: 30px;
+                background-color: lightblue;
+                text-align: right;
+            }
+            .num{
+                text-align: left;
+            }
+            .num button{
+                width: 50px;
+                height: 30px;
+                color: white;
+                background-color: rgb(68, 68, 68);
+            }
+        </style>
     </head>
     <body>
         <nav>
@@ -13,15 +30,41 @@
                 <li><div style="display: block; color: tomato; background-color: blue; text-align: center; padding: 14px 16px; text-decoration: none;">TowrDefnce</div></li>
             </ul>
         </nav>
-        <header>
+        <section>
             <h1>Header</h1>
-        </header>
-        <section><img src="there_is_no_img_:>" alt="best_waifu_euw">
+            <img src="there_is_no_img_:>" alt="best_waifu_euw" id="waifu">
             <article>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum dese
                     laudantium magni quod perferendis impedit culpa vero excepturi quibusdam! Prov
                     harum sapiente animi, est iusto aut nemo delectus praesentium eaque!</article>
         </section>
-        <aside><img src="img/werbung.png" alt="werbung"></aside>
-        <footer><h2>Footer</h2></footer>
+        <aside>
+            <img src="img/werbung.png" alt="werbung">
+            <div class="num">
+                <div class="inputfield">0</div>
+                <button onclick="buttonclick(1);">1</button>
+                <button onclick="buttonclick(2);">2</button>
+                <button onclick="buttonclick(3);">3</button><br>
+                <button onclick="buttonclick(4);">4</button>
+                <button onclick="buttonclick(5);">5</button>
+                <button onclick="buttonclick(6);">6</button><br>
+                <button onclick="buttonclick(7);">7</button>
+                <button onclick="buttonclick(8);">8</button>
+                <button onclick="buttonclick(9);">9</button><br>
+                <button onclick="buttonclick(0);">0</button>
+            </div>
+        </aside>
+        <script>
+            var inputnum = [0];
+            function buttonclick(numb) {
+                if (inputnum == 0) {inputnum = [numb];}
+                else {inputnum.push(numb)}
+                var field = document.getElementsByClassName("inputfield")[0];
+                field.innerHTML = inputnum[0];
+                for (i = 1; i < inputnum.length; i++) {
+                    field.innerHTML += inputnum[i];
+                }
+                console.log(field.innerHTML);
+            }
+        </script>
     </body>
 </html>
