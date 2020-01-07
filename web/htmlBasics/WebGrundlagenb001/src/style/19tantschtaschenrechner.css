@@ -1,0 +1,24 @@
+.top{
+   height:40px;
+   width: 51.5px;
+}
+
+
+.feld{
+   height:55px;
+   width: 70px;
+}
+
+
+ #schirm{
+    font-size: 28px;
+    height:40px;
+    width: 210px;
+    text-align: right;
+    border-style: solid;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    overflow: hidden;
+    
+  
+ }
