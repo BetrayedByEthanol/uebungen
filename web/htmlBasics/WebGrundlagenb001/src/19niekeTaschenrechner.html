@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Taschenrechner</title>
+  </head>
+  <script>
+        var currentValue = false;
+        var currentNumber = '';
+        var h = '';
+        var operation = ''; 
+      
+      function addDigit(param)
+      {
+          if(currentNumber.length > 0 && param == '0')
+          {
+            currentNumber += param;
+            document.getElementById('currentNumber').innerHTML =  document.getElementById('currentNumber').innerHTML + param;    
+          }
+          else if(param != '0')
+          {
+            currentNumber += param;
+            document.getElementById('currentNumber').innerHTML =  document.getElementById('currentNumber').innerHTML + param; 
+          }
+      }
+
+      function performOperation(param)
+      {
+          switch(operation)
+          {
+                case '+':
+                  currentValue += param;
+                  break;
+                case '-':
+                  currentValue -= param;
+                  break;
+                case '*':
+                  currentValue *= param;
+                  h = '(' + h + ')';
+                  break;
+                case '/':
+                  currentValue /= param;
+                  h = '(' + h + ')';
+                  break;
+                default:
+                    break;
+          }
+      }
+
+      function addiere()
+      {
+            if(!currentValue && currentNumber.length > 0)
+            { 
+              currentValue = parseFloat(currentNumber);
+              operation = '+';
+              h = currentNumber;
+              document.getElementById('history').innerHTML = h + ' ' + operation;
+              currentNumber = '';
+              document.getElementById('currentNumber').innerHTML = '';
+            }
+          else if( currentNumber.length > 0)
+          {
+            performOperation(parseFloat(currentNumber));
+            h = h + operation + currentNumber;
+            operation = '+';
+            document.getElementById('result').innerHTML = currentValue;
+            document.getElementById('history').innerHTML =  h + ' + ';
+            currentNumber = '';
+            document.getElementById('currentNumber').innerHTML = '';
+          }
+          else if(currentValue)
+          {
+              operation = '+';
+              document.getElementById('history').innerHTML = h + ' ' + operation;
+          }
+        }
+
+      function substract()
+      {
+            if(!currentValue && currentNumber.length > 0)
+            { 
+              currentValue = parseFloat(currentNumber);
+              operation = '-';
+              h = currentNumber;
+              document.getElementById('history').innerHTML = h + ' ' + operation;
+              currentNumber = '';
+              document.getElementById('currentNumber').innerHTML = '';
+            }
+          else if( currentNumber.length > 0)
+          {
+            performOperation(parseFloat(currentNumber));
+            document.getElementById('result').innerHTML = currentValue;
+            h = h + operation + currentNumber;
+            operation = '-';
+            document.getElementById('history').innerHTML = h + ' - ';
+            currentNumber = '';
+            document.getElementById('currentNumber').innerHTML = '';
+          }
+          else if(currentValue)
+          {
+              operation = '-';
+              document.getElementById('history').innerHTML = h + ' ' + operation;
+          }
+      }
+
+      function multiply()
+      {
+            if(!currentValue && currentNumber.length > 0)
+            { 
+              currentValue = parseFloat(currentNumber);
+              operation = '*';
+              h = currentNumber;
+              document.getElementById('history').innerHTML = h + ' ' + operation;
+              currentNumber = '';
+              document.getElementById('currentNumber').innerHTML = '';
+            }
+          else if( currentNumber.length > 0)
+          {
+            performOperation(parseFloat(currentNumber));
+            document.getElementById('result').innerHTML = currentValue;
+            h = h + operation + currentNumber;
+            operation = '*';
+            document.getElementById('history').innerHTML = h + ' * ';
+            currentNumber = '';
+            document.getElementById('currentNumber').innerHTML = '';
+          }
+          else if(currentValue)
+          {
+              operation = '*';
+              document.getElementById('history').innerHTML = h + ' ' + operation;
+          }
+      }
+
+      function divide()
+      {
+            if(!currentValue && currentNumber.length > 0)
+            { 
+              currentValue = parseFloat(currentNumber);
+              operation = '/';
+              h = currentNumber;
+              document.getElementById('history').innerHTML = h + ' ' + operation;
+              currentNumber = '';
+              document.getElementById('currentNumber').innerHTML = '';
+            }
+          else if( currentNumber.length > 0)
+          {
+            performOperation(parseFloat(currentNumber));
+            document.getElementById('result').innerHTML = currentValue;
+            h = h + operation + currentNumber;
+            operation = '/';
+            document.getElementById('history').innerHTML = h + ' / ';
+            currentNumber = '';
+            document.getElementById('currentNumber').innerHTML = '';
+          }
+          else if(currentValue)
+          {
+              operation = '/';
+              document.getElementById('history').innerHTML = h + ' ' + operation;
+          } 
+      }
+
+      function clearNumber()
+      {
+          currentNumber = '';
+          document.getElementById('currentNumber').innerHTML = '';
+          console.log('hallo');
+      }
+
+      function clearEverything()
+      {
+        currentValue = 0;
+        currentNumber = '';
+        document.getElementById('currentNumber').innerHTML = '';
+        document.getElementById('result').innerHTML = '';
+        document.getElementById('history').innerHTML = '';
+
+      }
+
+      function result()
+      {
+          if(currentNumber.length > 0 && operation.length > 0)
+          {
+            performOperation(parseFloat(currentNumber));
+            document.getElementById('result').innerHTML = currentValue;
+            h = h + operation + currentNumber;
+            operation = '';
+            document.getElementById('history').innerHTML = h;
+          }
+          currentNumber = '';
+          document.getElementById('currentNumber').innerHTML = '';
+      }
+
+  </script>
+  <body>
+      <label> History: </label>
+      <label id="history"></label>
+      <br/>
+      <label id="currentNumber"> </label>
+      <br/>
+      <label> Ergebnis: </label>
+      <label id="result"></label>
+      <br/>
+    <button onclick="addiere()"> + </button>
+    <button onclick="substract()"> - </button>
+    <button onclick="multiply()"> * </button >
+    <button onclick="divide()"> / </button >
+    <br/>
+    <button onclick="addDigit(7)"> 7 </button>
+    <button onclick="addDigit(8)"> 8 </button>
+    <button onclick="addDigit(9)"> 9 </button> 
+     <br/>
+    <button onclick="addDigit(6)"> 4 </button>
+    <button onclick="addDigit(5)"> 5 </button>
+    <button onclick="addDigit(4)"> 6 </button>
+    <br/>
+    <button  onclick="addDigit(1)"> 1 </button>
+    <button  onclick="addDigit(2)"> 2 </button>
+    <button onclick="addDigit(3)"> 3 </button>
+    <br/>
+    <button onclick="addDigit(0)"> 0 </button>
+    <button onclick="clearNumber()"> C </button>
+    <button onclick="clearEverything()"> CE </button>
+    <button onclick="result()"> = </button>
+  </body>
+</html>
