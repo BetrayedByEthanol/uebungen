@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .hhh {
+            background-color: lightgray;
+            text-align: center;
+            padding: 25px;
+            font-size: 25px;
+            border: 3px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div id="Display" style="width: 10cm; background-color: lightcyan; padding: 5mm; font-size: 1cm; border: 3px solid black; text-align: right; overflow: hidden;">0</div>
+    <div style="display: grid; background-color: green; width: 10cm; padding: 5mm; grid-gap: 2mm; grid-template-columns: auto auto auto auto;">
+        <div onclick="button1()" class="hhh">1</div>
+        <div onclick="button2()" class="hhh">2</div onclick="button1()">
+        <div onclick="button3()" class="hhh">3</div onclick="button1()">
+        <div onclick="buttonplus()" class="hhh">+</div>
+        <div onclick="button4()" class="hhh">4</div onclick="button1()">
+        <div onclick="button5()" class="hhh">5</div onclick="button1()">
+        <div onclick="button6()" class="hhh">6</div onclick="button1()">
+        <div onclick="buttonminus()" class="hhh">-</div>
+        <div onclick="button7()" class="hhh">7</div onclick="button1()">
+        <div onclick="button8()" class="hhh">8</div onclick="button1()">
+        <div onclick="button9()" class="hhh">9</div onclick="button1()">
+        <div onclick="buttonmal()" class="hhh">*</div>
+        <div onclick="buttonclear()" class="hhh">C</div>
+        <div onclick="button0()" class="hhh">0</div onclick="button1()">
+        <div onclick="buttongleich()" class="hhh">=</div>
+        <div onclick="buttongeteilt()" class="hhh">/</div>
+    </div>
+    <script>
+        var number = 0;
+        var prepOperation = 0;
+        var operant = 0;
+        function button1() {
+            number *= 10;
+            number += 1;
+            document.getElementById('Display').innerHTML = number;
+        }
+        function button2() {
+            number *= 10;
+            number += 2;
+            document.getElementById('Display').innerHTML = number;
+        }
+        function button3() {
+            number *= 10;
+            number += 3;
+            document.getElementById('Display').innerHTML = number;
+        }
+        function button4() {
+            number *= 10;
+            number += 4;
+            document.getElementById('Display').innerHTML = number;
+        }
+        function button5() {
+            number *= 10;
+            number += 5;
+            document.getElementById('Display').innerHTML = number;
+        }
+        function button6() {
+            number *= 10;
+            number += 6;
+            document.getElementById('Display').innerHTML = number;
+        }
+        function button7() {
+            number *= 10;
+            number += 7;
+            document.getElementById('Display').innerHTML = number;
+        }
+        function button8() {
+            number *= 10;
+            number += 8;
+            document.getElementById('Display').innerHTML = number;
+        }
+        function button9() {
+            number *= 10;
+            number += 9;
+            document.getElementById('Display').innerHTML = number;
+        }
+        function button0() {
+            number *= 10;
+            document.getElementById('Display').innerHTML = number;
+        }
+        function buttonplus() {
+            buttongleich();
+            operant = 1;
+            prepOperation = number;
+            number = 0;
+        }
+        function buttonminus() {
+            buttongleich();
+            operant = 2;
+            prepOperation = number;
+            number = 0;
+            
+        }
+        function buttonmal() {
+            buttongleich();
+            operant = 3;
+            prepOperation = number;
+            number = 0;
+            
+        }
+        function buttongeteilt() {
+            buttongleich();
+            operant = 4;
+            prepOperation = number;
+            number = 0;
+            
+        }
+        function buttonclear() {
+            number = 0;
+            prepOperation = 0;
+            operant = 0;
+            document.getElementById('Display').innerHTML = number;
+        }
+        function buttongleich() {
+            if(operant != 0) {
+                switch(operant) {
+                    case 1:
+                        number = prepOperation + number;
+                        break;
+                    case 2:
+                        number = prepOperation - number;
+                        break;
+                    case 3:
+                        number = prepOperation * number;
+                        break;
+                    case 4:
+                        number = prepOperation / number;
+                        break;
+                    default:
+                        alert('Operator Error');
+                }
+                prepOperation = 0;
+                operant = 0;
+            }
+            document.getElementById('Display').innerHTML = number;
+        }
+    </script>
+</body>
+</html>
