@@ -1,18 +1,19 @@
 
-var zitat = document.getElementById('zitat');
 var quotes = null;
 
 var wennGeladen = function () {
     quotes = JSON.parse(http.responseText);
 
-    const zitat = document.getElementById('zitat');
-    zitat.innerText = quotes[0].quote;
+    const zitatElement = document.getElementById('zitat');
+    const randomIndex = Math.floor(Math.random() * quotes.length);
 
-    const ausbilderquote = quotes.find(quote => quote.id == 'ausbilderquote');
+    zitatElement.innerText = quotes[randomIndex].quote;
 
+    const ausbilderquote = quotes.find(quote => quote.author.age == 'ausbilderquote');
+    
     const ausbilderquoteElement = document.getElementById('ausbilderquote');
     const ausbilderquoteAuthor = document.getElementById('ausbilderquoteAuthor');
-    
+
     ausbilderquoteElement.innerText = ausbilderquote.quote;
     ausbilderquoteAuthor.innerText = ausbilderquote.author.name;
 }
