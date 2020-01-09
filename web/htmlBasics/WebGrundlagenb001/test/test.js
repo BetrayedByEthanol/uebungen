@@ -34,4 +34,11 @@ describe("Sind Dateien vorhanden", function() {
       });
     });
   });
+  describe("web/htmlBasic/WebGrundlagenb001/src/19??taschenrechner.html ist vorhanden", function() {
+    tn.forEach(teilnehmer => {
+      it(`${teilnehmer}taschenrechner.html`, function() {
+        expect(`src/${teilnehmer}taschenrechner.html`).to.be.a.file();
+      });
+    });
+  });
 });
