@@ -10,16 +10,28 @@
         },
         "quote": "It does not do to dwell on dreams and forget to live.",
         "tags": ["Harry Potter", "Movies", "Books", "England"]
+},
+{
+    "id": "ausbilderquote",
+    "author": {
+        "name": "Konfuzius (551 - 479 v. Chr.)",
+        "origin": "China",
+        "alive": false,
+        "gender": "male"
     },
-    {
-        "id": "ausbilderquote",
-        "author": {
-            "name": "Konfuzius (551 - 479 v. Chr.)",
-            "origin": "China",
-            "alive": false,
-            "gender": "male"
-        },
-        "quote": "Wähle einen Beruf, den du liebst, und du braucht nie wieder zu arbeiten.",
-        "tags": ["China", "philosophy"]
-    }
+    "quote": "Wähle einen Beruf, den du liebst, und du braucht nie wieder zu arbeiten.",
+    "tags": ["China", "philosophy"]
+},
+{
+    "id": "19niekequote",
+    "author": {
+        "name": "Jordan Peterson ",
+        "origin": "Canada",
+        "alive": true,
+        "gender": "male"
+    },
+    "quote": "Don't compare yourself with other people; compare yourself with who you were yesterday.",
+    "tags": ["life advice", "philosophy"]
+}
+
 ]
