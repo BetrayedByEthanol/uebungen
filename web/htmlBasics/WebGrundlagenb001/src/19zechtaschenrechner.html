@@ -38,72 +38,12 @@
         <div style="font-size: 20px;"">Brute Force can sometimes kick down a locked door, but knowledge is a skeleton key.</div>
     </header>
     <main class="main">
-        <script>
-              var MORSE_CODE = { 
-    '.-':     'a',
-    '-...':   'b',
-    '-.-.':   'c',
-    '-..':    'd',
-    '.':      'e',
-    '..-.':   'f',
-    '--.':    'g',
-    '....':   'h',
-    '..':     'i',
-    '.---':   'j',
-    '-.-':    'k',
-    '.-..':   'l',
-    '--':     'm',
-    '-.':     'n',
-    '---':    'o',
-    '.--.':   'p',
-    '--.-':   'q',
-    '.-.':    'r',
-    '...':    's',
-    '-':      't',
-    '..-':    'u',
-    '...-':   'v',
-    '.--':    'w',
-    '-..-':   'x',
-    '-.--':   'y',
-    '--..':   'z',
-    '.----':  '1',
-    '..---':  '2',
-    '...--':  '3',
-    '....-':  '4',
-    '.....':  '5',
-    '-....':  '6',
-    '--...':  '7',
-    '---..':  '8',
-    '----.':  '9',
-    '-----':  '0',
-  };
-
-var morseCode = document.getElementById('display')
-var decodeMorse = function(morseCode){
-  var words = (morseCode).split('  ');
-  var letters = words.map((w) => w.split(' '));
-  var decoded = [];
-
-  for(var i = 0; i < letters.length; i++){
-    decoded[i] = [];
-    for(var x = 0; x < letters[i].length; x++){
-        if(MORSE_CODE[letters[i][x]]){
-            decoded[i].push( MORSE_CODE[letters[i][x]] );
-        }
-    }
-  }
-
-  taschenrechner.display.value = decoded.map(arr => arr.join('')).join(' ');
-}
-        </script>
-
+    <script src="data/morse.js"></script>
         <p id="Project1">
             <h2 style="text-align: center;">Calculator</h2>
             <p>
                 This is a Calculator written in only HTML, CSS and Javascript. It can perform the 4 basic mathematical operations as well as decimal numbers. The user can click on the buttons
                 to operate the calculator.
-                <br>
-                <center>Try .... SPC .- SPC .-.. SPC .-.. SPC --- MS</center>
             </p>
             <form name="taschenrechner">
                 <table class="calc" align="center">

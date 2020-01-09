@@ -23,6 +23,17 @@
         "tags": ["China", "philosophy"]
     },
     {
+        "id": "19niekequote",
+        "author": {
+            "name": "Jordan Peterson ",
+            "origin": "Canada",
+            "alive": true,
+            "gender": "male"
+        },
+        "quote": "Don't compare yourself with other people; compare yourself with who you were yesterday.",
+        "tags": ["life advice", "philosophy"]
+    },
+    {
         "id": "petersquote",
         "author": {
             "name": "Kühn-Görg, Monika",

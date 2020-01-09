@@ -5,13 +5,14 @@
         <title>ptrshtml5</title>
         <style>
             .inputfield{
-                width: 150px;
+                width: 155px;
                 height: 30px;
                 background-color: lightblue;
                 text-align: right;
             }
             .num{
                 text-align: left;
+                float: left;
             }
             .num button{
                 width: 50px;
@@ -41,6 +42,10 @@
             <img src="img/werbung.png" alt="werbung">
             <div class="num">
                 <div class="inputfield">0</div>
+                <button onclick="operator('+');">+</button>
+                <button onclick="operator('-');">-</button>
+                <button onclick="operator('*');">*</button>
+                <button onclick="operator('/');">/</button><br>
                 <button onclick="buttonclick(1);">1</button>
                 <button onclick="buttonclick(2);">2</button>
                 <button onclick="buttonclick(3);">3</button><br>
@@ -50,20 +55,54 @@
                 <button onclick="buttonclick(7);">7</button>
                 <button onclick="buttonclick(8);">8</button>
                 <button onclick="buttonclick(9);">9</button><br>
+                <button onclick="clearc();">c</button>
                 <button onclick="buttonclick(0);">0</button>
+                <button onclick="fin();">=</button>
             </div>
         </aside>
         <script>
             var inputnum = [0];
+            var zahl1 = 0;
+            var zahl2 = 0;
+            var t = 0;
+            var ope1 = '0';
+            var field = document.getElementsByClassName("inputfield")[0];
             function buttonclick(numb) {
                 if (inputnum == 0) {inputnum = [numb];}
                 else {inputnum.push(numb)}
-                var field = document.getElementsByClassName("inputfield")[0];
                 field.innerHTML = inputnum[0];
                 for (i = 1; i < inputnum.length; i++) {
                     field.innerHTML += inputnum[i];
                 }
+                if (t == 0) zahl1 = parseInt(field.innerHTML);
+                else zahl2 = parseInt(field.innerHTML);
                 console.log(field.innerHTML);
+            }
+            function operator(op) {
+                if (zahl1 == 0) return;
+                if (t == 1) {
+                    if (ope1 == '+') zahl1 += zahl2;
+                    field.innerHTML = zahl1;
+                }
+                inputnum = [0];
+                ope1 = op;
+                t = 1;
+            }
+            function fin() {
+                if (t != 1) return;
+                if (ope1=='+') zahl1 += zahl2;
+                field.innerHTML = zahl1;
+                inputnum = [0];
+                zahl2 = 0;
+                t = 0;
+            }
+            function clearc() {
+            field.innerHTML = 0;
+            zahl1 = 0;
+            zahl2 = 0;
+            inputnum = [0];
+            t= 0;
+            ope1 = '0';
             }
         </script>
     </body>
