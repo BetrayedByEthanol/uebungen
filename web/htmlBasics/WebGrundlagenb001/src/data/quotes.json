@@ -43,5 +43,16 @@
         },
         "quote": "Zitate vebreiten kann ein jeder, stammen sie nicht aus eigener Feder.",
         "tags": ["Random"]
+},
+{
+        "id" : "19zechquote",
+        "author": {
+            "name": "The Cults",
+            "origin": "Go Outside",
+            "alive": true,
+            "gender": "NA"
+        },
+        "quote": "I think it's good to go out 'Cause if you don't you'll never make a memory that will stay",
+        "tags": ["Music"]
     }
 ]
