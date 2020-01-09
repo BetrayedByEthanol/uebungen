@@ -47,12 +47,12 @@
           }
       }
 
-      function addiere()
+      function calc(param)
       {
             if(!currentValue && currentNumber.length > 0)
             { 
               currentValue = parseFloat(currentNumber);
-              operation = '+';
+              operation = param;
               h = currentNumber;
               document.getElementById('history').innerHTML = h + ' ' + operation;
               currentNumber = '';
@@ -62,115 +62,29 @@
           {
             performOperation(parseFloat(currentNumber));
             h = h + operation + currentNumber;
-            operation = '+';
+            operation = param;
             document.getElementById('result').innerHTML = currentValue;
-            document.getElementById('history').innerHTML =  h + ' + ';
+            document.getElementById('history').innerHTML =  h + param;
             currentNumber = '';
             document.getElementById('currentNumber').innerHTML = '';
           }
           else if(currentValue)
           {
-              operation = '+';
+              operation = param;
               document.getElementById('history').innerHTML = h + ' ' + operation;
           }
         }
-
-      function substract()
-      {
-            if(!currentValue && currentNumber.length > 0)
-            { 
-              currentValue = parseFloat(currentNumber);
-              operation = '-';
-              h = currentNumber;
-              document.getElementById('history').innerHTML = h + ' ' + operation;
-              currentNumber = '';
-              document.getElementById('currentNumber').innerHTML = '';
-            }
-          else if( currentNumber.length > 0)
-          {
-            performOperation(parseFloat(currentNumber));
-            document.getElementById('result').innerHTML = currentValue;
-            h = h + operation + currentNumber;
-            operation = '-';
-            document.getElementById('history').innerHTML = h + ' - ';
-            currentNumber = '';
-            document.getElementById('currentNumber').innerHTML = '';
-          }
-          else if(currentValue)
-          {
-              operation = '-';
-              document.getElementById('history').innerHTML = h + ' ' + operation;
-          }
-      }
-
-      function multiply()
-      {
-            if(!currentValue && currentNumber.length > 0)
-            { 
-              currentValue = parseFloat(currentNumber);
-              operation = '*';
-              h = currentNumber;
-              document.getElementById('history').innerHTML = h + ' ' + operation;
-              currentNumber = '';
-              document.getElementById('currentNumber').innerHTML = '';
-            }
-          else if( currentNumber.length > 0)
-          {
-            performOperation(parseFloat(currentNumber));
-            document.getElementById('result').innerHTML = currentValue;
-            h = h + operation + currentNumber;
-            operation = '*';
-            document.getElementById('history').innerHTML = h + ' * ';
-            currentNumber = '';
-            document.getElementById('currentNumber').innerHTML = '';
-          }
-          else if(currentValue)
-          {
-              operation = '*';
-              document.getElementById('history').innerHTML = h + ' ' + operation;
-          }
-      }
-
-      function divide()
-      {
-            if(!currentValue && currentNumber.length > 0)
-            { 
-              currentValue = parseFloat(currentNumber);
-              operation = '/';
-              h = currentNumber;
-              document.getElementById('history').innerHTML = h + ' ' + operation;
-              currentNumber = '';
-              document.getElementById('currentNumber').innerHTML = '';
-            }
-          else if( currentNumber.length > 0)
-          {
-            performOperation(parseFloat(currentNumber));
-            document.getElementById('result').innerHTML = currentValue;
-            h = h + operation + currentNumber;
-            operation = '/';
-            document.getElementById('history').innerHTML = h + ' / ';
-            currentNumber = '';
-            document.getElementById('currentNumber').innerHTML = '';
-          }
-          else if(currentValue)
-          {
-              operation = '/';
-              document.getElementById('history').innerHTML = h + ' ' + operation;
-          } 
-      }
 
       function clearNumber()
       {
           currentNumber = '';
           document.getElementById('currentNumber').innerHTML = '';
-          console.log('hallo');
       }
 
       function clearEverything()
       {
         currentValue = 0;
-        currentNumber = '';
-        document.getElementById('currentNumber').innerHTML = '';
+        clearNumber();
         document.getElementById('result').innerHTML = '';
         document.getElementById('history').innerHTML = '';
 
@@ -186,8 +100,7 @@
             operation = '';
             document.getElementById('history').innerHTML = h;
           }
-          currentNumber = '';
-          document.getElementById('currentNumber').innerHTML = '';
+          clearNumber();
       }
 
   </script>
@@ -200,10 +113,10 @@
       <label> Ergebnis: </label>
       <label id="result"></label>
       <br/>
-    <button onclick="addiere()"> + </button>
-    <button onclick="substract()"> - </button>
-    <button onclick="multiply()"> * </button >
-    <button onclick="divide()"> / </button >
+    <button onclick="calc('+')"> + </button>
+    <button onclick="calc('-')"> - </button>
+    <button onclick="calc('*')"> * </button >
+    <button onclick="calc('/')"> / </button >
     <br/>
     <button onclick="addDigit(7)"> 7 </button>
     <button onclick="addDigit(8)"> 8 </button>
