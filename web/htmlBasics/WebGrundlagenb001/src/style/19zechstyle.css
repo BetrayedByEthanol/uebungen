@@ -1,5 +1,6 @@
 body {
     box-sizing: border-box;
+    background-color: #EAEBFF;
     border: none;
     margin: 0px auto;
     height: 100%
@@ -56,7 +57,7 @@ header {
     text-align: center;
     text-decoration: none;
     padding: 14px 16px;
-    font-size: 17px;
+    font-size: 14px;
 }
 .sidebar a:hover {
     background-color: #ddd;
@@ -68,7 +69,7 @@ header {
 }
 
 .sidebar h5 {
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .sidebar li {
@@ -79,10 +80,12 @@ header {
 }
 
 .main {
+    z-index: 1;
     background-color: #EAEBFF;
     height: 100%;
     margin-left: 200px;
     padding: 15px;
+    position: relative;
 }
 
 .footer {
@@ -90,9 +93,10 @@ header {
     position: relative;
     padding: 20px;
     height: 2%;
+    width: auto;
     background-color: #42ABC5;
     color: blanchedalmond;
-    bottom: 0;
+    bottom: 1;
     padding-left: 215px;
 }
 
@@ -129,3 +133,94 @@ header {
   .zoomLogo:hover {
     transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
   }
+
+.buttonGray {
+    background-color: #e7e7e7; 
+    color: black;
+    border-radius: 2px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.buttonGreen {
+    background-color: #4CAF50;
+    border-radius: 2px ;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.buttonRed {
+    background-color: #f44336;
+    border-radius: 2px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.buttonGreen:hover {
+    background-color: #4CAF50; 
+    color: white;
+}
+
+.buttonRed:hover {
+    background-color: rgb(255, 0, 0); 
+    color: white;
+}
+
+.buttonGray:hover {
+    background-color: gray;
+    color: white;
+}
+
+.inputCalc {
+    background-color: rgb(75, 74, 74);
+    padding: 15px 32px;
+    font-size: medium;
+    text-align: right; 
+    width: 81%;
+    color: white;
+}
+
+.calc {
+    background-color: silver;
+    border: 1px solid black;
+}
+
+.footerCalc {
+    z-index: 0;
+    position: fixed;
+    padding: 20px;
+    height: 2%;
+    width: 100%;
+    background-color: #42ABC5;
+    color: blanchedalmond;
+    bottom: 0;
+    padding-left: 215px;
+}
+
+.footerCalc a {
+    color: #f2f2f2;
+    text-align: center;
+    text-decoration: none;
+    padding: 14px 16px;
+    font-size: 17px;
+}
+
+.footerCalc a:hover {
+    background-color: #ddd;
+    color: black;
+}
