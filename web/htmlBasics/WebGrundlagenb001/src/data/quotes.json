@@ -21,5 +21,16 @@
         },
         "quote": "Wähle einen Beruf, den du liebst, und du braucht nie wieder zu arbeiten.",
         "tags": ["China", "philosophy"]
+    },
+    {
+        "id": "petersquote",
+        "author": {
+            "name": "Kühn-Görg, Monika",
+            "origin": "Alemania",
+            "alive": "unkown",
+            "gender": "female"
+        },
+        "quote": "Zitate vebreiten kann ein jeder, stammen sie nicht aus eigener Feder.",
+        "tags": ["Random"]
     }
 ]
