@@ -3,19 +3,21 @@
         "name": "J.K. Rowling",
         "origin": "Wales",
         "alive": true,
-        "gender": "female"
+        "gender": "female",
+        "age": 64
     },
     "quote": "It does not do to dwell on dreams and forget to live.",
     "tags": ["Harry Potter", "Movies", "Books", "England"]
 },
 {
+    "id": "ausbilderquote",
     "author": {
-        "name": "Jonathan Swift",
-        "origin": "Ireland",
+        "name": "Konfuzius (551 - 479 v. Chr.)",
+        "origin": "China",
         "alive": false,
         "gender": "male"
     },
-    "quote": "Genau genommen leben sehr wenige Menschen in der Gegenwart, die meisten bereiten sich gerade darauf vor demnächst zu leben.",
-    "tags": ["Books", "England"]
+    "quote": "Wähle einen Beruf, den du liebst, und du braucht nie wieder zu arbeiten.",
+    "tags": ["China", "philosophy"]
 }
 ]
