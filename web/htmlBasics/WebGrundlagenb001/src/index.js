@@ -8,7 +8,8 @@ var wennGeladen = function () {
     const randomIndex = Math.floor(Math.random() * quotes.length);
 
     const ausbilderquote = quotes.find(quote => quote.id == 'ausbilderquote');
-
+    const niekequote = quotes.find(quote => quote.id == '19niekequote');
+    
     const ausbilderquoteElement = document.getElementById('ausbilderquote');
     const ausbilderquoteAuthor = document.getElementById('ausbilderquoteAuthor');
     const niekequoteElement = document.getElementById('19niekequote');
