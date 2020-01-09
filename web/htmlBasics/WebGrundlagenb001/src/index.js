@@ -10,7 +10,7 @@ var wennGeladen = function () {
 
     const ausbilderquote = quotes.find(quote => quote.id == 'ausbilderquote');
     const niekequote = quotes.find(quote => quote.id == '19niekequote');
-    const zechquote = quotes.find(quote => quote.author == 'zechquote');
+    const zechquote = quotes.find(quote => quote.id == '19zechquote');
     
     const ausbilderquoteElement = document.getElementById('ausbilderquote');
     const ausbilderquoteAuthor = document.getElementById('ausbilderquoteAuthor');
@@ -23,6 +23,8 @@ var wennGeladen = function () {
     ausbilderquoteAuthor.innerText = ausbilderquote.author.name;
     niekequoteElement.innerText = niekequote.quote;
     niekequoteAuthor.innerText = niekequote.author.name;
+    zechquoteElement.innerText = zechquote.quote;
+    zechquoteAuthor.innerText = zechquote.author.name;
 
 }
 
