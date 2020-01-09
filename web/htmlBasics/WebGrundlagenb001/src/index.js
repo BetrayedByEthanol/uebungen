@@ -9,13 +9,13 @@ var wennGeladen = function () {
 
     zitatElement.innerText = quotes[randomIndex].quote;
 
-    const ausbilderquote = quotes.find(quote => quote.author.age == 'ausbilderquote');
+    const ausbilderquote = quotes.find(quote => quote.id == 'ausbilderquote');
     
     const ausbilderquoteElement = document.getElementById('ausbilderquote');
-    const ausbilderquoteAuthor = document.getElementById('ausbilderquoteAuthor');
+    const ausbilderquoteAuthorElement = document.getElementById('ausbilderquoteAuthor');
 
     ausbilderquoteElement.innerText = ausbilderquote.quote;
-    ausbilderquoteAuthor.innerText = ausbilderquote.author.name;
+    ausbilderquoteAuthorElement.innerText = ausbilderquote.author.name;
 }
 
 const http = new XMLHttpRequest();
