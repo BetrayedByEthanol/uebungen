@@ -32,6 +32,16 @@
     },
     "quote": "Don't compare yourself with other people; compare yourself with who you were yesterday.",
     "tags": ["life advice", "philosophy"]
-}
-
+},
+{
+        "id" : "zechquote",
+        "author": {
+            "name": "The Cults",
+            "origin": "Go Outside",
+            "alive": true,
+            "gender": "NA"
+        },
+        "quote": "I think it's good to go out 'Cause if you don't you'll never make a memory that will stay",
+        "tags": ["Music"]
+    }
 ]
