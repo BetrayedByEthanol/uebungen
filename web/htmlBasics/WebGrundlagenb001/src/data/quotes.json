@@ -34,7 +34,7 @@
         "tags": ["life advice", "philosophy"]
     },
     {
-        "id": "petersquote",
+        "id": "19petersquote",
         "author": {
             "name": "Kühn-Görg, Monika",
             "origin": "Alemania",
@@ -43,8 +43,8 @@
         },
         "quote": "Zitate vebreiten kann ein jeder, stammen sie nicht aus eigener Feder.",
         "tags": ["Random"]
-},
-{
+    },
+    {
         "id" : "19zechquote",
         "author": {
             "name": "The Cults",
