@@ -65,5 +65,14 @@
         },
         "quote": "Why so... serious?",
         "tags": ["Joker", "Film", "Batman"]
+    },
+    {
+        "id" : "19rosequote",
+        "author" : {
+            "name" : "chinesisches Sprichwort",
+            "origin" : "China"
+        },
+        "quote" : "Fürchte nicht schwere Arbeit, fürchte leere Reden.",
+        "tags" : ["China", "Philosophy", "Sprichwörter"]
     }
 ]
