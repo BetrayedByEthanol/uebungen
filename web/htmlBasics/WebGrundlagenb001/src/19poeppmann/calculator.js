@@ -1,3 +1,12 @@
+
+
+function eingabe(zahl) {
+  var ergebnistest
+  ergebnistest = zahl + zahl;
+  document.getElementById("anzeige").innerText = ergebnistest;
+}
+
+
 function zahl(){
     var zahl1, zahl2, operator , ergebnis;
     zahl1 = prompt("Geben Sie eine Zahl an");
@@ -34,6 +43,9 @@ switch (operator) {
       // Anweisungen werden ausgeführt,
       // falls keine der case-Klauseln mit expression übereinstimmt
       break;
-  }
+}
   alert (ergebnis);
+
+ 
+
 }
