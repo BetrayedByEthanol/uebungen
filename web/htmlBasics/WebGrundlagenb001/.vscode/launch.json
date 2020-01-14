@@ -16,11 +16,18 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Programm starten",
+            "name": "Launch app.js",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\app.js"
+            "program": "${workspaceFolder}/app.js"
+        },
+        {
+            "name": "Chrome debug localhost",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:5050/",
+            "webRoot": "${workspaceFolder}/scr"
         }
     ]
 }

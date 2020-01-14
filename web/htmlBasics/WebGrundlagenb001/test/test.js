@@ -41,4 +41,22 @@ describe("Sind Dateien vorhanden", function() {
       });
     });
   });
+
+  describe("Menü Übung", () =>{
+    describe('scr/19??/demo.html ist vorhanden', () => {
+      tn.forEach(teilnehmer => {
+        it(`${teilnehmer}`, () => {
+          expect(`src/${teilnehmer}/demo.html`).to.be.a.file();
+        });
+      });
+    });
+    describe('scr/19??/demo.js ist vorhanden', () => {
+      tn.forEach(teilnehmer => {
+        it(`${teilnehmer}`, () => {
+          expect(`src/${teilnehmer}/demo.js`).to.be.a.file();
+        });
+      });
+    });
+  });
 });
+
