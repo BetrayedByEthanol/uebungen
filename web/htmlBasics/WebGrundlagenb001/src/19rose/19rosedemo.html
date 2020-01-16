@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .navbox {
+            width: 500px;
+            height: 100px;
+            border: solid darkgrey 4px;
+            background-color: cyan;
+            color: black;
+            overflow: hidden;
+        }
+        .nav_header {
+            width: 500px;
+            height: 100px;
+            border: solid black 1px;
+            background-color: gray;
+            padding: 25px;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div onmouseover="mouseOver(div1)" onmouseout="mouseOut(div1)" onclick="klick(div1)" id="div1" class="navbox">
+        <div class="nav_header">Liste 1</div>
+        <div>
+            <ul>
+                <li>Eins</li>
+                <li>Zwei</li>
+                <li>Drei</li>
+            </ul>
+        </div>
+    </div>
+    <div onmouseover="mouseOver(div2)" onmouseout="mouseOut(div2)" onclick="klick(div2)" id="div2" class="navbox">
+        <div class="nav_header"> Liste 2</div>
+        <div>
+            <ul>
+                <li>Eins</li>
+                <li>Zwei</li>
+                <li>Drei</li>
+            </ul>
+        </div>
+    </div>
+    <div onmouseover="mouseOver(div3)" onmouseout="mouseOut(div3)" onclick="klick(div3)" id="div3" class="navbox">
+        <div class="nav_header">Liste 3</div>
+        <div>
+            <ul>
+                <li>Eins</li>
+                <li>Zwei</li>
+                <li>Drei</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var div1 = {
+            box: document.getElementById('div1'),
+            isMouseOn: false
+        }
+        var div2 ={
+            box: document.getElementById('div2'),
+            isMouseOn: false
+        }
+        var div3 ={
+            box: document.getElementById('div3'),
+            isMouseOn: false
+        }
+        var time;
+        var time2;
+        var qol = false;
+
+        function mouseOver(block) {
+            block.isMouseOn = true;
+            if(!qol) {
+                if(block == div1) {
+                    time = window.setTimeout(woosh, 500, block, 1);
+                    time2 = window.setTimeout(woosh, 700, block, 2)
+                }
+            }
+        }
+        function mouseOut(block) {
+            block.isMouseOn = false;
+            
+            if(!qol) {
+                block.box.style.height = '100px';
+            }
+        }
+        function klick(block) {
+            if(qol == false) {
+                qol = true;
+                block.box.style.height = '200px';
+                closeDiv(block);
+            }else if((qol = true) && (block.box.style.height == '200px')) {
+                qol = false;
+                block.box.style.height = '100px';
+            }else if((qol = true) && (block.box.style.height == '100px')) {
+                block.box.style.height = '200px';
+                closeDiv(block);
+            }
+        }
+        function closeDiv(num) {
+            switch(num) {
+                case div1:
+                div2.box.style.height = '100px';
+                div3.box.style.height = '100px';
+                break;
+                case div2:
+                div1.box.style.height = '100px';
+                div3.box.style.height = '100px';
+                break;
+                case div3:
+                div1.box.style.height = '100px';
+                div2.box.style.height = '100px';
+                break;
+                default: ;
+            }
+        }
+        function woosh(block, nub) {
+            if(block.isMouseOn) {
+                if(nub == 1) {
+                    block.box.style.height = '150px';
+                }
+                if(nub == 2) {
+                    block.box.style.height = '200px';
+                }
+            } else {
+                switch(block) {
+                    case div1:
+                    window.clearTimeout(time);
+                    window.clearTimeout(time2);
+                    break;
+                    default: ;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

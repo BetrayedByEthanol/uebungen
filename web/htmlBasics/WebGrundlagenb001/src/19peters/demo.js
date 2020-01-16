@@ -1,21 +1,28 @@
-var t = 0;
 var height = 1;
 
 function open_cont(num) {
     var conta = document.getElementsByClassName("cont")[num];
-    if (conta.style.display == "none") {conta.style.display = "block"
-        conta.style.height = height + "px";
+    if (conta.style.display == "none") {
+        conta.style.display = "block";
+        conta.firstElementChild.style.display = "none";
         const inter = setInterval(function() {
             height += 1;
             conta.style.height = height + "px";
-            t += 1;
-            console.log(t);
-            if (t >= 100) {
+            if (height >= 100) {
                 clearInterval(inter);
-                t = 0;
-                height = 1;
+                conta.firstElementChild.style.display = "block";
             }
         }, 10);
     }  
-    else {conta.style.display = "none"}
+    else {
+        conta.firstElementChild.style.display = "none";
+        const onter = setInterval(function() {
+            height += -1;
+            conta.style.height = height + "px";
+            if (height <= 1) {
+                clearInterval(onter);
+                conta.style.display = "none";
+            }
+        }, 10);
+    }
 }
