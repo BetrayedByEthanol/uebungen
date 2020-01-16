@@ -12,7 +12,6 @@
         .navbox {
             width: 500px;
             height: 100px;
-            border: solid darkgrey 4px;
             background-color: cyan;
             color: black;
             overflow: hidden;
@@ -61,83 +60,86 @@
     <script>
         var div1 = {
             box: document.getElementById('div1'),
-            isMouseOn: false
+            isMouseOn: false,
+            isClicked: false,
+            newHeight: 100,
+            heightlock: 100,
+            anima: 0
         }
         var div2 ={
             box: document.getElementById('div2'),
-            isMouseOn: false
+            isMouseOn: false,
+            isClicked: false,
+            newHeight: 100,
+            heightlock: 100,
+            anima: 0
         }
         var div3 ={
             box: document.getElementById('div3'),
-            isMouseOn: false
+            isMouseOn: false,
+            isClicked: false,
+            newHeight: 100,
+            heightlock: 100,
+            anima: 0
         }
+        const alldiv = [div1, div2, div3];
         var time;
-        var time2;
-        var qol = false;
-
         function mouseOver(block) {
             block.isMouseOn = true;
-            if(!qol) {
-                if(block == div1) {
-                    time = window.setTimeout(woosh, 500, block, 1);
-                    time2 = window.setTimeout(woosh, 700, block, 2)
-                }
+            block.anima = 10 - block.anima;
+            if(alldiv.every(test => {return test.isClicked == false})) {
+                checkblock(block);
             }
         }
         function mouseOut(block) {
             block.isMouseOn = false;
-            
-            if(!qol) {
-                block.box.style.height = '100px';
+            block.anima = 10 - block.anima;
+            if(alldiv.every(test => {return test.isClicked == false})) {
+                checkblock(block);
             }
         }
         function klick(block) {
-            if(qol == false) {
-                qol = true;
-                block.box.style.height = '200px';
-                closeDiv(block);
-            }else if((qol = true) && (block.box.style.height == '200px')) {
-                qol = false;
-                block.box.style.height = '100px';
-            }else if((qol = true) && (block.box.style.height == '100px')) {
-                block.box.style.height = '200px';
-                closeDiv(block);
+            block.isClicked = !(block.isClicked);
+            block.anima = 0;
+            alldiv.forEach(divblock => checkblock(divblock));
+        }
+        function checkblock(block) {
+            if(block.isMouseOn == true) {
+                block.newHeight = 200;
+                dewIt(block);
+            } else {
+                block.newHeight = 100;
+                dewIt(block);
             }
         }
-        function closeDiv(num) {
-            switch(num) {
-                case div1:
-                div2.box.style.height = '100px';
-                div3.box.style.height = '100px';
-                break;
-                case div2:
-                div1.box.style.height = '100px';
-                div3.box.style.height = '100px';
-                break;
-                case div3:
-                div1.box.style.height = '100px';
-                div2.box.style.height = '100px';
-                break;
-                default: ;
-            }
-        }
-        function woosh(block, nub) {
-            if(block.isMouseOn) {
-                if(nub == 1) {
-                    block.box.style.height = '150px';
-                }
-                if(nub == 2) {
-                    block.box.style.height = '200px';
+        function dewIt(block) {
+            if(block.isClicked == true) {
+                //FAST
+                block.box.style.height = block.newHeight + 'px';
+                if(block.newHeight == 100) {
+                    block.isClicked = false;
                 }
             } else {
-                switch(block) {
-                    case div1:
-                    window.clearTimeout(time);
-                    window.clearTimeout(time2);
-                    break;
-                    default: ;
+                //SLOW
+                if(block.heightlock != block.newHeight) {
+                    time = window.setTimeout(swooshaa, 10, block);
                 }
             }
+        }
+        function swooshaa(block) {
+            if(block.anima > 0) {
+                var summe = (block.anima - 1) * 10;
+                switch(block.newHeight) {
+                    case 100:
+                        block.box.style.height = block.newHeight + summe + 'px';
+                        break;
+                    case 200:
+                        block.box.style.height = block.newHeight - summe + 'px';
+                }
+                block.anima--;
+                time = window.setTimeout(swooshaa, 10, block);
+            }
+            block.heightlock = block.newHeight;
         }
     </script>
 </body>
