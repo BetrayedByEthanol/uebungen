@@ -1,0 +1,63 @@
+.button {
+    background-color: rgb(156, 30, 100); 
+    border: solid;
+    color: white;
+    padding: 25px 60px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    border-color: rgb(156, 30, 100) ;
+    transition: max-height 0.2s ease-out;
+    
+  }
+
+  .button:hover{
+      background-color: rgb(146, 146, 153) ;
+      border-color: rgb(156, 30, 100);
+      border-width: 3px;
+      color: rgb(156, 30, 100);
+  }
+
+  .table{
+      font-size: 20px;
+      color: rgb(156, 30, 100);
+      list-style-type: square;
+      font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  body {
+    box-sizing: border-box;
+    background-color: rgb(146, 146, 153);
+    border: none;
+    margin: 0px auto;
+    height: 100%
+}
+.collapsible {
+  background-color: rgb(156, 30, 100);
+  color: white;
+  cursor: pointer;
+  padding: 25px;
+  width: 200px;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 25px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  display: inline-block;
+}
+
+.active, .collapsible:hover {
+    background-color: rgb(226, 203, 235) ;
+    color: rgb(156, 30, 100);
+}
+
+.content {
+  padding: 0 10px;
+  width: 14.5%; 
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #d49898;
+  
+}

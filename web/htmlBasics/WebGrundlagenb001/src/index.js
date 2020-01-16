@@ -13,17 +13,16 @@ var wennGeladen = function () {
     gruppe.forEach(teilnehmer => {
 
         const quoteID = teilnehmer + 'quote';
-        const quote  = quotes.find(quote => quote.id == quoteID);
+        const quote = quotes.find(quote => quote.id == quoteID);
         const quoteElement = document.getElementById(quoteID);
         const quoteAuthorElement = document.getElementById(quoteID + 'Author');
-      
+
         if (quote && quoteElement && quoteAuthorElement) {
-            quoteElement.innerText = quote.quote ;
+            quoteElement.innerText = quote.quote;
             quoteAuthorElement.innerText = quote.author.name;
         };
 
     });
-
 }
 
 const http = new XMLHttpRequest();
