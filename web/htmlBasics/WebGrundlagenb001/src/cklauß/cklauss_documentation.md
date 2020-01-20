@@ -1,6 +1,8 @@
 # Project Cklauß Dokumentation
 Projectleiter: Mr. Heimburger<br>
-Koordinator: 
+Koordinator: Dennis<br>
+Maskottchen: Cklauß die Kängurumaus
+
 ## Tasks
 | Aufgabe | Arbeiter | difficulty | time |
 |---|---|---|---|
@@ -11,12 +13,19 @@ Koordinator:
 |Dokumentation|Benjamin|easy|3h
 
 ## Statusbericht Montag 1.5h nach Beginn
-- HTML<br>
-
-- CSS<br>
-
-- Json<br>
-
-- Java Script<br>
-
-- Dokumentation<br>
+- **HTML**<br>
+    Grundgerüst erstellt<br>
+    CSS und Java Script Datei eingebunden<br>
+    Reload-Button erstellt<p>
+- **CSS**<br>
+    Farbpalette definiert und dem Text zugewiesen<br>
+    Formatierung des Maincontainer definiert<p>
+- **Json**<br>
+    Ungefähr 100 Phrase Objekte mit Kategorie erstellt<p>
+- **Java Script**<br>
+    Wenn_geladen-Funktion erstellt<br>
+    Refresh-Funktion erstellt<p>
+- **Dokumentation**<br>
+    Project Dokument erstellt<br>
+    Tasks dokumentiert<br>
+    Statusbericht jeden Arbeiters eingeholt<p>
