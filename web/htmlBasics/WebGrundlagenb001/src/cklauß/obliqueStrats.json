@@ -168,277 +168,431 @@
         "category": "Self-Care"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Do the words need changing?",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Do we need holes?",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Emphasize differences.",
+        "category": ["New Perspective", "Self-Confidence"]
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Emphasize repetitions.",
+        "category": "Self-Confidence"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Emphasize the flaws.",
+        "category": "Self-Confidence"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Faced with a choice, do both.",
+        "category": "Self-Confidence"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Feedback recordings into an acoustic situation.",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Fill every beat with something.",
+        "category": "Growth"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Get your neck massaged.",
+        "category": "Self-Care"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Ghost echoes.",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Give the game away.",
+        "category": "Self-Care"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Give way to your worst impulse.",
+        "category": ["New Perspective", "Growth", "Self-Confidence"]
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Go slowly all the way round the outside.",
+        "category": "Self-Care" 
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Honor thy error as a hidden intention.",
+        "category": "Self-Confidence"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "How would you have done it?",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Humanize something free of error.",
+        "category": ["Technology", "New Perspective"]
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Imagine the music as a moving chain or caterpillar.",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Imagine the music as a set of disconnected events.",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Infinitesimal gradations.",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Intentions of credibility.",
+        "category": "Self-Confidence"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Intentions of nobility.",
+        "category": "Self-Confidence"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Intentions of humility.",
+        "category": "Self-Confidence"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Into the impossible.",
+        "category": "Philosophical"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Is it finished?",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Is there something missing?",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Is the tuning appropriate",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Just carry on.",
+        "category": ["Self-Care", "Self-Confidence"]
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Left channel, Right channel, Centre Channel.",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Listen in total darkness, or in a very large room, very quietly.",
+        "category": ["New Perspective", "Philosophical"]
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Listen to the quiet voice.",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Look at a very small object, look at its centre.",
+        "category": ["New Perspective", "Philosophical"]
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Look at the order in which you do things.",
+        "category": ["New Perspective", "Philosophical"]
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Look closely at the most embarrassing details and amplify them.",
+        "category": "Self-Confidence"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Check the lowest common denominator",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Make a blank valuable by putting it in an exquisite frame.",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Make an exhaustive list of everything you might do and do the last thing on the list.",
+        "category": ["Self-Care", "New Perspective", "Philosophical"]
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Make a sudden, destructive unpredictable action; incorporate.",
+        "category": ["Philosophical", "New Perspective"]
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Mechanicalize something idiosyncratic.",
+        "category": "Philosophical"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Mute and continue.",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Only one element of each kind.",
+        "category": ["Self-Care", "Growth"]
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Organic Machinery",
+        "category": "Technology"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Overtly resist change.",
+        "category": "Self-Confidence"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Put in earplugs.",
+        "category": "Self-Care"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Remember those quiet evenings.",
+        "category": "Self-Care"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Remove ambiguities and convert to specifics.",
+        "category": "Philosophical"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Repetition is a form of change.",
+        "category": "Philosophical"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Reverse.",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Short Circuit. Example: A man eating peas with the idea that they will improve his virility, shovels them straight into his lap.",
+        "category": "Philosophical"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Shut the door and listen from the outside.",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Simple subtraction.",
+        "category": "Philosophical"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Spectrum analysis.",
+        "category": "Technology"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Take a break.",
+        "category": "Self-Care"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Take away elements in order of non-importance.",
+        "category": ["Growth", "Self-Care", "Philosophical"]
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Tape your mouth.",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "The inconsistency principle.",
+        "category": "Philosophical"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "The tape is now the music.",
+        "category": "Philosophical"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Think of the radio.",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Tidy up.",
+        "category": "Self-Care"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Trust in the you of now.",
+        "category": "Self-Confidence"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Turn it upside down.",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Twist the spine.",
+        "category": "Growth"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Use an old idea.",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Us an unacceptable colour.",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Use fewer notes.",
+        "category": "Self-Care"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Use filters.",
+        "category": "Self-Care"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Use 'unqualified' people.",
+        "category": "New Perspective"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "Water.",
+        "category": "Self-Care"
     },
     {
-        "phrase": ,
-        "category": 
+        "phrase": "What are you really thinking about just now? Incorporate.",
+        "category": "Philosophical"
     },
-    
-
+    {
+        "phrase": "What is the reality of the situation?",
+        "category": "Philosophical"
+    },
+    {
+        "phrase": "What mistakes did you make last time?",
+        "category": ["Philosophical", "New Perspective"]
+    },
+    {
+        "phrase": "What would your closest friend do?",
+        "category": "New Perspective"
+    },
+    {
+        "phrase": "What wouldn't you do?",
+        "category": ["New Perspective", "Philosophical"]
+    },
+    {
+        "phrase": "Work at a different speed.",
+        "category": "Self-Care"
+    },
+    {
+        "phrase": "You are an engineer.",
+        "category": ["Self-Confidence", "Technology"]
+    },
+    {
+        "phrase": "You can only make one dot at a time.",
+        "category": "Self-Care"
+    },
+    {
+        "phrase": "You don't have to be ashamed of using your own ideas.",
+        "category": "Self-Confidence"
+    },
+    {
+        "phrase": "The only sin is to make a choice without knowing you are making one.",
+        "category": ["Philosophical", "Programming"]
+    },
+    {
+        "phrase": "Does this need a program or could I use another tool?",
+        "category": "Programming"
+    },
+    {
+        "phrase": "Complexity has nothing to do with intelligence, simplicity does.",
+        "category": ["Philosophical", "Programming"]
+    },
+    {
+        "phrase": "The ability to simplify means to eliminate the unnecessary so that the necessary may speak.",
+        "category": ["Philosophical", "Self-Care", "Programming"]
+    },
+    {
+        "phrase": "The key to performance is elegance, not battalions of special cases.",
+        "category": ["Philosophical", "Programming"]
+    },
+    {
+        "phrase": "I have always found that plans are useless, but planning is indispensable.",
+        "category": ["Self-Care", "Programming", "Philosophical"]
+    },
+    {
+        "phrase": "It is not that uncommon for the cost of abstraction to outweigh the benefit it delivers. Kill one today!",
+        "category": ["Philosophical", "Programming"]
+    },
+    {
+        "phrase": "Shear off a layer.",
+        "category": ["Self-Care", "Programming"]
+    },
+    {
+        "phrase": "Simplicity is the prerequisite for reliability.",
+        "category": "Programming"
+    },
+    {
+        "phrase": "The inability to name an abstraction is an indication of its complexity, not that naming things is hard.",
+        "category": ["Philosophical", "Programming"]
+    },
+    {
+        "phrase": "List dependencies to determine order of completion.",
+        "category": "Programming"
+    },
+    {
+        "phrase": "Simplicity is hard to build, easy to use, and hard to charge for. Complexity is easy to build, hard to use, and easy to charge for.",
+        "category": "Programming"
+    },
+    {
+        "phrase": "There's nothing in computing that can't be broken by another level of indirection.",
+        "category": "Programming" 
+    },
+    {
+        "phrase": "Do it both ways.",
+        "category": ["Programming", "New Perspective", "Growth"]
+    },
+    {
+        "phrase": "Is this abstraction delivering enough benefit?",
+        "category": "Programming"
+    },
+    {
+        "phrase": "The process usually converges: If you're stuck, finish some remaining piece. Then go back and check to see what new possibilities opened up. Repeat.",
+        "category": ["Programming", "Philosophical"]
+    },
+    {
+        "phrase": "The computing scientist's main challenge is not to get confused by the complexities of his own making.",
+        "category": "Programming"
+    },
+    {
+        "phrase": "Get red and green right before mixing yellow.",
+        "category": "Philosophical"
+    },
+    {
+        "phrase": "Backtrack.",
+        "category": ["Philosophical", "New Perspective", "Self-Care"]
+    },
+    {
+        "phrase": "When did it last work? What has changed?",
+        "category": ["Philosophical", "Programming", "New Perspective"]
+    },
+    {
+        "phrase": "Build the theory of the problem.",
+        "category": "Programming"
+    },
+    {
+        "phrase": "If you lack motivation, find the most interesting thing in the project, start on that, and branch from there.",
+        "category": "Programming"
+    },
+    {
+        "phrase": "The whole point of getting things done is knowing what to leave undone.",
+        "category": ["Philosophical", "Self-Care", "Programming"]
+    },
+    {
+        "phrase": "Form hypothesis, test hypothesis, repeat.",
+        "category": "Programming"
+    },
+    {
+        "phrase": "If you're as clever as can be when you write it, how will you ever debug it?",
+        "category": "Programming"
+    },
+    {
+        "phrase": "Rollback or undo the last change.",
+        "category": "Programming"
+    },
+    {
+        "phrase": "Try to make the problem worse, to understand how you might make it better.",
+        "category": ["Philosophical", "Programming"]
+    },
+    {
+        "phrase": "Are you fooling yourself?",
+        "category": ["Programming", "Philosophical", "Self-Care", "Self-Confidence"]
+    },
+    {
+        "phrase": "Collect together all the information, pictures, scribbles and diagrams. Make a scrapbook or pin them to the wall.",
+        "category": ["Self-Care", "Programming"]
+    },
+    {
+        "phrase": "Try to imagine what the world would look like if you had already solved the problem.",
+        "category": ["Philosophical", "Programming", "Self-Confidence", "New Perspective"]
+    },
+    {
+        "phrase": "Stop and think.",
+        "category": ["Philosophical", "New Perspective", "Self-Care", "Programming"]
+    }
 ]
