@@ -1,309 +1,558 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <title>FIAN19-II</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
 
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      .bg {
+        /* The image used */
+        /* background-image: url("img/FIAN19-2.jpg"); */
+        /* color: aliceblue; */
+        /* Half height */
+        height: 50%;
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 12px;
+      }
+
+      #impressum {
+        height: 150px;
+        background-image: url("img/winter.jpg");
+      }
+
+      main {
+        margin-top: 100px;
+        border-top-width: 40px;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
         }
-        
-        .bg {
-            /* The image used */
-            /* background-image: url("img/FIAN19-2.jpg"); */
-            /* color: aliceblue; */
-            /* Half height */
-            height: 50%;
-            /* Center and scale the image nicely */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            border-radius: 12px;
-        }
-        
-        #impressum {
-            height: 150px;
-            background-image: url("img/winter.jpg");
-        }
-        
-        main {
-            margin-top: 100px;
-            border-top-width: 40px;
-        }
-        
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="#">FIAN19-II</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#challenges" tabindex="-1">Challenges</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#bountyboard" tabindex="-1">Bounty Board</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#blog" tabindex="-1">Blog</a>
-          </li>
-        </ul>
-        <form class="form-inline mt-2 mt-md-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-            Search
-          </button>
-        </form>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">FIAN19-II</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarCollapse"
+          aria-controls="navbarCollapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#challenges" tabindex="-1"
+                >Challenges</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#bountyboard" tabindex="-1"
+                >Bounty Board</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#blog" tabindex="-1">Blog</a>
+            </li>
+          </ul>
+          <form class="form-inline mt-2 mt-md-0">
+            <input
+              class="form-control mr-sm-2"
+              type="text"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main">
+      <div class="container bg text-center">
+        <h1>
+          ALBBW FIAN Ausbildung 2019 Gruppe II
+        </h1>
+        <p class="lead text-muted animated bounce infinite" id="zitat">
+          Something short and leading about the collection below—its contents,
+          the creator, etc. Make it short and sweet, but not too short so folks
+          don’t simply skip over it entirely.
+        </p>
       </div>
-    </nav>
-  </header>
 
-  <main role="main">
-
-    <div class="container bg text-center">
-      <h1>
-        ALBBW FIAN Ausbildung 2019 Gruppe II
-      </h1>
-      <p class="lead text-muted animated bounce infinite" id="zitat">
-        Something short and leading about the collection below—its contents,
-        the creator, etc. Make it short and sweet, but not too short so folks
-        don’t simply skip over it entirely.
-      </p>
-    </div>
-
-    <div class="container marketing text-center">
-      <div class="row">
-        <!-- /.col-4 -->
-        <div class="col-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#777" />
-            <a href="ausbilderprofil.html">
-              <image href="img/ausbilderprofile.png" x="0" y="0" height="100%" width="100%" />
-            </a>
-          </svg>
-          <h2>Ausbilder</h2>
-          <span id="ausbilderquote">Quote placeholder</span>
-          <span class="blockquote-footer text-right" id="ausbilderquoteAuthor">Author placeholder</span>
-            </p>
-        </div>
-        <!-- /.col-4 -->
-        <div class="col-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#777" />
-            <a href="19adamprofil.html">
-              <image href="img/19adamprofile.png" x="0" y="0" height="100%" width="100%" />
-            </a>
-          </svg>
-          <h2>19Adam</h2>
-          <p>
-            Mein Slogan, Motto, Zitat... .
-          </p>
-        </div>
-        <!-- /.col-4 -->
-        <div class="col-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#777" />
-            <a href="profile19behm.html">
-              <image href="img/finnprob.png" x="0" y="0" height="100%" width="100%" />
-            </a>
-          </svg>
-          <h2>19Behm</h2>
-          <p>
-            Thinking is the hardest work there is, which is probably the reason so few engage in it. <br><b>Henry
-              Ford</b>
-          </p>
-        </div>
-        <!-- /.col-4 -->
-        <div class="col-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#777" />
-            <a href="19niekeprofil.html">
-              <image href="img/19niekeprofile.png" x="0" y="0" height="100%" width="100%" />
-            </a>
-          </svg>
-          <h2>19Nieke</h2>
-          <p>
-            <span id="19niekequote"></span>
-            <span class="blockquote-footer text-right" id="19niekeAuthor"></span>
-          </p>
-        </div>
-        <!-- /.col-4 -->
-        <div class="col-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#777" />
-            <a href="19petersprofil.html">
-              <image href="img/19petersprofile.png" x="0" y="0" height="100%" width="100%" />
-            </a>
-          </svg>
-          <h2>19Peters</h2>
-          <p>
-            Zitate vebreiten kann ein jeder, stammen sie nicht aus eigener Feder.
-            <span class="blockquote-footer text-right">Kühn-Görg, Monika</span>
-          </p>
-        </div>
-        <!-- /.col-4 -->
-        <div class="col-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
-            <title>Zzz</title>
-            <rect width="100%" height="100%" fill="#777" />
-            <a href="19roseprofil.html">
-              <image href="img/19roseprofile.png" x="0" y="0" height="100%" width="100%" />
-            </a>
-          </svg>
-          <h2>19Rose</h2>
-          <p>
-            Fürchte nicht schwere Arbeit, fürchte leere Reden.
-            <span class="blockquote-footer text-right">chinesisches Sprichwort</span>
-          </p>
-        </div>
-        <!-- /.col-4 -->
-        <div class="col-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#777" />
-            <a href="19poeppmannprofil.html">
-              <image href="img/19poeppmannprofile.png" x="0" y="0" height="100%" width="100%" />
-            </a>
-          </svg>
-          <h2>19Poeppmann</h2>
-          <p>
-            Mein Slogan, Motto, Zitat... .
-          </p>
-        </div>
-        <!-- /.col-4 -->
-        <div class="col-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#777" />
-            <a href="19seifertprofil.html">
-              <image href="img/astronautcat.png" x="0" y="0" height="100%" width="100%" />
-            </a>
-          </svg>
-                    <h2>19Seifert</h2>
-                    <p>
-                        “A little consideration, a little thought for others, makes all the difference.”
-                        <span class="blockquote-footer text-right">Eeyore</span>
-                    </p>
-                </div>
-                <!-- /.col-4 -->
-                <div class="col-4">
-                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#777" />
-            <a href="19solerprofil.html">
-              <image href="img/Joker_Rain_gif.gif" x="0" y="0" height="100%" width="100%" />
-            </a>
-          </svg>
-                    <h2>19Soler</h2>
-                    <p>
-                        Why so... serious? <span class="blockquote-footer text-right"> Joker, Heath Ledger </span>
-                    </p>
-                </div>
-                <!-- /.col-4 -->
-                <div class="col-4">
-                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#777" />
-            <a href="19tantschprofil.html">
-              <image href="img/dogtoo.jpg" x="0" y="0" height="100%" width="100%" />
-            </a>
-          </svg>
-                    <h2>19Tantsch</h2>
-                    <p>
-                        Höre nie auf, dich selbst zu beeindrucken.
-                        <span class="blockquote-footer text-right">Ich</span>
-                    </p>
-                </div>
-                <!-- /.col-4 -->
-                <div class="col-4">
-                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
-            <title>Cody Zech</title>
-            <rect width="100%" height="100%" fill="#777" />
-            <a href="19zechprofil.html">
-              <image href="img/FoxTransparent.png" x="0" y="0" height="100%" width="100%" />
-            </a>
-          </svg>
-                    <h2>19Zech</h2>
-                    <span id="zechquote">Quote placeholder</span>
-                    <span class="blockquote-footer text-right" id="zechquoteAuthor">Author placeholder</span>
-                </div>
-            </div>
-            <!-- /.row -->
-
-            <!-- START THE FEATURETTES -->
-
-            <hr class="featurette-divider" />
-
-            <div id="challenges" class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-                <div class="col-md-5 p-lg-5 mx-auto my-5">
-                    <h1 class="display-4 font-weight-normal">Challenges</h1>
-                    <p class="lead font-weight-normal">Jede neue Herausforderung ist ein Tor zu neuen Erfahrungen..
-                        <span class="blockquote-footer text-right">Ernst Ferstl (*1955)</span>
-                    </p>
-                    <a class="btn btn-outline-secondary" href="#">Coming soon</a>
-                </div>
-                <div class="product-device shadow-sm d-none d-md-block"></div>
-                <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-            </div>
-
-      <hr class="featurette-divider" />
-
-            <!-- /END THE FEATURETTES -->
-        </div>
-        <div id="impressum"></div>
-        <!-- /.container -->
-
-        <!-- FOOTER -->
-        <footer class="container fixed-bottom">
-            <p class="float-right"><a href="#">Back to top</a></p>
+      <div class="container marketing text-center">
+        <div class="row">
+          <!-- /.col-4 -->
+          <div class="col-4">
+            <svg
+              class="bd-placeholder-img rounded-circle"
+              width="140"
+              height="140"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+              role="img"
+              aria-label="Placeholder: 140x140"
+            >
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#777" />
+              <a href="ausbilderprofil.html">
+                <image
+                  href="img/ausbilderprofile.png"
+                  x="0"
+                  y="0"
+                  height="100%"
+                  width="100%"
+                />
+              </a>
+            </svg>
+            <h2>Ausbilder</h2>
+            <span id="ausbilderquote">Quote placeholder</span>
+            <span class="blockquote-footer text-right" id="ausbilderquoteAuthor"
+              >Author placeholder</span
+            >
+          </div>
+          <!-- /.col-4 -->
+          <div class="col-4">
+            <svg
+              class="bd-placeholder-img rounded-circle"
+              width="140"
+              height="140"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+              role="img"
+              aria-label="Placeholder: 140x140"
+            >
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#777" />
+              <a href="19adamprofil.html">
+                <image
+                  href="img/19adamprofile.png"
+                  x="0"
+                  y="0"
+                  height="100%"
+                  width="100%"
+                />
+              </a>
+            </svg>
+            <h2>19Adam</h2>
             <p>
-                &copy; 2019 FIAN19
+              Mein Slogan, Motto, Zitat... .
             </p>
-        </footer>
+          </div>
+          <!-- /.col-4 -->
+          <div class="col-4">
+            <svg
+              class="bd-placeholder-img rounded-circle"
+              width="140"
+              height="140"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+              role="img"
+              aria-label="Placeholder: 140x140"
+            >
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#777" />
+              <a href="profile19behm.html">
+                <image
+                  href="img/finnprob.png"
+                  x="0"
+                  y="0"
+                  height="100%"
+                  width="100%"
+                />
+              </a>
+            </svg>
+            <h2>19Behm</h2>
+            <p>
+              <span id="19behmquote"></span>
+              <span class="blockquote-footer text-right" id="19behmquoteAuthor"></span>
+            </p>
+          </div>
+          <!-- /.col-4 -->
+          <div class="col-4">
+            <svg
+              class="bd-placeholder-img rounded-circle"
+              width="140"
+              height="140"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+              role="img"
+              aria-label="Placeholder: 140x140"
+            >
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#777" />
+              <a href="19niekeprofil.html">
+                <image
+                  href="img/19niekeprofile.png"
+                  x="0"
+                  y="0"
+                  height="100%"
+                  width="100%"
+                />
+              </a>
+            </svg>
+            <h2>19Nieke</h2>
+            <p>
+              <span id="19niekequote"></span>
+              <span
+                class="blockquote-footer text-right"
+                id="19niekequoteAuthor"
+              ></span>
+            </p>
+          </div>
+          <!-- /.col-4 -->
+          <div class="col-4">
+            <svg
+              class="bd-placeholder-img rounded-circle"
+              width="140"
+              height="140"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+              role="img"
+              aria-label="Placeholder: 140x140"
+            >
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#777" />
+              <a href="19petersprofil.html">
+                <image
+                  href="img/19petersprofile.png"
+                  x="0"
+                  y="0"
+                  height="100%"
+                  width="100%"
+                />
+              </a>
+            </svg>
+            <h2>19Peters</h2>
+            <span id="19petersquote">Quote placeholder</span>
+            <span class="blockquote-footer text-right" id="19petersquoteAuthor"
+              >Author placeholder</span
+            >
+          </div>
+          <!-- /.col-4 -->
+          <div class="col-4">
+            <svg
+              class="bd-placeholder-img rounded-circle"
+              width="140"
+              height="140"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+              role="img"
+              aria-label="Placeholder: 140x140"
+            >
+              <title>Zzz</title>
+              <rect width="100%" height="100%" fill="#777" />
+              <a href="19roseprofil.html">
+                <image
+                  href="img/19roseprofile.png"
+                  x="0"
+                  y="0"
+                  height="100%"
+                  width="100%"
+                />
+              </a>
+            </svg>
+            <h2>19Rose</h2>
+            <p>
+              Fürchte nicht schwere Arbeit, fürchte leere Reden.
+              <span class="blockquote-footer text-right"
+                >chinesisches Sprichwort</span
+              >
+            </p>
+          </div>
+          <!-- /.col-4 -->
+          <div class="col-4">
+            <svg
+              class="bd-placeholder-img rounded-circle"
+              width="140"
+              height="140"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+              role="img"
+              aria-label="Placeholder: 140x140"
+            >
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#777" />
+              <a href="19poeppmannprofil.html">ä
+                <image
+                  href="img/19poeppmannprofile.png"
+                  x="0"
+                  y="0"
+                  height="100%"
+                  width="100%"
+                />
+              </a>
+            </svg>
+            <h2>19Poeppmann</h2>
+            <p>
+              Mein Slogan, Motto, Zitat... .
+            </p>
+          </div>
+          <!-- /.col-4 -->
+          <div class="col-4">
+            <svg
+              class="bd-placeholder-img rounded-circle"
+              width="140"
+              height="140"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+              role="img"
+              aria-label="Placeholder: 140x140"
+            >
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#777" />
+              <a href="19seifertprofil.html">
+                <image
+                  href="img/astronautcat.png"
+                  x="0"
+                  y="0"
+                  height="100%"
+                  width="100%"
+                />
+              </a>
+            </svg>
+            <h2>19Seifert</h2>
+            <p>
+              “A little consideration, a little thought for others, makes all
+              the difference.”
+              <span class="blockquote-footer text-right">Eeyore</span>
+            </p>
+          </div>
+          <!-- /.col-4 -->
+          <div class="col-4">
+            <svg
+              class="bd-placeholder-img rounded-circle"
+              width="140"
+              height="140"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+              role="img"
+              aria-label="Placeholder: 140x140"
+            >
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#777" />
+              <a href="19solerprofil.html">
+                <image
+                  href="img/Joker_Rain_gif.gif"
+                  x="0"
+                  y="0"
+                  height="100%"
+                  width="100%"
+                />
+              </a>
+            </svg>
+            <h2>19Soler</h2>
+            <span id="19solerquote">
+              Quote placeholder
+              </span>
+              <span class="blockquote-footer text-right" id="19solerquoteAuthor">
+                Author placeholder
+              </span>
+            </span>
+          </div>
+          <!-- /.col-4 -->
+          <div class="col-4">
+            <svg
+              class="bd-placeholder-img rounded-circle"
+              width="140"
+              height="140"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+              role="img"
+              aria-label="Placeholder: 140x140"
+            >
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#777" />
+              <a href="19tantschprofil.html">
+                <image
+                  href="img/dogtoo.jpg"
+                  x="0"
+                  y="0"
+                  height="100%"
+                  width="100%"
+                />
+              </a>
+            </svg>
+            <h2>19Tantsch</h2>
+            <p>
+              Höre nie auf, dich selbst zu beeindrucken.
+              <span class="blockquote-footer text-right">Ich</span>
+            </p>
+          </div>
+          <!-- /.col-4 -->
+          <div class="col-4">
+            <svg
+              class="bd-placeholder-img rounded-circle"
+              width="140"
+              height="140"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+              role="img"
+              aria-label="Placeholder: 140x140"
+            >
+              <title>Cody Zech</title>
+              <rect width="100%" height="100%" fill="#777" />
+              <a href="19zechprofil.html">
+                <image
+                  href="img/FoxTransparent.png"
+                  x="0"
+                  y="0"
+                  height="100%"
+                  width="100%"
+                />
+              </a>
+            </svg>
+            <h2>19Zech</h2>
+            <span id="19zechquote">Quote placeholder</span>
+            <span class="blockquote-footer text-right" id="19zechquoteAuthor">
+              Author placeholder</span
+            >
+          </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider" />
+            <div
+          id="challenges"
+          class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light"
+        >
+          <div class="col-md-5 p-lg-5 mx-auto my-5">
+            <h1 class="display-4 font-weight-normal">Challenges</h1>
+            <p class="lead font-weight-normal">
+              Jede neue Herausforderung ist ein Tor zu neuen Erfahrungen..
+              <span class="blockquote-footer text-right"
+                >Ernst Ferstl (*1955)</span
+              >
+            </p>
+            <div class="lead text-monospace badge badge-info text-wrap">http://10.42.53.5:5050/challenge</div>
+            <!-- <a class="btn btn-outline-secondary" href="#">Coming soon</a>  -->
+          </div>
+            
+          <div
+            class="product-device product-device-2 shadow-sm d-none d-md-block"
+          ></div>
+        </div>
+        <pre>
+-----BEGIN PGP MESSAGE-----
+
+  hQEMAzMvL18tHpWLAQf+ODvrKLfyqYrhmjI/n53DofifP+iF2cwXrYaX4TswIGrH
+  YSZoCtmq0VG/cWymWcSMKo6fj0sqWmaQtmovaxlQUia4rCmVCdVPXBtHpF8DQ7uM
+  u/xQX8wQCaxmqO1DN+tShQ8PpPfY8w3/vSYqpZMOZo8lO4gzwPkaMFiNlv3O7MVb
+  P5wwrZ5XR7pANJylTlvLrPad9rkpa5JGIqqYqmTon1VxOItLNVwX2nfg5emSszMV
+  AhzjZ7Off7+xOrE9W5skR0IhQoFoIyw88TS+iO7Ck0cghpfkIQ5jw0+/WwYmO1FO
+  1rLqQBO0+kBsBGYQO+OsBPm8367KjtiT50/4OOpYBdLqAVfsIQwl9cfc9sceZT9Y
+  QeZrUeXDoAlZc1nP+4/jVLZ6UrIavk0P5CuKE1K99K5KLGlVFv/jfAQ7M2OUWr9P
+  htMGVpekjCaW+O0Ua+QG9XjW4iTHE3yl/d9l49tRu+J8GrehYtNL8PBWBX2SovnR
+  W/SLF/hHR0hkYhmkOg8xXkWZQdsG3Djwp+skDtQNe+xExXvweR1l9FH9DL3HdVyA
+  z4CJzGgg+I5Gjy1vhspOgioEESj8DTKvBEVMgiuriQBtfy7xWvhy6/d8S2Mv0/KJ
+  bE05V+jQEbQT2kQqq3hP5Z2WHxCQ5GMeOwwbJKmALrDUZbBSFvbrYLq0Rl3CBi6E
+  4rE2f0iOsLibthmymKhGaLv7l+qK4xzMPUjBmWTJETiMoVkfpbhJQbuyNtaV/IoI
+  MNEGqmUuL6D16hVidE/F3KZAre9qX76anPLttawhz86BQl7Fh2nZld0hlqWir+Tm
+  t4Is14xxlhFqB3rpbwmSrGdVX1xGzCmGAvhkErxxCSF0KcUqhM0bREfqZMRSawny
+  mRSqmOspbGKwybaDNUVVI7C78vuCI6YYRS7qtNXwZEytBSM2l7P+OwvMU7QWkZ+y
+  bTdkP02rzF4HPjadk9kjqGLJF3r1Rp932/A1hGMDvyHNO/kPllHx+K/Dky1S/AJX
+  0wM6altou4e2zFl6OoxlMADAw14MLEGQyq0sXyNXBJW/8wlHzXmZePrIRdpcAPz9
+  ZAavDLFkyLyfVgvs8qRWJdEMORTCyYR0sry/TvisQbNtfXSBL0opxcExH/SNCaGL
+  CF9EqENbWMUxAou6oQZkNatxpYPS/R0QAo4bs80GIQ2lwIvDhpfWxgtReuEc9Kjz
+  K0/f5Hw7YL/cS8OyxY2PotNlk6bZyPYQs5pb6PSU/eSDKPNTYvgJ5LrPhOYKJoDV
+  nL2v9ZtU6RJWuDKf/w4pNTrDjys1EhyaL5e6dTSMt5KjyaDPgooqAw7w0LIcpLVH
+  4kz/UregJTHBseTdABJ2GjMtP+Y01XYZLGWoE1MEax/N56J3/i194zecayJmcG/X
+  J2Uv1b2y3ITyMs9Ai/w40KRi1m7KVoBYK5llCwRAeTvwLbS4rIT82NKT6BQ26cnq
+  +vyc1BOTVbhOlVA1HKWOSwZDnLuyE0WFdyy1EbvxdUAG3+GoaVvzPBgTs4Wvpm8z
+  gU5RSmbXiBlRKzBW7M+1Zk+MfCZ4LZODTHNmCodg1/EJxKso3qvIIiwfXKBcFptv
+  yfwLwwKtHNtDXMYftuk05N5asyLqmxkLvaaWhjdIval4ngx1rA7d6bncjVsLlInW
+  ygF0LPOSAz0MZsjhFKptamRluj4f30rXOTBwq0DJPTDZsUmEkpt++mKWyrMrrKUV
+  73XbO5JlYmVnzvMAZfvUMbtHFAcgLfBL8LAzK64WJXrwlUdC7sgWq5DHAABpbEH/
+  PSz3MYvq7Cc/ZI+Y9lOaVb1D+wCcnjYtovqsdWpYP6Sz2W05qdiezewMobP/qOHu
+  KiaOa+MGUxqTd7YaK7Hzwg+OscOTKTE=
+  =37aX
+  -----END PGP MESSAGE-----
+  </pre
+        >
+        <hr class="featurette-divider" />
+
+        <!-- /END THE FEATURETTES -->
+      </div>
+      <div id="impressum"></div>
+      <!-- /.container -->
+
+      <!-- FOOTER -->
+      <footer class="container fixed-bottom">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>
+          &copy; 2019 FIAN19
+        </p>
+      </footer>
     </main>
 
     <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
     <script src="index.js"></script>
-</body>
-
+  </body>
 </html>

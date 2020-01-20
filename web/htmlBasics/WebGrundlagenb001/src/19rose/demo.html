@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .navbox {
+            width: 500px;
+            height: 100px;
+            background-color: cyan;
+            color: black;
+            overflow: hidden;
+        }
+        .nav_header {
+            width: 500px;
+            height: 100px;
+            border: solid black 1px;
+            background-color: gray;
+            padding: 25px;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div onmouseover="mouseOver(div1)" onmouseout="mouseOut(div1)" onclick="klick(div1)" id="div1" class="navbox">
+        <div class="nav_header">Liste 1</div>
+        <div>
+            <ul>
+                <li>Eins</li>
+                <li>Zwei</li>
+                <li>Drei</li>
+            </ul>
+        </div>
+    </div>
+    <div onmouseover="mouseOver(div2)" onmouseout="mouseOut(div2)" onclick="klick(div2)" id="div2" class="navbox">
+        <div class="nav_header"> Liste 2</div>
+        <div>
+            <ul>
+                <li>Eins</li>
+                <li>Zwei</li>
+                <li>Drei</li>
+            </ul>
+        </div>
+    </div>
+    <div onmouseover="mouseOver(div3)" onmouseout="mouseOut(div3)" onclick="klick(div3)" id="div3" class="navbox">
+        <div class="nav_header">Liste 3</div>
+        <div>
+            <ul>
+                <li>Eins</li>
+                <li>Zwei</li>
+                <li>Drei</li>
+            </ul>
+        </div>
+    </div>
+    <script src="demo.js"></script>
+</body>
+</html>

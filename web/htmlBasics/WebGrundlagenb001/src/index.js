@@ -8,25 +8,21 @@ var wennGeladen = function () {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     zitatElement.innerText = quotes[randomIndex].quote;
 
-    const ausbilderquote = quotes.find(quote => quote.id == 'ausbilderquote');
-    const niekequote = quotes.find(quote => quote.id == '19niekWequote');
-    const zechquote = quotes.find(quote => quote.author == 'zechquote');
-    
+    const gruppe = ["ausbilder", "19adam", "19behm", "19nieke", "19peters", "19poeppmann", "19rose", "19seifert", "19soler", "19tantsch", "19zech"];
 
-    const ausbilderquote = quotes.find(quote => quote.id == 'ausbilderquote');
-    
-    const ausbilderquoteElement = document.getElementById('ausbilderquote');
-    const ausbilderquoteAuthor = document.getElementById('ausbilderquoteAuthor');
-    const niekequoteElement = document.getElementById('19niekequote');
-    const niekequoteAuthor = document.getElementById('19niekeAuthor');    
-    const zechquoteElement = document.getElementById('zechquote');
-    const zechquoteAuthor = document.getElementById('zechquoteAuthor');
+    gruppe.forEach(teilnehmer => {
 
-    ausbilderquoteElement.innerText = ausbilderquote.quote;
-    ausbilderquoteAuthor.innerText = ausbilderquote.author.name;
-    niekequoteElement.innerText = niekequote.quote;
-    niekequoteAuthor.innerText = niekequote.author.name;
+        const quoteID = teilnehmer + 'quote';
+        const quote = quotes.find(quote => quote.id == quoteID);
+        const quoteElement = document.getElementById(quoteID);
+        const quoteAuthorElement = document.getElementById(quoteID + 'Author');
 
+        if (quote && quoteElement && quoteAuthorElement) {
+            quoteElement.innerText = quote.quote;
+            quoteAuthorElement.innerText = quote.author.name;
+        };
+
+    });
 }
 
 const http = new XMLHttpRequest();

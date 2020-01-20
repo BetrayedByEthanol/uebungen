@@ -10,31 +10,42 @@
         },
         "quote": "It does not do to dwell on dreams and forget to live.",
         "tags": ["Harry Potter", "Movies", "Books", "England"]
-},
-{
-    "id": "ausbilderquote",
-    "author": {
-        "name": "Konfuzius (551 - 479 v. Chr.)",
-        "origin": "China",
-        "alive": false,
-        "gender": "male"
     },
-    "quote": "Wähle einen Beruf, den du liebst, und du braucht nie wieder zu arbeiten.",
-    "tags": ["China", "philosophy"]
-},
-{
-    "id": "19niekequote",
-    "author": {
-        "name": "Jordan Peterson ",
-        "origin": "Canada",
-        "alive": true,
-        "gender": "male"
+    {
+        "id": "ausbilderquote",
+        "author": {
+            "name": "Konfuzius (551 - 479 v. Chr.)",
+            "origin": "China",
+            "alive": false,
+            "gender": "male"
+        },
+        "quote": "Wähle einen Beruf, den du liebst, und du braucht nie wieder zu arbeiten.",
+        "tags": ["China", "philosophy"]
     },
-    "quote": "Don't compare yourself with other people; compare yourself with who you were yesterday.",
-    "tags": ["life advice", "philosophy"]
-},
-{
-        "id" : "zechquote",
+    {
+        "id": "19niekequote",
+        "author": {
+            "name": "Jordan Peterson ",
+            "origin": "Canada",
+            "alive": true,
+            "gender": "male"
+        },
+        "quote": "Don't compare yourself with other people; compare yourself with who you were yesterday.",
+        "tags": ["life advice", "philosophy"]
+    },
+    {
+        "id": "19petersquote",
+        "author": {
+            "name": "Kühn-Görg, Monika",
+            "origin": "Alemania",
+            "alive": "unkown",
+            "gender": "female"
+        },
+        "quote": "Zitate vebreiten kann ein jeder, stammen sie nicht aus eigener Feder.",
+        "tags": ["Random"]
+    },
+    {
+        "id" : "19zechquote",
         "author": {
             "name": "The Cults",
             "origin": "Go Outside",
@@ -43,5 +54,34 @@
         },
         "quote": "I think it's good to go out 'Cause if you don't you'll never make a memory that will stay",
         "tags": ["Music"]
+    },
+    {
+        "id" : "19solerquote",
+        "author": {
+            "name": "Joker, Heath Ledger",
+            "origin": "Gotham",
+            "alive": false,
+            "gender": "male"
+        },
+        "quote": "Why so... serious?",
+        "tags": ["Joker", "Film", "Batman"]
+    },
+    {
+        "id" : "19rosequote",
+        "author" : {
+            "name" : "chinesisches Sprichwort",
+            "origin" : "China"
+        },
+        "quote" : "Fürchte nicht schwere Arbeit, fürchte leere Reden.",
+        "tags" : ["China", "Philosophy", "Sprichwörter"]
+    },
+    {
+        "id" : "19behmquote",
+        "author" : {
+            "name":"Henry Ford",
+            "origin": "USA"
+        },
+        "quote":"Thinking is the hardest work there is, which is probably the reason so few engage in it.",
+        "tags" : ["USA","Cars"]
     }
 ]
