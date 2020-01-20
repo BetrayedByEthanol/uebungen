@@ -8,12 +8,12 @@ var wennGeladen = function ()
     randomNumber = Math.floor(Math.random() * phrases.length);
     document.getElementById('main').innerText = phrases[randomNumber].phrase; 
 
-    // while(true)
-    // {
-    //     timer += 10;
-    //     window.setTimeout(10);
-    //     if(timer >= 60000) refresh();
-    // }
+    const autoRefresh =  function() 
+    {
+        timer += 100;
+        if(timer >= 60000) refresh();
+    }
+    window.setInterval(autoRefresh,100);
 }
 
 function refresh()
