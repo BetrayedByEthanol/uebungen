@@ -17,7 +17,7 @@ var wennGeladen = function () {
 
 function refresh() {
     randomNumber = Math.floor(Math.random() * phrases.length);
-    document.getElementById('main').innerText = phrases[randomNumber].phrase;
+    document.getElementById('content').innerText = phrases[randomNumber].phrase;
     timer = 0;
 }
 
