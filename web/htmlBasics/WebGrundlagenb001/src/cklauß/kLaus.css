@@ -6,6 +6,13 @@
     padding-left: 2cm;
     padding-top: 1cm;
 }
+#content {
+    
+    box-sizing: padding-box;
+    padding: 5mm;
+    margin-top: 5mm;
+    margin-bottom: 5mm;
+}
 .font {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 23px;
@@ -30,17 +37,17 @@
 .lavender-section {
     background-color: #A288A6
 }
-.beige-content {
-    color: #CEBDAC
+.blue-content {
+    color: #415A77
 }
-.beige-section {
-    background-color: #CEBDAC
+.blue-section {
+    background-color: #415A77
 }
 .lightcyan-content {
-    color: #97BCAE
+    color: #BCD4CB
 }
 .lightcyan-section {
-    background-color: #97BCAE
+    background-color: #BCD4CB
 }
 .cyan-content {
     color: #49B291
