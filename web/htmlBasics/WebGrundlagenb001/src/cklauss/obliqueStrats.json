@@ -594,5 +594,13 @@
     {
         "phrase": "Stop and think.",
         "category": ["Philosophical", "New Perspective", "Self-Care", "Programming"]
+    },
+    {
+        "phrase": "Is it the bug you think it is?",
+        "category": "Programming"
+    },
+    {
+        "phrase": "Look for a hack.",
+        "category": "Programming"
     }
 ]
