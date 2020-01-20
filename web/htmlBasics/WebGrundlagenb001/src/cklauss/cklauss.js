@@ -2,17 +2,24 @@ var phrases;
 var allPhrases;
 var randomNumber;
 var timer = 0;
+var categories = [];
 
 var wennGeladen = function () {
     allPhrases = JSON.parse(http.responseText);
     phrases = allPhrases;
     refresh();
 
-    const autoRefresh = function () {
+    allPhrases.forEach(p => {
+        if (Array.isArray(p.category)) p.category.forEach(x => {
+            if (!categories.includes(x)) categories.push(x);
+        });
+        else if(!categories.includes(p.category)) categories.push(p.category);
+    });
+
+    window.setInterval(autoRefresh => {
         timer += 100;
         if (timer >= 60000) refresh();
-    }
-    window.setInterval(autoRefresh, 100);
+    }, 100);
 }
 
 function refresh() {
