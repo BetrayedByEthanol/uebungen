@@ -1,0 +1,36 @@
+#html {
+	
+}
+
+#bg {
+  background: url(galaxy.jfif) no-repeat center center fixed;
+
+  
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#main {
+  font-family: monospace, Arial;
+  color: black;
+}
+
+
+.rainbow-text {
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);   -webkit-background-clip: text;
+  color: transparent;
+}
+
+@keyframes slidebg {
+  to {
+    background-position:20vw;
+  }
+}
+
+      
+
