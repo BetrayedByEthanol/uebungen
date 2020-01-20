@@ -22,7 +22,7 @@ function refresh() {
 }
 
 function filterPhrases(category) {
-    phrases = allPhrases.filter(p => { p.category == category })
+    phrases = allPhrases.filter(p => { return p.category == category })
 }
 
 const http = new XMLHttpRequest();
