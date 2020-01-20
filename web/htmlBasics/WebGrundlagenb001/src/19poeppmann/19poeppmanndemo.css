@@ -5,14 +5,13 @@
 #bg {
   background: url(galaxy.jfif) no-repeat center center fixed;
 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
   
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 #main {
@@ -20,17 +19,11 @@
   color: black;
 }
 
-
-.rainbow-text {
-  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);   -webkit-background-clip: text;
-  color: transparent;
+#HalloWelt {
+  text-align: center;
 }
 
-@keyframes slidebg {
-  to {
-    background-position:20vw;
-  }
-}
+
 
       
 
