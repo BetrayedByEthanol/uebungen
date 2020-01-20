@@ -1,8 +1,8 @@
 # Project Cklauß Dokumentation
 Projectleiter: Mr. Heimburger<br>
 Koordinator: Dennis<br>
-Maskottchen: Cklauß die Kängurumaus
-
+Maskottchen: Cklauß die Kängurumaus<p>
+![cklauss](Kaengurumaus_cklauss.png)
 ## Tasks
 | Aufgabe | Arbeiter | difficulty | time |
 |---|---|---|---|
