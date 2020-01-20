@@ -1,13 +1,13 @@
 var phrases;
 var randomNumber;
-const htmlElement;
+var htmlElement;
 var timer = 0;
 
 var wennGeladen = function () 
 {
-    phrases = JSON.parse(http.responseText);
-    randomNumber = Math.floor(Math.random() * phrashes.length);
-    htmlElement = document.getElementById('Main'); 
+    //phrases = JSON.parse(http.responseText);
+    //randomNumber = Math.floor(Math.random() * phrashes.length);
+    htmlElement = document.getElementById('main'); 
     htmlElement.innterText = phrases[randomNumber].phrase; 
 
     // while(true)
