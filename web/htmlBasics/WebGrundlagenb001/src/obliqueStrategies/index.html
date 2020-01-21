@@ -9,13 +9,24 @@
         <script src="cklauss.js"> </script>		
     </head>
     <body>
-        <div class="dark-section lavender-content font" id="main">
-            Spruch des Tages:
-            <div class="blue-section lightcyan-content font" id="content">
-                Refresh to see!
-            </div>
-            <div class="cyan-section dark-content font" id="reloadbutton">
-                <div onclick="refresh()">Refresh Page</div>
+        <br>
+            <table>
+                <tr>
+                    <td style="vertical-align: top; position: absolute;">
+                        <img class="refreshIcon" src="img/refresh.png" alt="" onclick="refresh()" style="position: absolute;">
+                    </td>
+                    <td>
+                        <div id="content"></div>
+                    </td>
+                    <td style="text-align: right; vertical-align: top;">
+                        <img class="timerIcon" id="autoRefresh" src="img/timer.png" alt="" onclick="">
+                    </td>
+                    <td>
+                        
+                    </td>
+                </tr>
+            </table>
+            </div>            
     </body>
 </html>
     
