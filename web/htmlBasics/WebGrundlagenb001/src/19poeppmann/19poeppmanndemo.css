@@ -1,28 +1,37 @@
-#html {
+
+html {  
+	
 	
 }
 
-#bg {
-  background: url(galaxy.jfif) no-repeat center center fixed;
-
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-  
-	background-position: center;
+body {
+	background-position: cover;
 	background-repeat: no-repeat;
-	background-size: cover;
-}
+	background-size: auto;
+	background-image: url(19PoeppmannDemo.jpg);
 
-#main {
-  font-family: monospace, Arial;
-  color: black;
+	font-family: monospace, Arial;
+	font-size: 20pt;
 }
 
 #HalloWelt {
   text-align: center;
 }
 
+#main {
+	
+}
+
+.btn {
+	font-family: monospace, Arial;
+	font-size: 20pt;
+	color: red;
+}
+
+
+.accordion {
+
+}
 
 
       
