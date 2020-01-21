@@ -29,3 +29,6 @@ Maskottchen: Cklauß die Kängurumaus<p>
     Project Dokument erstellt<br>
     Tasks dokumentiert<br>
     Statusbericht jeden Arbeiters eingeholt<p>
+
+## Statusbericht Montag 4h nach Beginn
+- immer noch nicht fertig zzzZZ
