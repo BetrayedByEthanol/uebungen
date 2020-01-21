@@ -39,6 +39,7 @@ Erstelle eine Website, die Oblique Strategies als Karte darstellt.
 
 ## Statusbericht Dienstag Morgen
 - Felix and Pablo joined the squad
+- Sebastian abwesend
 
 ## New Tasks
 | Aufgabe | difficulty | time |
