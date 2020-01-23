@@ -86,7 +86,7 @@ function getRating() {
         document.getElementById('upvote').style.visibility = 'hidden';
         document.getElementById('downvote').style.visibility = 'visible';
     }
-    //document.getElementById('rating').innerText = allPhrases[currentPhraseID].upvotes - allPhrases[currentPhraseID].downvotes; 
+    document.getElementById('rating').innerText = allPhrases[currentPhraseID].upvotes - allPhrases[currentPhraseID].downvotes; 
 }
 
 const http = new XMLHttpRequest();
