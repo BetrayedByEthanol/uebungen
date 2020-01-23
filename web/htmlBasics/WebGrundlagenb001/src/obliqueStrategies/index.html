@@ -9,31 +9,57 @@
         <script src="cklauss.js"> </script>		
     </head>
     <body>
-        <br>
-        <br>
-        <br>
-        <div id="content-wrapper">
-            <table>
-                <tr>
-                    <td style="vertical-align: top; position: absolute;">
-                        <img class="refreshIcon" src="img/refresh.png" alt="refresh" onclick="refresh()" style="position: absolute;">
-                    </td>
-                    <td style="text-align: center; vertical-align: middle; min-width: 800px; min-height: 250px;">
-                        <div id="content" style="text-align: center;"></div>
-                        
-                    </td>
-                    <div id="category"></div>
-                    <td style="text-align: right; vertical-align: top; position: relative;">
-                        <img class="timerIcon" id="autoRefresh" src="img/timeroff.png" alt="autoRefresh" onclick="toggler()">
-                    </td>
-                    <td id="rating" style="text-align: right; vertical-align: bottom;">
-                        <img id="upvote" class="arrows" src="img/arr_up.png" alt="upvote" onclick="vote(1)">
-                        <img id="downvote" class="arrows" src="img/arr_down.png" alt="downvote" onclick="vote(0)">
-                        
-                    </td>
-                </tr>
-            </table>
-        </div>            
-    </body>
-</html>
+        <br />
+        <br />
+        <div class="card container">
+          <div class="item-refresh">
+            <img
+              class="refreshIcon"
+              src="img/refresh.png"
+              alt="refresh"
+              onclick="refresh()"
+            />
+          </div>
+          <div class="item-content font">
+            <div id="content"></div>
+          </div>
+          <div class="item-category">
+            <div id="category"></div>
+          </div>
+          <div class="item-rating">
+            <div id="rating"></div>
+          </div>
+          <div class="item-timer">
+            <img
+              class="timerIcon"
+              id="autoRefresh"
+              src="img/timeroff.png"
+              alt="autoRefresh"
+              onclick="toggler()"
+            />
+          </div>
+          <div class="halved">
+            <div class="item-upvote">
+              <img
+                id="upvote"
+                class="arrows"
+                src="img/arr_up.png"
+                alt="upvote"
+                onclick="vote(1)"
+              />
+            </div>
+            <div class="item-downvote">
+              <img
+                id="downvote"
+                class="arrows"
+                src="img/arr_down.png"
+                alt="downvote"
+                onclick="vote(0)"
+              />
+            </div>
+          </div>
+        </div>
+      </body>
+      <script src="cklauss.js"></script>
+    </html>
     
