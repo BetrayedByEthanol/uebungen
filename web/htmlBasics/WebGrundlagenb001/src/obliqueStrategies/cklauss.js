@@ -19,15 +19,24 @@ var wennGeladen = function () {
 
     window.setInterval(autoRefresh => {
         timer += 100;
-        if (timer >= 5000 && toggleMe) refresh();
+        if (timer >= 10000 && toggleMe) refresh();
     }, 100);
 }
 
 function refresh() {
+    var counter = 0;
+    var wait = function(){
     const randomNumber = Math.floor(Math.random() * phrases.length);
     document.getElementById('content').innerText = phrases[randomNumber].phrase;
+    counter++;
+    if(counter>20) window.clearInterval(setWait);
+    }
+    var setWait = window.setInterval(wait, 40);
+    
     timer = 0;
+    
 }
+
 
 function filterPhrases(category) {
     phrases = allPhrases.filter(p => { return p.category == category });
