@@ -35,7 +35,6 @@ function toggler() {
 
 function refresh() {
     var counter = 0;
-    var checkRandom;
     var wait = function () {
         const randomNumber = Math.floor(Math.random() * phrases.length);
         document.getElementById('content').innerText = phrases[randomNumber].phrase;
