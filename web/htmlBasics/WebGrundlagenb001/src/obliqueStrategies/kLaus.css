@@ -14,6 +14,14 @@ body {
     margin-right: 0;
     text-align: center;
 }
+#category {
+    position: fixed;
+    top: 8.5cm;
+    left: 20%;
+    font-family: "Courier New", Courier, monospace;
+    color: #333333;
+    
+}
 .refreshIcon {
     height: 40px;
     width: 40px;
