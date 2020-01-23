@@ -2,25 +2,33 @@ var phrases;
 var allPhrases;
 var timer = 0;
 var categories = [];
-var toggleMe = false;
+var einaus = false;
+var toggleMe = window.setInterval(refresh, 10000);
+
 
 
 var wennGeladen = function () {
     allPhrases = JSON.parse(http.responseText);
     phrases = allPhrases;
     refresh();
-    //const toggleMe = document.getElementById("toToggle");
     allPhrases.forEach(p => {
         if (Array.isArray(p.category)) p.category.forEach(x => {
             if (!categories.includes(x)) categories.push(x);
         });
         else if(!categories.includes(p.category)) categories.push(p.category);
     });
+}
 
-    window.setInterval(autoRefresh => {
-        timer += 100;
-        if (timer >= 5000 && toggleMe) refresh();
-    }, 100);
+
+function toggler(){
+    if(einaus == false){ 
+        clearInterval(toggleMe);
+        einaus = true;
+    }
+    else if(einaus == true){
+        toggleMe = window.setInterval(refresh, 10000);        
+        einaus = false;
+    }
 }
 
 function refresh() {
