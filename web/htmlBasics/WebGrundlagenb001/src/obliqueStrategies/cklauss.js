@@ -2,7 +2,8 @@ var phrases;
 var allPhrases;
 var timer = 0;
 var categories = [];
-var toggleMe = false;
+var einaus = false;
+var toggleMe = window.setInterval(refresh, 10000);
 var currentPhraseID;
 
 var wennGeladen = function () {
@@ -19,12 +20,19 @@ var wennGeladen = function () {
     }
     phrases = allPhrases;
     refresh();
-    //const toggleMe = document.getElementById("toToggle");
 
-    window.setInterval(autoRefresh => {
-        timer += 100;
-        if (timer >= 5000 && toggleMe) refresh();
-    }, 100);
+}
+
+
+function toggler(){
+    if(einaus == false){ 
+        clearInterval(toggleMe);
+        einaus = true;
+    }
+    else if(einaus == true){
+        toggleMe = window.setInterval(refresh, 10000);        
+        einaus = false;
+    }
 }
 
 function toggle() {
