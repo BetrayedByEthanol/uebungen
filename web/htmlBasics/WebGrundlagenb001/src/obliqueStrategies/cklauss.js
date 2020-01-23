@@ -34,7 +34,9 @@ function toggle() {
 
 function refresh() {
     const randomNumber = Math.floor(Math.random() * phrases.length);
-    document.getElementById('content').innerText = phrases[randomNumber].phrase;
+    rngPhrase = phrases[randomNumber];
+    document.getElementById('content').innerText = rngPhrase.phrase;
+    document.getElementById('category').innerText = rngPhrase.category;
     timer = 0;
 }
 
