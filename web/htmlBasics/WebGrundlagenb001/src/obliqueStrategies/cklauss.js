@@ -23,6 +23,15 @@ var wennGeladen = function () {
     }, 100);
 }
 
+function toggle() {
+    toggleMe = !toggleMe;
+    if(toggleMe == true) {
+        document.getElementById('autoRefresh').src ='img/timeron.png';
+    } else {
+        document.getElementById('autoRefresh').src ='img/timeroff.png';
+    }
+}
+
 function refresh() {
     const randomNumber = Math.floor(Math.random() * phrases.length);
     document.getElementById('content').innerText = phrases[randomNumber].phrase;
