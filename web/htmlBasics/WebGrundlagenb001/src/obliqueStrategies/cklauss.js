@@ -2,7 +2,8 @@ var phrases;
 var allPhrases;
 var timer = 0;
 var categories = [];
-var toggleMe = window.setInterval(refresh, 10000);
+var toggleMe = false;
+var autoRefresh;
 var currentPhraseID;
 
 var wennGeladen = function () {
@@ -25,9 +26,11 @@ var wennGeladen = function () {
 function toggler() {
     toggleMe = !toggleMe;
     if (toggleMe == true) {
+        autoRefresh = window.setInterval(refresh, 10000);
         document.getElementById('autoRefresh').src = 'img/timeron.png';
     } else {
         document.getElementById('autoRefresh').src = 'img/timeroff.png';
+        window.clearInterval(autoRefresh);
     }
 }
 
