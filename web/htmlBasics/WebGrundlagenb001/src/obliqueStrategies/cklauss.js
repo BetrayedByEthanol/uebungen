@@ -2,7 +2,6 @@ var phrases;
 var allPhrases;
 var timer = 0;
 var categories = [];
-var einaus = false;
 var toggleMe = window.setInterval(refresh, 10000);
 var currentPhraseID;
 
@@ -23,19 +22,7 @@ var wennGeladen = function () {
 
 }
 
-
 function toggler() {
-    if (einaus == false) {
-        clearInterval(toggleMe);
-        einaus = true;
-    }
-    else if (einaus == true) {
-        toggleMe = window.setInterval(refresh, 10000);
-        einaus = false;
-    }
-}
-
-function toggle() {
     toggleMe = !toggleMe;
     if (toggleMe == true) {
         document.getElementById('autoRefresh').src = 'img/timeron.png';
@@ -60,11 +47,7 @@ function refresh() {
         }
     }
     var setWait = window.setInterval(wait, 40);
-
-
-
 }
-
 
 function filterPhrases(category) {
     phrases = allPhrases.filter(p => { return p.category == category });
