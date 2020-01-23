@@ -16,17 +16,20 @@
             <table>
                 <tr>
                     <td style="vertical-align: top; position: absolute;">
-                        <img class="refreshIcon" src="img/refresh.png" alt="" onclick="refresh()" style="position: absolute;">
+                        <img class="refreshIcon" src="img/refresh.png" alt="refresh" onclick="refresh()" style="position: absolute;">
                     </td>
                     <td style="text-align: center; vertical-align: middle; min-width: 800px; min-height: 250px;">
                         <div id="content" style="text-align: center;"></div>
+                        
                     </td>
+                    <div id="category"></div>
                     <td style="text-align: right; vertical-align: top; position: relative;">
-                        <img class="timerIcon" id="autoRefresh" src="img/timer.png" alt="" onclick="">
+                        <img class="timerIcon" id="autoRefresh" src="img/timeroff.png" alt="autoRefresh" onclick="toggler()">
                     </td>
-                    <td style="text-align: right; vertical-align: bottom;">
-                        <img class="arrows" src="img/arr_up.png" alt="">
-                        <img class="arrows" src="img/arr_down.png" alt="">
+                    <td id="rating" style="text-align: right; vertical-align: bottom;">
+                        <img id="upvote" class="arrows" src="img/arr_up.png" alt="upvote" onclick="vote(1)">
+                        <img id="downvote" class="arrows" src="img/arr_down.png" alt="downvote" onclick="vote(0)">
+                        
                     </td>
                 </tr>
             </table>
