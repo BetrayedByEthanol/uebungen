@@ -13,10 +13,9 @@ var wennGeladen = function () {
         allPhrases[i].upvotes = 0;
         allPhrases[i].downvotes = 0;
         allPhrases[i].voted = 0;
-        if (Array.isArray(allPhrases[i].category)) allPhrases[i].category.forEach(x => {
+        allPhrases[i].category.forEach(x => {
             if (!categories.includes(x)) categories.push(x);
         });
-        else if (!categories.includes(allPhrases[i].category)) categories.push(allPhrases[i].category);
     }
     phrases = allPhrases;
     refresh();
