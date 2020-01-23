@@ -39,7 +39,6 @@ Erstelle eine Website, die Oblique Strategies als Karte darstellt.
 
 ## Statusbericht Dienstag Morgen
 - Felix and Pablo joined the squad
-- Sebastian abwesend
 
 ## New Tasks
 | Aufgabe | difficulty | time |
@@ -48,3 +47,17 @@ Erstelle eine Website, die Oblique Strategies als Karte darstellt.
 |Favicon erstellen und in Webseite einbinden|medium|3h|
 |Timerfunktion in JS programmieren|medium|3h|
 |Dateinamen umbenennen|easy|1h|
+
+## Statusbericht Donnerstag
+- keine Vorkommnisse
+
+## New Tasks
+| Aufgabe | difficulty | time |
+|---|---|---|
+|HTML Strategiewechsel animieren|easy|1h|
+|HTML Tooglefunktion für Timer einbinden|easy|1h|
+|JS/HTML Up- und Downvote Funktion entwickeln|hard|3h|
+|HTML Layout umschreiben(ohne Tabellen)|medium|3h|
+|HTML/JS Neue Ansicht für alle Karten erstellen|hard|3h|
+|HTML Kategorie anzeigen|easy|1h|
+|JS Bugfixing Interval/Timer Funktion|medium|1h|
