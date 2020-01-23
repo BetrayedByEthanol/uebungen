@@ -24,9 +24,10 @@
                     <td style="text-align: right; vertical-align: top; position: relative;">
                         <img class="timerIcon" id="autoRefresh" src="img/timer.png" alt="autoRefresh" onclick="">
                     </td>
-                    <td style="text-align: right; vertical-align: bottom;">
-                        <img id="upvote" class="arrows" src="img/arr_up.png" alt="upvote">
-                        <img id="downvote" class="arrows" src="img/arr_down.png" alt="downvote">
+                    <td id="rating" style="text-align: right; vertical-align: bottom;">
+                        <img id="upvote" class="arrows" src="img/arr_up.png" alt="upvote" onclick="vote(1)">
+                        <img id="downvote" class="arrows" src="img/arr_down.png" alt="downvote" onclick="vote(0)">
+                        
                     </td>
                 </tr>
             </table>
