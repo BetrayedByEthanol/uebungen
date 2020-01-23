@@ -3,34 +3,90 @@ var allPhrases;
 var timer = 0;
 var categories = [];
 var toggleMe = false;
-
+var autoRefresh;
+var currentPhraseID;
 
 var wennGeladen = function () {
     allPhrases = JSON.parse(http.responseText);
-    phrases = allPhrases;
-    refresh();
-    //const toggleMe = document.getElementById("toToggle");
-    allPhrases.forEach(p => {
-        if (Array.isArray(p.category)) p.category.forEach(x => {
+    for (var i = 0; i < allPhrases.length; i++) {
+        allPhrases[i].id = i;
+        allPhrases[i].upvotes = 0;
+        allPhrases[i].downvotes = 0;
+        allPhrases[i].voted = 0;
+        allPhrases[i].category.forEach(x => {
             if (!categories.includes(x)) categories.push(x);
         });
-        else if(!categories.includes(p.category)) categories.push(p.category);
-    });
+    }
+    phrases = allPhrases;
+    refresh();
 
-    window.setInterval(autoRefresh => {
-        timer += 100;
-        if (timer >= 5000 && toggleMe) refresh();
-    }, 100);
+}
+
+function toggler() {
+    toggleMe = !toggleMe;
+    if (toggleMe == true) {
+        autoRefresh = window.setInterval(refresh, 10000);
+        document.getElementById('autoRefresh').src = 'img/timeron.png';
+    } else {
+        document.getElementById('autoRefresh').src = 'img/timeroff.png';
+        window.clearInterval(autoRefresh);
+    }
 }
 
 function refresh() {
-    const randomNumber = Math.floor(Math.random() * phrases.length);
-    document.getElementById('content').innerText = phrases[randomNumber].phrase;
-    timer = 0;
+    var counter = 0;
+    var wait = function () {
+        const randomNumber = Math.floor(Math.random() * phrases.length);
+        document.getElementById('content').innerText = phrases[randomNumber].phrase;
+        counter++;
+        if (counter > 20) {
+            window.clearInterval(setWait);
+            currentPhraseID = phrases[randomNumber].id;
+            document.getElementById('category').innerText = phrases[randomNumber].category;
+            getRating();
+            timer = 0;
+        }
+    }
+    var setWait = window.setInterval(wait, 40);
 }
 
 function filterPhrases(category) {
     phrases = allPhrases.filter(p => { return p.category == category });
+}
+
+function vote(vote) {
+    if (vote == 1 && allPhrases[currentPhraseID].voted == 0) {
+        allPhrases[currentPhraseID].upvotes++;
+        allPhrases[currentPhraseID].voted = 1;
+        document.getElementById('downvote').style.visibility = 'hidden';
+    } else if (vote == 0 && allPhrases[currentPhraseID].voted == 0) {
+        allPhrases[currentPhraseID].downvotes++;
+        allPhrases[currentPhraseID].voted = -1;
+        document.getElementById('upvote').style.visibility = 'hidden';
+    } else if (allPhrases[currentPhraseID].voted == 1) {
+        allPhrases[currentPhraseID].upvotes--;
+        allPhrases[currentPhraseID].voted = 0;
+
+    } else {
+        allPhrases[currentPhraseID].downvotes--;
+        allPhrases[currentPhraseID].voted = 0;
+
+    }
+    getRating();
+}
+
+function getRating() {
+    if (allPhrases[currentPhraseID].voted == 0) {
+        document.getElementById('upvote').style.visibility = 'visible';
+        document.getElementById('downvote').style.visibility = 'visible';
+    } else if (allPhrases[currentPhraseID].voted == 1) {
+        document.getElementById('upvote').style.visibility = 'visible';
+        document.getElementById('downvote').style.visibility = 'hidden';
+    } else {
+        document.getElementById('upvote').style.visibility = 'hidden';
+        document.getElementById('downvote').style.visibility = 'visible';
+    }
+    document.getElementById('rating').innerText = allPhrases[currentPhraseID].upvotes - allPhrases[currentPhraseID].downvotes; 
 }
 
 const http = new XMLHttpRequest();

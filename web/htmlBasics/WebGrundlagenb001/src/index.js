@@ -12,15 +12,24 @@ var wennGeladen = function () {
 
     gruppe.forEach(teilnehmer => {
 
+        const block = document.getElementById('applepie');
+        const newBlock = block.cloneNode(true);
+        newBlock.id = teilnehmer + 'nameID';
+        
+        newBlock.getElementsByTagName('h2')[0].innerText = teilnehmer;
+        newBlock.getElementsByTagName('image')[0].setAttribute('href', 'img/' + teilnehmer + 'profile.png');
+        newBlock.getElementsByTagName('a')[0].setAttribute('href', teilnehmer + 'profil.html');
+       
         const quoteID = teilnehmer + 'quote';
         const quote = quotes.find(quote => quote.id == quoteID);
-        const quoteElement = document.getElementById(quoteID);
-        const quoteAuthorElement = document.getElementById(quoteID + 'Author');
-
-        if (quote && quoteElement && quoteAuthorElement) {
-            quoteElement.innerText = quote.quote;
-            quoteAuthorElement.innerText = quote.author.name;
+     
+        if (quote) {
+            newBlock.getElementsByTagName('span')[0].innerText = quote.quote;
+            newBlock.getElementsByTagName('span')[1].innerText = quote.author.name;
         };
+        const row = document.getElementById('row');
+        row.appendChild(newBlock);
+        newBlock.hidden = false;
 
     });
 }
