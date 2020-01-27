@@ -87,11 +87,11 @@
     {
         "id": "19tantschquote",
         "author" : {
-            "name" : "kreativ",
+            "name" : "Felix Tantsch",
             "origin" : "langeweile"
         },
         "quote": "Hör nie auf, dich selbst zu beeindrucken.",
-        "tags" : ["Hirn","Motivation"],
+        "tags" : ["Hirn","Motivation","Kreativ"],
         "alive": true
     }
 ]
