@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="grid.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <br />
+    <br />
+    <div class="card container">
+      <div class="item-refresh">
+        <img
+          class="refreshIcon"
+          src="img/refresh.png"
+          alt="refresh"
+          onclick="refresh()"
+        />
+      </div>
+      <div class="item-content font">
+        <div id="content"></div>
+      </div>
+      <div class="item-category">
+        <div id="category"></div>
+      </div>
+      <div class="item-rating">
+        <div id="rating"></div>
+      </div>
+      <div class="item-timer">
+        <img
+          class="timerIcon"
+          id="autoRefresh"
+          src="img/timeroff.png"
+          alt="autoRefresh"
+          onclick="toggler()"
+        />
+      </div>
+      <div class="halved">
+        <div class="item-upvote">
+          <img
+            id="upvote"
+            class="arrows"
+            src="img/arr_up.png"
+            alt="upvote"
+            onclick="vote(1)"
+          />
+        </div>
+        <div class="item-downvote">
+          <img
+            id="downvote"
+            class="arrows"
+            src="img/arr_down.png"
+            alt="downvote"
+            onclick="vote(0)"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="cklauss.js"></script>
+</html>
