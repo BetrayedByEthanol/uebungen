@@ -3,9 +3,7 @@
 function wennGeladen(){
 var quotes = JSON.parse(http.responseText);
 
-
-var table = document.getElementById("nolimit");
-
+const table = document.getElementById("nolimit");
 
 quotes.forEach(zeile => {
 var row = table.insertRow(1);
