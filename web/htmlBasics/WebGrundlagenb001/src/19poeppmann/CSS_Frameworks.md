@@ -1,23 +1,14 @@
 UI Kits:
 
-Bootstrap 
-https://getbootstrap.com/
+# Vergleich von CSS-Frameworks
 
-
-Semantic UI
-https://semantic-ui.com/
-
-
-Foundation
-https://foundation.zurb.com/
-
-
-Materialize
-https://materializecss.com/
-
-
-Bulma
-https://bulma.io/
+|   Anbierter   | URL | Vorteile    |
+|   :-----:     |   :-----: |   :-----: |
+|   Bootstrap   |   https://getbootstrap.com/       |   bietet viele Themes und Designs                             |  
+|   Semantic UI |   https://semantic-ui.com/        |   bessere und leichtere Anpassbarkeit                         |
+|   Foundation  |   https://foundation.zurb.com/    |   schnellerer Fortschritt möglich und ideal für Anfänger      |
+|   Materialize |   https://materializecss.com/     |   orientiert sich an das Google Material Design               |
+|   Bulma       |   https://bulma.io/               |   arbeitet mit Flexbox und benötigt kein JavaScript           |
 
 
 
