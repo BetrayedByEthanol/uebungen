@@ -28,6 +28,7 @@ body {
   }
   .container {
     display: grid;
+    margin-top: 200px;
     grid-template-columns: [start] 100px [line1] 300px [line2] 300px [line3] 100px [end];
     grid-template-rows: [start row1-start] 75px [row1-end row2-start] 75px [row2-end row3-start] 75px [row3-end row4-start] 30px [row4-end end];
     grid-template-areas:
@@ -58,8 +59,8 @@ body {
     text-align: center;
   }
   .card {
-    min-width: 800px;
-    min-height: 300px;
+    min-width: 830px;
+    min-height: 320px;
     border-radius: 25px;
     background: #ffffff;
     padding: 10px;

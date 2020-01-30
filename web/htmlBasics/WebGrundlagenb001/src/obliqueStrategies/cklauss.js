@@ -26,9 +26,9 @@ function toggler() {
     toggleMe = !toggleMe;
     if (toggleMe == true) {
         autoRefresh = window.setInterval(refresh, 10000);
-        document.getElementById('autoRefresh').src = 'img/timeron.png';
+        document.getElementById('autoRefresh').src = 'img/timeronb.png';
     } else {
-        document.getElementById('autoRefresh').src = 'img/timeroff.png';
+        document.getElementById('autoRefresh').src = 'img/timeroffb.png';
         window.clearInterval(autoRefresh);
     }
 }
@@ -90,6 +90,6 @@ function getRating() {
 }
 
 const http = new XMLHttpRequest();
-http.open("GET", "obliqueStrats.json");
+http.open("GET", "/strategies");
 http.onload = wennGeladen;
 http.send();
