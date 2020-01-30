@@ -5,7 +5,7 @@ var morgan = require('morgan');
 const app = express();
 const port = 5050;
 
-const url = 'mongodb://localhost:27017';
+const url = 'mongodb://10.42.53.5:27017';
 const MongoClient = require('mongodb').MongoClient;
 const client = new MongoClient(url, {useUnifiedTopology: true});
 var db;
