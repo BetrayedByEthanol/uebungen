@@ -90,6 +90,6 @@ function getRating() {
 }
 
 const http = new XMLHttpRequest();
-http.open("GET", "obliqueStrats.json");
+http.open("GET", "/strategies");
 http.onload = wennGeladen;
 http.send();
