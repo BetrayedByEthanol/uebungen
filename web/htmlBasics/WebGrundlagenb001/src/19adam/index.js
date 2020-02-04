@@ -1,3 +1,5 @@
+var express = require('express');
+
 function gentable(){
 
     quotes = JSON.parse(request.responseText);
