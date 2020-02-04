@@ -3,7 +3,7 @@ function gentable(){
     quotes = JSON.parse(request.responseText);
     var table = document.getElementById('doctable');
 
-    quotes.foreach(element => {
+    quotes.forEach(element => {
         var newrow = document.createElement('tr');
 
         /*var newel = document.createElement('td');*/
