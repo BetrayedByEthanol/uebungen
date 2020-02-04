@@ -1,0 +1,26 @@
+
+html {  
+	
+	
+}
+
+body {
+	background-position: cover;
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-image: url(../resources/19PoeppmannDemo.jpg);
+
+	font-family: monospace, Arial;
+	font-size: 20pt;
+}
+
+.top{
+    height:40px;
+    width: 51.5px;
+ }
+ 
+ 
+ .field{
+    height:55px;
+    width: 70px;
+ }
