@@ -32,6 +32,6 @@ function gentable(){
 }
 
 var request = new XMLHttpRequest();
-request.open("GET", "http://10.42.53.5:5050/data/quotes.json");
+request.open("GET", "../data/quotes.json");
 request.onload = gentable;
 request.send();
