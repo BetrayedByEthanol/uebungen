@@ -45,11 +45,11 @@ app.get('/strategies/:strategyID/votes', function (req, res) {
     });
 });
 
-
+// vote function for up/down/unvote
 app.vote = function(req, res, status) {
 
     var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-
+ 
     //TODO: Is there a better solution?
     db.collection('obliquestrategies').updateOne(
         { _id: ObjectID(req.params.strategyID), "votes.ip": ip },
