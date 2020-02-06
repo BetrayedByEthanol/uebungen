@@ -52,8 +52,8 @@ function sortby(n){
             x = tablerows[i].getElementsByTagName('td')[n];
             y = tablerows[i + 1].getElementsByTagName('td')[n];
 
-            console.log(x);
-            console.log(y);
+            /*console.log(x);
+            console.log(y);*/
 
             if(x.innerText.toLowerCase() < y.innerText.toLowerCase()){
 
