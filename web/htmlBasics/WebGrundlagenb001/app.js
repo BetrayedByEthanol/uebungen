@@ -46,42 +46,42 @@ app.get('/strategies/:strategyID/votes', function (req, res) {
 });
 
 
-app.post('/strategies/:strategyID/upvote', function (req, res) {
+app.vote = function(req, res, status) {
 
     var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 
+    //TODO: Is there a better solution?
     db.collection('obliquestrategies').updateOne(
         { _id: ObjectID(req.params.strategyID), "votes.ip": ip },
-        { $set: { "votes.$.status": 1 } },
-        { upsert: true }
+        { $set: { "votes.$.status": status } }
     ).then(result => {
-        res.sendStatus(200);
-    })
+        console.log(result);
+
+        //create new vote object when no vote exists
+        if (result.matchedCount == 0) {
+            db.collection('obliquestrategies').updateOne(
+                { _id: ObjectID(req.params.strategyID) },
+                { $push: { votes: { ip: ip, status: status } } }
+            )
+        }
+         res.sendStatus(200);
+    }).catch((err) => {
+        console.log(err);
+        res.sendStatus(404);
+    });
+
+};
+
+app.post('/strategies/:strategyID/upvote', function (req, res) {
+    app.vote(req, res, 1);
 });
 
 app.post('/strategies/:strategyID/downvote', function (req, res) {
-
-    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-
-    db.collection('obliquestrategies').updateOne(
-        { _id: ObjectID(req.params.strategyID), "votes.ip": ip },
-        { $set: { "votes.$.status": -1 } }
-    ).then(result => {
-        res.sendStatus(200);
-    });
-
+    app.vote(req, res, -1);
 });
 
 app.post('/strategies/:strategyID/unvote', function (req, res) {
-
-    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-
-    db.collection('obliquestrategies').updateOne(
-        { _id: ObjectID(req.params.strategyID), "votes.ip": ip },
-        { $set: { "votes.$.status": 0 } }
-    ).then(result => {
-        res.sendStatus(200);
-    })
+    app.vote(req, res, 0);
 });
 
 app.get('/challenge', (req, res) => {

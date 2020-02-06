@@ -1,0 +1,41 @@
+.head {
+    box-sizing: border-box;
+    padding-top: 5mm;
+    padding-bottom: 5mm;
+    font-size: 1cm;
+    text-align: center;
+    height: 100%;
+}
+#header {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 3cm 25% auto 20%;
+    grid-gap: 1mm;
+    background-color: #9fc7df;
+    padding: 3mm;
+    border: black solid 1px;
+    border-bottom: 0px;
+}
+#grid {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 3cm 25% auto 20%;
+    grid-gap: 1mm;
+    background-color: #9fc7df;
+    padding: 3mm;
+    border: black solid 1px;
+    border-top: 0px;
+}
+.coppypasta {
+    min-height: 1cm;
+    border: black solid 1px;
+    text-align: center;
+    padding-left: 1mm;
+    padding-right: 1mm;
+    background-color: seagreen;
+    overflow: hidden;
+}
