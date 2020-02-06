@@ -52,7 +52,8 @@ app.post('/strategies/:strategyID/upvote', function (req, res) {
 
     db.collection('obliquestrategies').updateOne(
         { _id: ObjectID(req.params.strategyID), "votes.ip": ip },
-        { $set: { "votes.$.status": 1 } }
+        { $set: { "votes.$.status": 1 } },
+        { upsert: true }
     ).then(result => {
         res.sendStatus(200);
     })
