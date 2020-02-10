@@ -1,9 +1,5 @@
-var namen;
 const table = document.getElementById("nolimit");
 var quotes;
-var actualQuote;
-var actualAuthor;
-var actualTag;
 var row;
 var cell1;
 var cell2;
