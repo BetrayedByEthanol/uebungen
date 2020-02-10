@@ -20,7 +20,7 @@ function wennGeladen() {
 
         insertTable();
         var zahl = 1;
-        for (var index = 0; index <= 8; index++) {
+        for (var index = 0; index <= quotes.length; index++) {
             document.getElementById('zelle' + zahl + '1').innerHTML = quotes[index].quote;
             document.getElementById('zelle' + zahl + '2').innerHTML = quotes[index].author.name;
             document.getElementById('zelle' + zahl + '3').innerHTML = quotes[index].tags;
@@ -33,7 +33,7 @@ function wennGeladen() {
 
         insertTable();
         var zahl2 = 1;
-        for (var index = 0; index <= 8; index++) {
+        for (var index = 0; index <= quotes.length; index++) {
             document.getElementById('zelle' + zahl2 + '1').innerHTML = quotes[index].quote;
             document.getElementById('zelle' + zahl2 + '2').innerHTML = quotes[index].author.name;
             document.getElementById('zelle' + zahl2 + '3').innerHTML = quotes[index].tags;
@@ -47,7 +47,7 @@ function wennGeladen() {
 }
 
 function insertTable() {
-    for (var x = 1; x <= 9; x++) {
+    for (var x = 1; x <= quotes.length; x++) {
         row = table.insertRow(x);
         row.id = 'reihe' + x;
         cell1 = row.insertCell(0);
