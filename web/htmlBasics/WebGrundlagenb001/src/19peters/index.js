@@ -1,4 +1,6 @@
 var quotes = null;
+var namesort = 0;
+var gruppe = ["19ausbilder", "19adam", "19behm", "19nieke", "19peters", "19poeppmann", "19rose", "19seifert", "19soler", "19tantsch", "19zech"];
 
 var wennGeladen = function () {
     quotes = JSON.parse(http.responseText);
@@ -7,13 +9,12 @@ var wennGeladen = function () {
     // const randomIndex = Math.floor(Math.random() * quotes.length);
     // zitatElement.innerText = quotes[randomIndex].quote;
 
-    const gruppe = ["ausbilder", "19adam", "19behm", "19nieke", "19peters", "19poeppmann", "19rose", "19seifert", "19soler", "19tantsch", "19zech"];
 
     gruppe.forEach(teilnehmer => {
 
         const block = document.getElementById('applepie');
         const newBlock = block.cloneNode(true);
-        newBlock.id = teilnehmer + 'nameID';
+        newBlock.id = 'nameID';
         
         newBlock.getElementsByTagName('h2')[0].innerText = teilnehmer;
         // newBlock.getElementsByTagName('image')[0].setAttribute('href', '../img/' + teilnehmer + 'profile.png');
@@ -31,6 +32,21 @@ var wennGeladen = function () {
         newBlock.hidden = false;
 
     });
+}
+
+function sort_name() {
+    var hgf = document.getElementsByClassName('th1');
+    for (i in gruppe) {
+        var kl = document.getElementById('nameID')
+        kl.remove();
+    }
+    gruppe.sort();
+    if (namesort == 1) {
+        gruppe.reverse();
+        namesort = 0;
+    }
+    else namesort = 1;
+    wennGeladen();
 }
 
 const http = new XMLHttpRequest();
