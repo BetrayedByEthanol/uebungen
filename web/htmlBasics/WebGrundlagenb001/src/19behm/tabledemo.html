@@ -15,9 +15,9 @@
 <body>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-            <span class="input-group-text"></span>
+            <span class="input-group-text" id="textinputicon">&#128270;</span>
         </div>
-
+        <input type="text" id="searchinput" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="texinputicon" onkeyup="filterTable()">
     </div>
 
     <table id = "quotetable" class="table table-striped table-dark">
