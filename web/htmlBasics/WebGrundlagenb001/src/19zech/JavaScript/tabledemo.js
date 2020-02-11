@@ -21,7 +21,6 @@ function sortQuote() {
   deleteStuff();
   loaded();
 }
-
 function sortAuthor() {
   sortedAuthor++;
   initialLoad = 1;
@@ -47,7 +46,6 @@ function createTable() {
     quotes.appendChild(row);
   });
 }
-
 function compareAuthor(quoteA, quoteB) {
   if (quoteB.author.name.toLowerCase() > quoteA.author.name.toLowerCase()) {
     return -1;
@@ -57,7 +55,6 @@ function compareAuthor(quoteA, quoteB) {
   }
   return 0;
 }
-
 function compareAlphabetically(quoteA, quoteB) {
   if (quoteB.quote.toLowerCase() > quoteA.quote.toLowerCase()) {
     return -1;
@@ -77,6 +74,31 @@ function deleteStuff() {
     }
   }
 }
+function filterStuff() {
+  var input, filter, tr, td,td2, td3, i, textValue, textValue2, textValue3;
+  input = document.getElementById("searchID");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("fuckthis");
+  tr = document.getElementsByTagName("tr");
+
+  for(i=0; i< tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    td2 = tr[i].getElementsByTagName("td")[1];
+    td3 = tr[i].getElementsByTagName("td")[2]
+    if(td) {
+      textValue = td.textContent || td.innerText;
+      textValue2 = td2.textContent || td2.innerText;
+      textValue3 = td3.textContent || td3.innerText;
+      if(textValue.toUpperCase().indexOf(filter) > -1 || textValue2.toUpperCase().indexOf(filter) > -1 || textValue3.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+
 
 const http = new XMLHttpRequest();
 http.open("GET", "../data/quotes.json");
