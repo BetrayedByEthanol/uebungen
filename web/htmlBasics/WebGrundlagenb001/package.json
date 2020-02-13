@@ -6,11 +6,12 @@
   "scripts": {
     "test": "mocha",
     "coverage": "nyc npm run test",
-    "start": "node app.js &"
+    "start": "node node_modules/nodemon/bin/nodemon.js app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongodb": "^3.5.2",
     "morgan": "^1.9.1",
