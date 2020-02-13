@@ -5,14 +5,12 @@ var categories = [];
 var toggleMe = false;
 var autoRefresh;
 var currentPhraseID;
+var currentPhraseMongoID;
 
 var wennGeladen = function () {
     allPhrases = JSON.parse(http.responseText);
     for (var i = 0; i < allPhrases.length; i++) {
         allPhrases[i].id = i;
-        allPhrases[i].upvotes = 0;
-        allPhrases[i].downvotes = 0;
-        allPhrases[i].voted = 0;
         allPhrases[i].category.forEach(x => {
             if (!categories.includes(x)) categories.push(x);
         });
@@ -42,6 +40,7 @@ function refresh() {
         if (counter > 20) {
             window.clearInterval(setWait);
             currentPhraseID = phrases[randomNumber].id;
+            currentPhraseMongoID = phrases[randomNumber]._id;
             document.getElementById('category').innerText = phrases[randomNumber].category;
             getRating();
             timer = 0;
@@ -86,8 +85,46 @@ function getRating() {
         document.getElementById('upvote').style.visibility = 'hidden';
         document.getElementById('downvote').style.visibility = 'visible';
     }
-    document.getElementById('rating').innerText = allPhrases[currentPhraseID].upvotes - allPhrases[currentPhraseID].downvotes; 
+    document.getElementById('rating').innerText = allPhrases[currentPhraseID].upvotes - allPhrases[currentPhraseID].downvotes;
 }
+
+function vote(param) {
+    const http = new XMLHttpRequest();
+    const url = 'localhost:5050';
+    let data = {
+        ipAddress: 'mustBeReplayedThroughServer',
+        voteStatus: param,
+        phraseID: currentPhraseMongoID
+    };
+
+    fetch('http://localhost:5050/post', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).then(res => {
+        console.log(res.text());
+    })
+}
+
+function myIP() {
+    if (window.XMLHttpRequest) xmlhttp = new XMLHttpRequest();
+    else xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+    xmlhttp.open("GET", "http://api.hostip.info/get_html.php", false);
+    xmlhttp.send();
+
+    hostipInfo = xmlhttp.responseText.split("\n");
+
+    for (i = 0; hostipInfo.length >= i; i++) {
+        ipAddress = hostipInfo[i].split(":");
+        if (ipAddress[0] == "IP") return ipAddress[1];
+    }
+
+    return false;
+}
+
 
 const http = new XMLHttpRequest();
 http.open("GET", "/strategies");
