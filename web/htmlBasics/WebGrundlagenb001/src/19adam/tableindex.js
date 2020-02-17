@@ -88,7 +88,7 @@ function searchinput(){
     /*var searchdone = document.getElementById('toLookFor').innerHtml.match(input);
     console.log(searchdone);*/
 
-    for(i = 0; i < (tablerows.length); i++){
+    for(i = 1; i < (tablerows.length); i++){
 
         /*rowel = tablerows.getElementsByTagName('td');*/
         rowel = tablerows[i].innerText;
