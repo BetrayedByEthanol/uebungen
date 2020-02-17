@@ -76,6 +76,44 @@ function sortby(n){
 
 }
 
+function searchinput(){
+
+    var i, input, filterby, elvalue, table, tablerows, rowel;
+
+    input = document.getElementById('search').value;
+    filterby = input.toLowerCase();
+    table = document.getElementById('doctable');
+    tablerows = table.rows;
+
+    /*var searchdone = document.getElementById('toLookFor').innerHtml.match(input);
+    console.log(searchdone);*/
+
+    for(i = 1; i < (tablerows.length); i++){
+
+        /*rowel = tablerows.getElementsByTagName('td');*/
+        rowel = tablerows[i].innerText;
+        console.log(rowel);
+
+        /*elvalue = rowel.innerText;*/
+
+        if(rowel){
+
+            /*elvalue = rowel.innerText;*/
+
+            if(rowel.toLowerCase().indexOf(filterby) < 0){
+
+                tablerows[i].style.display = "none";
+
+            }/*else{
+                tablerows[i].style.display = "";
+            }*/
+
+        }
+
+    }
+
+}
+
 var request = new XMLHttpRequest();
 request.open("GET", "../data/quotes.json");
 request.onload = gentable;
