@@ -4,7 +4,7 @@ Vue.component('o-card', {
     template: `
     <div class="card" >
     <h5 class="card-title">{{strategy.phrase}}</h5>
-    <p class="align-text-right">{{strategy.category}}</p>
+    <p class="align-text-right">{{strategy.category.join(', ')}}</p>
     
     </div>`,
     props: ['strategy']
