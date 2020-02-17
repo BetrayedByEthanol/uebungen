@@ -95,6 +95,23 @@ function createtable() {
 
 }
 
+function getweeknumber(d) {
+
+    d = new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));
+
+    d.setUTCDate(d.getUTCDate()+4-(d.getUTCDay()||7));
+
+    var yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
+
+    var weekNo = Math.ceil(( ( (d-yearStart)/86400000)+1)/7);
+
+    return [d.getUTCFullYear(), weekNo];
+
+}
+
+var result = getweeknumber(new Date());
+document.write('It\'s currently week ' + result[1] + ' of ' +result[0]);
+
 
 var tablerequest = new XMLHttpRequest();
 tablerequest.open("GET", 'http://localhost:5050/strategies');
