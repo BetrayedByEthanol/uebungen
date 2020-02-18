@@ -1,14 +1,9 @@
-const cors = require('cors');
 const express = require("express");
 var path = require("path");
 var morgan = require('morgan');
-var os = require('os');
-var ifaces = os.networkInterfaces();
 
 
 const app = express();
-app.use(cors());
-app.options('*', cors());
 const port = 5050;
 
 const url = 'mongodb://10.42.53.5:27017';
@@ -19,6 +14,7 @@ var db;
 
 app.use(morgan('common'));
 
+<<<<<<< HEAD
 app.use(express.json());
 
 app.post('/post', (req, res) => {
@@ -75,26 +71,16 @@ app.get('/strategies/:strategyID', function (req, res) {
     });
 });
 
+=======
+>>>>>>> fetch_head
 app.get('/strategies', (req, res) => {
-    db.collection('obliquestrategies').find().toArray(function (err, result) {
-        if (err) throw err;
-        result.forEach(phrase => {
-            phrase.upvotes = 0;
-            phrase.downvotes = 0;
 
-            if (phrase.votes.length > 0) {
-                phrase.votes.forEach(vote => {
-                    if (vote.voteStatus == 1) phrase.upvotes++;
-                    else phrase.downvotes++;
-                });
-                phrase.votes = phrase.votes.filter(function (item) {
-                    return item.ipAddress === req.connection.remoteAddress;
-                })
-            }
-        });
+    db.collection('obliquestrategies').find().toArray(function (err, result) {
+        if (err) throw err
         res.json(result);
+        console.log(result);
     });
-    console.log(getIP());
+
 });
 
 app.get('/strategies/:strategyID', function (req, res) {
@@ -118,11 +104,11 @@ app.get('/strategies/:strategyID/votes', function (req, res) {
     });
 });
 
-// vote function for up/down/unvote
+
 app.vote = function(req, res, status) {
 
     var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
- 
+
     //TODO: Is there a better solution?
     db.collection('obliquestrategies').updateOne(
         { _id: ObjectID(req.params.strategyID), "votes.ip": ip },
@@ -178,28 +164,3 @@ client.connect().then((client) => {
     db = client.db('FIAN19-II');
     app.listen(port, () => console.log(`Server listening on port ${port}!`));
 });
-
-function getIP()
-{
-    var ipAddresses = [];
-Object.keys(ifaces).forEach(function (ifname) {
-    var alias = 0;
-    
-    ifaces[ifname].forEach(function (iface) {
-      if ('IPv4' !== iface.family || iface.internal !== false) {
-        // skip over internal (i.e. 127.0.0.1) and non-ipv4 addresses
-        return;
-      }
-  
-      if (alias >= 1) {
-        // this single interface has multiple ipv4 addresses
-        console.log(ifname + ':' + alias, iface.address);
-      } else {
-        // this interface has only one ipv4 adress
-        ipAddresses.push(iface.address);
-      }
-      ++alias;
-    });
-  });
-   return ipAddresses[0];
-}
