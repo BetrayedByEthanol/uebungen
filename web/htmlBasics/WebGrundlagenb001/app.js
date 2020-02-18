@@ -1,14 +1,13 @@
-const cors = require('cors');
+// const cors = require('cors');
 const express = require("express");
 var path = require("path");
 var morgan = require('morgan');
 var os = require('os');
 var ifaces = os.networkInterfaces();
 
-
 const app = express();
-app.use(cors());
-app.options('*', cors());
+// app.use(cors());
+// app.options('*', cors());
 const port = 5050;
 
 const url = 'mongodb://10.42.53.5:27017';
@@ -21,44 +20,17 @@ app.use(morgan('common'));
 
 app.use(express.json());
 
-app.post('/post', (req, res) => {
-
-    (req.connection.remoteAddress.includes('::1'))? req.body.ipAddress = getIP() : req.body.ipAddress =  req.connection.remoteAddress;
-    console.log(req.body.phraseID);
-    res.json({ message: 'hallo' });
-    db.collection('obliquestrategies').findOne({ _id: ObjectID(req.body.phraseID) }, function (err, result) {
+app.get('/strategy', (req, res) => {
+    db.collection('obliquestrategies').aggregate([{ $sample: { size: 20 } }]).toArray(function (err, result) {
         if (err) throw err;
-        if (result.votes.filter(e => { return e.ipAddress == req.body.ipAddress }).length == 0) {
-            if(req.body.ipAddress.includes('::1')) req.body.ipAddress = getIP();
-            result.votes.push({ ipAddress: req.body.ipAddress, voteStatus: req.body.voteStatus });
-        } else {
-            result.votes.filter(e => { return e.ipAddress == req.body.ipAddress })[0].voteStatus = req.body.voteStatus;
-        }
-        console.log(req.body.voteStatus);
-        db.collection('obliquestrategies').updateOne({ _id: result._id }, { $set: { votes: result.votes } }, function (erro, resu) {
-            if (erro) throw erro;
-            console.log(resu);
-        });
-    });
-
-});
-
-app.get('/strategies', (req, res) => {
-    db.collection('obliquestrategies').find().toArray(function (err, result) {
-        if (err) throw err;
-        result.forEach(phrase => {
-            phrase.upvotes = 0;
-            phrase.downvotes = 0;
-
-            if (phrase.votes.length > 0) {
-                phrase.votes.forEach(vote => {
-                    if (vote.voteStatus == 1) phrase.upvotes++;
-                    else phrase.downvotes++;
-                });
-                phrase.votes = phrase.votes.filter(function (item) {
-                    return item.ipAddress === req.connection.remoteAddress;
-                })
-            }
+        result.forEach(phrase =>{
+            phrase.rating = 0;
+            if (phrase.votes.length > 0) phrase.votes.forEach(vote => {
+                phrase.rating += vote.status;
+            });
+            if (phrase.votes.length > 0)  phrase.votes = phrase.votes.filter(vote => {
+                return (vote.ip == getIP() || vote.ip == req.connection.remoteAddress);
+            }); 
         });
         res.json(result);
     });
@@ -75,6 +47,16 @@ app.get('/strategies/:strategyID', function (req, res) {
     });
 });
 
+app.get('/strategies', (req, res) => {
+
+    db.collection('obliquestrategies').find().toArray(function (err, result) {
+        if (err) throw err
+        res.json(result);
+        console.log(result);
+    });
+
+});
+
 app.get('/strategies/:strategyID/votes', function (req, res) {
     console.log(req.params);
 
@@ -86,11 +68,11 @@ app.get('/strategies/:strategyID/votes', function (req, res) {
     });
 });
 
-// vote function for up/down/unvote
-app.vote = function(req, res, status) {
 
-    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
- 
+app.vote = function (req, res, status) {
+
+    var ip = req.connection.remoteAddress;
+    if(ip.includes('::1')) ip = getIP();
     //TODO: Is there a better solution?
     db.collection('obliquestrategies').updateOne(
         { _id: ObjectID(req.params.strategyID), "votes.ip": ip },
@@ -105,7 +87,7 @@ app.vote = function(req, res, status) {
                 { $push: { votes: { ip: ip, status: status } } }
             )
         }
-         res.sendStatus(200);
+        res.sendStatus(200);
     }).catch((err) => {
         console.log(err);
         res.sendStatus(404);
@@ -147,27 +129,26 @@ client.connect().then((client) => {
     app.listen(port, () => console.log(`Server listening on port ${port}!`));
 });
 
-function getIP()
-{
+function getIP() {
     var ipAddresses = [];
-Object.keys(ifaces).forEach(function (ifname) {
-    var alias = 0;
-    
-    ifaces[ifname].forEach(function (iface) {
-      if ('IPv4' !== iface.family || iface.internal !== false) {
-        // skip over internal (i.e. 127.0.0.1) and non-ipv4 addresses
-        return;
-      }
-  
-      if (alias >= 1) {
-        // this single interface has multiple ipv4 addresses
-        console.log(ifname + ':' + alias, iface.address);
-      } else {
-        // this interface has only one ipv4 adress
-        ipAddresses.push(iface.address);
-      }
-      ++alias;
+    Object.keys(ifaces).forEach(function (ifname) {
+        var alias = 0;
+
+        ifaces[ifname].forEach(function (iface) {
+            if ('IPv4' !== iface.family || iface.internal !== false) {
+                // skip over internal (i.e. 127.0.0.1) and non-ipv4 addresses
+                return;
+            }
+
+            if (alias >= 1) {
+                // this single interface has multiple ipv4 addresses
+                console.log(ifname + ':' + alias, iface.address);
+            } else {
+                // this interface has only one ipv4 adress
+                ipAddresses.push(iface.address);
+            }
+            ++alias;
+        });
     });
-  });
-   return ipAddresses[0];
+    return ipAddresses[0];
 }
