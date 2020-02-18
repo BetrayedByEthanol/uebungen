@@ -109,12 +109,16 @@ function vote(param) {
         phrases[currentPhraseID].votes = [];
     } else if (param.includes('upvote')) {
         phrases[currentPhraseID].rating++;
-        var status = 1
-        phrases[currentPhraseID].votes.push(status);
+        let vote = {
+            status: 1
+        }
+        phrases[currentPhraseID].votes.push(vote);
     } else {
         phrases[currentPhraseID].rating--;
-        var status = -1
-        phrases[currentPhraseID].votes.push(status);
+        let vote = {
+            status: -1
+        }
+        phrases[currentPhraseID].votes.push(vote);
     }
     fetch('/strategies/' + phrases[currentPhraseID]._id + param, {
         method: "POST"
