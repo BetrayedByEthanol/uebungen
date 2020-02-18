@@ -55,6 +55,9 @@ app.get('/strategy', (req, res) => {
             if(randomPhrase.votes.length > 0) randomPhrase.rating = randomPhrase.votes.forEach(vote => {
                 randomPhrase += vote.status; 
             });
+            randomPhrase.votes = randomPhrase.votes.filter(vote => {
+               return (vote.ip == get() || vote.ip == req.connection.remoteAddress); 
+            });
             randomPhrases.push(randomPhrase);
         }
         res.json(randomPhrases);

@@ -48,7 +48,7 @@ function refresh() {
     const http = new XMLHttpRequest();
     http.open("GET", "/strategy");
     http.send();
-    
+
     var setWait = window.setInterval(wait, 40);
 }
 
@@ -61,7 +61,7 @@ function getRating() {
     if (allPhrases[currentPhraseID].votes.length == 0) {
         document.getElementById('upvote').style.visibility = 'visible';
         document.getElementById('downvote').style.visibility = 'visible';
-    } else if (allPhrases[currentPhraseID].votes[0].voteStatus == 1) {
+    } else if (allPhrases[currentPhraseID].votes[0].status == 1) {
         document.getElementById('upvote').style.visibility = 'visible';
         document.getElementById('downvote').style.visibility = 'hidden';
     } else {
@@ -73,33 +73,21 @@ function getRating() {
 
 function vote(param) {
     if (allPhrases[currentPhraseID].votes.length != 0) {
-        if (allPhrases[currentPhraseID].votes[0].voteStatus == 1) {
-            allPhrases[currentPhraseID].upvotes--;
-        } else {
-            allPhrases[currentPhraseID].downvotes--;
-        }
-        param = 0;
+        param = '/unvote';
+        (allPhrases[currentPhraseID].votes[0].status == 1)? allPhrases[currentPhraseID].rating-- : allPhrases[currentPhraseID].rating++;
         allPhrases[currentPhraseID].votes = [];
+    } else if(param.includes('upvote')){
+        allPhrases[currentPhraseID].rating++;
+        var status = 1
+        allPhrases[currentPhraseID].votes.push(status);
     } else {
-        let data = {
-            voteStatus: param
-        };
-        allPhrases[currentPhraseID].votes.push(data);
-        (param == 1) ? allPhrases[currentPhraseID].upvotes++ : allPhrases[currentPhraseID].downvotes++;
+        allPhrases[currentPhraseID].rating--;
+        var status = -1
+        allPhrases[currentPhraseID].votes.push(status);
     }
-    console.log(param);
-    let data = {
-        ipAddress: 'mustBeReplayedThroughServer',
-        voteStatus: param,
-        phraseID: currentPhraseMongoID
-    };
 
-    fetch('/strategies/' + allPhrases[currentPhraseID]._id + '/upvote', {
-        method: "POST",
-        // headers: {
-        //     'Content-Type': 'application/json'
-        // },
-        // body: JSON.stringify(data)
+    fetch('/strategies/' + allPhrases[currentPhraseID]._id + param, {
+        method: "POST"
     }).then(res => {
         console.log(res.text());
     });
