@@ -114,6 +114,6 @@ document.write('It\'s currently week ' + result[1] + ' of ' +result[0]);
 
 
 var tablerequest = new XMLHttpRequest();
-tablerequest.open("GET", 'http://localhost:5050/strategies');
+tablerequest.open("GET", 'http://10.42.53.5:5050/strategies');
 tablerequest.onload = createtable;
 tablerequest.send();
