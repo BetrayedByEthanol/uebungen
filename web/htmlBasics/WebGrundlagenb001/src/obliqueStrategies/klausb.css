@@ -1,58 +1,28 @@
-  .refreshIcon {
-    height: 40px;
-    width: 40px;
-  }
-  .timerIcon {
-    height: 30px;
-    width: 30px;
-  }
-  .arrows {
-    height: 20px;
-    width: 20px;
-  }
+#autoRefresh{
+ width: 35px;
+ height: 35px;
+}
 
-  .halved {
-    grid-area: votes;
-    display: grid;
-    grid-template-columns: [start] 50px [end];
-    grid-template-rows: [start row1-start] 50px [row1-end row2-start] 50px [row2-end end];
-    grid-template-areas:
-      "upvote"
-      "downvote";
-  }
-  
-  .item-refresh {
-    grid-area: refresh;
-    align-self: start;
-  }
-  .item-timer {
-    grid-area: timer;
-    justify-self: end;
-  }
-  .item-content {
-    grid-area: content;
-    justify-self: stretch;
-  }
-  .item-category {
-    padding-block-start: 25%;
-    grid-area: category;
-  }
-  .item-rating {
-    padding-top: 2.8cm;
-    grid-area: rating;
-    justify-self: end;
-  }
-  .item-upvote {
-    padding-top: 2.5cm;
-    grid-area: upvote;
-    justify-self: right;
-  }
-  .item-downvote {
-    padding-top: 1.8cm;
-    grid-area: downvote;
-    justify-self: right;
-  }
+.refreshIcon{
+  width: 35px;
+  height: 35px;
+}
 
-  #linie {
-    background-color: white;
-  }
+#upvote{
+  width: 25px;
+  height: 25px;
+}
+
+#downvote{
+width: 25px;
+height: 25px;
+
+}
+
+#jumbo{
+  min-height: 400px;
+}
+
+#linie{
+  background-color: white;
+}
