@@ -80,21 +80,16 @@ function vote(vote) {
 }
 
 function getRating() {
-    if (allPhrases[currentPhraseID].voted == 0) {
+    if (allPhrases[currentPhraseID].votes.length == 0) {
         document.getElementById('upvote').style.visibility = 'visible';
         document.getElementById('downvote').style.visibility = 'visible';
-<<<<<<< HEAD
     } else if (allPhrases[currentPhraseID].votes[0].status == 1) {
-=======
-    } else if (allPhrases[currentPhraseID].voted == 1) {
->>>>>>> fetch_head
         document.getElementById('upvote').style.visibility = 'visible';
         document.getElementById('downvote').style.visibility = 'hidden';
     } else {
         document.getElementById('upvote').style.visibility = 'hidden';
         document.getElementById('downvote').style.visibility = 'visible';
     }
-<<<<<<< HEAD
     document.getElementById('rating').innerText = allPhrases[currentPhraseID].rating;
 }
 
@@ -119,9 +114,6 @@ function vote(param) {
         console.log(res.text());
     });
     getRating();
-=======
-    document.getElementById('rating').innerText = allPhrases[currentPhraseID].upvotes - allPhrases[currentPhraseID].downvotes; 
->>>>>>> fetch_head
 }
 
 const http = new XMLHttpRequest();
