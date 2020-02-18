@@ -43,6 +43,35 @@ app.post('/post', (req, res) => {
 
 });
 
+
+app.get('/strategy', (req, res) => {
+    db.collection('obliquestrategies').find().toArray(function (err, result) {
+        if (err) throw err;
+        var randomPhrases = [];
+        for(i = 0; i < 20; i++){
+            const randomNumber = Math.floor(Math.random() * result.length);
+            var randomPhrase = result[randomNumber];
+            randomPhrase.rating = 0;           
+            if(randomPhrase.votes.length > 0) randomPhrase.rating = randomPhrase.votes.forEach(vote => {
+                randomPhrase += vote.status; 
+            });
+            randomPhrases.push(randomPhrase);
+        }
+        res.json(randomPhrases);
+    });
+    console.log(getIP());
+});
+
+app.get('/strategies/:strategyID', function (req, res) {
+    console.log(req.params);
+
+    db.collection('obliquestrategies').findOne({ '_id': ObjectID(req.params.strategyID) }, function (err, result) {
+        if (err) throw err;
+        console.log(result);
+        res.json(result);
+    });
+});
+
 app.get('/strategies', (req, res) => {
     db.collection('obliquestrategies').find().toArray(function (err, result) {
         if (err) throw err;
