@@ -1,4 +1,4 @@
-const cors = require('cors');
+// const cors = require('cors');
 const express = require("express");
 var path = require("path");
 var morgan = require('morgan');
@@ -7,8 +7,8 @@ var ifaces = os.networkInterfaces();
 
 
 const app = express();
-app.use(cors());
-app.options('*', cors());
+// app.use(cors());
+// app.options('*', cors());
 const port = 5050;
 
 const url = 'mongodb://10.42.53.5:27017';
