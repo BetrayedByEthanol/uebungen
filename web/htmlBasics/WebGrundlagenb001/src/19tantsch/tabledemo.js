@@ -4,9 +4,9 @@ var row;
 var cell1;
 var cell2;
 var cell3;
+var rowCount = document.getElementsByTagName("tr").length;
 var reloader = false;
 var sortCheck = 1;
-var filterCalls = false;
 
 function wennGeladen() {
 
@@ -16,7 +16,7 @@ function wennGeladen() {
 
         insertTable();
         var zahl = 1;
-        for (var index = 0; index <= quotes.length - 1; index++) {
+        for (var index = 0; index <= quotes.length; index++) {
             document.getElementById('zelle' + zahl + '1').innerHTML = quotes[index].quote;
             document.getElementById('zelle' + zahl + '2').innerHTML = quotes[index].author.name;
             document.getElementById('zelle' + zahl + '3').innerHTML = quotes[index].tags;
@@ -29,7 +29,7 @@ function wennGeladen() {
 
         insertTable();
         var zahl2 = 1;
-        for (var index = 0; index <= quotes.length - 1; index++) {
+        for (var index = 0; index <= quotes.length; index++) {
             document.getElementById('zelle' + zahl2 + '1').innerHTML = quotes[index].quote;
             document.getElementById('zelle' + zahl2 + '2').innerHTML = quotes[index].author.name;
             document.getElementById('zelle' + zahl2 + '3').innerHTML = quotes[index].tags;
@@ -37,16 +37,6 @@ function wennGeladen() {
 
         }
 
-    } else if (filterCalls == true && reloader == true && sortCheck == 1) {
-        insertTable();
-        var zahl3 = 1;
-        for (var index = 0; index <= quotes.length - 1; index++) {
-            document.getElementById('zelle' + zahl3 + '1').innerHTML = quotes[index].quote;
-            document.getElementById('zelle' + zahl3 + '2').innerHTML = quotes[index].author.name;
-            document.getElementById('zelle' + zahl3 + '3').innerHTML = quotes[index].tags;
-            zahl3 = zahl3 + 1;
-        }
-        filterCalls == false;
     }
 
 
@@ -78,7 +68,6 @@ function deleteTable() {
         }
     }
 }
-
 
 function sortAuthor() {
     sortCheck++;
@@ -153,34 +142,6 @@ function sortTag() {
 
     }
 
-}
-
-document.getElementById("input").onkeyup = function () {
-    inputReader()
-};
-
-function inputReader() {
-    var txtValue;
-    var input = document.getElementById("input");
-    var filter = input.value.toUpperCase();
-    var table = document.getElementById("nolimit");
-    var tr = table.getElementsByTagName("tr");
-    for (var i = 1; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
-        td2 = tr[i].getElementsByTagName("td")[1];
-        td3 = tr[i].getElementsByTagName("td")[2];
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            txtValue2 = td2.textContent || td2.innerText;
-            txtValue3 = td3.textContent || td3.innerText;
-        }
-        if (txtValue.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1 || txtValue3.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-        } else {
-            tr[i].style.display = "none";
-        }
-
-    }
 }
 
 

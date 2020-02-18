@@ -1,16 +1,18 @@
 var phrases;
 var allPhrases;
+var timer = 0;
 var categories = [];
 var toggleMe = false;
 var autoRefresh;
 var currentPhraseID;
-var currentPhraseMongoID;
-const server = 'http://localhost:5050';
 
 var wennGeladen = function () {
     allPhrases = JSON.parse(http.responseText);
     for (var i = 0; i < allPhrases.length; i++) {
         allPhrases[i].id = i;
+        allPhrases[i].upvotes = 0;
+        allPhrases[i].downvotes = 0;
+        allPhrases[i].voted = 0;
         allPhrases[i].category.forEach(x => {
             if (!categories.includes(x)) categories.push(x);
         });
@@ -23,9 +25,9 @@ function toggler() {
     toggleMe = !toggleMe;
     if (toggleMe == true) {
         autoRefresh = window.setInterval(refresh, 10000);
-        document.getElementById('autoRefresh').src = 'img/timeronb.png';
+        document.getElementById('autoRefresh').src = 'img/timeron.png';
     } else {
-        document.getElementById('autoRefresh').src = 'img/timeroffb.png';
+        document.getElementById('autoRefresh').src = 'img/timeroff.png';
         window.clearInterval(autoRefresh);
     }
 }
@@ -39,9 +41,9 @@ function refresh() {
         if (counter > 20) {
             window.clearInterval(setWait);
             currentPhraseID = phrases[randomNumber].id;
-            currentPhraseMongoID = phrases[randomNumber]._id;
-            document.getElementById('category').innerText = phrases[randomNumber].category;
+            document.getElementById('category').innerText = "Category: " + phrases[randomNumber].category;
             getRating();
+            timer = 0;
         }
 
     }
@@ -56,6 +58,26 @@ function filterPhrases(category) {
     phrases = allPhrases.filter(p => { return p.category == category });
 }
 
+function vote(vote) {
+    if (vote == 1 && allPhrases[currentPhraseID].voted == 0) {
+        allPhrases[currentPhraseID].upvotes++;
+        allPhrases[currentPhraseID].voted = 1;
+        document.getElementById('downvote').style.visibility = 'hidden';
+    } else if (vote == 0 && allPhrases[currentPhraseID].voted == 0) {
+        allPhrases[currentPhraseID].downvotes++;
+        allPhrases[currentPhraseID].voted = -1;
+        document.getElementById('upvote').style.visibility = 'hidden';
+    } else if (allPhrases[currentPhraseID].voted == 1) {
+        allPhrases[currentPhraseID].upvotes--;
+        allPhrases[currentPhraseID].voted = 0;
+
+    } else {
+        allPhrases[currentPhraseID].downvotes--;
+        allPhrases[currentPhraseID].voted = 0;
+
+    }
+    getRating();
+}
 
 function getRating() {
     if (allPhrases[currentPhraseID].votes.length == 0) {
@@ -98,4 +120,3 @@ const http = new XMLHttpRequest();
 http.open("GET", "/strategy");
 http.onload = wennGeladen;
 http.send();
-
