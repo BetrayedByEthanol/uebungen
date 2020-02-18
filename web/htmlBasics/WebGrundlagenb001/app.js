@@ -14,7 +14,6 @@ var db;
 
 app.use(morgan('common'));
 
-<<<<<<< HEAD
 app.use(express.json());
 
 app.post('/post', (req, res) => {
@@ -71,8 +70,6 @@ app.get('/strategies/:strategyID', function (req, res) {
     });
 });
 
-=======
->>>>>>> fetch_head
 app.get('/strategies', (req, res) => {
 
     db.collection('obliquestrategies').find().toArray(function (err, result) {
