@@ -19,6 +19,7 @@ var wennGeladen = function () {
     }
     phrases = allPhrases;
     refresh();
+    
 }
 
 function toggler() {
@@ -41,21 +42,67 @@ function refresh() {
         if (counter > 20) {
             window.clearInterval(setWait);
             currentPhraseID = phrases[randomNumber].id;
+            currentPhraseMongoID = phrases[randomNumber]._id;
+            document.getElementById('category').innerText = phrases[randomNumber].category;
+            ColorChange();
+            getRating();          
             document.getElementById('category').innerText = "Category: " + phrases[randomNumber].category;
             getRating();
             timer = 0;
         }
 
     }
+   
     const http = new XMLHttpRequest();
     http.open("GET", "/strategy");
     http.send();
 
     var setWait = window.setInterval(wait, 40);
+    
 }
 
 function filterPhrases(category) {
     phrases = allPhrases.filter(p => { return p.category == category });
+}
+
+function ColorChange(){
+    const theme = document.getElementById("category").innerText;
+    if(theme == "Growth"){
+        document.getElementById("jumbo").className = "jumbotron bg-success mh-100";
+        document.getElementById("content").className = "display-5 text-break text-light";
+        document.getElementById("category").className = "lead text-right text-light";
+    }
+    else if(theme == "New Perspective"|| theme == "Self-Care,New Perspective,Philosophical"){
+        document.getElementById("jumbo").className = "jumbotron bg-secondary mh-100";
+        document.getElementById("content").className = "display-5 text-break text-light";
+        document.getElementById("category").className = "lead text-right text-light";  
+    }
+    else if(theme =="Programming" ||theme == "Philosophy" || theme == "Philosophical" || theme == "Philosophical,Programming,Self-Confidence,New Perspective"){
+        document.getElementById("jumbo").className = "jumbotron bg-warning mh-100";
+        document.getElementById("content").className = "display-5 text-break text-dark";
+        document.getElementById("category").className = "lead text-right text-dark";
+    }
+    else if(theme == "Technology" || theme == "Technology,New Perspective"){
+        document.getElementById("jumbo").className = "jumbotron bg-info mh-100";
+        document.getElementById("content").className = "display-5 text-break text-light";
+        document.getElementById("category").className = "lead text-right text-light";
+    }
+    else if(theme == "Self-Confidence" || theme == "Self-Care" ){
+        document.getElementById("jumbo").className = "jumbotron bg-danger mh-100";
+        document.getElementById("content").className = "display-5 text-break text-dark";
+        document.getElementById("category").className = "lead text-right text-dark";
+    }
+    else if(theme == "Technology"){
+        document.getElementById("jumbo").className = "jumbotron bg-light mh-100";
+        document.getElementById("content").className = "display-5 text-break text-dark";
+        document.getElementById("category").className = "lead text-right text-dark";
+    }
+    else
+    {
+        document.getElementById("jumbo").className = "jumbotron bg-dark mh-100";
+        document.getElementById("content").className = "display-5 text-break text-light";
+        document.getElementById("category").className = "lead text-right text-light";
+    }
 }
 
 function vote(vote) {
