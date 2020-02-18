@@ -26,9 +26,9 @@ function toggler() {
     toggleMe = !toggleMe;
     if (toggleMe == true) {
         autoRefresh = window.setInterval(refresh, 10000);
-        document.getElementById('autoRefresh').src = 'img/timeronb.png';
+        document.getElementById('autoRefresh').src = 'img/timeron.png';
     } else {
-        document.getElementById('autoRefresh').src = 'img/timeroffb.png';
+        document.getElementById('autoRefresh').src = 'img/timeroff.png';
         window.clearInterval(autoRefresh);
     }
 }
@@ -42,7 +42,7 @@ function refresh() {
         if (counter > 20) {
             window.clearInterval(setWait);
             currentPhraseID = phrases[randomNumber].id;
-            document.getElementById('category').innerText = phrases[randomNumber].category;
+            document.getElementById('category').innerText = "Category: " + phrases[randomNumber].category;
             getRating();
             timer = 0;
         }
