@@ -1,3 +1,7 @@
+#content{
+  padding-top: 30px;
+}
+
 #autoRefresh{
  width: 35px;
  height: 35px;
@@ -13,7 +17,7 @@
   height: 25px;
 }
 
-#downvote{
+#downvote{ 
 width: 25px;
 height: 25px;
 
