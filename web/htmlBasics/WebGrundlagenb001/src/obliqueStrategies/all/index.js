@@ -2,7 +2,7 @@
 Vue.component('o-card', {
 
     template: `
-    <div class="card" >
+    <div class="card" v-bind:class="{ 'bg-info': strategy.category.includes('Growth'), 'bg-primary': strategy.category.includes('New Perspective') }">
     <h5 class="card-title">{{strategy.phrase}}</h5>
     <p class="align-text-right">{{strategy.category.join(', ')}}</p>
     
