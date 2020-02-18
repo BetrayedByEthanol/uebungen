@@ -51,7 +51,6 @@ app.get('/strategy', (req, res) => {
             phrase.rating = 0;
             if (phrase.votes.length > 0) phrase.votes.forEach(vote => {
                 phrase.rating += vote.status;
-                console.log(phrase._id + '  ' + phrase.rating);
             });
             if (phrase.votes.length > 0)  phrase.votes = phrase.votes.filter(vote => {
                 return (vote.ip == getIP() || vote.ip == req.connection.remoteAddress);
