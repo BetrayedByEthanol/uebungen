@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\web\\htmlBasics\\WebGrundlagenb001\\src\\obliqueStrategies\\cklauss.js"
+            "program": "${workspaceFolder}\\web\\htmlBasics\\WebGrundlagenb001\\app.js"
         }
     ]
 }
