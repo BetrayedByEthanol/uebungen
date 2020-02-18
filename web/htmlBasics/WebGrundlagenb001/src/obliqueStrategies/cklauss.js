@@ -51,10 +51,11 @@ function refresh() {
         }
 
     }
-   
-    const http = new XMLHttpRequest();
-    http.open("GET", "/strategy");
-    http.send();
+    fetch('/strategy/' , {
+        method: "GET"
+    }).then(res => {
+        console.log(res.text());
+    });
 
     var setWait = window.setInterval(wait, 40);
     
