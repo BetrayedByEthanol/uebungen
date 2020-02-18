@@ -23,13 +23,13 @@ app.use(express.json());
 
 app.post('/post', (req, res) => {
 
-    (req.connection.remoteAddress.includes('::1'))? req.body.ipAddress = getIP() : req.body.ipAddress =  req.connection.remoteAddress;
+    (req.connection.remoteAddress.includes('::1')) ? req.body.ipAddress = getIP() : req.body.ipAddress = req.connection.remoteAddress;
     console.log(req.body.phraseID);
     res.json({ message: 'hallo' });
     db.collection('obliquestrategies').findOne({ _id: ObjectID(req.body.phraseID) }, function (err, result) {
         if (err) throw err;
         if (result.votes.filter(e => { return e.ipAddress == req.body.ipAddress }).length == 0) {
-            if(req.body.ipAddress.includes('::1')) req.body.ipAddress = getIP();
+            if (req.body.ipAddress.includes('::1')) req.body.ipAddress = getIP();
             result.votes.push({ ipAddress: req.body.ipAddress, voteStatus: req.body.voteStatus });
         } else {
             result.votes.filter(e => { return e.ipAddress == req.body.ipAddress })[0].voteStatus = req.body.voteStatus;
@@ -43,26 +43,46 @@ app.post('/post', (req, res) => {
 
 });
 
-app.get('/strategies', (req, res) => {
+
+app.get('/strategy', (req, res) => {
     db.collection('obliquestrategies').find().toArray(function (err, result) {
         if (err) throw err;
-        result.forEach(phrase => {
-            phrase.upvotes = 0;
-            phrase.downvotes = 0;
-
-            if (phrase.votes.length > 0) {
-                phrase.votes.forEach(vote => {
-                    if (vote.voteStatus == 1) phrase.upvotes++;
-                    else phrase.downvotes++;
-                });
-                phrase.votes = phrase.votes.filter(function (item) {
-                    return item.ipAddress === req.connection.remoteAddress;
-                })
-            }
-        });
-        res.json(result);
+        var randomPhrases = [];
+        for (i = 0; i < 20; i++) {
+            const randomNumber = Math.floor(Math.random() * result.length);
+            var randomPhrase = result[randomNumber];
+            randomPhrase.rating = 0;
+            if (randomPhrase.votes.length > 0) randomPhrase.rating = randomPhrase.votes.forEach(vote => {
+                randomPhrase.rating += vote.status;
+            });
+            if (randomPhrase.votes.length > 0)  randomPhrase.votes = randomPhrase.votes.filter(vote => {
+                return (vote.ip == getIP() || vote.ip == req.connection.remoteAddress);
+            });
+            randomPhrases.push(randomPhrase);
+        }
+        res.json(randomPhrases);
     });
     console.log(getIP());
+});
+
+app.get('/strategies/:strategyID', function (req, res) {
+    console.log(req.params);
+
+    db.collection('obliquestrategies').findOne({ '_id': ObjectID(req.params.strategyID) }, function (err, result) {
+        if (err) throw err;
+        console.log(result);
+        res.json(result);
+    });
+});
+
+app.get('/strategies', (req, res) => {
+
+    db.collection('obliquestrategies').find().toArray(function (err, result) {
+        if (err) throw err
+        res.json(result);
+        console.log(result);
+    });
+
 });
 
 app.get('/strategies/:strategyID', function (req, res) {
@@ -86,11 +106,11 @@ app.get('/strategies/:strategyID/votes', function (req, res) {
     });
 });
 
-// vote function for up/down/unvote
-app.vote = function(req, res, status) {
+
+app.vote = function (req, res, status) {
 
     var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
- 
+
     //TODO: Is there a better solution?
     db.collection('obliquestrategies').updateOne(
         { _id: ObjectID(req.params.strategyID), "votes.ip": ip },
@@ -105,7 +125,7 @@ app.vote = function(req, res, status) {
                 { $push: { votes: { ip: ip, status: status } } }
             )
         }
-         res.sendStatus(200);
+        res.sendStatus(200);
     }).catch((err) => {
         console.log(err);
         res.sendStatus(404);
@@ -147,27 +167,26 @@ client.connect().then((client) => {
     app.listen(port, () => console.log(`Server listening on port ${port}!`));
 });
 
-function getIP()
-{
+function getIP() {
     var ipAddresses = [];
-Object.keys(ifaces).forEach(function (ifname) {
-    var alias = 0;
-    
-    ifaces[ifname].forEach(function (iface) {
-      if ('IPv4' !== iface.family || iface.internal !== false) {
-        // skip over internal (i.e. 127.0.0.1) and non-ipv4 addresses
-        return;
-      }
-  
-      if (alias >= 1) {
-        // this single interface has multiple ipv4 addresses
-        console.log(ifname + ':' + alias, iface.address);
-      } else {
-        // this interface has only one ipv4 adress
-        ipAddresses.push(iface.address);
-      }
-      ++alias;
+    Object.keys(ifaces).forEach(function (ifname) {
+        var alias = 0;
+
+        ifaces[ifname].forEach(function (iface) {
+            if ('IPv4' !== iface.family || iface.internal !== false) {
+                // skip over internal (i.e. 127.0.0.1) and non-ipv4 addresses
+                return;
+            }
+
+            if (alias >= 1) {
+                // this single interface has multiple ipv4 addresses
+                console.log(ifname + ':' + alias, iface.address);
+            } else {
+                // this interface has only one ipv4 adress
+                ipAddresses.push(iface.address);
+            }
+            ++alias;
+        });
     });
-  });
-   return ipAddresses[0];
+    return ipAddresses[0];
 }
