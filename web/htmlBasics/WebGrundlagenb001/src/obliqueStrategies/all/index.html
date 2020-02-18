@@ -16,7 +16,7 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark navbalken">
     <a class="navbar-brand" href="#">FIAN19-II</a>
     <button
       class="navbar-toggler"
@@ -63,6 +63,12 @@
           </button>
         </form>
       </div>
+    </nav>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark navbalken" style="top: 1.5cm;">
+      <div onclick="filterlist()" style="width: 4cm; height: 1cm; background-color: white; text-align: center; padding: 1.5mm;">
+        <div id="Kategoriefeld">Alle Kategorien</div>
+      </div>
+      <div hidden='true' id="Kategorieliste" style="position: fixed; height: 4cm; width: 4cm; background-color: white; top: 2.9cm; overflow: auto;"></div>
     </nav>
     <!-- App wird über vue.js in index.js kontrolliert -->
     <div id="app">

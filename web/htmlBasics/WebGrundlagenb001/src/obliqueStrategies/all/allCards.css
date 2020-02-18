@@ -5,6 +5,10 @@ body {
   margin: auto;
   height: 100%;
 }
+.navbalken {
+  height: 1.5cm;
+  border-top: 2px solid black;
+}
 .refreshIcon {
   height: 40px;
   width: 40px;
