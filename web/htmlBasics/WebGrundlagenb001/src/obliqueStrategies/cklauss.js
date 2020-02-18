@@ -1,6 +1,5 @@
 var phrases;
 var allPhrases;
-var timer = 0;
 var categories = [];
 var toggleMe = false;
 var autoRefresh;
@@ -10,9 +9,6 @@ var wennGeladen = function () {
     allPhrases = JSON.parse(http.responseText);
     for (var i = 0; i < allPhrases.length; i++) {
         allPhrases[i].id = i;
-        allPhrases[i].upvotes = 0;
-        allPhrases[i].downvotes = 0;
-        allPhrases[i].voted = 0;
         allPhrases[i].category.forEach(x => {
             if (!categories.includes(x)) categories.push(x);
         });
@@ -44,11 +40,14 @@ function refresh() {
             currentPhraseID = phrases[randomNumber].id;
             currentPhraseMongoID = phrases[randomNumber]._id;
             document.getElementById('category').innerText = phrases[randomNumber].category;
-            ColorChange();
+            try{
+                ColorChange();
+            } catch(err){
+                console.log(err);
+            }
             getRating();          
             document.getElementById('category').innerText = "Category: " + phrases[randomNumber].category;
-            getRating();
-            timer = 0;
+
         }
 
     }
