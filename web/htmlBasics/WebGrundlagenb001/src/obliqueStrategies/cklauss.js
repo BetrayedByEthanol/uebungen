@@ -79,8 +79,8 @@ function ColorChange(){
     }
     else if(theme == "Self-Confidence" || theme == "Self-Care" ){
         document.getElementById("jumbo").className = "jumbotron bg-danger mh-100";
-        document.getElementById("content").className = "display-5 text-break text-light";
-        document.getElementById("category").className = "lead text-right text-light";
+        document.getElementById("content").className = "display-5 text-break text-dark";
+        document.getElementById("category").className = "lead text-right text-dark";
     }
     else if(theme == "Technology"){
         document.getElementById("jumbo").className = "jumbotron bg-light mh-100";
