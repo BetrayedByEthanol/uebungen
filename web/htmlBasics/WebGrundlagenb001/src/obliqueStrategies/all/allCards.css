@@ -1,104 +1,17 @@
-body {
-  box-sizing: border-box;
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+ 
+  grid-gap: 10px;
   background-color: #bfe5d9;
-  border: none;
-  margin: auto;
-  height: 100%;
-}
-.refreshIcon {
-  height: 40px;
-  width: 40px;
-}
-.timerIcon {
-  height: 30px;
-  width: 30px;
-}
-.arrows {
-  height: 20px;
-  width: 20px;
-}
-.content {
-  margin-left: 4%;
-  margin-right: 0;
-  text-align: center;
-}
-#category {
-  font-family: "Courier New", Courier, monospace;
-  color: #333333;
-}
-.container {
-  display: grid;
-  margin-top: 200px;
-  grid-template-columns: [start] 100px [line1] 300px [line2] 300px [line3] 100px [end];
-  grid-template-rows: [start row1-start] 75px [row1-end row2-start] 75px [row2-end row3-start] 75px [row3-end row4-start] 30px [row4-end end];
-  grid-template-areas:
-    "refresh . . timer"
-    ". content content ."
-    "category category rating votes";
-}
-.halved {
-  grid-area: votes;
-  display: grid;
-  display: none;
-  grid-template-columns: [start] 50px [end];
-  grid-template-rows: [start row1-start] 50px [row1-end row2-start] 50px [row2-end end];
-  grid-template-areas:
-    "upvote"
-    "downvote";
-}
-.font {
-  font-family: "Courier New", Courier, monospace;
-  font-size: 25px;
-  letter-spacing: 2px;
-  word-spacing: 2px;
-  color: #000000;
-  font-weight: normal;
-  text-decoration: none;
-  font-style: normal;
-  font-variant: normal;
-  text-transform: capitalize;
-  text-align: center;
-}
-.card {
-  min-width: 830px;
-  min-height: 320px;
-  border-radius: 25px;
-  background: #ffffff;
   padding: 10px;
-  width: 800px;
-  height: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 5px 10px 20px darkgray;
+  margin-top: 50px;
 }
-.item-refresh {
-  grid-area: refresh;
-  align-self: start;
-}
-.item-timer {
-  grid-area: timer;
-  justify-self: end;
-}
-.item-content {
-  grid-area: content;
-  justify-self: stretch;
-}
-.item-category {
-  padding-block-start: 25%;
-  grid-area: category;
-}
-.item-rating {
-  padding-top: 2.8cm;
-  grid-area: rating;
-  justify-self: end;
-}
-.item-upvote {
-  padding-top: 2.5cm;
-  grid-area: upvote;
-  justify-self: right;
-}
-.item-downvote {
-  padding-top: 1.8cm;
-  grid-area: downvote;
-  justify-self: right;
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 15px;
+  height: 200px;
 }

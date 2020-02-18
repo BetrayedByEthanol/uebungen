@@ -15,6 +15,7 @@
     <title>All Oblique Strategies</title>
 </head>
 <body>
+
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-brand" href="#">FIAN19-II</a>
     <button
@@ -63,21 +64,16 @@
         </form>
       </div>
     </nav>
-    <div id="card">
-      <div class="card container" id="dummyCard" hidden="true">
-        <div class="item-content font" id="content"></div>
-        <div class="item-category" id="category"></div>
-        <div class="item-rating" id="rating"></div>
-        <div class="halved">
-          <div class="item-upvote">
-            <img id="upvote" class="arrows" src="img/arr_up.png" alt="upvote" onclick="vote(1)"/>
-          </div>
-          <div class="item-downvote">
-            <img id="downvote" class="arrows" src="img/arr_down.png" alt="downvote" onclick="vote(0)"/>
-          </div>
-        </div>
+    <!-- App wird über vue.js in index.js kontrolliert -->
+    <div id="app">
+      <div v-on:click="sortiere()" class="grid-container">
+        <o-card v-bind:strategy='strategy' class="card" v-for="strategy in strategies" ></o-card>
       </div>
     </div>
 </body>
-<script src="cardClone.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js" integrity="sha256-bd8XIKzrtyJ1O5Sh3Xp3GiuMIzWC42ZekvrMMD4GxRg=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="index.js"></script>
+
+<!-- <script src="cardClone.js"></script> -->
 </html>
