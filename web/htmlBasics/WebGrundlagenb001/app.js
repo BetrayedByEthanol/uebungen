@@ -45,22 +45,18 @@ app.post('/post', (req, res) => {
 
 
 app.get('/strategy', (req, res) => {
-    db.collection('obliquestrategies').find().toArray(function (err, result) {
+    db.collection('obliquestrategies').aggregate([{ $sample: { size: 20 } }]).toArray(function (err, result) {
         if (err) throw err;
-        var randomPhrases = [];
-        for (i = 0; i < 20; i++) {
-            const randomNumber = Math.floor(Math.random() * result.length);
-            var randomPhrase = result[randomNumber];
-            randomPhrase.rating = 0;
-            if (randomPhrase.votes.length > 0) randomPhrase.rating = randomPhrase.votes.forEach(vote => {
-                randomPhrase.rating += vote.status;
+        result.forEach(phrase =>{
+            phrase.rating = 0;
+            if (phrase.votes.length > 0) phrase.votes.forEach(vote => {
+                phrase.rating += vote.status;
             });
-            if (randomPhrase.votes.length > 0)  randomPhrase.votes = randomPhrase.votes.filter(vote => {
+            if (phrase.votes.length > 0)  phrase.votes = phrase.votes.filter(vote => {
                 return (vote.ip == getIP() || vote.ip == req.connection.remoteAddress);
-            });
-            randomPhrases.push(randomPhrase);
-        }
-        res.json(randomPhrases);
+            }); 
+        });
+        res.json(result);
     });
     console.log(getIP());
 });
@@ -109,8 +105,8 @@ app.get('/strategies/:strategyID/votes', function (req, res) {
 
 app.vote = function (req, res, status) {
 
-    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-
+    var ip = req.connection.remoteAddress;
+    if(ip.includes('::1')) ip = getIP();
     //TODO: Is there a better solution?
     db.collection('obliquestrategies').updateOne(
         { _id: ObjectID(req.params.strategyID), "votes.ip": ip },
