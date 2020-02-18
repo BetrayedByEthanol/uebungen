@@ -19,7 +19,6 @@ var wennGeladen = function () {
     }
     phrases = allPhrases;
     refresh();
-
 }
 
 function toggler() {
@@ -46,7 +45,12 @@ function refresh() {
             getRating();
             timer = 0;
         }
+
     }
+    const http = new XMLHttpRequest();
+    http.open("GET", "/strategy");
+    http.send();
+
     var setWait = window.setInterval(wait, 40);
 }
 
@@ -76,20 +80,43 @@ function vote(vote) {
 }
 
 function getRating() {
-    if (allPhrases[currentPhraseID].voted == 0) {
+    if (allPhrases[currentPhraseID].votes.length == 0) {
         document.getElementById('upvote').style.visibility = 'visible';
         document.getElementById('downvote').style.visibility = 'visible';
-    } else if (allPhrases[currentPhraseID].voted == 1) {
+    } else if (allPhrases[currentPhraseID].votes[0].status == 1) {
         document.getElementById('upvote').style.visibility = 'visible';
         document.getElementById('downvote').style.visibility = 'hidden';
     } else {
         document.getElementById('upvote').style.visibility = 'hidden';
         document.getElementById('downvote').style.visibility = 'visible';
     }
-    document.getElementById('rating').innerText = allPhrases[currentPhraseID].upvotes - allPhrases[currentPhraseID].downvotes; 
+    document.getElementById('rating').innerText = allPhrases[currentPhraseID].rating;
+}
+
+function vote(param) {
+    if (allPhrases[currentPhraseID].votes.length != 0) {
+        param = '/unvote';
+        (allPhrases[currentPhraseID].votes[0].status == 1)? allPhrases[currentPhraseID].rating-- : allPhrases[currentPhraseID].rating++;
+        allPhrases[currentPhraseID].votes = [];
+    } else if(param.includes('upvote')){
+        allPhrases[currentPhraseID].rating++;
+        var status = 1
+        allPhrases[currentPhraseID].votes.push(status);
+    } else {
+        allPhrases[currentPhraseID].rating--;
+        var status = -1
+        allPhrases[currentPhraseID].votes.push(status);
+    }
+
+    fetch('/strategies/' + allPhrases[currentPhraseID]._id + param, {
+        method: "POST"
+    }).then(res => {
+        console.log(res.text());
+    });
+    getRating();
 }
 
 const http = new XMLHttpRequest();
-http.open("GET", "/strategies");
+http.open("GET", "/strategy");
 http.onload = wennGeladen;
 http.send();
