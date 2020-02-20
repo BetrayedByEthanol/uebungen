@@ -50,9 +50,8 @@ app.get('/strategies/:strategyID', function (req, res) {
 app.get('/strategies', (req, res) => {
 
     db.collection('obliquestrategies').find().toArray(function (err, result) {
-        if (err) throw err
+        if (err) throw err;
         res.json(result);
-        console.log(result);
     });
 
 });
