@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" http-equiv="Refresh">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strategie nach ID</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -60,10 +60,37 @@
             <div id="app" style="padding-top: 125px;">
                 <ocardid v-bind:strategy='strategy'></ocardid>
             </div>
+            
     
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js" integrity="sha256-bd8XIKzrtyJ1O5Sh3Xp3GiuMIzWC42ZekvrMMD4GxRg=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="os-id.js"></script>
+<script>
+var patharray = window.location.pathname.split('/');
+var pathname = patharray[patharray.length-1];
+  Vue.component('ocardid', {
+    template: `
+    <div class="jumbotron bg-primary" >
+    <h5 class="display-4 text-center">{{strategy.phrase}}</h5>
+    <p class="text-right">{{strategy.category.join(', ')}}</p>
+    </div>`,
+
+    props: ['strategy']
+})
+
+
+var app = new Vue({
+        el: '#app',
+        data: {
+            strategy: []
+        },
+        
+        mounted() {
+            axios
+                .get('/strategies/'+ pathname)
+                .then(response => (this.strategy = response.data));
+        }
+    })
+</script>
 
 </html>

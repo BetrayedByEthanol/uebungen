@@ -52,6 +52,10 @@ app.get('/strategies/:strategyID', function (req, res) {
     });
 });
 
+app.get('/obliqueStrategies/:strategyID', function(req,res) {
+    res.sendfile('./src/obliqueStrategies/os-id.html');
+});
+
 app.get('/strategies', (req, res) => {
 
     db.collection('obliquestrategies').find().toArray(function (err, result) {

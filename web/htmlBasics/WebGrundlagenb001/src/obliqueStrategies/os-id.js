@@ -7,7 +7,8 @@ Vue.component('ocardid', {
 
     props: ['strategy']
 })
-// TODO: replace ID with var
+
+
 var app = new Vue({
         el: '#app',
         data: {
@@ -15,7 +16,7 @@ var app = new Vue({
         },
         mounted() {
             axios
-                .get('/strategies/5e2ffe4873c7467d98267cc1')
+                .get(window.location.pathname)
                 .then(response => (this.strategy = response.data));
         }
     })
