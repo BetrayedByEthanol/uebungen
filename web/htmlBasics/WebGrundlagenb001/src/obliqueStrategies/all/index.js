@@ -22,6 +22,14 @@ var app = new Vue({
                 if (a.phrase > b.phrase) return 1;
                 if (b.phrase > a.phrase) return -1;
             })
+        },
+        filtriere: function (choose) {
+            document.getElementById('Kategorieliste').hidden = true;
+            document.getElementById('Kategoriefeld').innerText = choose;
+            var ergebnis= this.strategies.filter(testsubject => {
+               return testsubject.category.includes(choose);
+            });
+            this.strategies = ergebnis;
         }
     },
     mounted() {
@@ -32,33 +40,5 @@ var app = new Vue({
 });
 
 var filterlist = function () {
-    while(document.getElementById('Kategorieliste').hasChildNodes == true) {
-        document.getElementById('Kategorieliste').firstChild.remove();
-    }
     document.getElementById('Kategorieliste').hidden = null;
-    const liste = ['Alle Kategorien','Growth','New Perspective','Programming','Philosophical','Self-Care','Self-Confidence','Technology'];
-    liste.sort();
-    liste.forEach(eintrag => {
-        if(document.getElementById('Kategoriefeld').innerText != eintrag) {
-            var newdiv = document.createElement('div');
-            document.getElementById('Kategorieliste').append(newdiv);
-            newdiv.id = 'Kategorie' + liste.indexOf(eintrag);
-            newdiv.innerText = eintrag;
-            newdiv.setAttribute('onclick','filter("' + eintrag + '")');
-        }
-    });
-};
-
-var filter = function (choose) {
-    document.getElementById('Kategorieliste').hidden = true;
-    const carddeck = document.querySelectorAll('[classname="card"]');
-    carddeck.forEach(card => {
-        card.hidden = true;
-    });
-    carddeck.forEach(card => {
-        if(card.getElementsByTagName('p').innerText.includes(choose)) {
-            card.hidden = false;
-        }
-    })
-    document.getElementById('Kategoriefeld').innerText = choose
 };
