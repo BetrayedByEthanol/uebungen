@@ -30,7 +30,7 @@ app.get('/strategySample', (req, res) => {
                 $filter: { 
                     input: "$votes", 
                     as: "vote", 
-                    cond: { $eq: ["$$vote.ip", "::1"] } } }, 
+                    cond: { $eq: ["$$vote.ip", req.connection.remoteAddress] } } }, 
             phrase: 1, 
             _id: 1, 
             category: 1, 
