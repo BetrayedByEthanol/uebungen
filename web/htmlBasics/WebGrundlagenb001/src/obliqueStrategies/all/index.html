@@ -67,7 +67,7 @@
     <!-- App wird über vue.js in index.js kontrolliert -->
     <div id="app">
       <div v-on:click="sortiere()" class="grid-container">
-        <o-card v-bind:strategy='strategy' class="card" v-for="strategy in strategies" ></o-card>
+        <o-card v-bind:strategy="strategy" v-for="strategy in strategies" ></o-card>
       </div>
     </div>
 </body>
