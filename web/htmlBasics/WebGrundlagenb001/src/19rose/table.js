@@ -1,4 +1,3 @@
-const headcount = 5;
 var quoten = null;
 var kickstarterscript = function () {
     quoten = JSON.parse(hateeteepee.responseText);
@@ -10,17 +9,13 @@ var kickstarterscript = function () {
         const quote_data = dataElement.cloneNode(false);
         const tag_data = dataElement.cloneNode(false);
         id_data.innerText = quoten[numbaa].id;
-        id_data.className += ' id_data ' + numbaa + ' a' + numbaa;
-        id_data.id = 'id' + numbaa;
+        id_data.className += ' id_data' + ' a' + numbaa;
         authorname_data.innerText = quoten[numbaa].author.name;
-        authorname_data.className += ' authorname_data ' + numbaa + ' a' + numbaa;
-        authorname_data.id = 'authorname' + numbaa;
+        authorname_data.className += ' authorname_data' + ' a' + numbaa;
         quote_data.innerText = quoten[numbaa].quote;
-        quote_data.className += ' quote_data ' + numbaa + ' a' + numbaa;
-        quote_data.id = 'quote' + numbaa;
+        quote_data.className += ' quote_data' + ' a' + numbaa;
         tag_data.innerText = quoten[numbaa].tags;
-        tag_data.className += ' tag_data ' + numbaa + ' a' + numbaa;
-        tag_data.id = 'tag' + numbaa;
+        tag_data.className += ' tag_data' + ' a' + numbaa;
         const grid = document.getElementById('grid');
         grid.appendChild(id_data);
         grid.appendChild(authorname_data);
@@ -30,16 +25,13 @@ var kickstarterscript = function () {
         authorname_data.hidden = false;
         quote_data.hidden = false;
         tag_data.hidden = false;
-    })
-    
-
+    });
 }
 var order1 = false;
 var order2 = false;
 var order3 = false;
 var order4 = false;
-var sort1 = function () {    
-    quoten = JSON.parse(hateeteepee.responseText);
+var sort1 = function () {
     const allee = quoten;
     var test = new Array();
     var uwu = 0;
@@ -77,7 +69,6 @@ var sort1 = function () {
     order1 = check;
 }
 var sort2 = function () {
-    quoten = JSON.parse(hateeteepee.responseText);
     const allee = quoten;
     var test = new Array();
     var uwu = 0;
@@ -115,7 +106,6 @@ var sort2 = function () {
     order2 = check;
 }
 var sort3 = function () {
-    quoten = JSON.parse(hateeteepee.responseText);
     const allee = quoten;
     var test = new Array();
     var uwu = 0;
@@ -153,7 +143,6 @@ var sort3 = function () {
     order3 = check;
 }
 var sort4 = function () {
-    quoten = JSON.parse(hateeteepee.responseText);
     const allee = quoten;
     var test = new Array();
     var uwu = 0;
@@ -196,7 +185,6 @@ var appaly = function (ahray, trueorder) {
     var truhe = false;
     if(trueorder == false) {
         ahray.forEach(elephant => {
-            quoten = JSON.parse(hateeteepee.responseText);
             var zzz = elephant[1];
             var rettich = quoten[zzz];
             var rabadon = document.getElementsByClassName('a' + zahl);
@@ -222,7 +210,6 @@ var appaly = function (ahray, trueorder) {
         zahl = ahray.length - 1;
         step = -1;
         ahray.forEach(elephant => {
-            quoten = JSON.parse(hateeteepee.responseText);
             var zzz = elephant[1];
             var rettich = quoten[zzz];
             var rabadon = document.getElementsByClassName('a' + zahl);
@@ -239,7 +226,6 @@ var appaly = function (ahray, trueorder) {
     order4 = false;
     return truhe;
 }
-
 const hateeteepee = new XMLHttpRequest();
 hateeteepee.open("GET", "../data/quotes.json");
 hateeteepee.onload = kickstarterscript;

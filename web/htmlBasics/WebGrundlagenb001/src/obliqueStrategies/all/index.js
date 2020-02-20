@@ -22,6 +22,14 @@ var app = new Vue({
                 if (a.phrase > b.phrase) return 1;
                 if (b.phrase > a.phrase) return -1;
             })
+        },
+        filtriere: function (choose) {
+            document.getElementById('Kategorieliste').hidden = true;
+            document.getElementById('Kategoriefeld').innerText = choose;
+            var result= this.strategies.filter(testsubject => {
+               return testsubject.category.includes(choose);
+            });
+            this.strategies = result;
         }
     },
     mounted() {
@@ -30,3 +38,7 @@ var app = new Vue({
             .then(response => (this.strategies = response.data));
     }
 });
+
+var filterlist = function () {
+    document.getElementById('Kategorieliste').hidden = null;
+};

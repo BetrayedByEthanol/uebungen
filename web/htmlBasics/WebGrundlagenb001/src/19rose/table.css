@@ -1,3 +1,10 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+body {
+    margin: 0px;
+}
 .head {
     box-sizing: border-box;
     padding-top: 5mm;
@@ -7,35 +14,31 @@
     height: 100%;
 }
 #header {
-    width: 90%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     display: grid;
     grid-template-columns: 3cm 25% auto 20%;
     grid-gap: 1mm;
-    background-color: #9fc7df;
+    background-color: lightblue;
     padding: 3mm;
-    border: black solid 1px;
-    border-bottom: 0px;
 }
 #grid {
-    width: 90%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     display: grid;
     grid-template-columns: 3cm 25% auto 20%;
     grid-gap: 1mm;
-    background-color: #9fc7df;
+    background-color: lightblue;
     padding: 3mm;
-    border: black solid 1px;
-    border-top: 0px;
 }
 .coppypasta {
-    min-height: 1cm;
-    border: black solid 1px;
+    min-height: 1.2cm;
+    border: lightblue solid 1px;
     text-align: center;
     padding-left: 1mm;
     padding-right: 1mm;
-    background-color: seagreen;
+    background-color: white;
     overflow: hidden;
 }
