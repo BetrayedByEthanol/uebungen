@@ -7,7 +7,7 @@ Vue.component('ocardid', {
 
     props: ['strategy']
 })
-
+// TODO: replace ID with var
 var app = new Vue({
         el: '#app',
         data: {
