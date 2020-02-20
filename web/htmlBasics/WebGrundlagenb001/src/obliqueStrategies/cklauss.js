@@ -16,7 +16,7 @@ function toggler() {
 }
 
 function loadData() {
-    fetch('/strategy/', { method: "GET" })
+    fetch('/strategySample/', { method: "GET" })
         .then(res => res.json())
         .then(data => {
             phrases = data;

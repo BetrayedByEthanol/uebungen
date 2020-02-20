@@ -20,22 +20,26 @@ app.use(morgan('common'));
 
 app.use(express.json());
 
-app.get('/strategy', (req, res) => {
-    db.collection('obliquestrategies').aggregate([{ $sample: { size: 20 } } , {$addFields: {rating: {$sum: "$votes.status"}}} ]).toArray(function (err, result) {
+app.get('/strategySample', (req, res) => {
+    db.collection('obliquestrategies').aggregate([{ 
+        $sample: { size: 20 } } ,{ 
+        $addFields: {
+            rating: {$sum: "$votes.status"}}} , { 
+        $project: { 
+            votes: { 
+                $filter: { 
+                    input: "$votes", 
+                    as: "vote", 
+                    cond: { $eq: ["$$vote.ip", "::1"] } } }, 
+            phrase: 1, 
+            _id: 1, 
+            category: 1, 
+            rating: 1 
+        }
+    }]).toArray(function (err, result) {
         if (err) throw err;
-        console.log(result);
-        result.forEach(phrase =>{
-            phrase.rating = 0;
-            if (phrase.votes.length > 0) phrase.votes.forEach(vote => {
-                phrase.rating += vote.status;
-            });
-            if (phrase.votes.length > 0)  phrase.votes = phrase.votes.filter(vote => {
-                return (vote.ip == getIP() || vote.ip == req.connection.remoteAddress);
-            }); 
-        });
         res.json(result);
     });
-    console.log(getIP());
 });
 
 app.get('/strategies/:strategyID', function (req, res) {
