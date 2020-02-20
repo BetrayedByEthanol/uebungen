@@ -16,7 +16,7 @@ function toggler() {
 }
 
 function loadData() {
-    fetch('/strategy/', { method: "GET" })
+    fetch('/strategySample/', { method: "GET" })
         .then(res => res.json())
         .then(data => {
             phrases = data;
@@ -49,6 +49,7 @@ function loadData() {
     var setWait = window.setInterval(wait, 40);
 }
 
+//FIXME: Causes exception: 'Cannot set property 'className' of null'
 function ColorChange() {
     const theme = document.getElementById("category").innerText;
     if (theme == "Growth") {
