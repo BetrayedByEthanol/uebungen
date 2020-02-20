@@ -21,8 +21,9 @@ app.use(morgan('common'));
 app.use(express.json());
 
 app.get('/strategy', (req, res) => {
-    db.collection('obliquestrategies').aggregate([{ $sample: { size: 20 } }]).toArray(function (err, result) {
+    db.collection('obliquestrategies').aggregate([{ $sample: { size: 20 } } , {$addFields: {rating: {$sum: "$votes.status"}}} ]).toArray(function (err, result) {
         if (err) throw err;
+        console.log(result);
         result.forEach(phrase =>{
             phrase.rating = 0;
             if (phrase.votes.length > 0) phrase.votes.forEach(vote => {
@@ -50,9 +51,8 @@ app.get('/strategies/:strategyID', function (req, res) {
 app.get('/strategies', (req, res) => {
 
     db.collection('obliquestrategies').find().toArray(function (err, result) {
-        if (err) throw err
+        if (err) throw err;
         res.json(result);
-        console.log(result);
     });
 
 });

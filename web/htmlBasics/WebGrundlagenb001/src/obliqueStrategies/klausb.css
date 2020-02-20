@@ -1,21 +1,29 @@
+#content{
+  padding-top: 30px;
+}
+
 #autoRefresh{
  width: 35px;
  height: 35px;
 }
 
-.refreshIcon{
+#refresh{
   width: 35px;
   height: 35px;
+  float: right;
 }
 
+
 #upvote{
+  margin-left: 50%;
   width: 25px;
   height: 25px;
 }
 
-#downvote{
-width: 25px;
-height: 25px;
+#downvote{ 
+  margin-left: 50%;
+  width: 25px;
+  height: 25px;
 
 }
 

@@ -91,6 +91,6 @@ function createtable() {
 
 
 var tablerequest = new XMLHttpRequest();
-tablerequest.open("GET", "../data/quotes.json");
+tablerequest.open("GET", 'http://10.42.53.5:5050/strategies');
 tablerequest.onload = createtable;
 tablerequest.send();

@@ -73,14 +73,7 @@
 
         <div id="jumbo" class="jumbotron bg-dark mh-100">
          
-              <div class="item-refresh float-right">
-                <img
-                  class="refreshIcon"
-                  src="img/refreshwhite.png"
-                  alt="refresh"
-                  onclick="refresh()"
-                />
-              </div>
+
             <h1 id="content" class="display-5 text-break text-light">Strategies</h1>
             <hr noshade="" id="linie" class="my-5">
             <p id="category" class="lead text-right text-light">Category</p>
@@ -93,7 +86,7 @@
                     class="arrows"
                     src="img/arr_up.png"
                     alt="upvote"
-                    onclick="vote(1)"
+                    onclick="vote()"
                   />
                 </div>
                 <div class="item-downvote">
@@ -102,9 +95,19 @@
                     class="arrows"
                     src="img/arr_down.png"
                     alt="downvote"
-                    onclick="vote(0)"
+                    onclick="vote()"
                   />
                 </div>
+
+                
+                  <img
+                    id="refresh"
+                    class="refreshIcon"
+                    src="img/refreshwhite.png"
+                    alt="refresh"
+                    onclick="loadData()"
+                  />
+                
         </div>
       </div>
       <pre class="text-center">
@@ -126,6 +129,6 @@
           </pre
                 >
       </body>
-      <script src="cklauss.js"></script>
+      <script src="cklaussb.js"></script>
     </html>
     
