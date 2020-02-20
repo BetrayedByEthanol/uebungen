@@ -21,7 +21,6 @@ app.use(morgan('common'));
 app.use(express.json());
 
 app.get('/strategy', (req, res) => {
-    //db.getCollection('obliquestrategies').aggregate([ {$sample: { size: 20 }} , {$unwind: {path: "$votes", preserveNullAndEmptyArrays: true }}, {$addFields: {rating: {$sum: "$votes.status"}}}, {$group: {_id: "$_id", phrase: {$first: "$phrase"}}}]);
     db.collection('obliquestrategies').aggregate([{ $sample: { size: 20 } } , {$addFields: {rating: {$sum: "$votes.status"}}} ]).toArray(function (err, result) {
         if (err) throw err;
         console.log(result);
