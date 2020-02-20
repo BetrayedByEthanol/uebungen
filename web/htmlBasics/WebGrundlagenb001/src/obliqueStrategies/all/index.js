@@ -26,10 +26,10 @@ var app = new Vue({
         filtriere: function (choose) {
             document.getElementById('Kategorieliste').hidden = true;
             document.getElementById('Kategoriefeld').innerText = choose;
-            var ergebnis= this.strategies.filter(testsubject => {
+            var result= this.strategies.filter(testsubject => {
                return testsubject.category.includes(choose);
             });
-            this.strategies = ergebnis;
+            this.strategies = result;
         }
     },
     mounted() {
