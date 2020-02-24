@@ -136,7 +136,7 @@ app.use(function (req, res, next) {
 
 client.connect().then((client) => {
     db = client.db('FIAN19-II');
-    //Create the server using an SSL connection - Need to use HTTPS:// noww
+    //Create the server using an SSL connection - Need to use HTTPS:// now
     https.createServer({
         //Server Key and Certificate as well as passphrase
         //Renew Self Signed key and certificate after 90 days with `openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 90` in Terminal and delete old ones
