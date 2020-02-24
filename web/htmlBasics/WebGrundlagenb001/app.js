@@ -2,6 +2,8 @@
 const express = require("express");
 var path = require("path");
 var morgan = require('morgan');
+var fs = require('fs');
+var https = require('https');
 var os = require('os');
 var ifaces = os.networkInterfaces();
 
@@ -130,7 +132,15 @@ app.use(function (req, res, next) {
 
 client.connect().then((client) => {
     db = client.db('FIAN19-II');
-    app.listen(port, () => console.log(`Server listening on port ${port}!`));
+    //Create the server using an SSL connection - Need to use HTTPS:// noww
+    https.createServer({
+        //Server Key and Certificate as well as passphrase
+        key: fs.readFileSync('./key.pem'),
+        cert: fs.readFileSync('./cert.pem'),
+        passphrase: 'FIAN19'
+    }, app).listen(5050, () => {
+        console.log('Listening...')
+    });
 });
 
 function getIP() {
