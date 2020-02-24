@@ -1,5 +1,7 @@
 // const cors = require('cors');
 const express = require("express");
+const fs = require('fs');
+const https = require('https');
 var path = require("path");
 var morgan = require('morgan');
 var os = require('os');
@@ -15,6 +17,8 @@ const MongoClient = require('mongodb').MongoClient;
 ObjectID = require('mongodb').ObjectID
 const client = new MongoClient(url, { useUnifiedTopology: true });
 var db;
+
+
 
 app.use(morgan('common'));
 
@@ -130,7 +134,16 @@ app.use(function (req, res, next) {
 
 client.connect().then((client) => {
     db = client.db('FIAN19-II');
-    app.listen(port, () => console.log(`Server listening on port ${port}!`));
+    
+    //Create the server using an SSL connection - Need to use HTTPS:// noww
+    https.createServer({
+        //Server Key and Certificate as well as passphrase
+        key: fs.readFileSync('./key.pem'),
+        cert: fs.readFileSync('./cert.pem'),
+        passphrase: 'FIAN19'
+    }, app).listen(5050, () => {
+        console.log('Listening...')
+    });
 });
 
 function getIP() {
