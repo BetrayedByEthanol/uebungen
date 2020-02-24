@@ -8,15 +8,15 @@ function toggler() {
     toggleMe = !toggleMe;
     if (toggleMe == true) {
         autoRefresh = window.setInterval(loadData, 10000);
-        document.getElementById('autoRefresh').src = 'img/timeron.png';
+        document.getElementById('autoRefresh').src = 'img/timeronb.png';
     } else {
-        document.getElementById('autoRefresh').src = 'img/timeroff.png';
+        document.getElementById('autoRefresh').src = 'img/timeroffb.png';
         window.clearInterval(autoRefresh);
     }
 }
 
 function loadData() {
-    fetch('/strategySample/', { method: "GET" })
+    fetch('/strategy/', { method: "GET" })
         .then(res => res.json())
         .then(data => {
             phrases = data;
@@ -48,8 +48,7 @@ function loadData() {
     }
     var setWait = window.setInterval(wait, 40);
 }
-
-//FIXME: Causes exception: 'Cannot set property 'className' of null'
+/*
 function ColorChange() {
     const theme = document.getElementById("category").innerText;
     if (theme == "Growth") {
@@ -87,7 +86,7 @@ function ColorChange() {
         document.getElementById("content").className = "display-5 text-break text-light";
         document.getElementById("category").className = "lead text-right text-light";
     }
-}
+}*/
 
 function getRating() {
     if (phrases[currentPhraseID].votes.length == 0) {

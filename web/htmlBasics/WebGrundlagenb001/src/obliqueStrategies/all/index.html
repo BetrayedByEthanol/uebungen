@@ -16,7 +16,7 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark navbalken">
     <a class="navbar-brand" href="#">FIAN19-II</a>
     <button
       class="navbar-toggler"
@@ -64,10 +64,26 @@
         </form>
       </div>
     </nav>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark navbalken" style="top: 1.5cm; z-index: 3;">
+      <div onclick="filterlist()" style="width: 4cm; height: 1cm; background-color: white; text-align: center; padding: 1.5mm;">
+        <div id="Kategoriefeld">Alle Kategorien</div>
+      </div>
+      
+    </nav>
     <!-- App wird über vue.js in index.js kontrolliert -->
     <div id="app">
+      <div hidden='true' id="Kategorieliste" style="position: fixed; height: 4cm; width: 4cm; background-color: white; top: 2.9cm; left: 4mm; overflow: auto; z-index: 6;">
+        <div v-on:click="filtriere('Alle Kategorien')">Alle Kategorien</div>
+        <div v-on:click="filtriere('Growth')">Growth</div>
+        <div v-on:click="filtriere('New Perspective')">New Perspective</div>
+        <div v-on:click="filtriere('Programming')">Programming</div>
+        <div v-on:click="filtriere('Philosophical')">Philosophical</div>
+        <div v-on:click="filtriere('Self-Care')">Self-Care</div>
+        <div v-on:click="filtriere('Self-Confidence')">Self-Confidence</div>
+        <div v-on:click="filtriere('Technology')">Technology</div>
+      </div>
       <div v-on:click="sortiere()" class="grid-container">
-        <o-card v-bind:strategy='strategy' class="card" v-for="strategy in strategies" ></o-card>
+        <o-card v-bind:strategy="strategy" v-for="strategy in strategies" ></o-card>
       </div>
     </div>
 </body>
