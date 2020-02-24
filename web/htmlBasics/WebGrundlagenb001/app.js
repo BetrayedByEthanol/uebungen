@@ -4,8 +4,7 @@ const fs = require('fs');
 const https = require('https');
 var path = require("path");
 var morgan = require('morgan');
-var fs = require('fs');
-var https = require('https');
+
 var os = require('os');
 var ifaces = os.networkInterfaces();
 
@@ -58,9 +57,6 @@ app.get('/strategies/:strategyID', function (req, res) {
     });
 });
 
-app.get('/obliqueStrategies/:strategyID', function(req,res) {
-    res.sendfile('./src/obliqueStrategies/os-id.html');
-});
 
 app.get('/strategies', (req, res) => {
 
@@ -140,10 +136,6 @@ app.use(function (req, res, next) {
 
 client.connect().then((client) => {
     db = client.db('FIAN19-II');
-<<<<<<< HEAD
-=======
-    
->>>>>>> fetch_head
     //Create the server using an SSL connection - Need to use HTTPS:// noww
     https.createServer({
         //Server Key and Certificate as well as passphrase
