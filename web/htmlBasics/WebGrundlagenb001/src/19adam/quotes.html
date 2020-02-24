@@ -7,20 +7,42 @@
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-    <script src="index.js"> </script>
+    
 
     <title>quot€$ tabl€</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"/>
   </head>
   <body>
-    <table id="doctable" class="table table-striped table-dark">
-        <tr>
-            <th onclick='sortby(0)'>Quote</th>
-            <th onclick='sortby(1)'>Author</th>
-            <th onclick='sortby(2)'>Age</th>
+    <div id='app'>
+    <form class="form-inline"><input type='search' name='search' id='search' class="form-control" placeholder='Seite durch$uchen...' v-on:keyup='searchinput()'>
+      <button class="btn btn-primary" v-on:click='searchinput()'>$uche</button></form>
+    <!--<table id="doctable" class="table table-striped table-dark">!-->
+        <!--<form class="form-inline"><input type='search' name='search' id='search' class="form-control" placeholder='Seite durch$uchen...'>
+        <button class="btn btn-primary" onclick='searchinput()'>$uche</button></form>!-->
+        
+        <!--<tr>
+            <div v-on:click='sortby(0)'>
+            <th>Quote</th>
+            </div><div v-on:click='sortby(1)'>
+            <th>Author</th>
+            </div><div v-on:click='sortby(2)'>
+            <th>Age</th>
+            </div>
             <th>quoteid</th>
-        </tr>
-    </table>
+        </tr>!-->
+        <div class='table table-striped table-dark'>
+        <tablehead></tablehead>
+        <quoterow v-bind:quote='quote' v-for='quote in quotesdata'></quoterow>
+        <quotestable v-bind:quotesdata='quotesdata'></quotestable>
+        </div>
+    <!--</table>!-->
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js" integrity="sha256-bd8XIKzrtyJ1O5Sh3Xp3GiuMIzWC42ZekvrMMD4GxRg=" crossorigin="anonymous"></script>
+    <script src="tabbleindex.js"> </script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+    <script src="http://unpkg.com/portal-vue"></script>
   </body>
 </html>

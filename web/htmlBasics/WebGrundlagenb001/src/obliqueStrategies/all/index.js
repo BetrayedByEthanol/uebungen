@@ -22,7 +22,7 @@ var app = new Vue({
                 if (a.phrase > b.phrase) return 1;
                 if (b.phrase > a.phrase) return -1;
             })
-        }
+        },
     },
     mounted() {
         axios
