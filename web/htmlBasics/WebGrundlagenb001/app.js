@@ -26,6 +26,7 @@ app.use(morgan('common'));
 app.use(express.json());
 
 app.get('/strategySample', (req, res) => {
+    const StartYourConstWithCaps = (req.connection.remoteAddress.includes("::1"))? getIP() : req.connection.remoteAddress;
     db.collection('obliquestrategies').aggregate([{ 
         $sample: { size: 20 } } ,{ 
         $addFields: {
@@ -35,7 +36,7 @@ app.get('/strategySample', (req, res) => {
                 $filter: { 
                     input: "$votes", 
                     as: "vote", 
-                    cond: { $eq: ["$$vote.ip", req.connection.remoteAddress] } } }, 
+                    cond: { $eq: ["$$vote.ip", StartYourConstWithCaps] } } }, 
             phrase: 1, 
             _id: 1, 
             category: 1, 
