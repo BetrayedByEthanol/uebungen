@@ -1,7 +1,10 @@
 // const cors = require('cors');
 const express = require("express");
+const fs = require('fs');
+const https = require('https');
 var path = require("path");
 var morgan = require('morgan');
+
 var os = require('os');
 var ifaces = os.networkInterfaces();
 
@@ -16,11 +19,14 @@ ObjectID = require('mongodb').ObjectID
 const client = new MongoClient(url, { useUnifiedTopology: true });
 var db;
 
+
+
 app.use(morgan('common'));
 
 app.use(express.json());
 
 app.get('/strategySample', (req, res) => {
+    const StartYourConstWithCaps = (req.connection.remoteAddress.includes("::1"))? getIP() : req.connection.remoteAddress;
     db.collection('obliquestrategies').aggregate([{ 
         $sample: { size: 20 } } ,{ 
         $addFields: {
@@ -30,7 +36,7 @@ app.get('/strategySample', (req, res) => {
                 $filter: { 
                     input: "$votes", 
                     as: "vote", 
-                    cond: { $eq: ["$$vote.ip", req.connection.remoteAddress] } } }, 
+                    cond: { $eq: ["$$vote.ip", StartYourConstWithCaps] } } }, 
             phrase: 1, 
             _id: 1, 
             category: 1, 
@@ -52,9 +58,6 @@ app.get('/strategies/:strategyID', function (req, res) {
     });
 });
 
-app.get('/obliqueStrategies/:strategyID', function(req,res) {
-    res.sendfile('./src/obliqueStrategies/os-id.html');
-});
 
 app.get('/strategies', (req, res) => {
 
@@ -134,7 +137,16 @@ app.use(function (req, res, next) {
 
 client.connect().then((client) => {
     db = client.db('FIAN19-II');
-    app.listen(port, () => console.log(`Server listening on port ${port}!`));
+    //Create the server using an SSL connection - Need to use HTTPS:// now
+    https.createServer({
+        //Server Key and Certificate as well as passphrase
+        //Renew Self Signed key and certificate after 90 days with `openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 90` in Terminal and delete old ones
+        key: fs.readFileSync('./key.pem'),
+        cert: fs.readFileSync('./cert.pem'),
+        passphrase: 'FIAN19'
+    }, app).listen(5050, () => {
+        console.log('Listening...')
+    });
 });
 
 function getIP() {
