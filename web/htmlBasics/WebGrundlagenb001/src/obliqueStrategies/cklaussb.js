@@ -48,7 +48,7 @@ function loadData() {
     }
     var setWait = window.setInterval(wait, 40);
 }
-
+/*
 function ColorChange() {
     const theme = document.getElementById("category").innerText;
     if (theme == "Growth") {
@@ -86,7 +86,7 @@ function ColorChange() {
         document.getElementById("content").className = "display-5 text-break text-light";
         document.getElementById("category").className = "lead text-right text-light";
     }
-}
+}*/
 
 function getRating() {
     if (phrases[currentPhraseID].votes.length == 0) {

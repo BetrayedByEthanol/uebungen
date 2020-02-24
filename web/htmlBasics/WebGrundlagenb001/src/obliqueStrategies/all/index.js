@@ -9,6 +9,7 @@ Vue.component('o-card', {
     </div>`,
     props: ['strategy']
 });
+var blablabla;
 
 var app = new Vue({
 
@@ -26,19 +27,24 @@ var app = new Vue({
         filtriere: function (choose) {
             document.getElementById('Kategorieliste').hidden = true;
             document.getElementById('Kategoriefeld').innerText = choose;
-            var result= this.strategies.filter(testsubject => {
-               return testsubject.category.includes(choose);
-            });
-            this.strategies = result;
+            this.reset();
+            if(choose != 'Alle Kategorien') {
+                var result = this.strategies.filter(function(testsubject) {
+                   return testsubject.category.includes(choose);
+                });
+                this.strategies = result;
+            }
+        },
+        reset: function () {
+            this.strategies = blablabla;
         }
     },
     mounted() {
-        axios
-            .get('/strategies')
-            .then(response => (this.strategies = response.data));
+        axios.get('/strategies').then(response => (this.strategies = response.data));
+        axios.get('/strategies').then(response => (blablabla = response.data))
     }
 });
 
 var filterlist = function () {
-    document.getElementById('Kategorieliste').hidden = null;
+    document.getElementById('Kategorieliste').hidden = !(document.getElementById('Kategorieliste').hidden);
 };
