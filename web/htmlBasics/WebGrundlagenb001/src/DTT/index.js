@@ -18,10 +18,10 @@ Vue.component('dtt-task',{
             <a href="#" class="btn btn-danger btn-sm">OK</a>
     </div>
     <div class="card-body">
-        <h5 class="card-title">TaskHeader</h5>
-        <p class="card-text">(Optional)Lerne Vue!</p>
-        <p class="card-text">Schreibe etwas Quelltext!</p>
-        <p class="card-text">Behebe Programmierfehler</p>
+        <h5 class="card-title" v-bind:gans='gans'>{{ gans.name }}</h5>
+        <p class="card-text" v-bind:gans='gans'>Kategorie: {{ gans.category }}</p>
+        <p class="card-text" v-bind:gans='gans'>??: {{gans.description}}</p>
+        <p class="card-text" v-bind:gans='gans'>??: {{gans.difficulty}}</p>
         <a href="#" class="btn btn-primary btn-sm">&#8656;</a>
         <a href="#" class="btn btn-primary btn-sm"> &#8658;</a>
     </div>
