@@ -1,14 +1,16 @@
-Vue.component('Spalten', {
+
+
+Vue.component('dtt-spalte', {
     template: `<div class='list-group-item w-100 p-0'>
-    <div class='text-center m-3'>fillertitle</div>
+    <div class='text-center m-3'>{{schoof.zeile}}</div>
     <div class='list-group list-group-flush border'>
-        <Einzeltask v-bind:gans='gans' v-for='gans in schoof' class='list-group-item'></Einzeltask>
+        <dtt-task v-bind:gans='gans' v-for='gans in schoof.inhalt' class='list-group-item'></dtt-task>
         
     </div></div>`,
     props: ['schoof']
 });
 
-Vue.component('Einzeltask', {
+Vue.component('dtt-task', {
     template: `
     <div>{{gans}}</div>
     `,
@@ -16,14 +18,21 @@ Vue.component('Einzeltask', {
 })
 
 var module = new Vue({
-    el: '#ape',
+    el: '#app',
     data: {
-        wasser: [[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5]],
+        wasser: [],
     },
     methods: {
 
     },
     mounted() {
-
+        
     }
 });
+
+const http = new XMLHttpRequest();
+http.open("GET", "tasks.json");
+http.onload = function () {
+    module.wasser = JSON.parse(http.responseText)
+};
+http.send();
