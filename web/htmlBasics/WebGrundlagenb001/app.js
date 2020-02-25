@@ -28,7 +28,8 @@ app.use(express.json());
 app.get('/strategySample', (req, res) => {
     const StartYourConstWithCaps = (req.connection.remoteAddress.includes("::1"))? getIP() : req.connection.remoteAddress;
     db.collection('obliquestrategies').aggregate([{ 
-        $sample: { size: 20 } } ,{ 
+        $sort: { positionInQueue: 1}},{     
+        $limit: 20 } ,{ 
         $addFields: {
             rating: {$sum: "$votes.status"}}} , { 
         $project: { 
@@ -40,11 +41,23 @@ app.get('/strategySample', (req, res) => {
             phrase: 1, 
             _id: 1, 
             category: 1, 
-            rating: 1 
+            rating: 1,
+            lastViewed: 1,
+            timesDisplayed: 1,
+            positionInQueue: 1
         }
     }]).toArray(function (err, result) {
+        result[0].positionInQueue = 0;
         if (err) throw err;
         res.json(result);
+        db.collection('obliquestrategies').updateOne({ _id: ObjectID(result[0]._id)}, { $set:   { 
+                                                                                                positionInQueue: getNewPosition(result[0].rating,(Math.ceil((Math.abs(new Date().getTime() - Math.abs(new Date(result[0].lastViewed).getTime())))) /3624000),result[0].timesDisplayed),
+                                                                                                lastViewed: new Date(),
+                                                                                                timesDisplayed: result[0].timesDisplayed + 1
+            }}, function(erro, resu) {
+            if (erro) throw erro;
+            console.log(resu);
+        });
     });
 });
 
@@ -171,4 +184,28 @@ function getIP() {
         });
     });
     return ipAddresses[0];
+}
+
+
+function getNewPosition(rating, lastViewsDifference, timesDisplayed) {
+    var ratingModifier = 1;
+    var lastViewModifer = 1;
+    var timesDisplayedModifier = 1;
+    for(var i = 1; i <= Math.abs(rating); i++) {
+        ratingModifier += Math.pow(0.5,i);
+    }
+    
+    if (rating < 0) ratingModifier = 1 / ratingModifier;
+
+    for(var i = 1; i <= Math.abs(lastViewsDifference); i++) {
+        lastViewModifer += Math.pow(0.4,i);
+    }
+
+    for(var i = 1; i <= Math.abs(timesDisplayed); i++) {
+        timesDisplayedModifier += Math.pow(0.2,i);
+    }
+    timesDisplayedModifier = 1 / timesDisplayedModifier;
+
+    return 150 / (ratingModifier * lastViewModifer * timesDisplayedModifier);
+
 }
