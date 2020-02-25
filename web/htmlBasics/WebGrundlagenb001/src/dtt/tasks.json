@@ -4,15 +4,6 @@
         "inhalt":
         [
             {
-                "name":"",
-                "category":"",
-                "description":"",
-                "status":"",
-                "difficulty":"",
-                "worker":"",
-                "time":""
-            },
-            {
                 "name":"Taskobject (JSON)",
                 "category":"DTT",
                 "description":["object definition", "structogram"],
