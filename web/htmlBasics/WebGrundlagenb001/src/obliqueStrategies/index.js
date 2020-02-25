@@ -27,7 +27,7 @@ function loadData() {
         if (counter > 20) {
             window.clearInterval(setAnimation);
             currentPhraseID = 0;
-            document.getElementById('category').innerText = phrases[0].category;
+            document.getElementById('content').innerText = phrases[0].phrase;
             getRating();
             document.getElementById('category').innerText = "Category: " + phrases[0].category;
         }
