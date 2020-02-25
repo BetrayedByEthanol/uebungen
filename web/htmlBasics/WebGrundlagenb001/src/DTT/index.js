@@ -22,8 +22,8 @@ Vue.component('dtt-task',{
         <p class="card-text">(Optional)Lerne Vue!</p>
         <p class="card-text">Schreibe etwas Quelltext!</p>
         <p class="card-text">Behebe Programmierfehler</p>
-        <a href="#" class="btn btn-primary btn-sm"><=</a>
-        <a href="#" class="btn btn-primary btn-sm">=></a>
+        <a href="#" class="btn btn-primary btn-sm">&#8656;</a>
+        <a href="#" class="btn btn-primary btn-sm"> &#8658;</a>
     </div>
 </div>`,
 props: ['gans']
