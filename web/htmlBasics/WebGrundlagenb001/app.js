@@ -44,10 +44,8 @@ app.get('/strategySample', (req, res) => {
             rating: 1,
             lastViewed: 1,
             timesDisplayed: 1,
-            positionInQueue: 1
         }
     }]).toArray(function (err, result) {
-        result[0].positionInQueue = 0;
         if (err) throw err;
         res.json(result);
         db.collection('obliquestrategies').updateOne({ _id: ObjectID(result[0]._id)}, { $set:   { 
