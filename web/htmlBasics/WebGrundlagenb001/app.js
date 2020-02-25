@@ -49,7 +49,7 @@ app.get('/strategySample', (req, res) => {
         if (err) throw err;
         res.json(result);
         db.collection('obliquestrategies').updateOne({ _id: ObjectID(result[0]._id)}, { $set:   { 
-                                                                                                positionInQueue: getNewPosition(result[0].rating,(Math.ceil((Math.abs(new Date().getTime() - Math.abs(new Date(result[0].lastViewed).getTime())))) /3624000),result[0].timesDisplayed),
+                                                                                                positionInQueue: getNewPosition(result[0].rating,(Math.ceil((Math.abs(new Date().getTime() - Math.abs(new Date(result[0].lastViewed).getTime())))) /86400000),result[0].timesDisplayed),
                                                                                                 lastViewed: new Date(),
                                                                                                 timesDisplayed: result[0].timesDisplayed + 1
             }}, function(erro, resu) {
