@@ -26,6 +26,7 @@ app.use(morgan('common'));
 app.use(express.json());
 
 app.get('/strategySample', (req, res) => {
+    const StartYourConstWithCaps = (req.connection.remoteAddress.includes("::1"))? getIP() : req.connection.remoteAddress;
     db.collection('obliquestrategies').aggregate([{ 
         $sample: { size: 20 } } ,{ 
         $addFields: {
@@ -35,7 +36,7 @@ app.get('/strategySample', (req, res) => {
                 $filter: { 
                     input: "$votes", 
                     as: "vote", 
-                    cond: { $eq: ["$$vote.ip", req.connection.remoteAddress] } } }, 
+                    cond: { $eq: ["$$vote.ip", StartYourConstWithCaps] } } }, 
             phrase: 1, 
             _id: 1, 
             category: 1, 
@@ -136,9 +137,10 @@ app.use(function (req, res, next) {
 
 client.connect().then((client) => {
     db = client.db('FIAN19-II');
-    //Create the server using an SSL connection - Need to use HTTPS:// noww
+    //Create the server using an SSL connection - Need to use HTTPS:// now
     https.createServer({
         //Server Key and Certificate as well as passphrase
+        //Renew Self Signed key and certificate after 90 days with `openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 90` in Terminal and delete old ones
         key: fs.readFileSync('./key.pem'),
         cert: fs.readFileSync('./cert.pem'),
         passphrase: 'FIAN19'

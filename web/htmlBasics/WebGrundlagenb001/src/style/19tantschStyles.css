@@ -1,6 +1,6 @@
 header {
-    background-color: rgb(253, 143, 0);
-    color: white;
+    background-color: rgb(195,203, 208);
+    color: black;
     display: block;
     text-align: center;
     font-size: 40px;
@@ -20,7 +20,7 @@ body {
 
 nav {
     display: block;
-    background-color: rgb(253, 143, 0);
+    background-color: rgba(6, 7, 6, 0.932);
     height: 750px;
     width: 19%;
     float: left;
@@ -30,7 +30,7 @@ nav {
 
 article {
     display: inline-block;
-    background-color: rgb(104, 104, 100);
+    background-color: rgb(195,203, 208);
     width: 80%;
     height: 750px;
     margin-bottom: 0px;
@@ -40,7 +40,7 @@ article {
 
 footer {
     display: block;
-    background-color: rgb(253, 143, 0);
+    background-color: rgb(195,203, 208);
     color: white;
     text-align: right;
     height: 90px;   /* 50px; */
@@ -65,7 +65,7 @@ footer {
 }
 
 #oben {
-    background-color: rgb(104, 104, 100);
+    background-color: rgba(6, 7, 6, 0.932);
     padding-bottom: 10px;
     margin-top: 60px;
     width: 100%;
@@ -75,7 +75,7 @@ footer {
 }
 
 #unten {
-    background-color: rgb(104, 104, 100);
+    background-color: rgba(6, 7, 6, 0.932);
     padding-top: 10px;
     z-index: 3;
     
@@ -85,13 +85,13 @@ footer {
     float: left;
     height: 750px;
     display: inline-block;
-    background-color: rgb(104, 104, 100);
+    background-color: rgba(6, 7, 6, 0.932);
     width: 1%;
     
 }
 
 #roo {
-    background-color: rgb(104, 104, 100);
+    background-color: rgba(6, 7, 6, 0.932);
     padding-top: 10px;
     float: right;
     z-index: 1;
@@ -103,7 +103,7 @@ footer {
 }
 
 #rro {
-    background-color: rgb(104, 104, 100);
+    background-color: rgba(6, 7, 6, 0.932);
     padding-left: 10px;
     float: right;
     height: 60px;
@@ -114,7 +114,7 @@ footer {
 }
 
 #luu {
-    background-color: rgb(104, 104, 100);
+    background-color: rgba(6, 7, 6, 0.932);
     z-index: 5;
     float: left;    
     display: inline-block;
@@ -125,7 +125,7 @@ footer {
 }
 
 #llu {
-    background-color: rgb(104, 104, 100);
+    background-color: rgba(6, 7, 6, 0.932);
     z-index: 2;
     float: left;
     padding-right: 10px;
@@ -142,10 +142,10 @@ footer {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#eins,#zwei,#drei,#vier {
+#eins,#zwei,#drei,#vier,#fünf {
 
     font-size: 25px;
-    color: white;
+    color: rgb(255, 255, 255);
     
 }
 a:link {
@@ -167,6 +167,7 @@ a:active {
 }
 
 #hyper {
+    color: rgb(195,203, 208);
     margin-top: 0px;
     font-size: 20px;
     font-family: Georgia;
