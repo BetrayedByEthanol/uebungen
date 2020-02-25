@@ -26,11 +26,10 @@ function loadData() {
         counter++;
         if (counter > 20) {
             window.clearInterval(setAnimation);
-            currentPhraseID = randomNumber;
-            currentPhraseMongoID = phrases[randomNumber]._id;
-            document.getElementById('category').innerText = phrases[randomNumber].category;
+            currentPhraseID = 0;
+            document.getElementById('category').innerText = phrases[0].category;
             getRating();
-            document.getElementById('category').innerText = "Category: " + phrases[randomNumber].category;
+            document.getElementById('category').innerText = "Category: " + phrases[0].category;
         }
     }
     var setAnimation = window.setInterval(animation, 40);

@@ -10,7 +10,7 @@ MongoClient.connect(url, function (err, db) {
         result.forEach(p => {
             var myQuery = { _id: p._id };
             var newValues = { $rename: { upvotes: 0, downvotes: 0, ipAddress: [] } }
-            dbo.collection('obliquestrategies').updateOne(myQuery, {$rename: {'ipAddress' : 'votes'}}, function (err, res) {
+            dbo.collection('obliquestrategies').updateOne(myQuery, {$set: { lastViewed: new Date() }}, function (err, res) {
                 if (err) throw err;
                 console.log(res);
             });
