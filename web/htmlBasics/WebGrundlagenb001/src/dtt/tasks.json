@@ -1,74 +1,91 @@
 [
-    {
-        "name":"",
-        "category":"",
-        "description":"",
-        "status":"",
-        "difficulty":"",
-        "worker":"",
-        "time":""
+    {   
+        "zeile":"Backlog",
+        "inhalt":
+        [
+            {
+                "name":"Taskobject (JSON)",
+                "category":"DTT",
+                "description":["object definition", "structogram"],
+                "status":"in progress",
+                "difficulty":"",
+                "worker":"",
+                "time":""
+            },
+            {
+                "name":"Column component",
+                "category":"DTT",
+                "description":["create vue.js component", "integrate in homepage"],
+                "status":"in progress",
+                "difficulty":"",
+                "worker":"",
+                "time":""
+            },
+            {
+                "name":"Homepage",
+                "category":"DTT",
+                "description":["index.html", "index.js", "Bootstrap", "vue.js"],
+                "status":"testing",
+                "difficulty":"",
+                "worker":"",
+                "time":""
+            },
+            {
+                "name":"Single task component",
+                "category":"DTT",
+                "description":["create vue.js component", "integrate in column component(test)"],
+                "status":"to do",
+                "difficulty":"",
+                "worker":"",
+                "time":""
+            },
+            {
+                "name":"Refactoring",
+                "category":"Portal",
+                "description":"rewrite portal page to vue.js",
+                "status":"in progress",
+                "difficulty":"",
+                "worker":"",
+                "time":""
+            },
+            {
+                "name":"Refactoring",
+                "category":"OS",
+                "description":"rewrite single view to vue.js",
+                "status":"in progress",
+                "difficulty":"",
+                "worker":"",
+                "time":""
+            },
+            {
+                "name":"Vote score",
+                "category":"Backend",
+                "description":["adjust random phrase algorithm to phrase votes", "dynamic score?", "take the homepage into account"],
+                "status":"in progress",
+                "difficulty":"",
+                "worker":"",
+                "time":""
+            }
+        ]
     },
-    {
-        "name":"Taskobject (JSON)",
-        "category":"DTT",
-        "description":["object definition", "structogram"],
-        "status":"in progress",
-        "difficulty":"",
-        "worker":"",
-        "time":""
+    {   
+        "zeile":"ToDo",
+        "inhalt":
+        []
     },
-    {
-        "name":"Column component",
-        "category":"DTT",
-        "description":["create vue.js component", "integrate in homepage"],
-        "status":"in progress",
-        "difficulty":"",
-        "worker":"",
-        "time":""
+    {   
+        "zeile":"In Arbeit",
+        "inhalt":
+        []
     },
-    {
-        "name":"Homepage",
-        "category":"DTT",
-        "description":["index.html", "index.js", "Bootstrap", "vue.js"],
-        "status":"testing",
-        "difficulty":"",
-        "worker":"",
-        "time":""
+    {   
+        "zeile":"Test",
+        "inhalt":
+        []
     },
-    {
-        "name":"Single task component",
-        "category":"DTT",
-        "description":["create vue.js component", "integrate in column component(test)"],
-        "status":"to do",
-        "difficulty":"",
-        "worker":"",
-        "time":""
-    },
-    {
-        "name":"Refactoring",
-        "category":"Portal",
-        "description":"rewrite portal page to vue.js",
-        "status":"in progress",
-        "difficulty":"",
-        "worker":"",
-        "time":""
-    },
-    {
-        "name":"Refactoring",
-        "category":"OS",
-        "description":"rewrite single view to vue.js",
-        "status":"in progress",
-        "difficulty":"",
-        "worker":"",
-        "time":""
-    },
-    {
-        "name":"Vote score",
-        "category":"Backend",
-        "description":["adjust random phrase algorithm to phrase votes", "dynamic score?", "take the homepage into account"],
-        "status":"in progress",
-        "difficulty":"",
-        "worker":"",
-        "time":""
+    {   
+        "zeile":"Fertig",
+        "inhalt":
+        []
     }
 ]
