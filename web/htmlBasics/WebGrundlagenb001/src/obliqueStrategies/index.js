@@ -1,6 +1,5 @@
 var phrases;
 var autoRefresh = false;
-var currentPhraseID;
 
 function toggler() {
     if (autoRefresh == false) {
@@ -26,7 +25,6 @@ function loadData() {
         counter++;
         if (counter > 20) {
             window.clearInterval(setAnimation);
-            currentPhraseID = 0;
             document.getElementById('content').innerText = phrases[0].phrase;
             getRating();
             document.getElementById('category').innerText = "Category: " + phrases[0].category;
@@ -36,38 +34,38 @@ function loadData() {
 }
 
 function getRating() {
-    if (phrases[currentPhraseID].votes.length == 0) {
+    if (phrases[0].votes.length == 0) {
         document.getElementById('upvote').style.visibility = 'visible';
         document.getElementById('downvote').style.visibility = 'visible';
-    } else if (phrases[currentPhraseID].votes[0].status == 1) {
+    } else if (phrases[0].votes[0].status == 1) {
         document.getElementById('upvote').style.visibility = 'visible';
         document.getElementById('downvote').style.visibility = 'hidden';
     } else {
         document.getElementById('upvote').style.visibility = 'hidden';
         document.getElementById('downvote').style.visibility = 'visible';
     }
-    document.getElementById('rating').innerText = phrases[currentPhraseID].rating;
+    document.getElementById('rating').innerText = phrases[0].rating;
 }
 
 function vote(param) {
-    if (phrases[currentPhraseID].votes.length != 0) {
+    if (phrases[0].votes.length != 0) {
         param = '/unvote';
-        (phrases[currentPhraseID].votes[0].status == 1) ? phrases[currentPhraseID].rating-- : phrases[currentPhraseID].rating++;
-        phrases[currentPhraseID].votes = [];
+        (phrases[0].votes[0].status == 1) ? phrases[0].rating-- : phrases[0].rating++;
+        phrases[0].votes = [];
     } else if (param.includes('upvote')) {
-        phrases[currentPhraseID].rating++;
+        phrases[0].rating++;
         let vote = {
             status: 1
         }
-        phrases[currentPhraseID].votes.push(vote);
+        phrases[0].votes.push(vote);
     } else {
-        phrases[currentPhraseID].rating--;
+        phrases[0].rating--;
         let vote = {
             status: -1
         }
-        phrases[currentPhraseID].votes.push(vote);
+        phrases[0].votes.push(vote);
     }
-    fetch('/strategies/' + phrases[currentPhraseID]._id + param, {
+    fetch('/strategies/' + phrases[0]._id + param, {
         method: "POST"
     }).then(res => {
         console.log(res.text());
