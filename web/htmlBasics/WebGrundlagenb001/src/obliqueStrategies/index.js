@@ -1,5 +1,6 @@
 var phrases;
 var autoRefresh = false;
+var currentPhraseID;
 
 function toggler() {
     if (autoRefresh == false) {
@@ -25,47 +26,48 @@ function loadData() {
         counter++;
         if (counter > 20) {
             window.clearInterval(setAnimation);
-            document.getElementById('content').innerText = phrases[0].phrase;
+            //currentPhraseID = phrases.find; find marked
+            document.getElementById('content').innerText = phrases[currentPhraseID].phrase;
             getRating();
-            document.getElementById('category').innerText = "Category: " + phrases[0].category;
+            document.getElementById('category').innerText = "Category: " + phrases[currentPhraseID].category;
         }
     }
     var setAnimation = window.setInterval(animation, 40);
 }
 
 function getRating() {
-    if (phrases[0].votes.length == 0) {
+    if (phrases[currentPhraseID].votes.length == 0) {
         document.getElementById('upvote').style.visibility = 'visible';
         document.getElementById('downvote').style.visibility = 'visible';
-    } else if (phrases[0].votes[0].status == 1) {
+    } else if (phrases[currentPhraseID].votes[currentPhraseID].status == 1) {
         document.getElementById('upvote').style.visibility = 'visible';
         document.getElementById('downvote').style.visibility = 'hidden';
     } else {
         document.getElementById('upvote').style.visibility = 'hidden';
         document.getElementById('downvote').style.visibility = 'visible';
     }
-    document.getElementById('rating').innerText = phrases[0].rating;
+    document.getElementById('rating').innerText = phrases[currentPhraseID].rating;
 }
 
 function vote(param) {
-    if (phrases[0].votes.length != 0) {
+    if (phrases[currentPhraseID].votes.length != 0) {
         param = '/unvote';
-        (phrases[0].votes[0].status == 1) ? phrases[0].rating-- : phrases[0].rating++;
-        phrases[0].votes = [];
+        (phrases[currentPhraseID].votes[currentPhraseID].status == 1) ? phrases[currentPhraseID].rating-- : phrases[currentPhraseID].rating++;
+        phrases[currentPhraseID].votes = [];
     } else if (param.includes('upvote')) {
-        phrases[0].rating++;
+        phrases[currentPhraseID].rating++;
         let vote = {
             status: 1
         }
-        phrases[0].votes.push(vote);
+        phrases[currentPhraseID].votes.push(vote);
     } else {
-        phrases[0].rating--;
+        phrases[currentPhraseID].rating--;
         let vote = {
             status: -1
         }
-        phrases[0].votes.push(vote);
+        phrases[currentPhraseID].votes.push(vote);
     }
-    fetch('/strategies/' + phrases[0]._id + param, {
+    fetch('/strategies/' + phrases[currentPhraseID]._id + param, {
         method: "POST"
     }).then(res => {
         console.log(res.text());
