@@ -26,7 +26,7 @@ function loadData() {
         counter++;
         if (counter > 20) {
             window.clearInterval(setAnimation);
-            //currentPhraseID = phrases.find; find marked
+            currentPhraseID = phrases.indexOf(phrases.find(phrase => {return phrase.display == true;}));
             document.getElementById('content').innerText = phrases[currentPhraseID].phrase;
             getRating();
             document.getElementById('category').innerText = "Category: " + phrases[currentPhraseID].category;
@@ -39,7 +39,7 @@ function getRating() {
     if (phrases[currentPhraseID].votes.length == 0) {
         document.getElementById('upvote').style.visibility = 'visible';
         document.getElementById('downvote').style.visibility = 'visible';
-    } else if (phrases[currentPhraseID].votes[currentPhraseID].status == 1) {
+    } else if (phrases[currentPhraseID].votes[0].status == 1) {
         document.getElementById('upvote').style.visibility = 'visible';
         document.getElementById('downvote').style.visibility = 'hidden';
     } else {
@@ -52,7 +52,7 @@ function getRating() {
 function vote(param) {
     if (phrases[currentPhraseID].votes.length != 0) {
         param = '/unvote';
-        (phrases[currentPhraseID].votes[currentPhraseID].status == 1) ? phrases[currentPhraseID].rating-- : phrases[currentPhraseID].rating++;
+        (phrases[currentPhraseID].votes[0].status == 1) ? phrases[currentPhraseID].rating-- : phrases[currentPhraseID].rating++;
         phrases[currentPhraseID].votes = [];
     } else if (param.includes('upvote')) {
         phrases[currentPhraseID].rating++;
