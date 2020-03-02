@@ -1,3 +1,4 @@
+Vue.config.devtools = true;
 Vue.component('dtt-spalte', {
     template: `<div class='list-group-item w-100 p-0'>
     <div class='text-center m-3'>{{schoof.zeile}}</div>
@@ -9,25 +10,34 @@ Vue.component('dtt-spalte', {
 });
 
 
-Vue.component('dtt-task',{
+Vue.component('dtt-task', {
     template: `
-    <div class="card" style="max-width: 400px;">
-    <div class="card-header">
-        <a href="#" class="btn btn-success btn-sm">P</a> <a href="#" class="btn btn-info btn-sm">JS</a> <a
-            href="#" class="btn btn-primary btn-sm">Vue</a> 
-            <a href="#" class="btn btn-danger btn-sm">OK</a>
+    <div class="card shadow p-3 mb-5 bg-white rounded" style="max-width: 400px; ">
+    <div class="card-header shadow-sm p-3 mb-2 bg-white rounded">
+           
+          <a href="#" class="btn btn-danger btn-sm align-self-start float-right">DO</a>Wird von <br>xxx<br> bearbeitet.
     </div>
     <div class="card-body">
-        <h5 class="card-title" v-bind:gans='gans'>{{ gans.name }}</h5>
-        <p class="card-text" v-bind:gans='gans'>Kategorie: {{ gans.category }}</p>
-        <p class="card-text" v-bind:gans='gans'>??: {{gans.description}}</p>
-        <p class="card-text" v-bind:gans='gans'>??: {{gans.difficulty}}</p>
-        <a href="#" class="btn btn-primary btn-sm">&#8656;</a>
-        <a href="#" class="btn btn-primary btn-sm"> &#8658;</a>
+    <h5 class="card-title" v-bind:gans='gans'>{{ gans.name }}</h5>
+        <p class="card-text font-weight-light" v-bind:gans='gans'>Kategorie: {{ gans.category }}</p>
+        <hr class="my-2">
+        <p class="card-text font-weight-bolder">Inhalt:</p>
+        <dtt-description v-bind:description='point' v-for='point in gans.description'></dtt-description>
+        <!--<p class="card-text" v-bind:gans='gans'>??: {{gans.difficulty}}</p>-->
+        <hr class="my-2">
+        <a href="#" class="btn btn-primary btn-sm ">&#8656;</a>
+        <a href="#" class="btn btn-primary btn-sm float-right"> &#8658;</a>
     </div>
 </div>`,
-props: ['gans']
-    
+    props: ['gans']
+
+});
+
+Vue.component('dtt-description', {
+    template: `
+    <p>&#187; {{description}}</p>
+    `,
+    props: ['description']
 })
 
 
@@ -43,12 +53,13 @@ var module = new Vue({
     el: '#app',
     data: {
         wasser: [],
+
     },
     methods: {
 
     },
     mounted() {
-        
+
     }
 });
 

@@ -6,7 +6,7 @@
             {
                 "name":"Taskobject (JSON)",
                 "category":"DTT",
-                "description":["object definition", "structogram"],
+                "description":["object definition", "structogram"],            
                 "status":"in progress",
                 "difficulty":"",
                 "worker":"",
@@ -42,7 +42,7 @@
             {
                 "name":"Refactoring",
                 "category":"Portal",
-                "description":"rewrite portal page to vue.js",
+                "description":["rewrite portal page to vue.js"],
                 "status":"in progress",
                 "difficulty":"",
                 "worker":"",
@@ -51,7 +51,7 @@
             {
                 "name":"Refactoring",
                 "category":"OS",
-                "description":"rewrite single view to vue.js",
+                "description":["rewrite single view to vue.js"],
                 "status":"in progress",
                 "difficulty":"",
                 "worker":"",
