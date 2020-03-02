@@ -1,12 +1,11 @@
 Vue.config.devtools = true;
 Vue.component('dtt-spalte', {
     template: `<div class='list-group-item w-100 p-0'>
-    <div class='text-center m-3'>{{schoof.zeile}}</div>
+    <div class='text-center m-3'>{{kategorie.zeile}}</div>
     <div class='list-group list-group-flush border'>
-        <dtt-task v-bind:gans='gans' v-for='gans in schoof.inhalt' class='list-group-item'></dtt-task>
-        
+        <dtt-task v-bind:taskElement='taskElement' v-for='taskElement in kategorie.inhalt' class='list-group-item'></dtt-task> 
     </div></div>`,
-    props: ['schoof']
+    props: ['kategorie']
 });
 
 
@@ -18,18 +17,18 @@ Vue.component('dtt-task', {
           <a href="#" class="btn btn-danger btn-sm align-self-start float-right">DO</a>Wird von <br>xxx<br> bearbeitet.
     </div>
     <div class="card-body">
-    <h5 class="card-title" v-bind:gans='gans'>{{ gans.name }}</h5>
-        <p class="card-text font-weight-light" v-bind:gans='gans'>Kategorie: {{ gans.category }}</p>
+    <h5 class="card-title">{{ taskElement.name }}</h5>
+        <p class="card-text font-weight-light" v-bind:taskElement='taskElement'>Kategorie: {{ taskElement.category }}</p>
         <hr class="my-2">
         <p class="card-text font-weight-bolder">Inhalt:</p>
-        <dtt-description v-bind:description='point' v-for='point in gans.description'></dtt-description>
-        <!--<p class="card-text" v-bind:gans='gans'>??: {{gans.difficulty}}</p>-->
+        <dtt-description v-bind:description='point' v-for='point in taskElement.description'></dtt-description>
+        <!--<p class="card-text" v-bind:taskElement='taskElement'>??: {{taskElement.difficulty}}</p>-->
         <hr class="my-2">
         <a href="#" class="btn btn-primary btn-sm ">&#8656;</a>
         <a href="#" class="btn btn-primary btn-sm float-right"> &#8658;</a>
     </div>
 </div>`,
-    props: ['gans']
+    props: ['taskElement']
 
 });
 
@@ -40,19 +39,10 @@ Vue.component('dtt-description', {
     props: ['description']
 })
 
-
-
-/*Vue.component('dtt-task', {
-    template: `
-    <div>{{gans}}</div>
-    `,
-    props: ['gans']
-})*/
-
 var module = new Vue({
     el: '#app',
     data: {
-        wasser: [],
+        taskCollection: [],
 
     },
     methods: {
@@ -66,6 +56,6 @@ var module = new Vue({
 const http = new XMLHttpRequest();
 http.open("GET", "tasks.json");
 http.onload = function () {
-    module.wasser = JSON.parse(http.responseText)
+    module.taskCollection = JSON.parse(http.responseText)
 };
 http.send();
