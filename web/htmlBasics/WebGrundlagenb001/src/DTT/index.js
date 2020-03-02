@@ -40,8 +40,7 @@ Vue.component('dtt-description', {
     <p>&#187; {{description}}</p>
     `,
     props: ['description']
-});
-
+})
 
 var module = new Vue({
     el: '#app',
@@ -63,3 +62,9 @@ var module = new Vue({
     }
 });
 
+const http = new XMLHttpRequest();
+http.open("GET", "tasks.json");
+http.onload = function () {
+    module.taskCollection = JSON.parse(http.responseText)
+};
+http.send();
