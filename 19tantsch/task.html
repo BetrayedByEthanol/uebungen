@@ -6,21 +6,26 @@
 </header>
 
 <body>
-    <div class="card" style="max-width: 400px;">
-        <div class="card-header">
-            <a href="#" class="btn btn-success">Projekt</a> <a href="#" class="btn btn-info">Javascript</a> <a
-                href="#" class="btn btn-primary">Vue</a> 
-                <a href="#" class="btn btn-danger">Übernehmen</a>
+    <div class="card border border border border-dark shadow-sm p-3 mb-5 bg-white rounded" style="max-width: 400px; ">
+        <div class="card-header shadow p-3 mb-5 bg-white rounded">
+               
+              <a href="#" class="btn btn-danger btn-sm align-self-start float-right">DO</a>Wird von <br>xxx<br> bearbeitet.
         </div>
         <div class="card-body">
-            <h5 class="card-title">TaskHeader</h5>
-            <p class="card-text">(Optional)Lerne Vue!</p>
-            <p class="card-text">Schreibe etwas Quelltext!</p>
-            <p class="card-text">Behebe Programmierfehler</p>
-            <a href="#" class="btn btn-primary"><=</a>
-            <a href="#" class="btn btn-primary">=></a>
+        <h5 class="card-title" v-bind:gans='gans'>{{ gans.name }}</h5>
+            <p class="card-text font-weight-light" v-bind:gans='gans'>Kategorie: {{ gans.category }}</p>
+            <hr class="my-2">
+            <p class="card-text font-weight-bolder">Inhalt:</p>
+            <dtt-description v-bind:description='point' v-for='point in gans.description'></dtt-description>
+            <!--<p class="card-text" v-bind:gans='gans'>??: {{gans.difficulty}}</p>-->
+            <hr class="my-2">
+            <a href="#" class="btn btn-primary btn-sm ">&#8656;</a>
+            <a href="#" class="btn btn-primary btn-sm float-right"> &#8658;</a>
         </div>
     </div>
 </body>
 
 </html>
+
+
+<div class="d-inline-flex p-2 bd-highlight">Wird von <br>xxx<br> bearbeitet<a href="#" class="btn btn-danger btn-sm align-self-start">DO</a></div>

@@ -32,49 +32,48 @@ app.use(morgan('common'));
 app.use(express.json());
 
 app.get('/strategySample', (req, res) => {
-    const StartYourConstWithCaps = (req.connection.remoteAddress.includes("::1")) ? getIP() : req.connection.remoteAddress;
+    const StartYourConstWithCaps = (req.connection.remoteAddress.includes("::1"))? getIP() : req.connection.remoteAddress;
     db.collection('obliquestrategies').aggregate([{
-        $sort: {
-            positionInQueue: 1
-        }
-    }, {
-        $limit: 20
-    }, {
-        $addFields: {
-            rating: {
-                $sum: "$votes.status"
-            }
-        }
-    }, {
+        $facet: {
+            rarelyDisplayed: [{$sort: {timesDisplayed: 1}}, {$limit: 10}, {$addFields: { rating: { $sum: "$votes.status" }}}], 
+            displayMoreOften: [{$sort: {lastViewed: 1}},{$limit: 10}, {$addFields: { rating: { $sum: "$votes.status" }}}], 
+            topRated: [{$addFields: {rating: { $sum: "$votes.status" }}}, {$sort: {rating: -1}}, {$limit: 10}]
+        }}, {
         $project: {
-            votes: {
-                $filter: {
-                    input: "$votes",
-                    as: "vote",
-                    cond: {
-                        $eq: ["$$vote.ip", StartYourConstWithCaps]
-                    }
-                }
-            },
-            phrase: 1,
-            _id: 1,
-            category: 1,
-            rating: 1,
-            lastViewed: 1,
-            timesDisplayed: 1,
-        }
-    }]).toArray(function (err, result) {
-        if (err) throw err;
-        res.json(result);
-        db.collection('obliquestrategies').updateOne({
-            _id: ObjectID(result[0]._id)
-        }, {
-            $set: {
-                positionInQueue: getNewPosition(result[0].rating, (Math.ceil((Math.abs(new Date().getTime() - Math.abs(new Date(result[0].lastViewed).getTime())))) / 86400000), result[0].timesDisplayed),
-                lastViewed: new Date(),
-                timesDisplayed: result[0].timesDisplayed + 1
+            data: {
+                $concatArrays: ["$rarelyDisplayed","$displayMoreOften","$topRated"]
+                }  
             }
-        }, function (erro, resu) {
+        },{
+        $unwind: "$data"
+        },{
+        $replaceWith: "$data"
+        }, {
+            $project: {
+                votes: {
+                    $filter: {
+                        input: "$votes",
+                        as: "vote",
+                        cond: { $eq: ["$$vote.ip", StartYourConstWithCaps] }
+                    }
+                },
+                phrase: 1,
+                _id: 1,
+                category: 1,
+                rating: 1,
+                lastViewed: 1,
+                timesDisplayed: 1,
+            }
+        }
+    ]).toArray(function (err, result) {
+        if (err) throw err;
+        var id = Math.floor(Math.random() * result.length);
+        result[id].display = true;
+        res.json(result);
+        db.collection('obliquestrategies').updateOne({ _id: ObjectID(result[id]._id)}, { $set:   { 
+                                                                                                lastViewed: new Date(),
+                                                                                                timesDisplayed: result[0].timesDisplayed + 1
+            }}, function(erro, resu) {
             if (erro) throw erro;
             console.log(resu);
         });
