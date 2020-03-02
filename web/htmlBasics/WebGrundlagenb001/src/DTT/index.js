@@ -1,3 +1,5 @@
+
+FIXME:// use Vue.component to filter the JSON Data, not JSON itself!
 Vue.config.devtools = true;
 Vue.component('dtt-spalte', {
     template: `<div class='list-group-item w-100 p-0'>
@@ -49,6 +51,12 @@ var module = new Vue({
 
     },
     mounted() {
+    const http = new XMLHttpRequest();
+    http.open("GET", "tasks.json");
+    http.onload = function () {
+    module.wasser = JSON.parse(http.responseText)
+    };
+    http.send();
 
     }
 });
