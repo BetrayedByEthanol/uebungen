@@ -66,7 +66,7 @@ app.get('/strategySample', (req, res) => {
         res.json(result);
         db.collection('obliquestrategies').updateOne({ _id: ObjectID(result[id]._id)}, { $set:   { 
                                                                                                 lastViewed: new Date(),
-                                                                                                timesDisplayed: result[0].timesDisplayed + 1
+                                                                                                timesDisplayed: result[id].timesDisplayed + 1
             }}, function(erro, resu) {
             if (erro) throw erro;
             console.log(resu);
