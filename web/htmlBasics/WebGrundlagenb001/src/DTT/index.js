@@ -59,15 +59,12 @@ var module = new Vue({
     },
     methods: {
 
+        
+
     },
     mounted() {
-    const http = new XMLHttpRequest();
-    http.open("GET", "tasks.json");
-    http.onload = function () {
-    module.wasser = JSON.parse(http.responseText)
-    };
-    http.send();
+
+        axios.get('tasks.json').then(response => (this.wasser = response.data));
 
     }
 });
-
