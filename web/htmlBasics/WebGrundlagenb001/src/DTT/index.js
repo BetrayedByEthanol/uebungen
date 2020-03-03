@@ -7,13 +7,13 @@ Vue.component('dtt-spalte', {
     <div class='list-group list-group-flush border'>
         <dtt-task v-bind:taskElement='taskElement' v-for='taskElement in kategorie.inhalt' class='list-group-item'></dtt-task> 
     </div></div>`,
-    props: ['kategorie']
+    props: ['kategorie'],
 });
 
 
 Vue.component('dtt-task', {
     template: `
-    <div class="card shadow p-3 mb-5 bg-white rounded" style="max-width: 400px; ">
+    <div class="card shadow p-3 mb-5 bg-white rounded" style="max-width: 400px;">
     <div class="card-header shadow-sm p-3 mb-2 bg-white rounded">
            
           <a href="#" class="btn btn-danger btn-sm align-self-start float-right">DO</a>Wird von <br>xxx<br> bearbeitet.
@@ -45,7 +45,6 @@ var module = new Vue({
     el: '#app',
     data: {
         taskCollection: [],
-
     },
     methods: {
 
