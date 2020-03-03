@@ -1,5 +1,4 @@
 Vue.component('card', {
-    props: ['card'],
     template: `
     <div class="card container">
         <div class="item-refresh">
@@ -7,17 +6,17 @@ Vue.component('card', {
                 class="refreshIcon"
                 src="img/refresh.png"
                 alt="refresh"
-                v-on:click="module.loadData()"
+                onclick="module.loadData()"
             />
         </div>
         <div class="item-content font">
-            <div id="content">{{module.curr_phrase}}</div>
+            <div id="content">{{curr_phrase}}</div>
         </div>
         <div class="item-category">
             <div id="category">{{curr_category}}</div>
         </div>
         <div class="item-rating">
-            <div id="rating"></div>
+            <div id="rating">{{currentPhraseID}}</div>
         </div>
         <div class="item-timer">
             <img
@@ -25,7 +24,7 @@ Vue.component('card', {
                 id="autoRefresh"
                 src="img/timeroff.png"
                 alt="autoRefresh"
-                v-on:click="module.toggler()"
+                onclick="module.toggler()"
             />
         </div>
         <div class="halved">
@@ -35,7 +34,7 @@ Vue.component('card', {
                     class="arrows"
                     src="img/arr_up.png"
                     alt="upvote"
-                    v-on:click="module.vote('/upvote')"
+                    onclick="module.vote('/upvote')"
                 />
             </div>
             <div class="item-downvote">
@@ -44,11 +43,12 @@ Vue.component('card', {
                     class="arrows"
                     src="img/arr_down.png"
                     alt="downvote"
-                    v-on:click="module.vote('/downvote')"
+                    onclick="module.vote('/downvote')"
                 />
             </div>
         </div>
-    </div>`
+    </div>`,
+    props: ['curr_phrase', 'curr_category', 'currentPhraseID']
 })
 
 
@@ -56,86 +56,91 @@ Vue.component('card', {
 var module = new Vue({
     el: '#app',
     data: {
-        curr_phrase: "",
-        curr_category: "",
-        phrases: [],
+        curr_phrase: "gfdgr",
+        curr_category: "asd",
+        phrases: ["dsskla", "urioe"],
         autoRefresh: false,
-        currentPhraseID: []
+        currentPhraseID: 0,
+        setAnimation: 0,
+        counter: 0
     },
     methods: {
         toggler: function() {
-            if (autoRefresh == false) {
-                autoRefresh = window.setInterval(loadData, 10000);
-                document.getElementById('autoRefresh').src = 'img/timeron.png';
+            if (this.autoRefresh == false) {
+                this.autoRefresh = window.setInterval(this.loadData, 10000)
+                document.getElementById('autoRefresh').src = 'img/timeron.png'
             } else {
-                document.getElementById('autoRefresh').src = 'img/timeroff.png';
-                window.clearInterval(autoRefresh);
-                autoRefresh = false;
+                document.getElementById('autoRefresh').src = 'img/timeroff.png'
+                window.clearInterval(this.autoRefresh)
+                this.autoRefresh = false
             }
         },
         
         loadData: function() {
-            fetch('/strategySample/', { method: "GET" })
-                .then(res => res.json())
-                .then(data => {
-                    phrases = data;
-                });
-            var counter = 0;
-            this.animation(phrases);
-            var setAnimation = window.setInterval(animation, 40);
+            // fetch('/strategySample/', { method: "GET" })
+            //     .then(res => res.json())
+            //     .then(data => {
+            //         this.phrases = data
+            //     })
+            
+            // this.animation()
+            this.setAnimation = window.setInterval(this.animation, 40)
         },
         
-        animation: function(phrases) {
-            const randomNumber = Math.floor(Math.random() * this.phrases.length);
-            this.curr_phrase = phrases[randomNumber].phrase;
-            counter++;
-            if (counter > 20) {
-                window.clearInterval(setAnimation);
-                currentPhraseID = 0;
-                this.curr_phrase = phrases[0].phrase;
-                this.getRating();
-                this.curr_category = "Category: " + phrases[0].category;
+        animation: function() {
+            const randomNumber = Math.floor(Math.random() * this.phrases.length)
+            this.curr_phrase = this.phrases[randomNumber].phrase
+            // document.getElementById('content').innerText = this.curr_phrase
+            // this.$refs.component.open = true
+            this.counter++
+            if (this.counter > 20) {
+                window.clearInterval(this.setAnimation)
+                this.currentPhraseID = 0
+                this.curr_phrase = this.phrases[0].phrase
+                // if (this.phrases[this.currentPhraseID].votes != 0) this.phrase[this.currentPhraseID].votes = 0
+                this.getRating()
+                this.curr_category = "Category: " + this.phrases[0].category
             }
         },
 
         getRating: function() {
-            if (phrases[currentPhraseID].votes.length == 0) {
-                document.getElementById('upvote').style.visibility = 'visible';
-                document.getElementById('downvote').style.visibility = 'visible';
-            } else if (phrases[currentPhraseID].votes[0].status == 1) {
-                document.getElementById('upvote').style.visibility = 'visible';
-                document.getElementById('downvote').style.visibility = 'hidden';
+            if (this.phrases[this.currentPhraseID].votes == undefined || this.phrases[this.currentPhraseID].votes.length == 0) {
+                document.getElementById('upvote').style.visibility = 'visible'
+                document.getElementById('downvote').style.visibility = 'visible'
+            } else if (this.phrases[this.currentPhraseID].votes[0].status == 1) {
+                document.getElementById('upvote').style.visibility = 'visible'
+                document.getElementById('downvote').style.visibility = 'hidden'
             } else {
-                document.getElementById('upvote').style.visibility = 'hidden';
-                document.getElementById('downvote').style.visibility = 'visible';
+                document.getElementById('upvote').style.visibility = 'hidden'
+                document.getElementById('downvote').style.visibility = 'visible'
             }
-            document.getElementById('rating').innerText = phrases[currentPhraseID].rating;
+            document.getElementById('rating').innerText = this.phrases[this.currentPhraseID].rating
         },
         
         vote: function(param) {
-            if (phrases[currentPhraseID].votes.length != 0) {
-                param = '/unvote';
-                (phrases[currentPhraseID].votes[0].status == 1) ? phrases[currentPhraseID].rating-- : phrases[currentPhraseID].rating++;
-                phrases[currentPhraseID].votes = [];
+            if (this.phrases[this.currentPhraseID].votes.length != 0) {
+                param = '/unvote'
+                (this.phrases[this.currentPhraseID].votes[0].status == 1) ? this.phrases[this.currentPhraseID].rating-- : this.phrases[this.currentPhraseID].rating++
+                this.phrases[this.currentPhraseID].votes = []
             } else if (param.includes('upvote')) {
-                phrases[currentPhraseID].rating++;
+                this.phrases[this.currentPhraseID].rating++
                 let vote = {
                     status: 1
                 }
-                phrases[currentPhraseID].votes.push(vote);
+                this.phrases[this.currentPhraseID].votes.push(vote)
             } else {
-                phrases[currentPhraseID].rating--;
+                this.phrases[this.currentPhraseID].rating--
                 let vote = {
                     status: -1
                 }
-                phrases[currentPhraseID].votes.push(vote);
+                this.phrases[this.currentPhraseID].votes.push(vote)
             }
-            fetch('/strategies/' + phrases[currentPhraseID]._id + param, {
+            fetch('/strategies/' + this.phrases[this.currentPhraseID]._id + param, {
                 method: "POST"
             }).then(res => {
-                console.log(res.text());
+                console.log(res.text())
             });
-            getRating();
+            getRating()
         }
     },
     mounted() {
@@ -143,4 +148,10 @@ var module = new Vue({
     }
 })
 
-window.onload = module.loadData;
+const http = new XMLHttpRequest()
+http.open("GET", "obliqueStrats.json")
+http.onload = function () {
+    module.phrases = JSON.parse(http.responseText)
+    module.loadData()
+}
+http.send()
