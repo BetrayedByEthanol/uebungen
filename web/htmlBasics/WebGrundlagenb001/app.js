@@ -228,26 +228,3 @@ function getIP() {
     return ipAddresses[0];
 }
 
-
-function getNewPosition(rating, lastViewsDifference, timesDisplayed) {
-    var ratingModifier = 1;
-    var lastViewModifer = 1;
-    var timesDisplayedModifier = 1;
-    for (var i = 1; i <= Math.abs(rating); i++) {
-        ratingModifier += Math.pow(0.5, i);
-    }
-
-    if (rating < 0) ratingModifier = 1 / ratingModifier;
-
-    for (var i = 1; i <= Math.abs(lastViewsDifference); i++) {
-        lastViewModifer += Math.pow(0.4, i);
-    }
-
-    for (var i = 1; i <= Math.abs(timesDisplayed); i++) {
-        timesDisplayedModifier += Math.pow(0.2, i);
-    }
-    timesDisplayedModifier = 1 / timesDisplayedModifier;
-
-    return 150 / (ratingModifier * lastViewModifer * timesDisplayedModifier);
-
-}
