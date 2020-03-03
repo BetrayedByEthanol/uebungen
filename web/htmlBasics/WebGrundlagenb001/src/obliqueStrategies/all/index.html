@@ -82,14 +82,17 @@
         <div v-on:click="filtriere('Self-Confidence')">Self-Confidence</div>
         <div v-on:click="filtriere('Technology')">Technology</div>
       </div>
-      <div v-on:click="sortiere()" class="grid-container">
-        <o-card v-bind:strategy="strategy" v-for="strategy in strategies" ></o-card>
+      <div v-bind:conditionaltrigger="conditionaltrigger" v-if="!conditionaltrigger" class="grid-container">
+        <o-card  v-bind:strategy="strategy" v-for="strategy in strategies" />
+      </div>
+      <div v-bind:conditionaltrigger="conditionaltrigger" v-else-if="conditionaltrigger" class="grid-container container-fluid" style="display:block;">
+        <ocardid  v-bind:stratprop="stratprop" />
       </div>
     </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js" integrity="sha256-bd8XIKzrtyJ1O5Sh3Xp3GiuMIzWC42ZekvrMMD4GxRg=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="index.js"></script>
-
+<!--   -->
 <!-- <script src="cardClone.js"></script> -->
 </html>

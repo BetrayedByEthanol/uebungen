@@ -174,10 +174,7 @@ app.get('/challenge', (req, res) => {
 
 });
 
-//Workaround for View Per ID Comment out if fix is available
-app.get('/obliqueStrategies/id/:strategyID', function (req, res) {
-    res.sendFile(path.join(__dirname + '/src/obliqueStrategies/os-id.html'));
-});
+
 
 app.use(express.static("src"));
 
