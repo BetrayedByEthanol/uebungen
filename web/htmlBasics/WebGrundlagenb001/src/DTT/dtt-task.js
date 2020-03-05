@@ -7,7 +7,8 @@ Vue.component('dtt-task', {
     </div>
     <div class="card-body">
     <h5 class="card-title" v-bind:task='task'>{{ task.name }}</h5>
-        <p class="card-text font-weight-light" v-bind:task='task'>Kategorie: {{ task.category }}</p>
+        <dtt-category v-bind:category="categories" v-for='categories in task.category'></dtt-category>
+        
         <hr class="my-2">
         <p class="card-text font-weight-bolder">Inhalt:</p>
         <dtt-description v-bind:description='point' v-for='point in task.description'></dtt-description>
