@@ -1,5 +1,5 @@
+
 Vue.component('card', {
-    props: ['card'],
     template: `
     <div class="card container">
         <div class="item-refresh">
@@ -7,17 +7,17 @@ Vue.component('card', {
                 class="refreshIcon"
                 src="img/refresh.png"
                 alt="refresh"
-                v-on:click="module.loadData()"
+                @click="module.loadData()"
             />
         </div>
         <div class="item-content font">
-            <div id="content">{{module.curr_phrase}}</div>
+            <div id="content">{{ curr_phrase }}</div>
         </div>
         <div class="item-category">
-            <div id="category">{{curr_category}}</div>
+            <div id="category">{{ curr_category }}</div>
         </div>
         <div class="item-rating">
-            <div id="rating"></div>
+            <div id="rating">{{ curr_rating }}</div>
         </div>
         <div class="item-timer">
             <img
@@ -25,7 +25,7 @@ Vue.component('card', {
                 id="autoRefresh"
                 src="img/timeroff.png"
                 alt="autoRefresh"
-                v-on:click="module.toggler()"
+                @click="module.toggler()"
             />
         </div>
         <div class="halved">
@@ -35,7 +35,7 @@ Vue.component('card', {
                     class="arrows"
                     src="img/arr_up.png"
                     alt="upvote"
-                    v-on:click="module.vote('/upvote')"
+                    @click="module.vote('/upvote')"
                 />
             </div>
             <div class="item-downvote">
@@ -44,13 +44,13 @@ Vue.component('card', {
                     class="arrows"
                     src="img/arr_down.png"
                     alt="downvote"
-                    v-on:click="module.vote('/downvote')"
+                    @click="module.vote('/downvote')"
                 />
             </div>
         </div>
-    </div>`
+    </div>`,
+    props: ['curr_phrase', 'curr_category', 'curr_rating']
 })
-
 
 
 var module = new Vue({
@@ -58,89 +58,84 @@ var module = new Vue({
     data: {
         curr_phrase: "",
         curr_category: "",
+        curr_rating: null,
         phrases: [],
         autoRefresh: false,
-        currentPhraseID: []
+        currentPhraseID: 0,
+        setAnimation: 0,
+        counter: 0
     },
-    methods: {
-        toggler: function() {
-            if (autoRefresh == false) {
-                autoRefresh = window.setInterval(loadData, 10000);
-                document.getElementById('autoRefresh').src = 'img/timeron.png';
-            } else {
-                document.getElementById('autoRefresh').src = 'img/timeroff.png';
-                window.clearInterval(autoRefresh);
-                autoRefresh = false;
-            }
-        },
-        
-        loadData: function() {
-            fetch('/strategySample/', { method: "GET" })
-                .then(res => res.json())
-                .then(data => {
-                    phrases = data;
-                });
-            var counter = 0;
-            this.animation(phrases);
-            var setAnimation = window.setInterval(animation, 40);
-        },
-        
-        animation: function(phrases) {
-            const randomNumber = Math.floor(Math.random() * this.phrases.length);
-            this.curr_phrase = phrases[randomNumber].phrase;
-            counter++;
-            if (counter > 20) {
-                window.clearInterval(setAnimation);
-                currentPhraseID = 0;
-                this.curr_phrase = phrases[0].phrase;
-                this.getRating();
-                this.curr_category = "Category: " + phrases[0].category;
-            }
-        },
+    mounted() {
+        this.loadData()
+    },
 
-        getRating: function() {
-            if (phrases[currentPhraseID].votes.length == 0) {
-                document.getElementById('upvote').style.visibility = 'visible';
-                document.getElementById('downvote').style.visibility = 'visible';
-            } else if (phrases[currentPhraseID].votes[0].status == 1) {
-                document.getElementById('upvote').style.visibility = 'visible';
-                document.getElementById('downvote').style.visibility = 'hidden';
+    methods: {
+        toggler() {
+            if (this.autoRefresh == false) {
+                this.autoRefresh = window.setInterval(this.loadData, 10000)
+                document.getElementById('autoRefresh').src = 'img/timeron.png'
             } else {
-                document.getElementById('upvote').style.visibility = 'hidden';
-                document.getElementById('downvote').style.visibility = 'visible';
+                document.getElementById('autoRefresh').src = 'img/timeroff.png'
+                window.clearInterval(this.autoRefresh)
+                this.autoRefresh = false
             }
-            document.getElementById('rating').innerText = phrases[currentPhraseID].rating;
         },
-        
-        vote: function(param) {
-            if (phrases[currentPhraseID].votes.length != 0) {
-                param = '/unvote';
-                (phrases[currentPhraseID].votes[0].status == 1) ? phrases[currentPhraseID].rating-- : phrases[currentPhraseID].rating++;
-                phrases[currentPhraseID].votes = [];
+        loadData() {
+            axios
+                .get("obliqueStrats.json")
+                .then(response => (this.phrases = response.data))
+            this.counter = 0
+            this.setAnimation = window.setInterval(this.animation, 40)
+        },
+        animation() {
+            const randomNumber = Math.floor(Math.random() * this.phrases.length)
+            this.curr_phrase = this.phrases[randomNumber].phrase
+            this.curr_category = "Category: " + this.phrases[randomNumber].category
+            this.counter++
+            if (this.counter > 20) {
+                window.clearInterval(this.setAnimation)
+                this.currentPhraseID = randomNumber
+                if (this.phrases[this.currentPhraseID].votes == undefined) this.phrases[this.currentPhraseID].votes = []
+                this.getRating()
+            }
+        },
+        getRating() {
+            if (this.phrases[this.currentPhraseID].votes.length == 0) {
+                document.getElementById('upvote').style.visibility = 'visible'
+                document.getElementById('downvote').style.visibility = 'visible'
+            } else if (this.phrases[this.currentPhraseID].votes[0].status == 1) {
+                document.getElementById('upvote').style.visibility = 'visible'
+                document.getElementById('downvote').style.visibility = 'hidden'
+            } else {
+                document.getElementById('upvote').style.visibility = 'hidden'
+                document.getElementById('downvote').style.visibility = 'visible'
+            }
+            this.curr_rating = this.phrases[this.currentPhraseID].rating
+        },
+        vote(param) {
+            if (this.phrases[this.currentPhraseID].votes.length != 0) {
+                param = '/unvote'
+                (this.phrases[this.currentPhraseID].votes[0].status == 1) ? this.phrases[this.currentPhraseID].rating-- : this.phrases[this.currentPhraseID].rating++
+                this.phrases[this.currentPhraseID].votes = []
             } else if (param.includes('upvote')) {
-                phrases[currentPhraseID].rating++;
+                this.phrases[this.currentPhraseID].rating++
                 let vote = {
                     status: 1
                 }
-                phrases[currentPhraseID].votes.push(vote);
+                this.phrases[this.currentPhraseID].votes.push(vote)
             } else {
-                phrases[currentPhraseID].rating--;
+                this.phrases[this.currentPhraseID].rating--
                 let vote = {
                     status: -1
                 }
-                phrases[currentPhraseID].votes.push(vote);
+                this.phrases[this.currentPhraseID].votes.push(vote)
             }
-            fetch('/strategies/' + phrases[currentPhraseID]._id + param, {
+            fetch('/strategies/' + this.phrases[this.currentPhraseID]._id + param, {
                 method: "POST"
             }).then(res => {
-                console.log(res.text());
-            });
-            getRating();
+                console.log(res.text())
+            })
+            this.getRating()
         }
-    },
-    mounted() {
-        
     }
 })
-
-window.onload = module.loadData;

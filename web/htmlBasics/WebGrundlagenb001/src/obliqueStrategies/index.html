@@ -44,8 +44,12 @@
             </form>
         </div>
     </nav>
-    <card v-bind:card="card"></card>
+    <div id="app">
+        <card v-bind:curr_rating="curr_rating" v-bind:curr_phrase="curr_phrase" v-bind:curr_category="curr_category"></card>
+    </div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"
+  integrity="sha256-bd8XIKzrtyJ1O5Sh3Xp3GiuMIzWC42ZekvrMMD4GxRg=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
 <script src="index.js"></script>
 
