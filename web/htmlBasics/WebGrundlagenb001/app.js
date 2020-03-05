@@ -5,7 +5,13 @@ const http = require('http');
 const https = require('https');
 var path = require("path");
 var morgan = require('morgan');
-
+var passport = require('passport');
+const session = require('express-session');
+var mongoose = require('mongoose');
+const users = require('./Users');
+const LocalStrategy = require('passport-local').Strategy;
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 
 var os = require('os');
 var ifaces = os.networkInterfaces();
@@ -16,7 +22,6 @@ const app = express();
 const port = 5050;
 
 
-
 const url = 'mongodb://10.42.53.5:27017';
 const MongoClient = require('mongodb').MongoClient;
 ObjectID = require('mongodb').ObjectID
@@ -25,55 +30,117 @@ const client = new MongoClient(url, {
 });
 var db;
 
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+var dbU = mongoose.connection
+const User = mongoose.model('Users', users.UserSchema);
+passport.use(new LocalStrategy(function (username, password, done) {
+    
+    users.getUserByUsername(username, function (err, user) {
+        if (err) throw err;
+        if (!user) {
+            return done(null, false, { message: 'Unknown User' });
+        }
 
+        users.comparePassword(password, user.password, function (err, isMatch) {
+            if (err) throw err;
+            if (isMatch) {
+                return done(null, user);
+            } else {
+                return done(null, false, { message: 'Invalid password' });
+            }
+        });
+    });
+}
+));
+
+
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(session({
+    secret: 'secret',
+    saveUninitialized: true,
+    resave: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(morgan('common'));
 
 app.use(express.json());
 
+app.use((req, res, next) => {
+    console.log(req.url);
+    if (req.session == undefined && !req.url.includes('login')) {
+        res.redirect('/login.html');
+    } else {
+        next();
+    }
+});
+
+app.post('/login',
+  passport.authenticate('local'),
+  function(req, res) {
+      console.log(req.user);
+    res.send(req.user);
+  }
+);
+
+
+app.post('/register', (req, res) => {
+    let userData = req.body;
+    var newUser = new User({ user: userData.username });
+    newUser.setPassword(userData.password);
+    console.log('logging in...');
+});
+
 app.get('/strategySample', (req, res) => {
-    const StartYourConstWithCaps = (req.connection.remoteAddress.includes("::1"))? getIP() : req.connection.remoteAddress;
+    const StartYourConstWithCaps = (req.connection.remoteAddress.includes("::1")) ? getIP() : req.connection.remoteAddress;
     db.collection('obliquestrategies').aggregate([{
         $facet: {
-            rarelyDisplayed: [{$sort: {timesDisplayed: 1}}, {$limit: 10}, {$addFields: { rating: { $sum: "$votes.status" }}}], 
-            displayMoreOften: [{$sort: {lastViewed: 1}},{$limit: 10}, {$addFields: { rating: { $sum: "$votes.status" }}}], 
-            topRated: [{$addFields: {rating: { $sum: "$votes.status" }}}, {$sort: {rating: -1}}, {$limit: 10}]
-        }}, {
+            rarelyDisplayed: [{ $sort: { timesDisplayed: 1 } }, { $limit: 10 }, { $addFields: { rating: { $sum: "$votes.status" } } }],
+            displayMoreOften: [{ $sort: { lastViewed: 1 } }, { $limit: 10 }, { $addFields: { rating: { $sum: "$votes.status" } } }],
+            topRated: [{ $addFields: { rating: { $sum: "$votes.status" } } }, { $sort: { rating: -1 } }, { $limit: 10 }]
+        }
+    }, {
         $project: {
             data: {
-                $concatArrays: ["$rarelyDisplayed","$displayMoreOften","$topRated"]
-                }  
-            }
-        },{
-        $unwind: "$data"
-        },{
-        $replaceWith: "$data"
-        }, {
-            $project: {
-                votes: {
-                    $filter: {
-                        input: "$votes",
-                        as: "vote",
-                        cond: { $eq: ["$$vote.ip", StartYourConstWithCaps] }
-                    }
-                },
-                phrase: 1,
-                _id: 1,
-                category: 1,
-                rating: 1,
-                lastViewed: 1,
-                timesDisplayed: 1,
+                $concatArrays: ["$rarelyDisplayed", "$displayMoreOften", "$topRated"]
             }
         }
+    }, {
+        $unwind: "$data"
+    }, {
+        $replaceWith: "$data"
+    }, {
+        $project: {
+            votes: {
+                $filter: {
+                    input: "$votes",
+                    as: "vote",
+                    cond: { $eq: ["$$vote.ip", StartYourConstWithCaps] }
+                }
+            },
+            phrase: 1,
+            _id: 1,
+            category: 1,
+            rating: 1,
+            lastViewed: 1,
+            timesDisplayed: 1,
+        }
+    }
     ]).toArray(function (err, result) {
         if (err) throw err;
         var id = Math.floor(Math.random() * result.length);
         result[id].display = true;
         res.json(result);
-        db.collection('obliquestrategies').updateOne({ _id: ObjectID(result[id]._id)}, { $set:   { 
-                                                                                                lastViewed: new Date(),
-                                                                                                timesDisplayed: result[id].timesDisplayed + 1
-            }}, function(erro, resu) {
+        db.collection('obliquestrategies').updateOne({ _id: ObjectID(result[id]._id) }, {
+            $set: {
+                lastViewed: new Date(),
+                timesDisplayed: result[id].timesDisplayed + 1
+            }
+        }, function (erro, resu) {
             if (erro) throw erro;
             console.log(resu);
         });
@@ -174,14 +241,13 @@ app.get('/challenge', (req, res) => {
 
 });
 
-
-
 app.use(express.static("src"));
 
 app.use(function (req, res, next) {
     res.statusCode = 404;
     res.sendFile(path.join(__dirname + "/src/error404.html"));
 });
+
 
 client.connect().then((client) => {
     db = client.db('FIAN19-II');
