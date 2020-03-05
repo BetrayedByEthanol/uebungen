@@ -1,20 +1,18 @@
-
 FIXME:// use Vue.component to filter the JSON Data, not JSON itself!
 Vue.config.devtools = true;
 Vue.component('dtt-spalte', {
     template: `<div class='list-group-item w-100 p-0'>
-    <div class='text-center m-3'>{{title}}</div>
+    <div class='text-center m-3'>{{headers}}</div>
     <div class='list-group list-group-flush border'>
-        <dtt-task v-if='(title == task.status)' v-bind:task='task' v-for='task in tasks' class='list-group-item'></dtt-task>
-        
+        <dtt-task v-bind:task="task" v-for="task in tasks" class='list-group-item'></dtt-task>
     </div></div>`,
-    props: ['title', 'tasks']
+    props: ['tasks','headers'],
 });
 
 
 Vue.component('dtt-task', {
     template: `
-    <div class="card shadow p-3 mb-5 bg-white rounded" style="max-width: 400px; ">
+    <div class="card shadow p-3 mb-5 bg-white rounded" style="max-width: 400px;">
     <div class="card-header shadow-sm p-3 mb-2 bg-white rounded">
            
           <a href="#" class="btn btn-danger btn-sm align-self-start float-right">DO</a>Wird von <br>xxx<br> bearbeitet.
@@ -45,11 +43,11 @@ Vue.component('dtt-description', {
 var module = new Vue({
     el: '#app',
     data: {
-        titles:['backlog','to do','in progress', 'testing', 'done'],
-        tasks: []
+        tasks: [],
+        headers:['Backlog','toDo','in Progress','Testing','Finished'],
     },
     methods: {
-
+        
     },
     mounted() {
     const http = new XMLHttpRequest();
@@ -61,7 +59,6 @@ var module = new Vue({
 
     }
 });
-
 const http = new XMLHttpRequest();
 http.open("GET", "tasks.json");
 http.onload = function () {
