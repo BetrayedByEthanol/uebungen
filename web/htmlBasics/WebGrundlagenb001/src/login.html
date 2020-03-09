@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"" rel="stylesheet" id="bootstrap-css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <link rel="stylesheet" href="style/login.css">
+  <script src="login.js" ></script>
   <title>Document</title>
 </head>
 <body>
@@ -32,27 +33,4 @@
   </div>
 </div>
 </body>
-<script >var login = function(){
-  console.log();
-  var user = document.getElementById('login').value;
-  var pass = document.getElementById('password').value; 
-  
-  console.log(JSON.stringify({
-          username: user,
-          password: pass 
-        }))
-  fetch('/login', {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-            },
-        body: JSON.stringify({
-          username: user,
-          password: pass 
-        })
-    }).then(res => {
-        console.log(res.text());
-    });
-  }</script>
 </html>

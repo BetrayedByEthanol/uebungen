@@ -8,7 +8,7 @@ var morgan = require('morgan');
 var passport = require('passport');
 const session = require('express-session');
 var mongoose = require('mongoose');
-const users = require('./Users');
+const User = require('./Users');
 const LocalStrategy = require('passport-local').Strategy;
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
@@ -30,20 +30,26 @@ const client = new MongoClient(url, {
 });
 var db;
 
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
-var dbU = mongoose.connection
-const User = mongoose.model('Users', users.UserSchema);
+mongoose.connect(url + '/FIAN19-II', { useNewUrlParser: true, useUnifiedTopology: true });
+
 passport.use(new LocalStrategy(function (username, password, done) {
-    
-    users.getUserByUsername(username, function (err, user) {
+    User.getUserByUsername(username, function (err, user) {
         if (err) throw err;
         if (!user) {
             return done(null, false, { message: 'Unknown User' });
         }
 
-        users.comparePassword(password, user.password, function (err, isMatch) {
+        User.comparePassword(password, user.password, function (err, isMatch) {
             if (err) throw err;
             if (isMatch) {
+                user.token = User.generateJWT();
+                var today = new Date();
+                today.setDate(today.getDate() + 7);
+                user.tokenExpirationDate = today;
+                User.findOneAndUpdate({ username: user.username },{token: user.token, tokenExpirationDate: user.tokenExpirationDate},  function(err, doc) {
+                    if (err) throw err;
+                    console.log(doc);
+                });
                 return done(null, user);
             } else {
                 return done(null, false, { message: 'Invalid password' });
@@ -53,7 +59,15 @@ passport.use(new LocalStrategy(function (username, password, done) {
 }
 ));
 
+passport.serializeUser(function (user, done) {
+    done(null, user.id);
+});
 
+passport.deserializeUser(function (id, done) {
+    User.getUserById(id, function (err, user) {
+        done(err, user);
+    });
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -70,30 +84,62 @@ app.use(morgan('common'));
 
 app.use(express.json());
 
+// Redirect Unauthorized
 app.use((req, res, next) => {
-    console.log(req.url);
-    if (req.session == undefined && !req.url.includes('login')) {
+    //req.session == undefined ||  add session coooky
+    var cookies = req.headers.cookie;
+    cookies = cookies.split(';');
+    var usertoken = cookies.find(cookie => { return cookie.includes('logTok')});
+    usertoken = usertoken.substring(7);
+    var query = User.findOne({token: usertoken});
+    query.exec((err, result) => {
+        console.log(result);
+    })
+    console.log(token);
+    if (!req.url.includes('login') && !req.url.includes('register') && !req.url.includes('dummies')) {
         res.redirect('/login.html');
     } else {
         next();
     }
 });
 
+// Login User
 app.post('/login',
-  passport.authenticate('local'),
-  function(req, res) {
-      console.log(req.user);
-    res.send(req.user);
-  }
+    passport.authenticate('local'),
+    function (req, res) {
+        console.log(req.user);
+        res.send(req.user);
+    }
 );
 
+// Register User
+app.post('/register', function (req, res) {
+    var password = req.body.password;
+    var password2 = req.body.password2;
+    var query = User.findOne({ username: req.body.username });
+    query.exec((err, result) => {
+        if (err) return console.log(err);
+        if (password == password2) {
+            if (result == null) {
+                var newUser = new User({
+                    username: req.body.username,
+                    email: req.body.email,
+                    password: req.body.password
+                });
 
-app.post('/register', (req, res) => {
-    let userData = req.body;
-    var newUser = new User({ user: userData.username });
-    newUser.setPassword(userData.password);
-    console.log('logging in...');
+                User.createUser(newUser, function (err, user) {
+                    if (err) throw err;
+                    res.send(user).end()
+                });
+            } else {
+                res.status(500).send("{erros: \"User already exists\"}").end()
+            }
+        } else {
+            res.status(500).send("{erros: \"Passwords don't match\"}").end()
+        }
+    })
 });
+
 
 app.get('/strategySample', (req, res) => {
     const StartYourConstWithCaps = (req.connection.remoteAddress.includes("::1")) ? getIP() : req.connection.remoteAddress;

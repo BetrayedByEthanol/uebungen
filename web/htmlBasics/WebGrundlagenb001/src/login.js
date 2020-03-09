@@ -1,19 +1,28 @@
-
-var login = function() {
-    var http = new XMLHttpRequest();
-    var user = document.getElementById('login');
-    var pass = document.getElementById('password');
-    http.open('POST',  "/login", true);
-    http.setRequestHeader('Content-type','json');
-    let data = {
-        username: user,
-        password: pass 
+var login = function(){
+    console.log();
+    var user = document.getElementById('login').value;
+    var pass = document.getElementById('password').value; 
+    
+    console.log(JSON.stringify({
+            username: user,
+            password: pass 
+          }))
+    fetch('/login', {
+          method: "POST",
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+              },
+          body: JSON.stringify({
+            username: user,
+            password: pass 
+          })
+      }).then(res => {
+          var text = res.text();
+          text.then((result) => {
+              let data = JSON.parse(result);
+              console.log(data.token);
+              document.cookie = 'logTok='+data.token;
+          })
+      });
     }
-  
-    http.send(data);
-    http.onreadystatechange = () => {
-        var res = http.responseText;
-        var obj = JSON.parse(res);
-        token = obj.access_token;
-    }
-}
