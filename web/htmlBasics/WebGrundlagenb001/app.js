@@ -6,12 +6,9 @@ const https = require('https');
 var path = require("path");
 var morgan = require('morgan');
 var passport = require('passport');
-const session = require('express-session');
 var mongoose = require('mongoose');
 const User = require('./Users');
 const LocalStrategy = require('passport-local').Strategy;
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
 
 var os = require('os');
 var ifaces = os.networkInterfaces();
@@ -30,7 +27,7 @@ const client = new MongoClient(url, {
 });
 var db;
 
-mongoose.connect(url + '/FIAN19-II', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(url + '/FIAN19-II', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
 passport.use(new LocalStrategy(function (username, password, done) {
     User.getUserByUsername(username, function (err, user) {
@@ -46,10 +43,10 @@ passport.use(new LocalStrategy(function (username, password, done) {
                 var today = new Date();
                 today.setDate(today.getDate() + 7);
                 user.tokenExpirationDate = today;
-                User.findOneAndUpdate({ username: user.username },{token: user.token, tokenExpirationDate: user.tokenExpirationDate},  function(err, doc) {
+                User.findOneAndUpdate({ username: user.username }, { token: user.token, tokenExpirationDate: user.tokenExpirationDate }, function (err, doc) {
                     if (err) throw err;
-                    console.log(doc);
                 });
+                user.password = "";
                 return done(null, user);
             } else {
                 return done(null, false, { message: 'Invalid password' });
@@ -69,16 +66,7 @@ passport.deserializeUser(function (id, done) {
     });
 });
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(session({
-    secret: 'secret',
-    saveUninitialized: true,
-    resave: true
-}));
 app.use(passport.initialize());
-app.use(passport.session());
 
 app.use(morgan('common'));
 
@@ -86,20 +74,30 @@ app.use(express.json());
 
 // Redirect Unauthorized
 app.use((req, res, next) => {
-    //req.session == undefined ||  add session coooky
-    var cookies = req.headers.cookie;
-    cookies = cookies.split(';');
-    var usertoken = cookies.find(cookie => { return cookie.includes('logTok')});
-    usertoken = usertoken.substring(7);
-    var query = User.findOne({token: usertoken});
-    query.exec((err, result) => {
-        console.log(result);
-    })
-    console.log(token);
-    if (!req.url.includes('login') && !req.url.includes('register') && !req.url.includes('dummies')) {
-        res.redirect('/login.html');
-    } else {
+    if (req.url.includes('login') || req.url.includes('register')) {
         next();
+    } else {
+        var cookies = req.headers.cookie;
+        if (cookies != undefined) {
+            cookies = cookies.split(';');
+            var usertoken = cookies.find(cookie => { return cookie.includes('logTok') });
+            if (usertoken != undefined) {
+                usertoken = usertoken.substring(usertoken.indexOf('=') + 1);
+                db.collection('users').findOne({
+                    'token': usertoken
+                }).then(result => {
+                    if (result != null) {
+                        next();
+                    } else {
+                        res.redirect('/login.html');
+                    }
+                });
+            } else {
+                res.redirect('/login.html');
+            }
+        } else {
+            res.redirect('/login.html');
+        }
     }
 });
 
@@ -107,7 +105,6 @@ app.use((req, res, next) => {
 app.post('/login',
     passport.authenticate('local'),
     function (req, res) {
-        console.log(req.user);
         res.send(req.user);
     }
 );

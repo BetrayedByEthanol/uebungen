@@ -24,5 +24,6 @@ var register = function(){
           })
       }).then(res => {
           console.log(res.text());
+          window.location.href = '../login.html';
       });
     }

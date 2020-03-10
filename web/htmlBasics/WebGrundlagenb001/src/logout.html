@@ -12,14 +12,7 @@
 </body>
 <script>
     var dumdum = function () {
-        fetch('/test', {
-              method: "GET",
-              headers: {
-                  cookie: document.cookie
-                  }
-          }).then(res => {
-              console.log(res.text());
-          });
+        document.cookie = 'logTok=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     }
 </script>
 
