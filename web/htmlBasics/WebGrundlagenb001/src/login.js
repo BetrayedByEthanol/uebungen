@@ -22,8 +22,8 @@ var login = function () {
     text.then((result) => {
       let data = JSON.parse(result);
       var date = new Date(data.tokenExpirationDate);
-      //document.cookie = 'logTok=' + data.token + '; expires=' + date.toUTCString() + ';';
-      console.log(data);
+      document.cookie = 'logTok=' + data.token + '; expires=' + date.toUTCString() + ';';
+      window.location.href = '../';
     })
   });
 }
