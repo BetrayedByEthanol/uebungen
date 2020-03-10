@@ -11,13 +11,13 @@ Vue.component('card', {
             />
         </div>
         <div class="item-content font">
-            <div id="content">{{ curr_phrase }}</div>
+            <div id="content">{{ c_phrase }}</div>
         </div>
         <div class="item-category">
-            <div id="category">{{ curr_category }}</div>
+            <div id="category">{{ c_category }}</div>
         </div>
         <div class="item-rating">
-            <div id="rating">{{ curr_rating }}</div>
+            <div id="rating">{{ c_rating }}</div>
         </div>
         <div class="item-timer">
             <img
@@ -49,9 +49,8 @@ Vue.component('card', {
             </div>
         </div>
     </div>`,
-    props: ['curr_phrase', 'curr_category', 'curr_rating']
+    props: ['c_phrase', 'c_category', 'c_rating', 'autoReImg']
 })
-
 
 var module = new Vue({
     el: '#app',
@@ -61,41 +60,45 @@ var module = new Vue({
         curr_rating: null,
         phrases: [],
         autoRefresh: false,
+        autoRefresh_img: 'img/timeroff.png',
         currentPhraseID: 0,
         setAnimation: 0,
         counter: 0
     },
     mounted() {
         this.loadData()
+        //this.autoRefresh_img = require('img/timeroff.png') //require is not defined
     },
 
     methods: {
+        set_img(img_path) {
+            require(img_path)
+        },
         toggler() {
             if (this.autoRefresh == false) {
                 this.autoRefresh = window.setInterval(this.loadData, 10000)
-                document.getElementById('autoRefresh').src = 'img/timeron.png'
+                this.autoRefresh_img = 'img/timeron.png'
             } else {
-                document.getElementById('autoRefresh').src = 'img/timeroff.png'
+                this.autoRefresh_img = 'img/timeroff.png'
                 window.clearInterval(this.autoRefresh)
                 this.autoRefresh = false
             }
         },
         loadData() {
             axios
-                .get("obliqueStrats.json")
-                .then(response => (this.phrases = response.data))
+                .get('/strategySample/')
+                .then(res => (this.phrases = res.data))
             this.counter = 0
             this.setAnimation = window.setInterval(this.animation, 40)
         },
         animation() {
             const randomNumber = Math.floor(Math.random() * this.phrases.length)
             this.curr_phrase = this.phrases[randomNumber].phrase
-            this.curr_category = "Category: " + this.phrases[randomNumber].category
             this.counter++
             if (this.counter > 20) {
                 window.clearInterval(this.setAnimation)
+                this.curr_category = "Category: " + this.phrases[randomNumber].category
                 this.currentPhraseID = randomNumber
-                if (this.phrases[this.currentPhraseID].votes == undefined) this.phrases[this.currentPhraseID].votes = []
                 this.getRating()
             }
         },
@@ -113,9 +116,10 @@ var module = new Vue({
             this.curr_rating = this.phrases[this.currentPhraseID].rating
         },
         vote(param) {
+            console.log(this.phrases[this.currentPhraseID].rating)
             if (this.phrases[this.currentPhraseID].votes.length != 0) {
                 param = '/unvote'
-                (this.phrases[this.currentPhraseID].votes[0].status == 1) ? this.phrases[this.currentPhraseID].rating-- : this.phrases[this.currentPhraseID].rating++
+                this.phrases[this.currentPhraseID].votes[0].status == 1 ? this.phrases[this.currentPhraseID].rating-- : this.phrases[this.currentPhraseID].rating++
                 this.phrases[this.currentPhraseID].votes = []
             } else if (param.includes('upvote')) {
                 this.phrases[this.currentPhraseID].rating++
@@ -130,11 +134,9 @@ var module = new Vue({
                 }
                 this.phrases[this.currentPhraseID].votes.push(vote)
             }
-            fetch('/strategies/' + this.phrases[this.currentPhraseID]._id + param, {
-                method: "POST"
-            }).then(res => {
-                console.log(res.text())
-            })
+            axios
+                .post('/strategies/' + this.phrases[this.currentPhraseID]._id + param)
+            // .then(res => (console.log(res.text()))
             this.getRating()
         }
     }
