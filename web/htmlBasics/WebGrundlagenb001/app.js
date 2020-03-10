@@ -86,7 +86,7 @@ app.use((req, res, next) => {
                 db.collection('users').findOne({
                     'token': usertoken
                 }).then(result => {
-                    if (result != null) {
+                    if (result != null && result.tokenExpirationDate > new Date()) {
                         next();
                     } else {
                         res.redirect('/login.html');
