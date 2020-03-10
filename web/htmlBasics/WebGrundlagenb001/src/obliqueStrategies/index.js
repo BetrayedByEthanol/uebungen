@@ -87,16 +87,20 @@ var module = new Vue({
         loadData() {
             axios
                 .get('/strategySample/')
-                .then(res => (this.phrases = res.data))
-            this.counter = 0
-            this.setAnimation = window.setInterval(this.animation, 40)
+                .then(res => {
+                    this.phrases = res.data
+                    this.counter = 0
+                    this.setAnimation = window.setInterval(this.animation, 40)
+                });
         },
         animation() {
-            const randomNumber = Math.floor(Math.random() * this.phrases.length)
-            this.curr_phrase = this.phrases[randomNumber].phrase
+            var randomNumber = Math.floor(Math.random() * this.phrases.length);
+            this.curr_phrase = this.phrases[randomNumber].phrase;
             this.counter++
             if (this.counter > 20) {
                 window.clearInterval(this.setAnimation)
+                randomNumber = this.phrases.findIndex(p => { return p.display == true; })
+                this.curr_phrase = this.phrases[randomNumber].phrase;
                 this.curr_category = "Category: " + this.phrases[randomNumber].category
                 this.currentPhraseID = randomNumber
                 this.getRating()
