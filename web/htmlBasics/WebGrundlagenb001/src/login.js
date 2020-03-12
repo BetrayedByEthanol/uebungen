@@ -23,6 +23,7 @@ var login = function () {
       let data = JSON.parse(result);
       var date = new Date(data.tokenExpirationDate);
       document.cookie = 'logTok=' + data.token + '; expires=' + date.toUTCString() + ';';
+      document.cookie = 'user=' + data.username + '; expires=' + date.toUTCString() + ';'; 
       window.location.href = '../';
     })
   });

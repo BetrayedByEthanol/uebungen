@@ -101,16 +101,8 @@ app.use((req, res, next) => {
     }
 });
 
-// Login User
-app.post('/login',
-    passport.authenticate('local'),
-    function (req, res) {
-        res.send(req.user);
-    }
-);
-
 // Register User
-app.post('/register', function (req, res) {
+app.post('/register', function (req, res, next) {
     var password = req.body.password;
     var password2 = req.body.password2;
     var query = User.findOne({ username: req.body.username });
@@ -125,10 +117,19 @@ app.post('/register', function (req, res) {
                 });
 
                 User.createUser(newUser, function (err, user) {
-                    if (err) throw err;
-                    res.send(user).end()
+                    if (err) throw errr;
+                    passport.authenticate('local', (err, user) => {
+                        req.logIn(user, (errLogIn) => {
+                            if (errLogIn) {
+                                return next('/yeet');
+                            }
+                            return res.send(user);
+                        });
+                    })(req, res, next);
+
                 });
-            } else {
+            }
+            else {
                 res.status(500).send("{erros: \"User already exists\"}").end()
             }
         } else {
@@ -137,6 +138,14 @@ app.post('/register', function (req, res) {
     })
 });
 
+
+// Login User
+app.post('/login',
+    passport.authenticate('local'),
+    function (req, res) {
+        res.send(req.user);
+    }
+);
 
 app.get('/strategySample', (req, res) => {
     const StartYourConstWithCaps = (req.connection.remoteAddress.includes("::1")) ? getIP() : req.connection.remoteAddress;
