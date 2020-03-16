@@ -5,7 +5,10 @@ const http = require('http');
 const https = require('https');
 var path = require("path");
 var morgan = require('morgan');
-
+var passport = require('passport');
+var mongoose = require('mongoose');
+const User = require('./Users');
+const LocalStrategy = require('passport-local').Strategy;
 
 var os = require('os');
 var ifaces = os.networkInterfaces();
@@ -16,7 +19,6 @@ const app = express();
 const port = 5050;
 
 
-
 const url = 'mongodb://10.42.53.5:27017';
 const MongoClient = require('mongodb').MongoClient;
 ObjectID = require('mongodb').ObjectID
@@ -25,55 +27,172 @@ const client = new MongoClient(url, {
 });
 var db;
 
+mongoose.connect(url + '/FIAN19-II', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
+passport.use(new LocalStrategy(function (username, password, done) {
+    User.getUserByUsername(username, function (err, user) {
+        if (err) throw err;
+        if (!user) {
+            return done(null, false, { message: 'Unknown User' });
+        }
+
+        User.comparePassword(password, user.password, function (err, isMatch) {
+            if (err) throw err;
+            if (isMatch) {
+                user.token = User.generateJWT();
+                var today = new Date();
+                today.setDate(today.getDate() + 7);
+                user.tokenExpirationDate = today;
+                User.findOneAndUpdate({ username: user.username }, { token: user.token, tokenExpirationDate: user.tokenExpirationDate }, function (err, doc) {
+                    if (err) throw err;
+                });
+                user.password = "";
+                return done(null, user);
+            } else {
+                return done(null, false, { message: 'Invalid password' });
+            }
+        });
+    });
+}
+));
+
+passport.serializeUser(function (user, done) {
+    done(null, user.id);
+});
+
+passport.deserializeUser(function (id, done) {
+    User.getUserById(id, function (err, user) {
+        done(err, user);
+    });
+});
+
+app.use(passport.initialize());
 
 app.use(morgan('common'));
 
 app.use(express.json());
 
+// Redirect Unauthorized
+app.use((req, res, next) => {
+    if (req.url.includes('login') || req.url.includes('register')) {
+        next();
+    } else {
+        var cookies = req.headers.cookie;
+        if (cookies != undefined) {
+            cookies = cookies.split(';');
+            var usertoken = cookies.find(cookie => { return cookie.includes('logTok') });
+            if (usertoken != undefined) {
+                usertoken = usertoken.substring(usertoken.indexOf('=') + 1);
+                db.collection('users').findOne({
+                    'token': usertoken
+                }).then(result => {
+                    if (result != null && result.tokenExpirationDate > new Date()) {
+                        next();
+                    } else {
+                        res.redirect('/login.html');
+                    }
+                });
+            } else {
+                res.redirect('/login.html');
+            }
+        } else {
+            res.redirect('/login.html');
+        }
+    }
+});
+
+// Register User
+app.post('/register', function (req, res, next) {
+    var password = req.body.password;
+    var password2 = req.body.password2;
+    var query = User.findOne({ username: req.body.username });
+    query.exec((err, result) => {
+        if (err) return console.log(err);
+        if (password == password2) {
+            if (result == null) {
+                var newUser = new User({
+                    username: req.body.username,
+                    email: req.body.email,
+                    password: req.body.password
+                });
+
+                User.createUser(newUser, function (err, user) {
+                    if (err) throw errr;
+                    passport.authenticate('local', (err, user) => {
+                        req.logIn(user, (errLogIn) => {
+                            if (errLogIn) {
+                                return next('/yeet');
+                            }
+                            return res.send(user);
+                        });
+                    })(req, res, next);
+
+                });
+            }
+            else {
+                res.status(500).send("{erros: \"User already exists\"}").end()
+            }
+        } else {
+            res.status(500).send("{erros: \"Passwords don't match\"}").end()
+        }
+    })
+});
+
+
+// Login User
+app.post('/login',
+    passport.authenticate('local'),
+    function (req, res) {
+        res.send(req.user);
+    }
+);
+
 app.get('/strategySample', (req, res) => {
-    const StartYourConstWithCaps = (req.connection.remoteAddress.includes("::1"))? getIP() : req.connection.remoteAddress;
+    const StartYourConstWithCaps = (req.connection.remoteAddress.includes("::1")) ? getIP() : req.connection.remoteAddress;
     db.collection('obliquestrategies').aggregate([{
         $facet: {
-            rarelyDisplayed: [{$sort: {timesDisplayed: 1}}, {$limit: 10}, {$addFields: { rating: { $sum: "$votes.status" }}}], 
-            displayMoreOften: [{$sort: {lastViewed: 1}},{$limit: 10}, {$addFields: { rating: { $sum: "$votes.status" }}}], 
-            topRated: [{$addFields: {rating: { $sum: "$votes.status" }}}, {$sort: {rating: -1}}, {$limit: 10}]
-        }}, {
+            rarelyDisplayed: [{ $sort: { timesDisplayed: 1 } }, { $limit: 10 }, { $addFields: { rating: { $sum: "$votes.status" } } }],
+            displayMoreOften: [{ $sort: { lastViewed: 1 } }, { $limit: 10 }, { $addFields: { rating: { $sum: "$votes.status" } } }],
+            topRated: [{ $addFields: { rating: { $sum: "$votes.status" } } }, { $sort: { rating: -1 } }, { $limit: 10 }]
+        }
+    }, {
         $project: {
             data: {
-                $concatArrays: ["$rarelyDisplayed","$displayMoreOften","$topRated"]
-                }  
-            }
-        },{
-        $unwind: "$data"
-        },{
-        $replaceWith: "$data"
-        }, {
-            $project: {
-                votes: {
-                    $filter: {
-                        input: "$votes",
-                        as: "vote",
-                        cond: { $eq: ["$$vote.ip", StartYourConstWithCaps] }
-                    }
-                },
-                phrase: 1,
-                _id: 1,
-                category: 1,
-                rating: 1,
-                lastViewed: 1,
-                timesDisplayed: 1,
+                $concatArrays: ["$rarelyDisplayed", "$displayMoreOften", "$topRated"]
             }
         }
+    }, {
+        $unwind: "$data"
+    }, {
+        $replaceWith: "$data"
+    }, {
+        $project: {
+            votes: {
+                $filter: {
+                    input: "$votes",
+                    as: "vote",
+                    cond: { $eq: ["$$vote.ip", StartYourConstWithCaps] }
+                }
+            },
+            phrase: 1,
+            _id: 1,
+            category: 1,
+            rating: 1,
+            lastViewed: 1,
+            timesDisplayed: 1,
+        }
+    }
     ]).toArray(function (err, result) {
         if (err) throw err;
         var id = Math.floor(Math.random() * result.length);
         result[id].display = true;
         res.json(result);
-        db.collection('obliquestrategies').updateOne({ _id: ObjectID(result[id]._id)}, { $set:   { 
-                                                                                                lastViewed: new Date(),
-                                                                                                timesDisplayed: result[id].timesDisplayed + 1
-            }}, function(erro, resu) {
+        db.collection('obliquestrategies').updateOne({ _id: ObjectID(result[id]._id) }, {
+            $set: {
+                lastViewed: new Date(),
+                timesDisplayed: result[id].timesDisplayed + 1
+            }
+        }, function (erro, resu) {
             if (erro) throw erro;
             console.log(resu);
         });
@@ -174,17 +293,13 @@ app.get('/challenge', (req, res) => {
 
 });
 
-//Workaround for View Per ID Comment out if fix is available
-app.get('/obliqueStrategies/id/:strategyID', function (req, res) {
-    res.sendFile(path.join(__dirname + '/src/obliqueStrategies/os-id.html'));
-});
-
 app.use(express.static("src"));
 
 app.use(function (req, res, next) {
     res.statusCode = 404;
     res.sendFile(path.join(__dirname + "/src/error404.html"));
 });
+
 
 client.connect().then((client) => {
     db = client.db('FIAN19-II');

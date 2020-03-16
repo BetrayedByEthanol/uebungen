@@ -1,6 +1,6 @@
 [{
         "name": "Taskobject (JSON)",
-        "category": "DTT",
+        "category": ["DTT"],
         "description": ["object definition", "structogram"],
         "status": "in progress",
         "difficulty": "",
@@ -9,7 +9,7 @@
     },
     {
         "name": "Column component",
-        "category": "DTT",
+        "category": ["DTT"],
         "description": ["create vue.js component", "integrate in homepage"],
         "status": "in progress",
         "difficulty": "",
@@ -18,7 +18,7 @@
     },
     {
         "name": "Homepage",
-        "category": "DTT",
+        "category": ["DTT"],
         "description": ["index.html", "index.js", "Bootstrap", "vue.js"],
         "status": "testing",
         "difficulty": "",
@@ -27,7 +27,7 @@
     },
     {
         "name": "Single task component",
-        "category": "DTT",
+        "category": ["DTT"],
         "description": ["create vue.js component", "integrate in column component(test)"],
         "status": "to do",
         "difficulty": "",
@@ -36,7 +36,7 @@
     },
     {
         "name": "Refactoring",
-        "category": "Portal",
+        "category": ["Portal"],
         "description": ["rewrite portal page to vue.js"],
         "status": "in progress",
         "difficulty": "",
@@ -45,7 +45,7 @@
     },
     {
         "name": "Refactoring",
-        "category": "OS",
+        "category": ["OS"],
         "description": ["rewrite single view to vue.js"],
         "status": "in progress",
         "difficulty": "",
@@ -54,7 +54,7 @@
     },
     {
         "name": "Vote score",
-        "category": "Backend",
+        "category": ["Backend"],
         "description": ["adjust random phrase algorithm to phrase votes", "dynamic score?", "take the homepage into account"],
         "status": "in progress",
         "difficulty": "",
